@@ -1,155 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright (c) 2013 Nordic Semiconductor. All Rights Reserved.
-  
-  The information contained herein is property of Nordic Semiconductor ASA.
-  Terms and conditions of usage are described in detail in NORDIC SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT.
-  Licensees are granted free, non-transferable use of the information. NO WARRANTY of ANY KIND is provided. 
-  This heading must NOT be removed from the file.-->
+ Copyright 2013 The Android Open Source Project
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="no.nordicsemi.android.nrftoolbox"
-    android:versionCode="12"
-    android:versionName="1.5.2" >
-    
-    <permission
-        android:name="no.nordicsemi.android.LOG"
-        android:description="@string/permission_log_description"
-        android:icon="@drawable/ic_permission_log"
-        android:label="@string/permission_log_label" />
+    package="com.example.android.bluetoothlegatt"
+    android:versionCode="1"
+    android:versionName="1.0">
 
-    <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="19" />
+    <uses-sdk android:minSdkVersion="18"
+        android:targetSdkVersion="18"/>
+    <!-- Declare this required feature if you want to make the app available to BLE-capable
+    devices only.  If you want to make your app available to devices that don't support BLE,
+    you should omit this in the manifest.  Instead, determine BLE capability by using
+    PackageManager.hasSystemFeature(FEATURE_BLUETOOTH_LE) -->
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="no.nordicsemi.android.LOG" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 
-    <application
-        android:allowBackup="true"
+    <application android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:logo="@drawable/nordic_n_logo"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.SplashscreenActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.Fullscreen" >
+        android:theme="@android:style/Theme.Holo.Light">
+        <activity android:name="com.heekari.android.DeviceScanActivity"
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.FeaturesActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleTask" >
-        </activity>
-        <!-- Plug-in activities -->
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.dfu.DfuActivity"
-            android:icon="@drawable/ic_dfu_feature"
-            android:label="@string/dfu_feature_title" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="no.nordicsemi.android.nrftoolbox.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="no.nordicsemi.android.nrftoolbox.dfu.settings.SettingsActivity"
-            android:label="@string/dfu_settings_title"/>
-        <activity android:name="no.nordicsemi.android.nrftoolbox.dfu.NotificationActivity"
-            android:label="@string/dfu_feature_title"/>
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.hrs.HRSActivity"
-            android:icon="@drawable/ic_hrs_feature"
-            android:label="@string/hrs_feature_title" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="no.nordicsemi.android.nrftoolbox.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.hts.HTSActivity"
-            android:icon="@drawable/ic_hts_feature"
-            android:label="@string/hts_feature_title" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="no.nordicsemi.android.nrftoolbox.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.bpm.BPMActivity"
-            android:icon="@drawable/ic_bpm_feature"
-            android:label="@string/bpm_feature_title" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="no.nordicsemi.android.nrftoolbox.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.gls.GlucoseActivity"
-            android:icon="@drawable/ic_glucose_feature"
-            android:label="@string/gls_feature_title" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="no.nordicsemi.android.nrftoolbox.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.proximity.ProximityActivity"
-            android:icon="@drawable/ic_proximity_feature"
-            android:label="@string/proximity_feature_title"
-            android:launchMode="singleTask" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="no.nordicsemi.android.nrftoolbox.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.rsc.RSCActivity"
-            android:icon="@drawable/ic_rsc_feature"
-            android:label="@string/rsc_feature_title"
-            android:launchMode="singleTask" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="no.nordicsemi.android.nrftoolbox.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="no.nordicsemi.android.nrftoolbox.csc.CSCActivity"
-            android:icon="@drawable/ic_csc_feature"
-            android:label="@string/csc_feature_title"
-            android:launchMode="singleTask" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="no.nordicsemi.android.nrftoolbox.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="no.nordicsemi.android.nrftoolbox.csc.settings.SettingsActivity"
-            android:label="@string/csc_settings_title"/>
-
-        <service
-            android:name="no.nordicsemi.android.nrftoolbox.proximity.ProximityService"
-            android:label="@string/proximity_feature_title" />
-        <service
-            android:name="no.nordicsemi.android.nrftoolbox.dfu.DfuService"
-            android:label="@string/dfu_feature_title" />
-        <service
-            android:name="no.nordicsemi.android.nrftoolbox.rsc.RSCService"
-            android:label="@string/rsc_feature_title" />
-        <service
-            android:name="no.nordicsemi.android.nrftoolbox.csc.CSCService"
-            android:label="@string/csc_feature_title" />
+        <activity android:name="com.heekari.android.DeviceControlActivity"/>
+        <service android:name="com.heekari.android.BluetoothLeService" android:enabled="true"/>
     </application>
 
 </manifest>
