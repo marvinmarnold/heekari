@@ -3,6 +3,9 @@
 .project
 .metadata/
 
+# Sublime
+*sublime*
+
 # Built application files
 *.apk
 *.ap_
