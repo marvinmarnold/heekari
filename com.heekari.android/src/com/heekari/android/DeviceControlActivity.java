@@ -194,12 +194,12 @@ public class DeviceControlActivity extends Activity {
 				
 				if (on) {
 					Log.d(TAG, "Turn off");
-					byte[] buffer = { (byte) 0 };
-					mBluetoothLeService.writePacket(characteristic, buffer, 0);
+					byte[] buffer = { (byte) "0".charAt(0) };
+					mBluetoothLeService.writePacket(characteristic, buffer, 1);
 					Log.d(TAG, "Turned off");
 				} else {
 					Log.d(TAG, "Turn on");
-					byte[] buffer = { (byte) 0 };
+					byte[] buffer = { (byte) "1".charAt(0)  };
 					mBluetoothLeService.writePacket(characteristic, buffer, 1);
 					Log.d(TAG, "Turned on");
 				}
