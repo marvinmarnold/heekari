@@ -304,6 +304,34 @@ public class BluetoothLeService extends Service {
             mBluetoothGatt.writeDescriptor(descriptor);
         }
     }
+    
+	/**
+	 * Writes the buffer to the characteristic. The maximum size of the buffer is 20 bytes. This method is ASYNCHRONOUS and returns immediately after adding the data to TX queue.
+	 * 
+	 * @param gatt
+	 *            the GATT device
+	 * @param characteristic
+	 *            the characteristic to write to. Should be the DFU PACKET
+	 * @param buffer
+	 *            the buffer with 1-20 bytes
+	 * @param size
+	 *            the number of bytes from the buffer to send
+	 */
+	public void writePacket(final BluetoothGattCharacteristic characteristic, final byte[] buffer, final int size) {
+		byte[] locBuffer = buffer;
+		if (buffer.length != size) {
+			locBuffer = new byte[size];
+			System.arraycopy(buffer, 0, locBuffer, 0, size);
+		}
+		characteristic.setValue(locBuffer);
+		mBluetoothGatt.writeCharacteristic(characteristic);
+		// FIXME BLE buffer overflow
+		// after writing to the device with WRITE_NO_RESPONSE property the onCharacteristicWrite callback is received immediately after writing data to a buffer.
+		// The real sending is much slower than adding to the buffer. This method does not return false if writing didn't succeed.. just the callback is not invoked.
+		// 
+		// More info: this works fine on Nexus 5 (Andorid 4.4) (4.3 seconds) and on Samsung S4 (Android 4.3) (20 seconds) so this is a driver issue.
+		// Nexus 4 and 7 uses Qualcomm chip, Nexus 5 and Samsung uses Broadcom chips.
+	}
 
     /**
      * Retrieves a list of supported GATT services on the connected device. This should be
