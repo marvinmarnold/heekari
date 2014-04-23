@@ -1,10 +1,5 @@
 #include <main.h>
 #include <ls_app_if.h>
-#include <debug.h>
-
-/* UART Receive callback */
-static uint16 UartDataRxCallback ( void* p_data, uint16 data_count,
-        uint16* p_num_additional_words );
 
 /****************************************************************************
 NAME
@@ -48,10 +43,7 @@ RETURNS
 */
 void AppInit(sleep_state last_sleep_state)
 {
-    /* initialise communications */
-    DebugInit(1, UartDataRxCallback, NULL);
 
-    DebugWriteString("Hello, world\r\n");
 }
 
 
@@ -85,25 +77,4 @@ RETURNS
 bool AppProcessLmEvent(lm_event_code event_code, LM_EVENT_T *event_data)
 {
     return TRUE;
-}
-
-/****************************************************************************
-NAME
-    UartDataRxCallback
-
-DESCRIPTION
-    This callback is issued when data is received over UART. Application
-    may ignore the data, if not required. For more information refer to
-    the API documentation for the type "uart_data_out_fn"
-
-RETURNS
-    The number of words processed, return data_count if all of the received
-    data had been processed (or if application don't care about the data)
-*/
-static uint16 UartDataRxCallback ( void* p_data, uint16 data_count,
-        uint16* p_num_additional_words )
-{
-    *p_num_additional_words = 0; /* Application do not need any additional
-                                       data to be received */
-    return data_count;
 }
