@@ -1,5 +1,17 @@
+/*============================================================================*
+ *  SDK Header Files
+ *============================================================================*/
+
 #include <main.h>
 #include <ls_app_if.h>
+#include <gatt.h>
+#include <nvm.h>
+
+/*============================================================================*
+ *  Local Header Files
+ *============================================================================*/
+
+#include "nvm_access.h"
 
 /****************************************************************************
 NAME
@@ -43,7 +55,15 @@ RETURNS
 */
 void AppInit(sleep_state last_sleep_state)
 {
+    /* Initialise GATT entity */
+    GattInit();
 
+    /* Install GATT Server support for the optional Write procedure
+     * This is mandatory only if control point characteristic is supported. 
+     */
+    GattInstallServerWrite();
+
+    Nvm_Disable();
 }
 
 
