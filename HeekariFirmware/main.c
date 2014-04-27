@@ -12,6 +12,7 @@
  *============================================================================*/
 
 #include "nvm_access.h"
+#include "gap_service.h"
 
 /****************************************************************************
 NAME
@@ -63,7 +64,21 @@ void AppInit(sleep_state last_sleep_state)
      */
     GattInstallServerWrite();
 
+    /* Don't wakeup on UART RX line */
+    SleepWakeOnUartRX(FALSE);
+
+#ifdef NVM_TYPE_EEPROM
+    /* Configure the NVM manager to use I2C EEPROM for NVM store */
+    NvmConfigureI2cEeprom();
+#elif NVM_TYPE_FLASH
+    /* Configure the NVM Manager to use SPI flash for NVM store. */
+    NvmConfigureSpiFlash();
+#endif /* NVM_TYPE_EEPROM */
+
     Nvm_Disable();
+
+    /* Initialize the gap data. Needs to be done before readPersistentStore */
+    GapDataInit();
 }
 
 

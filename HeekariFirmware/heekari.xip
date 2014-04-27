@@ -3,17 +3,28 @@
   <extension name="c" />
   <file path="main.c" />
   <file path="nvm_access.c" />
+  <file path="gap_service.c" />
  </folder>
  <folder name="Header Files" >
   <extension name="h" />
   <file path="nvm_access.h" />
   <file path="app_gatt.h" />
+  <file path="gap_service.h" />
+  <file path="gap_conn_params.h" />
+  <file path="gap_uuids.h" />
+  <file path="appearance.h" />
+  <file path="gatt_service_uuids.h" />
+  <file path="dev_info_uuids.h" />
  </folder>
  <folder name="Assembler Files" >
   <extension name="asm" />
  </folder>
  <folder name="GATT db files" >
   <extension name="db" />
+  <file path="app_gatt_db.db" />
+  <file path="dev_info_service_db.db" />
+  <file path="gap_service_db.db" />
+  <file path="gatt_service_db.db" />
  </folder>
  <properties currentconfiguration="Release" >
   <configuration name="Debug" >
