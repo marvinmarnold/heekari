@@ -1,0 +1,4 @@
+<workspace>
+ <project path="heekari.xip" />
+ <project path="../../../../../CSR_uEnergy_SDK-2.2.2.13/apps/hr_sensor/hr_sensor.xip" />
+</workspace>

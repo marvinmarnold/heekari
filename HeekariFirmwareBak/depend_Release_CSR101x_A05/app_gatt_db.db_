@@ -38,7 +38,7 @@ primary_service {
         uuid : 0x2A01,
         name : "DEVICE_APPEARANCE",
         properties : read,
-        value : 0x0340
+        value : 0x0384
     },
 
 
@@ -68,94 +68,6 @@ primary_service {
 
 },
 # 18 "app_gatt_db.db" 2
-# 1 "heart_rate_service_db.db" 1
-# 18 "heart_rate_service_db.db"
-# 1 "heart_rate_service_uuids.h" 1
-# 19 "heart_rate_service_db.db" 2
-
-
-
-
-
-primary_service {
-    uuid : 0x180D,
-    name : "HEART_RATE_SERVICE",
-
-
-
-
-
-
-    characteristic {
-        uuid : 0x2A37,
-        name : "HEART_RATE_MEASUREMENT",
-        properties : notify,
-        flags : FLAG_IRQ,
-        size_value : 0x11,
-
-        client_config {
-            flags : FLAG_IRQ,
-            name : "HEART_RATE_MEASUREMENT_C_CFG"
-        }
-    },
-
-    characteristic {
-        uuid : 0x2A38,
-        name : "BODY_SENSOR_LOCATION",
-        properties : read,
-        size_value : 0x01,
-        value : 0x01
-    },
-
-
-
-
-
-    characteristic {
-        uuid : 0x2A39,
-        name : "HEART_RATE_CONTROL_POINT",
-        properties : write,
-        flags : FLAG_IRQ,
-        size_value : 0x01,
-        value : 0x00
-    }
-},
-# 19 "app_gatt_db.db" 2
-# 1 "battery_service_db.db" 1
-# 18 "battery_service_db.db"
-# 1 "battery_uuids.h" 1
-# 19 "battery_service_db.db" 2
-
-
-
-
-
-
-primary_service {
-    uuid : 0x180f,
-    name : "BATTERY_SERVICE",
-
-
-
-
-
-
-
-    characteristic {
-        uuid : 0x2a19,
-        name : "BATT_LEVEL",
-        flags : FLAG_IRQ,
-        properties : [read, notify],
-        value : 0x00,
-
-        client_config {
-            flags : FLAG_IRQ,
-            name : "BATT_LEVEL_C_CFG"
-        }
-
-    }
-},
-# 20 "app_gatt_db.db" 2
 # 1 "dev_info_service_db.db" 1
 # 18 "dev_info_service_db.db"
 # 1 "dev_info_uuids.h" 1
@@ -221,4 +133,4 @@ primary_service {
                  0x0100]
     }
 }
-# 20 "app_gatt_db.db" 2
+# 18 "app_gatt_db.db" 2
