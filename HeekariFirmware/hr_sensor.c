@@ -42,6 +42,7 @@
 #include "hr_sensor_gatt.h"
 #include "app_gatt_db.h"
 #include "nvm_access.h"
+#include "switch_service.h"
 
 /*============================================================================*
  *  Private Definitions
@@ -228,6 +229,9 @@ static void hrSensorDataInit(void)
 
     /* Heart Rate Service data initialisation */
     HRDataInit();
+    
+    /* Switch Service data initialisation */
+    SwitchDataInit();
 
 }
 
@@ -2395,6 +2399,9 @@ extern void AppInit(sleep_state last_sleep_state)
 
     /* Battery Initialisation on Chip reset */
     BatteryInitChipReset();
+
+    /* Switch Initialisation on Chip reset */
+    SwitchInitChipReset();
 
     /* Initialize the gap data. Needs to be done before readPersistentStore */
     GapDataInit();

@@ -8,6 +8,7 @@
   <file path="hr_sensor_gatt.c" />
   <file path="hr_sensor_hw.c" />
   <file path="nvm_access.c" />
+  <file path="switch_service.c" />
  </folder>
  <folder name="Header Files" >
   <extension name="h" />
@@ -26,6 +27,8 @@
   <file path="hr_sensor_gatt.h" />
   <file path="hr_sensor_hw.h" />
   <file path="nvm_access.h" />
+  <file path="switch_uuids.h" />
+  <file path="switch_service.h" />
  </folder>
  <folder name="Assembler Files" >
   <extension name="asm" />
@@ -38,6 +41,7 @@
   <file path="gap_service_db.db" />
   <file path="gatt_service_db.db" />
   <file path="heart_rate_service_db.db" />
+  <file path="switch_service_db.db" />
  </folder>
  <file path="hr_sensor_csr100x.keyr" />
  <file path="hr_sensor_csr101x_A05.keyr" />
