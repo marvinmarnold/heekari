@@ -40,6 +40,7 @@ import android.widget.ToggleButton;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import com.example.android.bluetoothlegatt.R;
 
@@ -191,6 +192,18 @@ public class DeviceControlActivity extends Activity {
 			public void onClick(View view) {
 				boolean on = ((ToggleButton) view).isChecked();
 				BluetoothGattCharacteristic characteristic = mGattCharacteristics.get(2).get(0);
+				
+				for(ArrayList<BluetoothGattCharacteristic> service : mGattCharacteristics) {
+					for(BluetoothGattCharacteristic c : service) {
+						Log.d(TAG, "Passed UUID " + c.getUuid());
+						if(c.getUuid().equals(UUID.fromString("5F55AEF5-09D6-48A5-B44B-E41D7DF55743"))) {
+							Log.d(TAG, "KKKKKKKKKKept " + c.getUuid());
+							Log.d(TAG, "Before change "+ c.getValue());
+							characteristic = c;
+						}
+						
+					}
+				}
 				
 				if (on) {
 					Log.d(TAG, "Turn off");

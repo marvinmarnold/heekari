@@ -37,8 +37,10 @@
 #include "gap_service.h"
 #include "heart_rate_service.h"
 #include "battery_service.h"
+#include "switch_service.h"
 #include "heart_rate_service_uuids.h"
 #include "battery_uuids.h"
+#include "switch_uuids.h"
 
 /*============================================================================*
  *  Private Definitions
@@ -577,6 +579,9 @@ extern uint16 GetSupported16BitUUIDServiceList(uint8 *p_service_uuid_ad)
 
     p_service_uuid_ad[i++] = LE8_L(UUID_HEART_RATE_SERVICE);
     p_service_uuid_ad[i++] = LE8_H(UUID_HEART_RATE_SERVICE);
+
+    // p_service_uuid_ad[i++] = LE8_L(UUID_SWITCH_SERVICE);
+    // p_service_uuid_ad[i++] = LE8_H(UUID_SWITCH_SERVICE);
 
     return ((uint16)i);
 

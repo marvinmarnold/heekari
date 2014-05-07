@@ -16,6 +16,7 @@
 #define __HEART_RATE_SERVICE_DB__
 
 #include "heart_rate_service_uuids.h"
+#include "switch_uuids.h"
 
 /* For service details, refer http://developer.bluetooth.org/gatt/services/
  * Pages/ServiceViewer.aspx?u=org.bluetooth.service.heart_rate.xml
@@ -62,6 +63,15 @@ primary_service {
         flags : FLAG_IRQ,
         size_value : 0x01,
         value : 0x00
+    },
+    
+    characteristic {
+        uuid : UUID_SWITCH_INTENSITY,
+        name : "SWITCH_INTENSITY",
+        flags : FLAG_IRQ,
+        properties : [read, write],
+        value : 0x00,
+        size_value: 0x01
     }
 },
 #endif /* __HEART_RATE_SERVICE_DB__ */

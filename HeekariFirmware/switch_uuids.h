@@ -24,8 +24,8 @@
  * Pages/ServiceViewer.aspx?u=org.bluetooth.service.battery_service.xml
  */
 
-#define UUID_SWITCH_SERVICE                          0x181A
+#define UUID_SWITCH_SERVICE                          0x4F55AEF509D648A5B44BE41D7DF55743
 
-#define UUID_SWITCH_INTENSITY                        0x2C44
+#define UUID_SWITCH_INTENSITY                        0x5F55AEF509D648A5B44BE41D7DF55743
 
 #endif /* __SWITCH_UUIDS_H__ */

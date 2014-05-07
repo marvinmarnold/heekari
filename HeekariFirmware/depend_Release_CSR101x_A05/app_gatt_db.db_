@@ -72,6 +72,8 @@ primary_service {
 # 18 "heart_rate_service_db.db"
 # 1 "heart_rate_service_uuids.h" 1
 # 19 "heart_rate_service_db.db" 2
+# 1 "switch_uuids.h" 1
+# 20 "heart_rate_service_db.db" 2
 
 
 
@@ -118,6 +120,15 @@ primary_service {
         flags : FLAG_IRQ,
         size_value : 0x01,
         value : 0x00
+    },
+
+    characteristic {
+        uuid : 0x5F55AEF509D648A5B44BE41D7DF55743,
+        name : "SWITCH_INTENSITY",
+        flags : FLAG_IRQ,
+        properties : [read, write],
+        value : 0x00,
+        size_value: 0x01
     }
 },
 # 19 "app_gatt_db.db" 2
@@ -177,7 +188,7 @@ primary_service {
         uuid : 0x2A25,
         properties : read,
         name : "DEVICE_INFO_SERIAL_NUMBER",
-        value : "BLE-HR SENSOR-001"
+        value : "0000-0000-0000-0001"
     },
 
 
@@ -185,7 +196,7 @@ primary_service {
         uuid : 0x2A27,
         properties : read,
         name : "DEVICE_INFO_HARDWARE_REVISION",
-        value : "CSR101x A05"
+        value : "Blah"
     },
 
 
@@ -193,7 +204,7 @@ primary_service {
         uuid : 0x2A26,
         properties : read,
         name : "DEVICE_INFO_FIRMWARE_REVISION",
-        value : "CSR uEnergy SDK 2.2.2"
+        value : "v0.0.0.0.0.0.1"
     },
 
 
@@ -201,7 +212,7 @@ primary_service {
         uuid : 0x2A28,
         properties : read,
         name : "DEVICE_INFO_SOFTWARE_REVISION",
-        value : "Application version 2.2.2.0"
+        value : "v0.0.0.0.0.0.1"
     },
 
 
@@ -209,7 +220,7 @@ primary_service {
         uuid : 0x2A29,
         properties : read,
         name : "DEVICE_INFO_MANUFACTURER_NAME",
-        value : "Cambridge Silicon Radio"
+        value : "Heekari"
     },
 
 

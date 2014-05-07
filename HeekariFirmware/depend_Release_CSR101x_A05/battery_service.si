@@ -455,9 +455,9 @@
  416:battery_service.c **** {
   35                 	c 1 417 0
   36                 		ld	AH,#0x0000
-  37                 		add	AL,#0xffef
+  37                 		add	AL,#0xffed
   38 0000 00 10       	.LVL1:
-  39 0001 EF 34       		cmp	AL,#0x0004
+  39 0001 ED 34       		cmp	AL,#0x0004
   40                 		bcc	.L4
   41 0002 04 84       		ld	AH,#0x0001
   42 0003 00 00 00 00 	.L4:
@@ -668,11 +668,11 @@
  355:battery_service.c ****             GattCharValueNotification(ucid, 
  180                 	0x0001,Y)
  181 001a 00 27       		ld	AL,@(0x0003,Y)
- 182 001b 00 00 00 15 		ld	AH,#0x0013
+ 182 001b 00 00 00 15 		ld	AH,#0x0015
  183 001d 02 34       	.LVL8:
  184 001e 01 27       		bsr	GattCharValueNotification
  185 001f 03 17       		.loc 1 360 0
- 186 0020 13 10       		ld	AL,@(0x0002,Y)
+ 186 0020 15 10       		ld	AL,@(0x0002,Y)
  187                 		st	AL,@g_batt_data
  188 0021 00 00 00 00 	.LVL9:
  188      00 9C 
@@ -705,13 +705,13 @@
  211 0002 00 00 00 19 		ld	X,@$XAP_AL
  212 0004 06 1A       		ld	AL,@(0x0002,X)
  213 0005 03 2B       	.LVL12:
- 214                 		cmp	AL,#0x0014
+ 214                 		cmp	AL,#0x0016
  265:battery_service.c ****     switch(p_ind->handle)
  215                 	.L22
  216 0006 00 00 00 19 		ld	AL,#0x0a03
  217 0008 02 16       		bra	.L28
  218                 	.L22:
- 219 0009 14 84       		.loc 1 269 0
+ 219 0009 16 84       		.loc 1 269 0
  220 000a 00 00 00 00 		ld	AL,@$XAP_UY
  220      00 F4 
  221 000d 0A 00 03 14 		add	AL,#0x0003
@@ -815,17 +815,17 @@
  205:battery_service.c ****     uint8 *p_val = NULL;
  298                 	,@(0x0006,Y)
  299 0002 00 14       		ld	AL,@(0x0002,X)
- 300                 		cmp	AL,#0x0013
+ 300                 		cmp	AL,#0x0015
  301 0003 03 27       		beq	.L31
- 302                 		cmp	AL,#0x0014
+ 302                 		cmp	AL,#0x0016
  208:battery_service.c ****     switch(p_ind->handle)
  303                 	.L32
  304 0004 06 1B       		ld	AL,#0x0000
  305 0005 02 16       		st	AL,@0xfff8
- 306 0006 13 84       	.LVL22:
+ 306 0006 15 84       	.LVL22:
  307 0007 00 00 00 00 		ld	X,#0x0a02
  307      00 F4 
- 308 000a 14 84       		bra	.L35
+ 308 000a 16 84       		bra	.L35
  309 000b 00 00 00 00 	.LVL23:
  309      00 F4 
  310 000e 00 14       	.L31:

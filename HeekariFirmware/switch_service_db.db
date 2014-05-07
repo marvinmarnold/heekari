@@ -33,7 +33,7 @@ primary_service {
         uuid : UUID_SWITCH_INTENSITY,
         name : "SWITCH_INTENSITY",
         flags : FLAG_IRQ,
-        properties : [read, notify, write],
+        properties : read,
         value : 0x00,
 
         client_config {

@@ -321,7 +321,7 @@
  100                 		.type	HeartRateCheckHandleRange, @function
  101                 	HeartRateCheckHandleRange:
  102                 	.LFB11:
- 103                 		.loc 1 443 0
+ 103                 		.loc 1 444 0
  104                 	.LVL2:
  213:heart_rate_service.c **** 
  214:heart_rate_service.c **** 
@@ -439,135 +439,136 @@
  326:heart_rate_service.c ****         }
  327:heart_rate_service.c ****         break;
  328:heart_rate_service.c **** 
- 329:heart_rate_service.c ****         default:
- 330:heart_rate_service.c ****             rc = gatt_status_read_not_permitted;
- 331:heart_rate_service.c ****         break;
- 332:heart_rate_service.c **** 
- 333:heart_rate_service.c ****     }
- 334:heart_rate_service.c **** 
- 335:heart_rate_service.c ****     GattAccessRsp(p_ind->cid, p_ind->handle, rc,
- 336:heart_rate_service.c ****                           length, value);
- 337:heart_rate_service.c **** 
- 338:heart_rate_service.c **** }
- 339:heart_rate_service.c **** 
+ 329:heart_rate_service.c **** 
+ 330:heart_rate_service.c ****         default:
+ 331:heart_rate_service.c ****             rc = gatt_status_read_not_permitted;
+ 332:heart_rate_service.c ****         break;
+ 333:heart_rate_service.c **** 
+ 334:heart_rate_service.c ****     }
+ 335:heart_rate_service.c **** 
+ 336:heart_rate_service.c ****     GattAccessRsp(p_ind->cid, p_ind->handle, rc,
+ 337:heart_rate_service.c ****                           length, value);
+ 338:heart_rate_service.c **** 
+ 339:heart_rate_service.c **** }
  340:heart_rate_service.c **** 
- 341:heart_rate_service.c **** /*----------------------------------------------------------------------------*
- 342:heart_rate_service.c ****  *  NAME
- 343:heart_rate_service.c ****  *      HeartRateHandleAccessWrite
- 344:heart_rate_service.c ****  *
- 345:heart_rate_service.c ****  *  DESCRIPTION
- 346:heart_rate_service.c ****  *      This function handles write operation on heart rate service attributes 
- 347:heart_rate_service.c ****  *      maintained by the application.and responds with the GATT_ACCESS_RSP 
- 348:heart_rate_service.c ****  *      message.
- 349:heart_rate_service.c ****  *
- 350:heart_rate_service.c ****  *  RETURNS
- 351:heart_rate_service.c ****  *      Nothing
- 352:heart_rate_service.c ****  *
- 353:heart_rate_service.c ****  *---------------------------------------------------------------------------*/
- 354:heart_rate_service.c **** 
- 355:heart_rate_service.c **** extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
- 356:heart_rate_service.c **** {
- 357:heart_rate_service.c ****     uint8 *p_value = p_ind->value;
- 358:heart_rate_service.c ****     gatt_client_config client_config;
- 359:heart_rate_service.c ****     sys_status rc = sys_status_success;
- 360:heart_rate_service.c **** 
- 361:heart_rate_service.c ****     switch(p_ind->handle)
- 362:heart_rate_service.c ****     {
- 363:heart_rate_service.c ****         case HANDLE_HEART_RATE_MEASUREMENT_C_CFG:
- 364:heart_rate_service.c ****         {
- 365:heart_rate_service.c ****             client_config = BufReadUint16(&p_value);
- 366:heart_rate_service.c **** 
- 367:heart_rate_service.c ****             if((client_config == gatt_client_config_notification) ||
- 368:heart_rate_service.c ****                (client_config == gatt_client_config_none))
- 369:heart_rate_service.c ****             {
- 370:heart_rate_service.c ****                     g_hr_serv_data.hr_meas_client_config = client_config;
- 371:heart_rate_service.c **** 
- 372:heart_rate_service.c ****                 /* Write Heart Rate Measurement Client configuration to NVM if 
- 373:heart_rate_service.c ****                  * the device is bonded.
- 374:heart_rate_service.c ****                  */
- 375:heart_rate_service.c ****                 if(AppIsDeviceBonded())
- 376:heart_rate_service.c ****                 {
- 377:heart_rate_service.c ****                      Nvm_Write((uint16*)&client_config,
- 378:heart_rate_service.c ****                               sizeof(client_config),
- 379:heart_rate_service.c ****                               g_hr_serv_data.nvm_offset + 
- 380:heart_rate_service.c ****                               HR_NVM_HR_MEAS_CLIENT_CONFIG_OFFSET);
- 381:heart_rate_service.c ****                 }
- 382:heart_rate_service.c **** 
- 383:heart_rate_service.c ****                 /* Start sending the HR measurement notifications if they are 
- 384:heart_rate_service.c ****                  * not being sent currently. 
- 385:heart_rate_service.c ****                  */
- 386:heart_rate_service.c ****                 StartSendingHRMeasurements();
- 387:heart_rate_service.c ****             }
- 388:heart_rate_service.c ****             else
- 389:heart_rate_service.c ****             {
- 390:heart_rate_service.c ****                 /* INDICATION or RESERVED */
- 391:heart_rate_service.c **** 
- 392:heart_rate_service.c ****                 /* Return Error as only Notifications are supported */
- 393:heart_rate_service.c ****                 rc = gatt_status_app_mask;
- 394:heart_rate_service.c ****             }
- 395:heart_rate_service.c **** 
- 396:heart_rate_service.c ****             break;
- 397:heart_rate_service.c ****         }
- 398:heart_rate_service.c **** 
- 399:heart_rate_service.c ****         case HANDLE_HEART_RATE_CONTROL_POINT:
- 400:heart_rate_service.c ****         {
- 401:heart_rate_service.c ****             uint8 cntl_point_val = BufReadUint8(&p_value);
- 402:heart_rate_service.c **** 
- 403:heart_rate_service.c ****             if(cntl_point_val == hr_control_point_reset_energy)
- 404:heart_rate_service.c ****             {
- 405:heart_rate_service.c ****                 g_hr_serv_data.energy_expended = 0;
- 406:heart_rate_service.c ****             }
- 407:heart_rate_service.c ****             else /* Reserved Value */
- 408:heart_rate_service.c ****             {
- 409:heart_rate_service.c ****                 rc  = gatt_status_app_mask;
- 410:heart_rate_service.c ****             }
- 411:heart_rate_service.c **** 
- 412:heart_rate_service.c ****             break;
- 413:heart_rate_service.c ****         }
- 414:heart_rate_service.c **** 
- 415:heart_rate_service.c ****         default:
- 416:heart_rate_service.c ****         {
- 417:heart_rate_service.c ****             rc = gatt_status_write_not_permitted;
- 418:heart_rate_service.c ****             break;
- 419:heart_rate_service.c ****         }
- 420:heart_rate_service.c ****     }
- 421:heart_rate_service.c **** 
- 422:heart_rate_service.c ****     /* Send ACCESS RESPONSE */
- 423:heart_rate_service.c ****     GattAccessRsp(p_ind->cid, p_ind->handle, rc, 0, NULL);
- 424:heart_rate_service.c **** 
- 425:heart_rate_service.c **** }
- 426:heart_rate_service.c **** 
+ 341:heart_rate_service.c **** 
+ 342:heart_rate_service.c **** /*----------------------------------------------------------------------------*
+ 343:heart_rate_service.c ****  *  NAME
+ 344:heart_rate_service.c ****  *      HeartRateHandleAccessWrite
+ 345:heart_rate_service.c ****  *
+ 346:heart_rate_service.c ****  *  DESCRIPTION
+ 347:heart_rate_service.c ****  *      This function handles write operation on heart rate service attributes 
+ 348:heart_rate_service.c ****  *      maintained by the application.and responds with the GATT_ACCESS_RSP 
+ 349:heart_rate_service.c ****  *      message.
+ 350:heart_rate_service.c ****  *
+ 351:heart_rate_service.c ****  *  RETURNS
+ 352:heart_rate_service.c ****  *      Nothing
+ 353:heart_rate_service.c ****  *
+ 354:heart_rate_service.c ****  *---------------------------------------------------------------------------*/
+ 355:heart_rate_service.c **** 
+ 356:heart_rate_service.c **** extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
+ 357:heart_rate_service.c **** {
+ 358:heart_rate_service.c ****     uint8 *p_value = p_ind->value;
+ 359:heart_rate_service.c ****     gatt_client_config client_config;
+ 360:heart_rate_service.c ****     sys_status rc = sys_status_success;
+ 361:heart_rate_service.c **** 
+ 362:heart_rate_service.c ****     switch(p_ind->handle)
+ 363:heart_rate_service.c ****     {
+ 364:heart_rate_service.c ****         case HANDLE_HEART_RATE_MEASUREMENT_C_CFG:
+ 365:heart_rate_service.c ****         {
+ 366:heart_rate_service.c ****             client_config = BufReadUint16(&p_value);
+ 367:heart_rate_service.c **** 
+ 368:heart_rate_service.c ****             if((client_config == gatt_client_config_notification) ||
+ 369:heart_rate_service.c ****                (client_config == gatt_client_config_none))
+ 370:heart_rate_service.c ****             {
+ 371:heart_rate_service.c ****                     g_hr_serv_data.hr_meas_client_config = client_config;
+ 372:heart_rate_service.c **** 
+ 373:heart_rate_service.c ****                 /* Write Heart Rate Measurement Client configuration to NVM if 
+ 374:heart_rate_service.c ****                  * the device is bonded.
+ 375:heart_rate_service.c ****                  */
+ 376:heart_rate_service.c ****                 if(AppIsDeviceBonded())
+ 377:heart_rate_service.c ****                 {
+ 378:heart_rate_service.c ****                      Nvm_Write((uint16*)&client_config,
+ 379:heart_rate_service.c ****                               sizeof(client_config),
+ 380:heart_rate_service.c ****                               g_hr_serv_data.nvm_offset + 
+ 381:heart_rate_service.c ****                               HR_NVM_HR_MEAS_CLIENT_CONFIG_OFFSET);
+ 382:heart_rate_service.c ****                 }
+ 383:heart_rate_service.c **** 
+ 384:heart_rate_service.c ****                 /* Start sending the HR measurement notifications if they are 
+ 385:heart_rate_service.c ****                  * not being sent currently. 
+ 386:heart_rate_service.c ****                  */
+ 387:heart_rate_service.c ****                 StartSendingHRMeasurements();
+ 388:heart_rate_service.c ****             }
+ 389:heart_rate_service.c ****             else
+ 390:heart_rate_service.c ****             {
+ 391:heart_rate_service.c ****                 /* INDICATION or RESERVED */
+ 392:heart_rate_service.c **** 
+ 393:heart_rate_service.c ****                 /* Return Error as only Notifications are supported */
+ 394:heart_rate_service.c ****                 rc = gatt_status_app_mask;
+ 395:heart_rate_service.c ****             }
+ 396:heart_rate_service.c **** 
+ 397:heart_rate_service.c ****             break;
+ 398:heart_rate_service.c ****         }
+ 399:heart_rate_service.c **** 
+ 400:heart_rate_service.c ****         case HANDLE_HEART_RATE_CONTROL_POINT:
+ 401:heart_rate_service.c ****         {
+ 402:heart_rate_service.c ****             uint8 cntl_point_val = BufReadUint8(&p_value);
+ 403:heart_rate_service.c **** 
+ 404:heart_rate_service.c ****             if(cntl_point_val == hr_control_point_reset_energy)
+ 405:heart_rate_service.c ****             {
+ 406:heart_rate_service.c ****                 g_hr_serv_data.energy_expended = 0;
+ 407:heart_rate_service.c ****             }
+ 408:heart_rate_service.c ****             else /* Reserved Value */
+ 409:heart_rate_service.c ****             {
+ 410:heart_rate_service.c ****                 rc  = gatt_status_app_mask;
+ 411:heart_rate_service.c ****             }
+ 412:heart_rate_service.c **** 
+ 413:heart_rate_service.c ****             break;
+ 414:heart_rate_service.c ****         }
+ 415:heart_rate_service.c **** 
+ 416:heart_rate_service.c ****         default:
+ 417:heart_rate_service.c ****         {
+ 418:heart_rate_service.c ****             rc = gatt_status_write_not_permitted;
+ 419:heart_rate_service.c ****             break;
+ 420:heart_rate_service.c ****         }
+ 421:heart_rate_service.c ****     }
+ 422:heart_rate_service.c **** 
+ 423:heart_rate_service.c ****     /* Send ACCESS RESPONSE */
+ 424:heart_rate_service.c ****     GattAccessRsp(p_ind->cid, p_ind->handle, rc, 0, NULL);
+ 425:heart_rate_service.c **** 
+ 426:heart_rate_service.c **** }
  427:heart_rate_service.c **** 
- 428:heart_rate_service.c **** /*----------------------------------------------------------------------------*
- 429:heart_rate_service.c ****  *  NAME
- 430:heart_rate_service.c ****  *      HeartRateCheckHandleRange
- 431:heart_rate_service.c ****  *
- 432:heart_rate_service.c ****  *  DESCRIPTION
- 433:heart_rate_service.c ****  *      This function is used to check if the handle belongs to the heart rate 
- 434:heart_rate_service.c ****  *      service
- 435:heart_rate_service.c ****  *
- 436:heart_rate_service.c ****  *  RETURNS
- 437:heart_rate_service.c ****  *      Boolean - Indicating whether handle falls in range or not.
- 438:heart_rate_service.c ****  *
- 439:heart_rate_service.c ****  *---------------------------------------------------------------------------*/
- 440:heart_rate_service.c **** 
- 441:heart_rate_service.c **** extern bool HeartRateCheckHandleRange(uint16 handle)
- 442:heart_rate_service.c **** {
+ 428:heart_rate_service.c **** 
+ 429:heart_rate_service.c **** /*----------------------------------------------------------------------------*
+ 430:heart_rate_service.c ****  *  NAME
+ 431:heart_rate_service.c ****  *      HeartRateCheckHandleRange
+ 432:heart_rate_service.c ****  *
+ 433:heart_rate_service.c ****  *  DESCRIPTION
+ 434:heart_rate_service.c ****  *      This function is used to check if the handle belongs to the heart rate 
+ 435:heart_rate_service.c ****  *      service
+ 436:heart_rate_service.c ****  *
+ 437:heart_rate_service.c ****  *  RETURNS
+ 438:heart_rate_service.c ****  *      Boolean - Indicating whether handle falls in range or not.
+ 439:heart_rate_service.c ****  *
+ 440:heart_rate_service.c ****  *---------------------------------------------------------------------------*/
+ 441:heart_rate_service.c **** 
+ 442:heart_rate_service.c **** extern bool HeartRateCheckHandleRange(uint16 handle)
+ 443:heart_rate_service.c **** {
  105                 	0
  106                 		ld	AH,#0x0000
  107                 		add	AL,#0xfff7
  108 0000 00 10       	.LVL3:
- 109 0001 F7 34       		cmp	AL,#0x0008
+ 109 0001 F7 34       		cmp	AL,#0x000a
  110                 		bcc	.L15
- 111 0002 08 84       		ld	AH,#0x0001
+ 111 0002 0A 84       		ld	AH,#0x0001
  112 0003 00 00 00 00 	.L15:
  112      00 F8 
- 113 0006 01 10       		.loc 1 447 0
+ 113 0006 01 10       		.loc 1 448 0
  114                 		ld	AL,@$XAP_AH
- 443:heart_rate_service.c ****     return ((handle >= HANDLE_HEART_RATE_SERVICE) &&
- 444:heart_rate_service.c ****             (handle <= HANDLE_HEART_RATE_SERVICE_END))
- 445:heart_rate_service.c ****             ? TRUE : FALSE;
- 446:heart_rate_service.c **** }
+ 444:heart_rate_service.c ****     return ((handle >= HANDLE_HEART_RATE_SERVICE) &&
+ 445:heart_rate_service.c ****             (handle <= HANDLE_HEART_RATE_SERVICE_END))
+ 446:heart_rate_service.c ****             ? TRUE : FALSE;
+ 447:heart_rate_service.c **** }
  115                 	a	0,X
  116 0007 00 00 00 15 	.LFE11:
  117                 		.size	HeartRateCheckHandleRange, .-HeartRateCheckHandleRange
@@ -578,57 +579,57 @@
  122                 		.type	HeartRateBondingNotify, @function
  123                 	HeartRateBondingNotify:
  124                 	.LFB12:
- 125                 		.loc 1 464 0
+ 125                 		.loc 1 465 0
  126                 		enter	#0x0002
  127                 	.LCFI1:
- 447:heart_rate_service.c **** 
  448:heart_rate_service.c **** 
- 449:heart_rate_service.c **** /*----------------------------------------------------------------------------*
- 450:heart_rate_service.c ****  *  NAME
- 451:heart_rate_service.c ****  *      HeartRateBondingNotify
- 452:heart_rate_service.c ****  *
- 453:heart_rate_service.c ****  *  DESCRIPTION
- 454:heart_rate_service.c ****  *      This function is used by application to notify bonding status to 
- 455:heart_rate_service.c ****  *      heart rate service
- 456:heart_rate_service.c ****  *
- 457:heart_rate_service.c ****  *  RETURNS
- 458:heart_rate_service.c ****  *      Nothing.
- 459:heart_rate_service.c ****  *
- 460:heart_rate_service.c ****  *---------------------------------------------------------------------------*/
- 461:heart_rate_service.c **** 
- 462:heart_rate_service.c **** extern void HeartRateBondingNotify(void)
- 463:heart_rate_service.c **** {
+ 449:heart_rate_service.c **** 
+ 450:heart_rate_service.c **** /*----------------------------------------------------------------------------*
+ 451:heart_rate_service.c ****  *  NAME
+ 452:heart_rate_service.c ****  *      HeartRateBondingNotify
+ 453:heart_rate_service.c ****  *
+ 454:heart_rate_service.c ****  *  DESCRIPTION
+ 455:heart_rate_service.c ****  *      This function is used by application to notify bonding status to 
+ 456:heart_rate_service.c ****  *      heart rate service
+ 457:heart_rate_service.c ****  *
+ 458:heart_rate_service.c ****  *  RETURNS
+ 459:heart_rate_service.c ****  *      Nothing.
+ 460:heart_rate_service.c ****  *
+ 461:heart_rate_service.c ****  *---------------------------------------------------------------------------*/
+ 462:heart_rate_service.c **** 
+ 463:heart_rate_service.c **** extern void HeartRateBondingNotify(void)
+ 464:heart_rate_service.c **** {
  128                 	
  129 0000 02 0B       		bsr	AppIsDeviceBonded
  130                 		tst	@$XAP_AL
- 464:heart_rate_service.c **** 
- 465:heart_rate_service.c ****     /* Write data to NVM if bond is established */
- 466:heart_rate_service.c ****     if(AppIsDeviceBonded())
+ 465:heart_rate_service.c **** 
+ 466:heart_rate_service.c ****     /* Write data to NVM if bond is established */
+ 467:heart_rate_service.c ****     if(AppIsDeviceBonded())
  131                 	eq	.L19
- 132 0001 00 00 00 00 		.loc 1 472 0
+ 132 0001 00 00 00 00 		.loc 1 473 0
  132      00 9C 
  133 0004 00 00 00 99 		ld	AL,@g_hr_serv_data+0x0002
  134 0006 00 00 00 00 		st	AL,@(0,Y)
  134      00 F4 
- 467:heart_rate_service.c ****     {
- 468:heart_rate_service.c ****         /* Write to NVM the client configuration value of HR measurement 
- 469:heart_rate_service.c ****          * state if it was configured prior to bonding 
- 470:heart_rate_service.c ****          */
- 471:heart_rate_service.c ****         Nvm_Write((uint16*)&g_hr_serv_data.hr_meas_client_config, 
+ 468:heart_rate_service.c ****     {
+ 469:heart_rate_service.c ****         /* Write to NVM the client configuration value of HR measurement 
+ 470:heart_rate_service.c ****          * state if it was configured prior to bonding 
+ 471:heart_rate_service.c ****          */
+ 472:heart_rate_service.c ****         Nvm_Write((uint16*)&g_hr_serv_data.hr_meas_client_config, 
  135                 	AL,#g_hr_serv_data+1
  136 0009 00 00 00 15 		ld	AH,#0x0001
  137 000b 00 27       		bsr	Nvm_Write
  138 000c 00 00 00 14 	.L19:
- 139 000e 01 10       		.loc 1 478 0
+ 139 000e 01 10       		.loc 1 479 0
  140 000f 00 00 00 00 		leave	#0x0002
  140      00 9C 
  141                 	.LFE12:
- 472:heart_rate_service.c ****                   sizeof(g_hr_serv_data.hr_meas_client_config),
- 473:heart_rate_service.c ****                   g_hr_serv_data.nvm_offset + 
- 474:heart_rate_service.c ****                   HR_NVM_HR_MEAS_CLIENT_CONFIG_OFFSET);
- 475:heart_rate_service.c ****     }
- 476:heart_rate_service.c **** 
- 477:heart_rate_service.c **** }
+ 473:heart_rate_service.c ****                   sizeof(g_hr_serv_data.hr_meas_client_config),
+ 474:heart_rate_service.c ****                   g_hr_serv_data.nvm_offset + 
+ 475:heart_rate_service.c ****                   HR_NVM_HR_MEAS_CLIENT_CONFIG_OFFSET);
+ 476:heart_rate_service.c ****     }
+ 477:heart_rate_service.c **** 
+ 478:heart_rate_service.c **** }
  142                 	HeartRateBondingNotify, .-HeartRateBondingNotify
  143 0012 02 0F       		.global	__size_of_HeartRateBondingNotify
  144                 		.equ	__size_of_HeartRateBondingNotify,. - HeartRateBondingNotify
@@ -673,22 +674,22 @@
  175                 		.type	HeartRateHandleAccessWrite, @function
  176                 	HeartRateHandleAccessWrite:
  177                 	.LFB10:
- 178                 		.loc 1 357 0
+ 178                 		.loc 1 358 0
  179                 	.LVL5:
  180                 		enter	#0x0007
- 357:heart_rate_service.c **** {
+ 358:heart_rate_service.c **** {
  181                 		AL,@(0x0005,Y)
- 182                 		.loc 1 358 0
+ 182                 		.loc 1 359 0
  183 0000 07 0B       		ld	X,@$XAP_AL
  184                 		ld	X,@(0x0006,X)
  185 0001 05 27       		st	X,@(0x0003,Y)
- 358:heart_rate_service.c ****     uint8 *p_value = p_ind->value;
+ 359:heart_rate_service.c ****     uint8 *p_value = p_ind->value;
  186                 	:
- 187 0002 00 00 00 19 		.loc 1 362 0
+ 187 0002 00 00 00 19 		.loc 1 363 0
  188 0004 06 1A       		ld	X,@$XAP_AL
  189 0005 03 2B       		ld	AL,@(0x0002,X)
  190                 	.LVL7:
- 362:heart_rate_service.c ****     switch(p_ind->handle)
+ 363:heart_rate_service.c ****     switch(p_ind->handle)
  191                 	AL,#0x000c
  192 0006 00 00 00 19 		beq	.L25
  193 0008 02 16       		cmp	AL,#0x0010
@@ -697,69 +698,69 @@
  196 000a 00 00 00 00 		bra	.L31
  196      00 F4 
  197 000d 10 84       	.L25:
- 198 000e 00 00 00 00 		.loc 1 366 0
+ 198 000e 00 00 00 00 		.loc 1 367 0
  198      00 F4 
  199 0011 0A 00 03 14 		ld	AL,@$XAP_UY
  200 0013 00 00 00 00 		add	AL,#0x0003
  200      00 E0 
  201                 		bsr	BufReadUint16
- 366:heart_rate_service.c ****             client_config = BufReadUint16(&p_value);
+ 367:heart_rate_service.c ****             client_config = BufReadUint16(&p_value);
  202                 	0004,Y)
  203 0016 00 00 00 15 	.LVL8:
- 204 0018 03 34       		.loc 1 368 0
+ 204 0018 03 34       		.loc 1 369 0
  205 0019 00 00 00 00 		cmp	AL,#0x0002
  205      00 9C 
  206 001c 04 27       		bcc	.L28
- 207                 		.loc 1 371 0
- 368:heart_rate_service.c ****             if((client_config == gatt_client_config_notification) ||
+ 207                 		.loc 1 372 0
+ 369:heart_rate_service.c ****             if((client_config == gatt_client_config_notification) ||
  208                 	,@g_hr_serv_data+0x0001
- 209 001d 02 84       		.loc 1 376 0
+ 209 001d 02 84       		.loc 1 377 0
  210 001e 00 00 00 00 		bsr	AppIsDeviceBonded
  210      00 F8 
- 371:heart_rate_service.c ****                     g_hr_serv_data.hr_meas_client_config = client_config;
+ 372:heart_rate_service.c ****                     g_hr_serv_data.hr_meas_client_config = client_config;
  211                 	L9:
  212 0021 00 00 00 25 		tst	@$XAP_AL
- 376:heart_rate_service.c ****                 if(AppIsDeviceBonded())
+ 377:heart_rate_service.c ****                 if(AppIsDeviceBonded())
  213                 	eq	.L29
- 214 0023 00 00 00 00 		.loc 1 378 0
+ 214 0023 00 00 00 00 		.loc 1 379 0
  214      00 9C 
  215                 		ld	X,@g_hr_serv_data+0x0002
  216 0026 00 00 00 99 		st	X,@(0,Y)
  217 0028 00 00 00 00 		ld	AL,@$XAP_UY
  217      00 F4 
- 378:heart_rate_service.c ****                      Nvm_Write((uint16*)&client_config,
+ 379:heart_rate_service.c ****                      Nvm_Write((uint16*)&client_config,
  218                 	AL,#0x0004
  219 002b 00 00 00 19 		ld	AH,#0x0001
  220 002d 00 2B       		bsr	Nvm_Write
  221 002e 00 00 00 15 	.L29:
- 222 0030 04 34       		.loc 1 387 0
+ 222 0030 04 34       		.loc 1 388 0
  223 0031 01 10       		bsr	StartSendingHRMeasurements
  224 0032 00 00 00 00 		ld	AL,#0x0000
  224      00 9C 
  225                 		bra	.L31
- 387:heart_rate_service.c ****                 StartSendingHRMeasurements();
+ 388:heart_rate_service.c ****                 StartSendingHRMeasurements();
  226                 	.L26:
  227 0035 00 00 00 00 	.LBB2:
  227      00 9C 
- 228 0038 00 14       		.loc 1 402 0
+ 228 0038 00 14       		.loc 1 403 0
  229 0039 00 00 00 00 		ld	AL,@$XAP_UY
  229      00 E0 
  230                 		add	AL,#0x0003
  231                 		bsr	BufReadUint8
- 232                 		.loc 1 404 0
- 402:heart_rate_service.c ****             uint8 cntl_point_val = BufReadUint8(&p_value);
+ 232                 		.loc 1 405 0
+ 403:heart_rate_service.c ****             uint8 cntl_point_val = BufReadUint8(&p_value);
  233                 	,#0x0001
  234 003c 00 00 00 15 	.LVL11:
  235 003e 03 34       		bne	.L28
- 236 003f 00 00 00 00 		.loc 1 406 0
+ 236 003f 00 00 00 00 		.loc 1 407 0
  236      00 9C 
- 404:heart_rate_service.c ****             if(cntl_point_val == hr_control_point_reset_energy)
+ 405:heart_rate_service.c ****             if(cntl_point_val == hr_control_point_reset_energy)
  237                 	X,#0x0000
  238 0042 01 84       		st	X,@g_hr_serv_data
  239                 		st	X,@0xfff8
  240 0043 00 00 00 00 	.LVL12:
  240      00 F0 
- 406:heart_rate_service.c ****                 g_hr_serv_data.energy_expended = 0;
+ 407:heart_rate_service.c ****                 g_hr_serv_data.energy_expended = 0;
  241                 		.L27
  242 0046 00 18       	.LVL13:
  243 0047 00 00 00 29 	.L28:
@@ -771,26 +772,26 @@
  248                 	.LVL15:
  249 004d 0B 00 80 14 	.L27:
  250                 	.LBE2:
- 251                 		.loc 1 424 0
+ 251                 		.loc 1 425 0
  252 004f F8 25       		ld	X,@(0x0005,Y)
  253                 		ld	AL,@(0x0001,X)
  254                 	.LVL16:
  255                 		ld	AH,@(0x0002,X)
- 424:heart_rate_service.c ****     GattAccessRsp(p_ind->cid, p_ind->handle, rc, 0, NULL);
+ 425:heart_rate_service.c ****     GattAccessRsp(p_ind->cid, p_ind->handle, rc, 0, NULL);
  256                 	st	X,@(0,Y)
  257 0050 05 1B       		ld	X,#0x0000
  258 0051 01 16       		st	X,@(0x0001,Y)
  259                 		st	X,@(0x0002,Y)
  260 0052 02 12       		bsr	GattAccessRsp
  261 0053 F8 19       	.LVL17:
- 262 0054 00 2B       		.loc 1 426 0
+ 262 0054 00 2B       		.loc 1 427 0
  263 0055 00 18       		leave	#0x0007
  264 0056 01 2B       	.LFE10:
  265 0057 02 2B       		.size	HeartRateHandleAccessWrite, .-HeartRateHandleAccessWrite
  266 0058 00 00 00 00 		.global	__size_of_HeartRateHandleAccessWrite
  266      00 9C 
  267                 		.equ	__size_of_HeartRateHandleAccessWrite,. - HeartRateHandleAccessWrite
- 426:heart_rate_service.c **** }
+ 427:heart_rate_service.c **** }
  268                 	ext.HeartRateHandleAccessRead,"ax",@progbits
  269 005b 07 0F       		.global	HeartRateHandleAccessRead
  270                 		.type	HeartRateHandleAccessRead, @function
@@ -835,14 +836,14 @@
  302                 	
  303 0013 00 00 00 15 		st	AL,@0xfff8
  304 0015 03 34       	.LVL22:
- 305 0016 00 00 00 11 		.loc 1 336 0
+ 305 0016 00 00 00 11 		.loc 1 337 0
  306 0018 00 00 00 00 		ld	X,@(0x0006,Y)
  306      00 9C 
  307 001b 00 14       		ld	AL,@(0x0001,X)
  308                 		ld	AH,@(0x0002,X)
  309 001c F8 25       		ld	X,@0xfff8
  310                 		st	X,@(0,Y)
- 336:heart_rate_service.c ****     GattAccessRsp(p_ind->cid, p_ind->handle, rc,
+ 337:heart_rate_service.c ****     GattAccessRsp(p_ind->cid, p_ind->handle, rc,
  311                 	x0002
  312 001d 06 1B       		st	X,@(0x0001,Y)
  313 001e 01 16       		ld	X,@$XAP_UY
@@ -850,14 +851,14 @@
  315 0020 F8 19       		st	X,@(0x0002,Y)
  316 0021 00 2B       		bsr	GattAccessRsp
  317 0022 02 18       	.LVL23:
- 318 0023 01 2B       		.loc 1 339 0
+ 318 0023 01 2B       		.loc 1 340 0
  319 0024 00 00 00 19 		leave	#0x0008
  320 0026 04 38       	.LFE9:
  321 0027 02 2B       		.size	HeartRateHandleAccessRead, .-HeartRateHandleAccessRead
  322 0028 00 00 00 00 		.global	__size_of_HeartRateHandleAccessRead
  322      00 9C 
  323                 		.equ	__size_of_HeartRateHandleAccessRead,. - HeartRateHandleAccessRead
- 339:heart_rate_service.c **** }
+ 340:heart_rate_service.c **** }
  324                 	xt.HeartRateSendMeasValue,"ax",@progbits
  325 002b 08 0F       		.global	HeartRateSendMeasValue
  326                 		.type	HeartRateSendMeasValue, @function
@@ -2677,32 +2678,32 @@
  2119 05da 00 00 00 3B 		.1byte	0x1
  2120 05dc 00 00 00 00 		.4byte	.LASF406
  2121 05de 00 00 00 00 		.1byte	0x1
- 2122 05e0 01          		.2byte	0x1bb
+ 2122 05e0 01          		.2byte	0x1bc
  2123 05e0 55          		.1byte	0x1
  2124 05e1 12          		.4byte	0x69
  2125 05e1 01          		.4byte	.LFB11
  2126 05e2 00 00 00 00 		.4byte	.LFE11
  2127 05e4 01          		.1byte	0x1
- 2128 05e4 01 BB       		.1byte	0x55
+ 2128 05e4 01 BC       		.1byte	0x55
  2129 05e5 01          		.4byte	0xbef
  2130 05e6 00 00 00 69 		.1byte	0x13
  2131 05e8 00 00 00 00 		.4byte	.LASF364
  2132 05ea 00 00 00 00 		.1byte	0x1
- 2133 05ec 01          		.2byte	0x1ba
+ 2133 05ec 01          		.2byte	0x1bb
  2134 05ec 55          		.4byte	0x3b
  2135 05ed 00 00 0B EF 		.4byte	.LLST6
  2136 05ef 13          		.1byte	0x0
  2137 05ef 00 00 00 00 		.1byte	0x14
  2138 05f1 01          		.1byte	0x1
- 2139 05f2 01 BA       		.4byte	.LASF385
+ 2139 05f2 01 BB       		.4byte	.LASF385
  2140 05f3 00 00 00 3B 		.1byte	0x1
- 2141 05f5 00 00 00 00 		.2byte	0x1d0
+ 2141 05f5 00 00 00 00 		.2byte	0x1d1
  2142 05f7 00          		.1byte	0x1
  2143 05f7 14          		.4byte	.LFB12
  2144 05f8 01          		.4byte	.LFE12
  2145 05f8 00 00 00 00 		.4byte	.LLST7
  2146 05fa 01          		.1byte	0x15
- 2147 05fb 01 D0       		.1byte	0x1
+ 2147 05fb 01 D1       		.1byte	0x1
  2148 05fc 01          		.4byte	.LASF386
  2149 05fc 00 00 00 00 		.1byte	0x1
  2150 05fe 00 00 00 00 		.1byte	0x63
@@ -2714,51 +2715,51 @@
  2156 0606 63          		.1byte	0x1
  2157 0606 01          		.4byte	.LASF388
  2158 0607 00 00 00 00 		.1byte	0x1
- 2159 0609 00 00 00 00 		.2byte	0x165
+ 2159 0609 00 00 00 00 		.2byte	0x166
  2160 060b 00 00 00 00 		.1byte	0x1
  2161 060d 16          		.4byte	.LFB10
  2162 060d 01          		.4byte	.LFE10
  2163 060e 00 00 00 00 		.4byte	.LLST9
  2164 0610 01          		.4byte	0xc8d
- 2165 0610 01 65       		.1byte	0x13
+ 2165 0610 01 66       		.1byte	0x13
  2166 0611 01          		.4byte	.LASF389
  2167 0612 00 00 00 00 		.1byte	0x1
- 2168 0614 00 00 00 00 		.2byte	0x164
+ 2168 0614 00 00 00 00 		.2byte	0x165
  2169 0616 00 00 00 00 		.4byte	0xc8d
  2170 0618 00 00 0C 8D 		.4byte	.LLST10
  2171 061a 13          		.1byte	0x17
  2172 061a 00 00 00 00 		.4byte	.LASF390
  2173 061c 01          		.1byte	0x1
- 2174 061d 01 64       		.2byte	0x166
+ 2174 061d 01 65       		.2byte	0x167
  2175 061e 00 00 0C 8D 		.4byte	0xa4c
  2176 0620 00 00 00 00 		.1byte	0x2
  2177 0622 17          		.1byte	0x76
  2178 0622 00 00 00 00 		.1byte	0x3
  2179 0624 01          		.1byte	0x18
- 2180 0625 01 66       		.4byte	.LASF391
+ 2180 0625 01 67       		.4byte	.LASF391
  2181 0626 00 00 0A 4C 		.1byte	0x1
- 2182 0628 02          		.2byte	0x167
+ 2182 0628 02          		.2byte	0x168
  2183 0628 76          		.4byte	0xaf4
  2184 0629 03          		.4byte	.LLST11
  2185 0629 18          		.1byte	0x19
  2186 062a 00 00 00 00 		.ascii "rc\000"
  2187 062c 01          		.1byte	0x1
- 2188 062c 01 67       		.2byte	0x168
+ 2188 062c 01 68       		.2byte	0x169
  2189 062d 00 00 0A F4 		.4byte	0x2c9
  2190 062f 00 00 00 00 		.4byte	.LLST12
  2191 0631 19          		.1byte	0x1a
  2192 0632 72 63 00    		.4byte	.LBB2
  2193 0633 01          		.4byte	.LBE2
- 2194 0634 01 68       		.1byte	0x18
+ 2194 0634 01 69       		.1byte	0x18
  2195 0635 00 00 02 C9 		.4byte	.LASF392
  2196 0637 00 00 00 00 		.1byte	0x1
- 2197 0639 1A          		.2byte	0x192
+ 2197 0639 1A          		.2byte	0x193
  2198 0639 00 00 00 00 		.4byte	0x29
  2199 063b 00 00 00 00 		.4byte	.LLST13
  2200 063d 18          		.1byte	0x0
  2201 063e 00 00 00 00 		.1byte	0x0
  2202 0640 01          		.1byte	0xa
- 2203 0640 01 92       		.1byte	0x2
+ 2203 0640 01 93       		.1byte	0x2
  2204 0641 00 00 00 29 		.4byte	0xac5
  2205 0643 00 00 00 00 		.1byte	0x16
  2206 0645 00          		.1byte	0x1

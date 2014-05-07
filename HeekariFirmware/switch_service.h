@@ -25,5 +25,15 @@ extern void SwitchDataInit(void);
 */
 extern void SwitchInitChipReset(void);
 
+/* This function handles read operation on switch service attributes
+ * maintained by the application
+ */
+// extern void SwitchHandleAccessRead(GATT_ACCESS_IND_T *p_ind);
+
+/* This function is used to check if the handle belongs to the Battery 
+ * service
+ */
+// extern bool SwitchCheckHandleRange(uint16 handle);
+
 #endif /* __SWITCH_SERVICE_H__ */
 

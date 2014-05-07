@@ -327,8 +327,10 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
         }
         break;
 
+
         default:
-            rc = gatt_status_read_not_permitted;
+
+      //    rc = gatt_status_read_not_permitted;
         break;
 
     }

@@ -112,3 +112,60 @@ extern void SwitchInitChipReset(void)
      */
     g_switch_data.intensity = SWITCH_INTENSITY_OFF;
 }
+
+/*----------------------------------------------------------------------------*
+ *  NAME
+ *      BatteryHandleAccessRead
+ *
+ *  DESCRIPTION
+ *      This function handles read operation on battery service attributes
+ *      maintained by the application and responds with the GATT_ACCESS_RSP 
+ *      message.
+ *
+ *  RETURNS
+ *      Nothing.
+ *
+ *---------------------------------------------------------------------------*/
+
+// extern void SwitchHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
+// {
+//     // uint16 length = 0;
+//     // uint8 value[2];
+//     // uint8 *p_val = NULL;
+//     // sys_status rc = sys_status_success;
+
+//     // switch(p_ind->handle)
+//     // {
+
+//     //     case HANDLE_BATT_LEVEL:
+//     //     {
+//     //         /* Reading battery level */
+//     //         length = 1; /* One Octet */
+
+//     //         g_batt_data.level = readBatteryLevel();
+
+//     //         value[0] = g_batt_data.level;
+//     //     }
+//     //     break;
+
+//     //     case HANDLE_BATT_LEVEL_C_CFG:
+//     //     {
+//     //         length = 2; /* Two Octets */
+//     //         p_val = value;
+
+//     //         BufWriteUint16((uint8 **)&p_val, g_batt_data.level_client_config);
+//     //     }
+//     //     break;
+
+//     //     default:
+//     //         /* No more IRQ characteristics */
+//     //         rc = gatt_status_read_not_permitted;
+//     //     break;
+
+//     // }
+
+//     // /* Send Access response */
+//     // GattAccessRsp(p_ind->cid, p_ind->handle, rc,
+//     //               length, value);
+
+// }
