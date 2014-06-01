@@ -34,7 +34,9 @@ depend_Release_CSR101x_A05/hr_sensor.o: hr_sensor.c \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/fault.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/nvm.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/buf_utils.h \
-  app_gatt.h \
+  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/ls_app_if.h \
+  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/debug.h \
+  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/uart.h app_gatt.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/types.h \
   heart_rate_service.h gap_service.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/bt_event_types.h \

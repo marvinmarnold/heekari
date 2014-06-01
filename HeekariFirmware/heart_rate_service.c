@@ -27,6 +27,7 @@
 #include "heart_rate_service.h"
 #include "app_gatt_db.h"
 #include "nvm_access.h"
+#include "hr_sensor.h"
 
 /*============================================================================*
  *  Private Data Types
@@ -375,7 +376,7 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
           //                     g_hr_serv_data.nvm_offset + 
           //                     HR_NVM_SWITCH_OFFSET);
 
-          
+          FlipSwitch();
           break;
         }
         case HANDLE_HEART_RATE_MEASUREMENT_C_CFG:

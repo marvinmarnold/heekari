@@ -136,19 +136,13 @@
 /* HR Sensor application data instance */
 HR_DATA_T g_hr_data;
 
-typedef enum _light_state
-{
-    light_off,
-    light_on
-} LIGHT_STATE_T;
-
 /*============================================================================*
  *  Private Data
  *============================================================================*/
 
 /* Declare space for application timers. */
 static uint16 app_timers[SIZEOF_APP_TIMER * MAX_APP_TIMERS];
-static LIGHT_STATE_T light_state = light_off;
+static bool light_state = FALSE;
 
 /*============================================================================*
  *  Private Function Prototypes
@@ -2441,8 +2435,26 @@ extern void AppInit(sleep_state last_sleep_state)
 
     GattAddDatabaseReq(gatt_db_length, p_gatt_db_pointer);
 
+
+    /* Set LIGHT to be controlled directly via PioSet */
+    PioSetModes((1UL << PIO_LIGHT), pio_mode_user);
+
+    /* Configure LED0 and LED1 to be outputs */
+    PioSetDir(PIO_LIGHT, TRUE);
+
+    /* Set the LED0 and LED1 to have strong internal pull ups */
+    PioSetPullModes((1UL << PIO_LIGHT),
+                    pio_mode_strong_pull_up);
+
+    /* Turn off both LEDs by setting output to Low */
+    PioSets((1UL << PIO_LIGHT), 0UL);
 }
 
+extern void FlipSwitch(void)
+{
+    light_state = !light_state;
+    PioSet(PIO_LIGHT, light_state);
+}
 
 /*----------------------------------------------------------------------------*
  *  NAME

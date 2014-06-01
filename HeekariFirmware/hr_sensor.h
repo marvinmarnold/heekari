@@ -202,6 +202,7 @@ extern HR_DATA_T g_hr_data;
 
 /* This function is used to set the state of the application */
 extern void AppSetState(app_state new_state);
+extern void FlipSwitch(void);
 
 #ifndef NO_ACTUAL_MEASUREMENT
 
