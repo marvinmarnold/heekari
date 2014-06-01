@@ -191,8 +191,8 @@ public class DeviceControlActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				boolean on = ((ToggleButton) view).isChecked();
-				BluetoothGattCharacteristic characteristic = mGattCharacteristics.get(2).get(0);
-				
+//				BluetoothGattCharacteristic characteristic = mGattCharacteristics.get(2).get(0);
+				BluetoothGattCharacteristic characteristic = null;
 				for(ArrayList<BluetoothGattCharacteristic> service : mGattCharacteristics) {
 					for(BluetoothGattCharacteristic c : service) {
 						Log.d(TAG, "Passed UUID " + c.getUuid());

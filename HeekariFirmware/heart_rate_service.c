@@ -68,7 +68,7 @@ typedef enum
  *============================================================================*/
 
 /* Number of words of memory used by Heart Rate Service */
-#define HEART_RATE_SERVICE_NVM_MEMORY_WORDS               (2)
+#define HEART_RATE_SERVICE_NVM_MEMORY_WORDS               (3)
 
 /* The offset of data being stored in NVM for HR service. This offset is 
  * added to HR service offset to NVM region to get the absolute offset
@@ -77,6 +77,8 @@ typedef enum
 #define HR_NVM_HR_MEAS_CLIENT_CONFIG_OFFSET               (0)
 
 #define HR_NVM_ENERGY_EXPENDED_OFFSET                     (1)
+
+#define HR_NVM_SWITCH_OFFSET                              (2)
 
 /*============================================================================*
  *  Public Function Implementations
@@ -363,6 +365,19 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
 
     switch(p_ind->handle)
     {
+        case HANDLE_SWITCH_INTENSITY:
+        {
+          // rc = gatt_status_write_not_permitted;
+          // switch_to_state = BufReadUint16(&p_value);
+
+          // Nvm_Write((uint16*)&p_value,
+          //                     sizeof(p_value),
+          //                     g_hr_serv_data.nvm_offset + 
+          //                     HR_NVM_SWITCH_OFFSET);
+
+          
+          break;
+        }
         case HANDLE_HEART_RATE_MEASUREMENT_C_CFG:
         {
             client_config = BufReadUint16(&p_value);
@@ -421,6 +436,8 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
             break;
         }
     }
+
+    
 
     /* Send ACCESS RESPONSE */
     GattAccessRsp(p_ind->cid, p_ind->handle, rc, 0, NULL);

@@ -28,6 +28,8 @@
 #include <panic.h>
 #include <nvm.h>
 #include <buf_utils.h>
+#include <ls_app_if.h> /* Link Supervisor application interface */
+#include <debug.h> /* Simple host interface to the UART driver */
 
 /*============================================================================*
  *  Local Header Files
@@ -122,8 +124,10 @@
 #define H_RATE_FORMAT_CONDITION_VALUE  (255)
 #endif /* ! NO_ACTUAL_MEASUREMENT */
 
-/* Static value for Energy Expended in KJoules used by example application */
+/* Static value for Energy Expended in KJoules use d by example application */
 #define ENERGY_EXP_PER_HR_MEAS         (2)
+
+#define PIO_LIGHT 1
 
 /*============================================================================*
  *  Public Data
@@ -132,12 +136,19 @@
 /* HR Sensor application data instance */
 HR_DATA_T g_hr_data;
 
+typedef enum _light_state
+{
+    light_off,
+    light_on
+} LIGHT_STATE_T;
+
 /*============================================================================*
  *  Private Data
  *============================================================================*/
 
 /* Declare space for application timers. */
 static uint16 app_timers[SIZEOF_APP_TIMER * MAX_APP_TIMERS];
+static LIGHT_STATE_T light_state = light_off;
 
 /*============================================================================*
  *  Private Function Prototypes
