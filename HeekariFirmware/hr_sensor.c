@@ -127,7 +127,7 @@
 /* Static value for Energy Expended in KJoules use d by example application */
 #define ENERGY_EXP_PER_HR_MEAS         (2)
 
-#define PIO_LIGHT 1
+#define PIO_LIGHT 10
 
 /*============================================================================*
  *  Public Data
@@ -2448,6 +2448,7 @@ extern void AppInit(sleep_state last_sleep_state)
 
     /* Turn off both LEDs by setting output to Low */
     PioSets((1UL << PIO_LIGHT), 0UL);
+    PioSet(PIO_LIGHT, TRUE); ///new
 }
 
 extern void FlipSwitch(void)
