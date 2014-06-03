@@ -25,6 +25,7 @@ public class SampleGattAttributes {
     private static HashMap<String, String> attributes = new HashMap();
     public static String HEART_RATE_MEASUREMENT = "00002a37-0000-1000-8000-00805f9b34fb";
     public static String CLIENT_CHARACTERISTIC_CONFIG = "00002902-0000-1000-8000-00805f9b34fb";
+    public static String SWITCH_UUID = "5F55AEF5-09D6-48A5-B44B-E41D7DF55743";
 
     static {
         // Sample Services.
@@ -33,10 +34,12 @@ public class SampleGattAttributes {
         // Sample Characteristics.
         attributes.put(HEART_RATE_MEASUREMENT, "Heart Rate Measurement");
         attributes.put("00002a29-0000-1000-8000-00805f9b34fb", "Manufacturer Name String");
+        attributes.put(SWITCH_UUID, "Switch state");
     }
 
     public static String lookup(String uuid, String defaultName) {
         String name = attributes.get(uuid);
+        if(name == null) name = attributes.get(uuid.toUpperCase());
         return name == null ? defaultName : name;
     }
 }
