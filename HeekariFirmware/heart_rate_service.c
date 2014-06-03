@@ -338,7 +338,7 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
         {
           length = 1;
           // p_val = 1;
-          
+          PioSet(10, TRUE);
           p_val = (uint8*)&switch_intensity;
           // p_val = (uint8*)&xx;
           // if(switch_intensity == TRUE) {
@@ -403,7 +403,7 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
           //                     HR_NVM_SWITCH_OFFSET);
 
           // FlipSwitch();
-          PioSet(10, TRUE);
+          
           break;
         }
         

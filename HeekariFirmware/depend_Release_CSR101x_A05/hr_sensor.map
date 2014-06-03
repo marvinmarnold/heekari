@@ -270,7 +270,7 @@ LOAD C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\rom_img.elf
                 0x0000000f                patch_table
                 0x00000010                PROG_APPCODE_START = .
 
-.text           0x00000010     0x156b load address 0x80000010
+.text           0x00000010     0x1570 load address 0x80000010
  *xap2crt0.o(.text)
  *xap2crt0.o(.text.*)
                 0x00000010                PROG_PATCH_ADDRESS = .
@@ -370,311 +370,311 @@ LOAD C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\rom_img.elf
                 0x00000510       0x45 depend_Release_CSR101x_A05\heart_rate_service.o
                 0x00000510                HeartRateHandleAccessWrite
  .text.HeartRateHandleAccessRead
-                0x00000555       0x35 depend_Release_CSR101x_A05\heart_rate_service.o
+                0x00000555       0x3a depend_Release_CSR101x_A05\heart_rate_service.o
                 0x00000555                HeartRateHandleAccessRead
  .text.HeartRateSendMeasValue
-                0x0000058a        0x9 depend_Release_CSR101x_A05\heart_rate_service.o
-                0x0000058a                HeartRateSendMeasValue
+                0x0000058f        0x9 depend_Release_CSR101x_A05\heart_rate_service.o
+                0x0000058f                HeartRateSendMeasValue
  .text.HeartRateReadDataFromNVM
-                0x00000593       0x2d depend_Release_CSR101x_A05\heart_rate_service.o
-                0x00000593                HeartRateReadDataFromNVM
+                0x00000598       0x2d depend_Release_CSR101x_A05\heart_rate_service.o
+                0x00000598                HeartRateReadDataFromNVM
  .text.AppPowerOnReset
-                0x000005c0        0x1 depend_Release_CSR101x_A05\hr_sensor.o
-                0x000005c0                AppPowerOnReset
+                0x000005c5        0x1 depend_Release_CSR101x_A05\hr_sensor.o
+                0x000005c5                AppPowerOnReset
  .text.sendHRMeasurement
-                0x000005c1       0x60 depend_Release_CSR101x_A05\hr_sensor.o
+                0x000005c6       0x60 depend_Release_CSR101x_A05\hr_sensor.o
  .text.StartSendingHRMeasurements
-                0x00000621        0xf depend_Release_CSR101x_A05\hr_sensor.o
-                0x00000621                StartSendingHRMeasurements
+                0x00000626        0xf depend_Release_CSR101x_A05\hr_sensor.o
+                0x00000626                StartSendingHRMeasurements
  .text.hrSensorDataInit
-                0x00000630       0x37 depend_Release_CSR101x_A05\hr_sensor.o
+                0x00000635       0x37 depend_Release_CSR101x_A05\hr_sensor.o
  .text.AppProcessSystemEvent
-                0x00000667       0x15 depend_Release_CSR101x_A05\hr_sensor.o
-                0x00000667                AppProcessSystemEvent
- .text.AppInit  0x0000067c       0xc0 depend_Release_CSR101x_A05\hr_sensor.o
-                0x0000067c                AppInit
+                0x0000066c       0x15 depend_Release_CSR101x_A05\hr_sensor.o
+                0x0000066c                AppProcessSystemEvent
+ .text.AppInit  0x00000681       0xc0 depend_Release_CSR101x_A05\hr_sensor.o
+                0x00000681                AppInit
  .text.AppIsDeviceBonded
-                0x0000073c       0x19 depend_Release_CSR101x_A05\hr_sensor.o
-                0x0000073c                AppIsDeviceBonded
+                0x00000741       0x19 depend_Release_CSR101x_A05\hr_sensor.o
+                0x00000741                AppIsDeviceBonded
  .text.ReportPanic
-                0x00000755        0x3 depend_Release_CSR101x_A05\hr_sensor.o
-                0x00000755                ReportPanic
+                0x0000075a        0x3 depend_Release_CSR101x_A05\hr_sensor.o
+                0x0000075a                ReportPanic
  .text.requestConnParamUpdate
-                0x00000758       0x28 depend_Release_CSR101x_A05\hr_sensor.o
+                0x0000075d       0x28 depend_Release_CSR101x_A05\hr_sensor.o
  .text.hrMeasTimerHandler
-                0x00000780       0x18 depend_Release_CSR101x_A05\hr_sensor.o
+                0x00000785       0x18 depend_Release_CSR101x_A05\hr_sensor.o
  .text.AppSetState
-                0x00000798       0x54 depend_Release_CSR101x_A05\hr_sensor.o
-                0x00000798                AppSetState
+                0x0000079d       0x54 depend_Release_CSR101x_A05\hr_sensor.o
+                0x0000079d                AppSetState
  .text.HandleShortButtonPress
-                0x000007ec       0x18 depend_Release_CSR101x_A05\hr_sensor.o
-                0x000007ec                HandleShortButtonPress
+                0x000007f1       0x18 depend_Release_CSR101x_A05\hr_sensor.o
+                0x000007f1                HandleShortButtonPress
  .text.AppProcessLmEvent
-                0x00000804      0x25b depend_Release_CSR101x_A05\hr_sensor.o
-                0x00000804                AppProcessLmEvent
+                0x00000809      0x25b depend_Release_CSR101x_A05\hr_sensor.o
+                0x00000809                AppProcessLmEvent
  .text.HandleExtraLongButtonPress
-                0x00000a5f       0x38 depend_Release_CSR101x_A05\hr_sensor.o
-                0x00000a5f                HandleExtraLongButtonPress
+                0x00000a64       0x38 depend_Release_CSR101x_A05\hr_sensor.o
+                0x00000a64                HandleExtraLongButtonPress
  .text.GetSupported16BitUUIDServiceList
-                0x00000a97        0xa depend_Release_CSR101x_A05\hr_sensor_gatt.o
-                0x00000a97                GetSupported16BitUUIDServiceList
+                0x00000a9c        0xa depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x00000a9c                GetSupported16BitUUIDServiceList
  .text.GattIsAddressResolvableRandom
-                0x00000aa1       0x11 depend_Release_CSR101x_A05\hr_sensor_gatt.o
-                0x00000aa1                GattIsAddressResolvableRandom
+                0x00000aa6       0x11 depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x00000aa6                GattIsAddressResolvableRandom
  .text.GattStopAdverts
-                0x00000ab2        0x3 depend_Release_CSR101x_A05\hr_sensor_gatt.o
-                0x00000ab2                GattStopAdverts
+                0x00000ab7        0x3 depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x00000ab7                GattStopAdverts
  .text.gattAdvertTimerHandler
-                0x00000ab5       0x27 depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x00000aba       0x27 depend_Release_CSR101x_A05\hr_sensor_gatt.o
  .text.gattSetAdvertParams
-                0x00000adc       0xcf depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x00000ae1       0xcf depend_Release_CSR101x_A05\hr_sensor_gatt.o
  .text.GattStartAdverts
-                0x00000bab       0x30 depend_Release_CSR101x_A05\hr_sensor_gatt.o
-                0x00000bab                GattStartAdverts
+                0x00000bb0       0x30 depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x00000bb0                GattStartAdverts
  .text.GattTriggerFastAdverts
-                0x00000bdb       0x1f depend_Release_CSR101x_A05\hr_sensor_gatt.o
-                0x00000bdb                GattTriggerFastAdverts
+                0x00000be0       0x1f depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x00000be0                GattTriggerFastAdverts
  .text.HandleAccessWrite
-                0x00000bfa       0x2d depend_Release_CSR101x_A05\hr_sensor_gatt.o
-                0x00000bfa                HandleAccessWrite
+                0x00000bff       0x2d depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x00000bff                HandleAccessWrite
  .text.HandleAccessRead
-                0x00000c27       0x2d depend_Release_CSR101x_A05\hr_sensor_gatt.o
-                0x00000c27                HandleAccessRead
+                0x00000c2c       0x2d depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x00000c2c                HandleAccessRead
  .text.HrHwDataInit
-                0x00000c54        0xc depend_Release_CSR101x_A05\hr_sensor_hw.o
-                0x00000c54                HrHwDataInit
+                0x00000c59        0xc depend_Release_CSR101x_A05\hr_sensor_hw.o
+                0x00000c59                HrHwDataInit
  .text.HandlePIOChangedEvent
-                0x00000c60       0x2d depend_Release_CSR101x_A05\hr_sensor_hw.o
-                0x00000c60                HandlePIOChangedEvent
+                0x00000c65       0x2d depend_Release_CSR101x_A05\hr_sensor_hw.o
+                0x00000c65                HandlePIOChangedEvent
  .text.SoundBuzzer
-                0x00000c8d       0x47 depend_Release_CSR101x_A05\hr_sensor_hw.o
-                0x00000c8d                SoundBuzzer
+                0x00000c92       0x47 depend_Release_CSR101x_A05\hr_sensor_hw.o
+                0x00000c92                SoundBuzzer
  .text.appBuzzerTimerHandler
-                0x00000cd4       0x5e depend_Release_CSR101x_A05\hr_sensor_hw.o
+                0x00000cd9       0x5e depend_Release_CSR101x_A05\hr_sensor_hw.o
  .text.HrInitHardware
-                0x00000d32       0x43 depend_Release_CSR101x_A05\hr_sensor_hw.o
-                0x00000d32                HrInitHardware
+                0x00000d37       0x43 depend_Release_CSR101x_A05\hr_sensor_hw.o
+                0x00000d37                HrInitHardware
  .text.Nvm_Disable
-                0x00000d75        0x9 depend_Release_CSR101x_A05\nvm_access.o
-                0x00000d75                Nvm_Disable
+                0x00000d7a        0x9 depend_Release_CSR101x_A05\nvm_access.o
+                0x00000d7a                Nvm_Disable
  .text.Nvm_Write
-                0x00000d7e        0xe depend_Release_CSR101x_A05\nvm_access.o
-                0x00000d7e                Nvm_Write
+                0x00000d83        0xe depend_Release_CSR101x_A05\nvm_access.o
+                0x00000d83                Nvm_Write
  .text.Nvm_Read
-                0x00000d8c        0xe depend_Release_CSR101x_A05\nvm_access.o
-                0x00000d8c                Nvm_Read
+                0x00000d91        0xe depend_Release_CSR101x_A05\nvm_access.o
+                0x00000d91                Nvm_Read
  .text.SwitchInitChipReset
-                0x00000d9a        0x4 depend_Release_CSR101x_A05\switch_service.o
-                0x00000d9a                SwitchInitChipReset
+                0x00000d9f        0x4 depend_Release_CSR101x_A05\switch_service.o
+                0x00000d9f                SwitchInitChipReset
  .text.SwitchDataInit
-                0x00000d9e        0x8 depend_Release_CSR101x_A05\switch_service.o
-                0x00000d9e                SwitchDataInit
+                0x00000da3        0x8 depend_Release_CSR101x_A05\switch_service.o
+                0x00000da3                SwitchDataInit
  .text.___libgatt_lib_db_4554
-                0x00000da6        0x7 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_ls_app_if.o)
-                0x00000da6                ___libgatt_lib_db_4554
+                0x00000dab        0x7 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_ls_app_if.o)
+                0x00000dab                ___libgatt_lib_db_4554
  .text.patch_process_hci_event
-                0x00000dad       0x29 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_ls_app_if.o)
+                0x00000db2       0x29 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_ls_app_if.o)
  .text.LsRadioEventNotification
-                0x00000dd6        0xa C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_ls_app_if.o)
-                0x00000dd6                LsRadioEventNotification
+                0x00000ddb        0xa C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_ls_app_if.o)
+                0x00000ddb                LsRadioEventNotification
  .text.LsReadTransmitPowerLevel
-                0x00000de0        0x8 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(ls_app_if_ram.o)
-                0x00000de0                LsReadTransmitPowerLevel
+                0x00000de5        0x8 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(ls_app_if_ram.o)
+                0x00000de5                LsReadTransmitPowerLevel
  .text.GattInit
-                0x00000de8       0x20 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(gatt_ram.o)
-                0x00000de8                GattInit
+                0x00000ded       0x20 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(gatt_ram.o)
+                0x00000ded                GattInit
  .text.___libgatt_lib_db_4584
-                0x00000e08        0x7 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
-                0x00000e08                ___libgatt_lib_db_4584
+                0x00000e0d        0x7 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x00000e0d                ___libgatt_lib_db_4584
  .text.___libgatt_lib_db_4544
-                0x00000e0f       0x18 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
-                0x00000e0f                ___libgatt_lib_db_4544
+                0x00000e14       0x18 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x00000e14                ___libgatt_lib_db_4544
  .text.ram_le_connection_timeout_A05
-                0x00000e27       0x34 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x00000e2c       0x34 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
  .text.___libgatt_lib_db_4581
-                0x00000e5b        0x8 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
-                0x00000e5b                ___libgatt_lib_db_4581
+                0x00000e60        0x8 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x00000e60                ___libgatt_lib_db_4581
  .text.rx_timing_report
-                0x00000e63       0xba C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x00000e68       0xba C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
  .text.ram_le_handle_event
-                0x00000f1d       0xf7 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x00000f22       0xf7 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
  .text.___libgatt_lib_db_4550
-                0x00001014       0x26 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
-                0x00001014                ___libgatt_lib_db_4550
+                0x00001019       0x26 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x00001019                ___libgatt_lib_db_4550
  .text.___libgatt_lib_db_4549
-                0x0000103a       0x2c C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
-                0x0000103a                ___libgatt_lib_db_4549
+                0x0000103f       0x2c C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x0000103f                ___libgatt_lib_db_4549
  .text.___libgatt_lib_db_4589
-                0x00001066       0x11 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_ll.o)
-                0x00001066                ___libgatt_lib_db_4589
+                0x0000106b       0x11 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_ll.o)
+                0x0000106b                ___libgatt_lib_db_4589
  .text.___libgatt_lib_db_4590
-                0x00001077      0x124 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_ll.o)
-                0x00001077                ___libgatt_lib_db_4590
+                0x0000107c      0x124 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_ll.o)
+                0x0000107c                ___libgatt_lib_db_4590
  .text.___libgatt_lib_db_4597
-                0x0000119b        0xc C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(hal_debugbus_state.o)
-                0x0000119b                ___libgatt_lib_db_4597
+                0x000011a0        0xc C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(hal_debugbus_state.o)
+                0x000011a0                ___libgatt_lib_db_4597
  .text.___libgatt_lib_db_4596
-                0x000011a7        0xc C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(hal_debugbus_state.o)
-                0x000011a7                ___libgatt_lib_db_4596
+                0x000011ac        0xc C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(hal_debugbus_state.o)
+                0x000011ac                ___libgatt_lib_db_4596
  .text.___libgatt_lib_db_4602
-                0x000011b3        0x5 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
-                0x000011b3                ___libgatt_lib_db_4602
+                0x000011b8        0x5 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
+                0x000011b8                ___libgatt_lib_db_4602
  .text.RAM_set_tx_power_parameters
-                0x000011b8       0x57 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
+                0x000011bd       0x57 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
  .text.___libgatt_lib_db_4603
-                0x0000120f        0xb C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
-                0x0000120f                ___libgatt_lib_db_4603
+                0x00001214        0xb C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
+                0x00001214                ___libgatt_lib_db_4603
  .text.___libgatt_lib_db_4601
-                0x0000121a        0xa C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
-                0x0000121a                ___libgatt_lib_db_4601
+                0x0000121f        0xa C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
+                0x0000121f                ___libgatt_lib_db_4601
  .text.ram_app_init
-                0x00001224       0x32 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(main_ram.o)
-                0x00001224                ram_app_init
+                0x00001229       0x32 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(main_ram.o)
+                0x00001229                ram_app_init
  .text.___libgatt_lib_db_4364
-                0x00001256        0x8 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(hw_patch_install.o)
-                0x00001256                ___libgatt_lib_db_4364
+                0x0000125b        0x8 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(hw_patch_install.o)
+                0x0000125b                ___libgatt_lib_db_4364
  .text.NvmConfigureI2cEeprom
-                0x0000125e        0xd C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_i2c_app_mem_mgr.o)
-                0x0000125e                NvmConfigureI2cEeprom
+                0x00001263        0xd C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_i2c_app_mem_mgr.o)
+                0x00001263                NvmConfigureI2cEeprom
  .text.new_disable_i2c
-                0x0000126b        0xb C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_i2c_app_mem_mgr.o)
+                0x00001270        0xb C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_i2c_app_mem_mgr.o)
  .text.___libgatt_lib_db_4559
-                0x00001276        0xe C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_att_install.o)
-                0x00001276                ___libgatt_lib_db_4559
+                0x0000127b        0xe C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_att_install.o)
+                0x0000127b                ___libgatt_lib_db_4559
  .text.patch_att_handle_execute_write_req
-                0x00001284       0xfe C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_att_install.o)
+                0x00001289       0xfe C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_att_install.o)
  .text.patch_att_handle_read_multi_req
-                0x00001382       0xbb C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_att_install.o)
+                0x00001387       0xbb C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_att_install.o)
  .text.___libgatt_lib_db_4594
-                0x0000143d       0x1b C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_adv.o)
-                0x0000143d                ___libgatt_lib_db_4594
+                0x00001442       0x1b C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_adv.o)
+                0x00001442                ___libgatt_lib_db_4594
  .text.___libgatt_lib_db_4609
-                0x00001458       0x4b C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradio.o)
-                0x00001458                ___libgatt_lib_db_4609
+                0x0000145d       0x4b C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradio.o)
+                0x0000145d                ___libgatt_lib_db_4609
  .text.___libgatt_lib_db_4207
-                0x000014a3        0xd C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_reset.o)
-                0x000014a3                ___libgatt_lib_db_4207
+                0x000014a8        0xd C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_reset.o)
+                0x000014a8                ___libgatt_lib_db_4207
  .text.___libgatt_lib_db_4611
-                0x000014b0        0x5 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_pools.o)
-                0x000014b0                ___libgatt_lib_db_4611
+                0x000014b5        0x5 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_pools.o)
+                0x000014b5                ___libgatt_lib_db_4611
  .text.___libgatt_lib_db_4614
-                0x000014b5        0xf C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_background_loop.o)
-                0x000014b5                ___libgatt_lib_db_4614
+                0x000014ba        0xf C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_background_loop.o)
+                0x000014ba                ___libgatt_lib_db_4614
  .text.___libgatt_lib_db_4616
-                0x000014c4       0x15 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_fault.o)
-                0x000014c4                ___libgatt_lib_db_4616
+                0x000014c9       0x15 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_fault.o)
+                0x000014c9                ___libgatt_lib_db_4616
  .text.___libgatt_lib_db_4624
-                0x000014d9       0x2e C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_pmu.o)
-                0x000014d9                ___libgatt_lib_db_4624
+                0x000014de       0x2e C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_pmu.o)
+                0x000014de                ___libgatt_lib_db_4624
  .text.___libgatt_lib_db_4214
-                0x00001507       0x74 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_thermometer.o)
-                0x00001507                ___libgatt_lib_db_4214
+                0x0000150c       0x74 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_thermometer.o)
+                0x0000150c                ___libgatt_lib_db_4214
  *(.apptext)
  *(.apptext.*)
  *xap2crte.o(.text)
  *xap2crte.o(.text.*)
-                0x0000157b                PROG_APPCODE_END = .
-                0x0000357b                DATA_CONST_START = (DATA_RAM_START + .)
-                0x0000357b                . = DATA_CONST_START
+                0x00001580                PROG_APPCODE_END = .
+                0x00003580                DATA_CONST_START = (DATA_RAM_START + .)
+                0x00003580                . = DATA_CONST_START
 
 .const
  *(CONST)
  *(CONST.*)
-                0x0000357b                DATA_CONST_END = .
-                0x0000357b                DATA_RODATA_START = .
-                0x0000357c                . = (. + 0x1)
+                0x00003580                DATA_CONST_END = .
+                0x00003580                DATA_RODATA_START = .
+                0x00003581                . = (. + 0x1)
 
-.rodata         0x0000357c       0x56
+.rodata         0x00003581       0x56
  *(.rodata)
- .rodata        0x0000357c        0x2 depend_Release_CSR101x_A05\hr_sensor_gatt.o
+ .rodata        0x00003581        0x2 depend_Release_CSR101x_A05\hr_sensor_gatt.o
  *(.rodata.*)
  .rodata.AppSetState
-                0x0000357e        0x5 depend_Release_CSR101x_A05\hr_sensor.o
+                0x00003583        0x5 depend_Release_CSR101x_A05\hr_sensor.o
  .rodata.C.4..2773.
-                0x00003583        0x4 depend_Release_CSR101x_A05\hr_sensor.o
+                0x00003588        0x4 depend_Release_CSR101x_A05\hr_sensor.o
  .rodata.C.2..2360.
-                0x00003587        0x3 depend_Release_CSR101x_A05\hr_sensor_gatt.o
+                0x0000358c        0x3 depend_Release_CSR101x_A05\hr_sensor_gatt.o
  .rodata.tx_power_table
-                0x0000358a       0x28 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
-                0x0000358a                ___libgatt_lib_db_4608
+                0x0000358f       0x28 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
+                0x0000358f                ___libgatt_lib_db_4608
  .rodata.ram_build_identifier_integer
-                0x000035b2        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(id_ram.o)
-                0x000035b2                ___libgatt_lib_db_4496
+                0x000035b7        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(id_ram.o)
+                0x000035b7                ___libgatt_lib_db_4496
  .rodata.ram_build_identifier_string
-                0x000035b3       0x16 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(id_ram.o)
-                0x000035b3                ram_build_identifier_string
+                0x000035b8       0x16 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(id_ram.o)
+                0x000035b8                ram_build_identifier_string
  .rodata.slut_extended
-                0x000035c9        0x9 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(slut.o)
-                0x000035c9                ___libgatt_lib_db_4631
-                0x000035d2                DATA_RODATA_END = .
+                0x000035ce        0x9 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(slut.o)
+                0x000035ce                ___libgatt_lib_db_4631
+                0x000035d7                DATA_RODATA_END = .
 
-.bss            0x000035d2       0x84
-                0x000035d2                DATA_BSS_APP_START = .
+.bss            0x000035d7       0x84
+                0x000035d7                DATA_BSS_APP_START = .
  *(.bss)
- .bss           0x000035d2        0x2 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_sm.o)
+ .bss           0x000035d7        0x2 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_sm.o)
  *(.bss.*)
  .bss.g_batt_data
-                0x000035d4        0x3 depend_Release_CSR101x_A05\battery_service.o
+                0x000035d9        0x3 depend_Release_CSR101x_A05\battery_service.o
  .bss.g_gap_data
-                0x000035d7        0x3 depend_Release_CSR101x_A05\gap_service.o
+                0x000035dc        0x3 depend_Release_CSR101x_A05\gap_service.o
  .bss.g_hr_serv_data
-                0x000035da        0x3 depend_Release_CSR101x_A05\heart_rate_service.o
+                0x000035df        0x3 depend_Release_CSR101x_A05\heart_rate_service.o
  .bss.switch_intensity
-                0x000035dd        0x1 depend_Release_CSR101x_A05\hr_sensor.o
-                0x000035dd                switch_intensity
+                0x000035e2        0x1 depend_Release_CSR101x_A05\hr_sensor.o
+                0x000035e2                switch_intensity
  .bss.meas_count.2747.
-                0x000035de        0x1 depend_Release_CSR101x_A05\hr_sensor.o
+                0x000035e3        0x1 depend_Release_CSR101x_A05\hr_sensor.o
  .bss.app_timers
-                0x000035df       0x24 depend_Release_CSR101x_A05\hr_sensor.o
+                0x000035e4       0x24 depend_Release_CSR101x_A05\hr_sensor.o
  .bss.g_switch_data
-                0x00003603        0x3 depend_Release_CSR101x_A05\switch_service.o
+                0x00003608        0x3 depend_Release_CSR101x_A05\switch_service.o
  .bss.patch_pending
-                0x00003606        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
-                0x00003606                patch_pending
+                0x0000360b        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x0000360b                patch_pending
  .bss.patch_rx_timing_report
-                0x00003607        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
-                0x00003607                patch_rx_timing_report
+                0x0000360c        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x0000360c                patch_rx_timing_report
  .bss.patch_pending_mode
-                0x00003608        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
-                0x00003608                patch_pending_mode
+                0x0000360d        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x0000360d                patch_pending_mode
  .bss.patch_conn_chm_update
-                0x00003609        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
-                0x00003609                patch_conn_chm_update
+                0x0000360e        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x0000360e                patch_conn_chm_update
  .bss.__PATCH__ZERO_
-                0x0000360a        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
+                0x0000360f        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george.o)
  .bss.tx_power_table_entry
-                0x0000360b        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
+                0x00003610        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_halradiotrim.o)
  .bss.__PATCH__ZERO_
-                0x0000360c        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_thermometer.o)
- COMMON         0x0000360d       0x40 depend_Release_CSR101x_A05\hr_sensor.o
-                0x0000360d                g_hr_data
- COMMON         0x0000364d        0x4 depend_Release_CSR101x_A05\hr_sensor_hw.o
-                0x0000364d                g_app_hw_data
- COMMON         0x00003651        0x2 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_sm.o)
-                0x00003651                sm_long_term_key_ind
-                0x00003652                sm_pairing_auth_ind
- COMMON         0x00003653        0x3 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_ll.o)
-                0x00003653                george_earliest_transmit_offset
-                0x00003656                DATA_BSS_APP_END = .
+                0x00003611        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_thermometer.o)
+ COMMON         0x00003612       0x40 depend_Release_CSR101x_A05\hr_sensor.o
+                0x00003612                g_hr_data
+ COMMON         0x00003652        0x4 depend_Release_CSR101x_A05\hr_sensor_hw.o
+                0x00003652                g_app_hw_data
+ COMMON         0x00003656        0x2 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_sm.o)
+                0x00003656                sm_long_term_key_ind
+                0x00003657                sm_pairing_auth_ind
+ COMMON         0x00003658        0x3 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_ll.o)
+                0x00003658                george_earliest_transmit_offset
+                0x0000365b                DATA_BSS_APP_END = .
                 0x00000084                BSS_APP_SIZE = (DATA_BSS_APP_END - DATA_BSS_APP_START)
 
-.data           0x00003656       0xc7
-                0x00003656                DATA_DATA_START = .
+.data           0x0000365b       0xc7
+                0x0000365b                DATA_DATA_START = .
  *(.data)
  *(.data.*)
  .data.gattDatabase
-                0x00003656       0x8e depend_Release_CSR101x_A05\app_gatt_db.o
-                0x00003656                gattDatabase
+                0x0000365b       0x8e depend_Release_CSR101x_A05\app_gatt_db.o
+                0x0000365b                gattDatabase
  .data.g_device_name
-                0x000036e4       0x16 depend_Release_CSR101x_A05\gap_service.o
-                0x000036e4                g_device_name
+                0x000036e9       0x16 depend_Release_CSR101x_A05\gap_service.o
+                0x000036e9                g_device_name
  .data.pending_pdu_acks
-                0x000036fa        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_ll.o)
-                0x000036fa                ___libgatt_lib_db_4591
+                0x000036ff        0x1 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_george_ll.o)
+                0x000036ff                ___libgatt_lib_db_4591
  .data.patch_table_data
-                0x000036fb       0x22 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(sw_patch_ram.o)
-                0x000036fb                ___libgatt_lib_db_4542
-                0x0000371d                DATA_DATA_END = .
+                0x00003700       0x22 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(sw_patch_ram.o)
+                0x00003700                ___libgatt_lib_db_4542
+                0x00003722                DATA_DATA_END = .
                 0x0000ef80                . = DATA_PERSIST_START
 
 PERSIST_MEM
@@ -765,16 +765,16 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
  .debug_info    0x00007128      0x204 depend_Release_CSR101x_A05\nvm_access.o
  .debug_info    0x0000752f       0x8b depend_Release_CSR101x_A05\switch_service.o
 
-.debug_line     0x00000000      0xf1c
+.debug_line     0x00000000      0xf20
  .debug_line    0x00000000       0x59 depend_Release_CSR101x_A05\app_gatt_db.o
  .debug_line    0x000000b1      0x171 depend_Release_CSR101x_A05\battery_service.o
  .debug_line    0x00000393      0x13f depend_Release_CSR101x_A05\gap_service.o
- .debug_line    0x00000610      0x1a4 depend_Release_CSR101x_A05\heart_rate_service.o
- .debug_line    0x00000958      0x5af depend_Release_CSR101x_A05\hr_sensor.o
- .debug_line    0x000014b5      0x24b depend_Release_CSR101x_A05\hr_sensor_gatt.o
- .debug_line    0x0000194a      0x172 depend_Release_CSR101x_A05\hr_sensor_hw.o
- .debug_line    0x00001c2d       0x9f depend_Release_CSR101x_A05\nvm_access.o
- .debug_line    0x00001d6a       0x67 depend_Release_CSR101x_A05\switch_service.o
+ .debug_line    0x00000610      0x1a8 depend_Release_CSR101x_A05\heart_rate_service.o
+ .debug_line    0x00000960      0x5af depend_Release_CSR101x_A05\hr_sensor.o
+ .debug_line    0x000014bd      0x24b depend_Release_CSR101x_A05\hr_sensor_gatt.o
+ .debug_line    0x00001952      0x172 depend_Release_CSR101x_A05\hr_sensor_hw.o
+ .debug_line    0x00001c35       0x9f depend_Release_CSR101x_A05\nvm_access.o
+ .debug_line    0x00001d72       0x67 depend_Release_CSR101x_A05\switch_service.o
 
 .debug_frame    0x00000000      0x30c
  .debug_frame   0x00000000       0x14 depend_Release_CSR101x_A05\app_gatt_db.o
