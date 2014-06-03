@@ -136,13 +136,14 @@
 /* HR Sensor application data instance */
 HR_DATA_T g_hr_data;
 
+bool switch_intensity = FALSE;
+
 /*============================================================================*
  *  Private Data
  *============================================================================*/
 
 /* Declare space for application timers. */
 static uint16 app_timers[SIZEOF_APP_TIMER * MAX_APP_TIMERS];
-static bool light_state = FALSE;
 
 /*============================================================================*
  *  Private Function Prototypes
@@ -2453,8 +2454,8 @@ extern void AppInit(sleep_state last_sleep_state)
 
 extern void FlipSwitch(void)
 {
-    light_state = !light_state;
-    PioSet(PIO_LIGHT, light_state);
+    // switch_intensity = !switch_intensity;
+    // PioSet(PIO_LIGHT, switch_intensity);
 }
 
 /*----------------------------------------------------------------------------*

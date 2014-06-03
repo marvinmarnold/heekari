@@ -318,7 +318,8 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
     uint8  value[2];
     uint8  *p_val = NULL;
     sys_status rc = sys_status_success;
-
+    // bool xx = TRUE;
+    
     switch(p_ind->handle)
     {
 
@@ -330,11 +331,21 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
         }
         break;
 
-        // case HANDLE_SWITCH_INTENSITY:
-        // {
+        case HANDLE_SWITCH_INTENSITY:
+        {
+          length = 1;
+          // p_val = 1;
           
-        // }
-        // break;
+          p_val = (uint8*)&switch_intensity;
+          // p_val = (uint8*)&xx;
+          // if(switch_intensity == TRUE) {
+          //   p_val = 0;
+          // } else {
+          //   p_val = 0;
+          // }
+          // p_val = &switch_intensity;
+        }
+        break;
 
         default:
 
@@ -343,8 +354,14 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
 
     }
 
-    GattAccessRsp(p_ind->cid, p_ind->handle, rc,
+    if(p_ind->handle == HANDLE_SWITCH_INTENSITY) {
+      GattAccessRsp(p_ind->cid, p_ind->handle, rc,
+                          length, p_val);
+    } else {
+      GattAccessRsp(p_ind->cid, p_ind->handle, rc,
                           length, value);
+    }
+    
 
 }
 

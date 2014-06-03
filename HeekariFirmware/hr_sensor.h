@@ -195,6 +195,7 @@ typedef struct
  *============================================================================*/
 
 extern HR_DATA_T g_hr_data;
+extern bool switch_intensity;
 
 /*============================================================================*
  *  Public Function Prototypes

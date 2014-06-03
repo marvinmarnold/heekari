@@ -796,33 +796,33 @@
  191:hr_sensor_gatt.c ****                 };
  154                 	H,@$XAP_UY
  155 0002 00 00 00 11 		add	AH,#0x0007
- 156 0004 06 23       		ld	X,#C.2..2359.
+ 156 0004 06 23       		ld	X,#C.2..2360.
  197:hr_sensor_gatt.c ****                 };
  157                 	2
  158 0005 03 14       		.loc 1 205 0
  159                 		tst	@0xfff8
  160 0006 00 00 00 11 		beq	.L18
  161 0008 07 30       		ld	AH,#0x0000
- 162 0009 00 00 00 18 		st	AH,@(0x002c,Y)
+ 162 0009 00 00 00 18 		st	AH,@(0x002a,Y)
  163 000b FD 09       		ld	AL,#0xea60
  205:hr_sensor_gatt.c ****     if(fast_connection)
  164                 	37
  165 000c F8 99       	.L18:
  166 000d 00 00 00 00 		ld	AH,#0x0013
  166      00 F4 
- 167 0010 00 10       		st	AH,@(0x002c,Y)
- 168 0011 2C 23       		ld	AL,#0x8800
+ 167 0010 00 10       		st	AH,@(0x002a,Y)
+ 168 0011 2A 23       		ld	AL,#0x8800
  169 0012 EA 00 60 14 	.L37:
- 170 0014 00 00 00 00 		st	AL,@(0x002d,Y)
+ 170 0014 00 00 00 00 		st	AL,@(0x002b,Y)
  170      00 E0 
- 171                 		st	AH,@(0x002a,Y)
- 172 0017 13 10       		st	AL,@(0x002b,Y)
- 173 0018 2C 23       		.loc 1 191 0
+ 171                 		st	AH,@(0x002c,Y)
+ 172 0017 13 10       		st	AL,@(0x002d,Y)
+ 173 0018 2A 23       		.loc 1 191 0
  174 0019 88 00 00 14 		ld	AH,#0x000a
  175                 		st	AH,@(0x0005,Y)
- 176 001b 2D 27       		.loc 1 186 0
- 177 001c 2A 23       		ld	AL,#0x00ff
- 178 001d 2B 27       		st	AL,@(0x0003,Y)
+ 176 001b 2B 27       		.loc 1 186 0
+ 177 001c 2C 23       		ld	AL,#0x00ff
+ 178 001d 2D 27       		st	AL,@(0x0003,Y)
  191:hr_sensor_gatt.c ****                 };
  179                 	.LVL11:
  180 001e 0A 10       		.loc 1 219 0
@@ -1432,10 +1432,10 @@
  606 0036 03 1B       		.size	HandleAccessRead, .-HandleAccessRead
  607 0037 01 16       		.global	__size_of_HandleAccessRead
  608 0038 02 12       		.equ	__size_of_HandleAccessRead,. - HandleAccessRead
- 609 0039 0A 00 02 18 		.section	.rodata.C.2..2359.,"a",@progbits
- 610 003b 00 2B       		.type	C.2..2359., @object
- 611 003c 00 18       		.size	C.2..2359., 3
- 612 003d 01 2B       	C.2..2359.:
+ 609 0039 0A 00 02 18 		.section	.rodata.C.2..2360.,"a",@progbits
+ 610 003b 00 2B       		.type	C.2..2360., @object
+ 611 003c 00 18       		.size	C.2..2360., 3
+ 612 003d 01 2B       	C.2..2360.:
  613 003e 02 2B       		.word	0x0019
  614 003f 00 00 00 00 		.word	0x0040
  614      00 9C 

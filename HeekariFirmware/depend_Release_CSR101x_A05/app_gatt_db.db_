@@ -127,8 +127,7 @@ primary_service {
         name : "SWITCH_INTENSITY",
         properties : read,
         size_value: 0x01,
-        value : 0x01
-
+        flags : FLAG_IRQ
     }
 },
 # 19 "app_gatt_db.db" 2
