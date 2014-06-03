@@ -321,7 +321,7 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
     uint8  value[2];
     uint8  *p_val = NULL;
     sys_status rc = sys_status_success;
-    // bool xx = TRUE;
+    // bool xx = FALSE;
     
     switch(p_ind->handle)
     {
@@ -338,8 +338,10 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
         {
           length = 1;
           // p_val = 1;
-          PioSet(10, TRUE);
+          // PioSet(10, TRUE);
+          FlipSwitch();
           p_val = (uint8*)&switch_intensity;
+          // xx = !xx;
           // p_val = (uint8*)&xx;
           // if(switch_intensity == TRUE) {
           //   p_val = 0;

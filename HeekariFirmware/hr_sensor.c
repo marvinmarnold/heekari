@@ -2454,8 +2454,8 @@ extern void AppInit(sleep_state last_sleep_state)
 
 extern void FlipSwitch(void)
 {
-    // switch_intensity = !switch_intensity;
-    // PioSet(PIO_LIGHT, switch_intensity);
+    switch_intensity = !switch_intensity;
+    PioSet(PIO_LIGHT, switch_intensity);
 }
 
 /*----------------------------------------------------------------------------*
