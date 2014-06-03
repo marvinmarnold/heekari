@@ -29,6 +29,9 @@
 #include "nvm_access.h"
 #include "hr_sensor.h"
 
+/* added this*/
+#include <pio.h>
+
 /*============================================================================*
  *  Private Data Types
  *============================================================================*/
@@ -388,6 +391,7 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
 
     switch(p_ind->handle)
     {
+        
         case HANDLE_SWITCH_INTENSITY:
         {
           // rc = gatt_status_write_not_permitted;
@@ -398,9 +402,11 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
           //                     g_hr_serv_data.nvm_offset + 
           //                     HR_NVM_SWITCH_OFFSET);
 
-          FlipSwitch();
+          // FlipSwitch();
+          PioSet(10, TRUE);
           break;
         }
+        
         case HANDLE_HEART_RATE_MEASUREMENT_C_CFG:
         {
             client_config = BufReadUint16(&p_value);

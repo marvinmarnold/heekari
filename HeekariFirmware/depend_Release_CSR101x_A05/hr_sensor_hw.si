@@ -2012,472 +2012,472 @@
  1386      5F 69 32 63 
  1386      5F 64 61 74 
  1386      61 00 
- 1387                 	.LASF88:
- 1388 0031 73 68 6F 72 		.ascii "C:\\Users\\pili\\git\\heekari\\HeekariFirmware\000"
+ 1387                 	.LASF41:
+ 1388 0031 73 68 6F 72 		.ascii "pio_i2c_pull_mode_no_pulls\000"
  1388      74 20 69 6E 
  1388      74 00 
- 1389                 	.LASF41:
- 1390 0036 70 69 6F 5F 		.ascii "pio_i2c_pull_mode_no_pulls\000"
+ 1389                 	.LASF87:
+ 1390 0036 70 69 6F 5F 		.ascii "hr_sensor_hw.c\000"
  1390      63 68 61 6E 
  1390      67 65 64 00 
- 1391                 	.LASF87:
- 1392 003c 62 75 7A 7A 		.ascii "hr_sensor_hw.c\000"
+ 1391                 	.LASF26:
+ 1392 003c 62 75 7A 7A 		.ascii "pio_mode_pio_control_rxd\000"
  1392      65 72 5F 62 
  1392      65 65 70 5F 
  1392      6C 6F 6E 67 
  1392      00 
- 1393                 	.LASF26:
- 1394 0044 43 3A 5C 55 		.ascii "pio_mode_pio_control_rxd\000"
- 1394      73 65 72 73 
- 1394      5C 70 69 6C 
- 1394      69 5C 67 69 
- 1394      74 5C 68 65 
- 1395                 	.LASF23:
- 1396 0059 70 69 6F 5F 		.ascii "pio_mode_nvm_power_en\000"
- 1396      69 32 63 5F 
- 1396      70 75 6C 6C 
- 1396      5F 6D 6F 64 
- 1396      65 5F 6E 6F 
- 1397                 	.LASF80:
- 1398 0067 68 72 5F 73 		.ascii "HandlePIOChangedEvent\000"
- 1398      65 6E 73 6F 
- 1398      72 5F 68 77 
- 1398      2E 63 00 
- 1399                 	.LASF83:
- 1400 006e 70 69 6F 5F 		.ascii "beep_timer\000"
+ 1393                 	.LASF23:
+ 1394 0044 70 69 6F 5F 		.ascii "pio_mode_nvm_power_en\000"
+ 1394      69 32 63 5F 
+ 1394      70 75 6C 6C 
+ 1394      5F 6D 6F 64 
+ 1394      65 5F 6E 6F 
+ 1395                 	.LASF80:
+ 1396 0052 68 72 5F 73 		.ascii "HandlePIOChangedEvent\000"
+ 1396      65 6E 73 6F 
+ 1396      72 5F 68 77 
+ 1396      2E 63 00 
+ 1397                 	.LASF83:
+ 1398 0059 70 69 6F 5F 		.ascii "beep_timer\000"
+ 1398      6D 6F 64 65 
+ 1398      5F 70 69 6F 
+ 1398      5F 63 6F 6E 
+ 1398      74 72 6F 6C 
+ 1399                 	.LASF90:
+ 1400 0066 70 69 6F 5F 		.ascii "appBuzzerTimerHandler\000"
  1400      6D 6F 64 65 
- 1400      5F 70 69 6F 
- 1400      5F 63 6F 6E 
- 1400      74 72 6F 6C 
- 1401                 	.LASF90:
- 1402 007b 70 69 6F 5F 		.ascii "appBuzzerTimerHandler\000"
- 1402      6D 6F 64 65 
- 1402      5F 6E 76 6D 
- 1402      5F 70 6F 77 
- 1402      65 72 5F 65 
+ 1400      5F 6E 76 6D 
+ 1400      5F 70 6F 77 
+ 1400      65 72 5F 65 
+ 1401                 	.LASF88:
+ 1402 0071 48 61 6E 64 		.ascii "C:\\Users\\hiro\\Documents\\GitHub\\heekari\\HeekariFirmware\000"
+ 1402      6C 65 50 49 
+ 1402      4F 43 68 61 
+ 1402      6E 67 65 64 
+ 1402      45 76 65 6E 
  1403                 	.LASF48:
- 1404 0086 48 61 6E 64 		.ascii "pio_event_mode_disable\000"
- 1404      6C 65 50 49 
- 1404      4F 43 68 61 
- 1404      6E 67 65 64 
- 1404      45 76 65 6E 
+ 1404 007c 62 65 65 70 		.ascii "pio_event_mode_disable\000"
+ 1404      5F 74 69 6D 
+ 1404      65 72 00 
  1405                 	.LASF31:
- 1406 0091 62 65 65 70 		.ascii "pio_mode_uart_flow_ctrl\000"
- 1406      5F 74 69 6D 
- 1406      65 72 00 
+ 1406 0081 61 70 70 42 		.ascii "pio_mode_uart_flow_ctrl\000"
+ 1406      75 7A 7A 65 
+ 1406      72 54 69 6D 
+ 1406      65 72 48 61 
+ 1406      6E 64 6C 65 
  1407                 	.LASF30:
- 1408 0096 61 70 70 42 		.ascii "pio_mode_i2c_clock\000"
- 1408      75 7A 7A 65 
- 1408      72 54 69 6D 
- 1408      65 72 48 61 
- 1408      6E 64 6C 65 
+ 1408 008c 43 3A 5C 55 		.ascii "pio_mode_i2c_clock\000"
+ 1408      73 65 72 73 
+ 1408      5C 68 69 72 
+ 1408      6F 5C 44 6F 
+ 1408      63 75 6D 65 
  1409                 	.LASF65:
- 1410 00a1 70 69 6F 5F 		.ascii "beep_count\000"
+ 1410 00a8 70 69 6F 5F 		.ascii "beep_count\000"
  1410      65 76 65 6E 
  1410      74 5F 6D 6F 
  1410      64 65 5F 64 
  1410      69 73 61 62 
  1411                 	.LASF49:
- 1412 00ad 70 69 6F 5F 		.ascii "pio_event_mode_rising\000"
+ 1412 00b3 70 69 6F 5F 		.ascii "pio_event_mode_rising\000"
  1412      6D 6F 64 65 
  1412      5F 75 61 72 
  1412      74 5F 66 6C 
  1412      6F 77 5F 63 
  1413                 	.LASF45:
- 1414 00b9 70 69 6F 5F 		.ascii "pio_i2c_pull_mode_strong_pull_up\000"
+ 1414 00bf 70 69 6F 5F 		.ascii "pio_i2c_pull_mode_strong_pull_up\000"
  1414      6D 6F 64 65 
  1414      5F 69 32 63 
  1414      5F 63 6C 6F 
  1414      63 6B 00 
  1415                 	.LASF34:
- 1416 00c2 62 65 65 70 		.ascii "pio_mode_no_pulls\000"
+ 1416 00c9 62 65 65 70 		.ascii "pio_mode_no_pulls\000"
  1416      5F 63 6F 75 
  1416      6E 74 00 
  1417                 	.LASF77:
- 1418 00c8 70 69 6F 5F 		.ascii "app_panic_con_param_update\000"
+ 1418 00ce 70 69 6F 5F 		.ascii "app_panic_con_param_update\000"
  1418      65 76 65 6E 
  1418      74 5F 6D 6F 
  1418      64 65 5F 72 
  1418      69 73 69 6E 
  1419                 	.LASF54:
- 1420 00d3 70 69 6F 5F 		.ascii "pio_pwm_mode_open_source\000"
+ 1420 00d9 70 69 6F 5F 		.ascii "pio_pwm_mode_open_source\000"
  1420      69 32 63 5F 
  1420      70 75 6C 6C 
  1420      5F 6D 6F 64 
  1420      65 5F 73 74 
  1421                 	.LASF47:
- 1422 00e3 70 69 6F 5F 		.ascii "pio_i2c_pull_mode_strong_sticky\000"
+ 1422 00ea 70 69 6F 5F 		.ascii "pio_i2c_pull_mode_strong_sticky\000"
  1422      6D 6F 64 65 
  1422      5F 6E 6F 5F 
  1422      70 75 6C 6C 
  1422      73 00 
  1423                 	.LASF71:
- 1424 00ec 61 70 70 5F 		.ascii "app_panic_db_registration\000"
+ 1424 00f3 61 70 70 5F 		.ascii "app_panic_db_registration\000"
  1424      70 61 6E 69 
  1424      63 5F 63 6F 
  1424      6E 5F 70 61 
  1424      72 61 6D 5F 
  1425                 	.LASF9:
- 1426 00fa 70 69 6F 5F 		.ascii "pio_mode_user\000"
+ 1426 0100 70 69 6F 5F 		.ascii "pio_mode_user\000"
  1426      70 77 6D 5F 
  1426      6D 6F 64 65 
  1426      5F 6F 70 65 
  1426      6E 5F 73 6F 
  1427                 	.LASF39:
- 1428 0106 70 69 6F 5F 		.ascii "pio_mode_weak_sticky\000"
+ 1428 010d 70 69 6F 5F 		.ascii "pio_mode_weak_sticky\000"
  1428      69 32 63 5F 
  1428      70 75 6C 6C 
  1428      5F 6D 6F 64 
  1428      65 5F 73 74 
  1429                 	.LASF16:
- 1430 0116 61 70 70 5F 		.ascii "pio_mode_quadrature0\000"
+ 1430 011d 61 70 70 5F 		.ascii "pio_mode_quadrature0\000"
  1430      70 61 6E 69 
  1430      63 5F 64 62 
  1430      5F 72 65 67 
  1430      69 73 74 72 
  1431                 	.LASF17:
- 1432 0123 70 69 6F 5F 		.ascii "pio_mode_quadrature1\000"
+ 1432 012a 70 69 6F 5F 		.ascii "pio_mode_quadrature1\000"
  1432      6D 6F 64 65 
  1432      5F 75 73 65 
  1432      72 00 
  1433                 	.LASF18:
- 1434 012a 70 69 6F 5F 		.ascii "pio_mode_quadrature2\000"
+ 1434 0131 70 69 6F 5F 		.ascii "pio_mode_quadrature2\000"
  1434      6D 6F 64 65 
  1434      5F 77 65 61 
  1434      6B 5F 73 74 
  1434      69 63 6B 79 
  1435                 	.LASF19:
- 1436 0135 70 69 6F 5F 		.ascii "pio_mode_quadrature3\000"
+ 1436 013b 70 69 6F 5F 		.ascii "pio_mode_quadrature3\000"
  1436      6D 6F 64 65 
  1436      5F 71 75 61 
  1436      64 72 61 74 
  1436      75 72 65 30 
  1437                 	.LASF68:
- 1438 013f 70 69 6F 5F 		.ascii "app_panic_set_advert_params\000"
+ 1438 0146 70 69 6F 5F 		.ascii "app_panic_set_advert_params\000"
  1438      6D 6F 64 65 
  1438      5F 71 75 61 
  1438      64 72 61 74 
  1438      75 72 65 31 
  1439                 	.LASF81:
- 1440 014a 70 69 6F 5F 		.ascii "SoundBuzzer\000"
+ 1440 0150 70 69 6F 5F 		.ascii "SoundBuzzer\000"
  1440      6D 6F 64 65 
  1440      5F 71 75 61 
  1440      64 72 61 74 
  1440      75 72 65 32 
  1441                 	.LASF0:
- 1442 0154 70 69 6F 5F 		.ascii "unsigned char\000"
+ 1442 015b 70 69 6F 5F 		.ascii "unsigned char\000"
  1442      6D 6F 64 65 
  1442      5F 71 75 61 
  1442      64 72 61 74 
  1442      75 72 65 33 
  1443                 	.LASF11:
- 1444 015f 61 70 70 5F 		.ascii "pio_mode_clk_req\000"
+ 1444 0165 61 70 70 5F 		.ascii "pio_mode_clk_req\000"
  1444      70 61 6E 69 
  1444      63 5F 73 65 
  1444      74 5F 61 64 
  1444      76 65 72 74 
  1445                 	.LASF60:
- 1446 016d 53 6F 75 6E 		.ascii "buzzer_beep_twice\000"
+ 1446 0173 53 6F 75 6E 		.ascii "buzzer_beep_twice\000"
  1446      64 42 75 7A 
  1446      7A 65 72 00 
  1447                 	.LASF76:
- 1448 0173 75 6E 73 69 		.ascii "app_panic_add_whitelist\000"
+ 1448 0179 75 6E 73 69 		.ascii "app_panic_add_whitelist\000"
  1448      67 6E 65 64 
  1448      20 63 68 61 
  1448      72 00 
  1449                 	.LASF43:
- 1450 017a 70 69 6F 5F 		.ascii "pio_i2c_pull_mode_weak_pull_up\000"
+ 1450 0180 70 69 6F 5F 		.ascii "pio_i2c_pull_mode_weak_pull_up\000"
  1450      6D 6F 64 65 
  1450      5F 63 6C 6B 
  1450      5F 72 65 71 
  1450      00 
  1451                 	.LASF73:
- 1452 0182 62 75 7A 7A 		.ascii "app_panic_nvm_write\000"
+ 1452 0189 62 75 7A 7A 		.ascii "app_panic_nvm_write\000"
  1452      65 72 5F 62 
  1452      65 65 70 5F 
  1452      74 77 69 63 
  1452      65 00 
  1453                 	.LASF5:
- 1454 018b 61 70 70 5F 		.ascii "signed char\000"
+ 1454 0192 61 70 70 5F 		.ascii "signed char\000"
  1454      70 61 6E 69 
  1454      63 5F 61 64 
  1454      64 5F 77 68 
  1454      69 74 65 6C 
  1455                 	.LASF12:
- 1456 0197 70 69 6F 5F 		.ascii "pio_mode_pwm0\000"
+ 1456 019e 70 69 6F 5F 		.ascii "pio_mode_pwm0\000"
  1456      69 32 63 5F 
  1456      70 75 6C 6C 
  1456      5F 6D 6F 64 
  1456      65 5F 77 65 
  1457                 	.LASF13:
- 1458 01a7 61 70 70 5F 		.ascii "pio_mode_pwm1\000"
+ 1458 01ad 61 70 70 5F 		.ascii "pio_mode_pwm1\000"
  1458      70 61 6E 69 
  1458      63 5F 6E 76 
  1458      6D 5F 77 72 
  1458      69 74 65 00 
  1459                 	.LASF14:
- 1460 01b1 73 69 67 6E 		.ascii "pio_mode_pwm2\000"
+ 1460 01b7 73 69 67 6E 		.ascii "pio_mode_pwm2\000"
  1460      65 64 20 63 
  1460      68 61 72 00 
  1461                 	.LASF15:
- 1462 01b7 70 69 6F 5F 		.ascii "pio_mode_pwm3\000"
+ 1462 01bd 70 69 6F 5F 		.ascii "pio_mode_pwm3\000"
  1462      6D 6F 64 65 
  1462      5F 70 77 6D 
  1462      30 00 
  1463                 	.LASF8:
- 1464 01be 70 69 6F 5F 		.ascii "unsigned int\000"
+ 1464 01c4 70 69 6F 5F 		.ascii "unsigned int\000"
  1464      6D 6F 64 65 
  1464      5F 70 77 6D 
  1464      31 00 
  1465                 	.LASF62:
- 1466 01c5 70 69 6F 5F 		.ascii "buzzer_beep_type\000"
+ 1466 01cb 70 69 6F 5F 		.ascii "buzzer_beep_type\000"
  1466      6D 6F 64 65 
  1466      5F 70 77 6D 
  1466      32 00 
  1467                 	.LASF72:
- 1468 01cc 70 69 6F 5F 		.ascii "app_panic_nvm_read\000"
+ 1468 01d2 70 69 6F 5F 		.ascii "app_panic_nvm_read\000"
  1468      6D 6F 64 65 
  1468      5F 70 77 6D 
  1468      33 00 
  1469                 	.LASF55:
- 1470 01d3 75 6E 73 69 		.ascii "pio_pwm_mode_inverted_push_pull\000"
+ 1470 01d9 75 6E 73 69 		.ascii "pio_pwm_mode_inverted_push_pull\000"
  1470      67 6E 65 64 
  1470      20 69 6E 74 
  1470      00 
  1471                 	.LASF1:
- 1472 01d9 62 75 7A 7A 		.ascii "short unsigned int\000"
+ 1472 01e0 62 75 7A 7A 		.ascii "short unsigned int\000"
  1472      65 72 5F 62 
  1472      65 65 70 5F 
  1472      74 79 70 65 
  1472      00 
  1473                 	.LASF37:
- 1474 01e2 61 70 70 5F 		.ascii "pio_mode_strong_pull_down\000"
+ 1474 01e8 61 70 70 5F 		.ascii "pio_mode_strong_pull_down\000"
  1474      70 61 6E 69 
  1474      63 5F 6E 76 
  1474      6D 5F 72 65 
  1474      61 64 00 
  1475                 	.LASF91:
- 1476 01eb 70 69 6F 5F 		.ascii "g_app_hw_data\000"
+ 1476 01f2 70 69 6F 5F 		.ascii "g_app_hw_data\000"
  1476      70 77 6D 5F 
  1476      6D 6F 64 65 
  1476      5F 69 6E 76 
  1476      65 72 74 65 
  1477                 	.LASF89:
- 1478 01fb 73 68 6F 72 		.ascii "pios\000"
+ 1478 0202 73 68 6F 72 		.ascii "pios\000"
  1478      74 20 75 6E 
  1478      73 69 67 6E 
  1478      65 64 20 69 
  1478      6E 74 00 
  1479                 	.LASF69:
- 1480 0205 70 69 6F 5F 		.ascii "app_panic_set_advert_data\000"
+ 1480 020b 70 69 6F 5F 		.ascii "app_panic_set_advert_data\000"
  1480      6D 6F 64 65 
  1480      5F 73 74 72 
  1480      6F 6E 67 5F 
  1480      70 75 6C 6C 
  1481                 	.LASF58:
- 1482 0212 67 5F 61 70 		.ascii "buzzer_beep_short\000"
+ 1482 0218 67 5F 61 70 		.ascii "buzzer_beep_short\000"
  1482      70 5F 68 77 
  1482      5F 64 61 74 
  1482      61 00 
  1483                 	.LASF7:
- 1484 0219 70 69 6F 73 		.ascii "long int\000"
+ 1484 021f 70 69 6F 73 		.ascii "long int\000"
  1484      00 
  1485                 	.LASF56:
- 1486 021b 61 70 70 5F 		.ascii "timer_id\000"
+ 1486 0222 61 70 70 5F 		.ascii "timer_id\000"
  1486      70 61 6E 69 
  1486      63 5F 73 65 
  1486      74 5F 61 64 
  1486      76 65 72 74 
  1487                 	.LASF36:
- 1488 0228 62 75 7A 7A 		.ascii "pio_mode_weak_pull_up\000"
+ 1488 022f 62 75 7A 7A 		.ascii "pio_mode_weak_pull_up\000"
  1488      65 72 5F 62 
  1488      65 65 70 5F 
  1488      73 68 6F 72 
  1488      74 00 
  1489                 	.LASF50:
- 1490 0231 6C 6F 6E 67 		.ascii "pio_event_mode_falling\000"
+ 1490 0238 6C 6F 6E 67 		.ascii "pio_event_mode_falling\000"
  1490      20 69 6E 74 
  1490      00 
  1491                 	.LASF85:
- 1492 0236 74 69 6D 65 		.ascii "HrInitHardware\000"
+ 1492 023c 74 69 6D 65 		.ascii "HrInitHardware\000"
  1492      72 5F 69 64 
  1492      00 
  1493                 	.LASF2:
- 1494 023a 70 69 6F 5F 		.ascii "uint16\000"
+ 1494 0241 70 69 6F 5F 		.ascii "uint16\000"
  1494      6D 6F 64 65 
  1494      5F 77 65 61 
  1494      6B 5F 70 75 
  1494      6C 6C 5F 75 
  1495                 	.LASF22:
- 1496 0245 70 69 6F 5F 		.ascii "pio_mode_radio_tx_en\000"
+ 1496 024c 70 69 6F 5F 		.ascii "pio_mode_radio_tx_en\000"
  1496      65 76 65 6E 
  1496      74 5F 6D 6F 
  1496      64 65 5F 66 
  1496      61 6C 6C 69 
  1497                 	.LASF3:
- 1498 0251 48 72 49 6E 		.ascii "uint32\000"
+ 1498 0257 48 72 49 6E 		.ascii "uint32\000"
  1498      69 74 48 61 
  1498      72 64 77 61 
  1498      72 65 00 
  1499                 	.LASF61:
- 1500 0258 75 69 6E 74 		.ascii "buzzer_beep_thrice\000"
+ 1500 025f 75 69 6E 74 		.ascii "buzzer_beep_thrice\000"
  1500      31 36 00 
  1501                 	.LASF4:
- 1502 025c 70 69 6F 5F 		.ascii "long unsigned int\000"
+ 1502 0262 70 69 6F 5F 		.ascii "long unsigned int\000"
  1502      6D 6F 64 65 
  1502      5F 72 61 64 
  1502      69 6F 5F 74 
  1502      78 5F 65 6E 
  1503                 	.LASF27:
- 1504 0266 75 69 6E 74 		.ascii "pio_mode_ser_flash_dout\000"
+ 1504 026d 75 69 6E 74 		.ascii "pio_mode_ser_flash_dout\000"
  1504      33 32 00 
  1505                 	.LASF32:
- 1506 026a 62 75 7A 7A 		.ascii "pio_mode_pio_control_timer\000"
+ 1506 0270 62 75 7A 7A 		.ascii "pio_mode_pio_control_timer\000"
  1506      65 72 5F 62 
  1506      65 65 70 5F 
  1506      74 68 72 69 
  1506      63 65 00 
  1507                 	.LASF70:
- 1508 0273 6C 6F 6E 67 		.ascii "app_panic_set_scan_rsp_data\000"
+ 1508 027a 6C 6F 6E 67 		.ascii "app_panic_set_scan_rsp_data\000"
  1508      20 75 6E 73 
  1508      69 67 6E 65 
  1508      64 20 69 6E 
  1508      74 00 
  1509                 	.LASF66:
- 1510 027c 70 69 6F 5F 		.ascii "button_press_tid\000"
+ 1510 0283 70 69 6F 5F 		.ascii "button_press_tid\000"
  1510      6D 6F 64 65 
  1510      5F 73 65 72 
  1510      5F 66 6C 61 
  1510      73 68 5F 64 
  1511                 	.LASF40:
- 1512 0288 70 69 6F 5F 		.ascii "pio_mode_strong_sticky\000"
+ 1512 028f 70 69 6F 5F 		.ascii "pio_mode_strong_sticky\000"
  1512      6D 6F 64 65 
  1512      5F 70 69 6F 
  1512      5F 63 6F 6E 
  1512      74 72 6F 6C 
  1513                 	.LASF44:
- 1514 0296 61 70 70 5F 		.ascii "pio_i2c_pull_mode_strong_pull_down\000"
+ 1514 029c 61 70 70 5F 		.ascii "pio_i2c_pull_mode_strong_pull_down\000"
  1514      70 61 6E 69 
  1514      63 5F 73 65 
  1514      74 5F 73 63 
  1514      61 6E 5F 72 
  1515                 	.LASF63:
- 1516 02a4 62 75 74 74 		.ascii "buzzer_tid\000"
+ 1516 02aa 62 75 74 74 		.ascii "buzzer_tid\000"
  1516      6F 6E 5F 70 
  1516      72 65 73 73 
  1516      5F 74 69 64 
  1516      00 
  1517                 	.LASF53:
- 1518 02ac 70 69 6F 5F 		.ascii "pio_pwm_mode_open_drain\000"
+ 1518 02b3 70 69 6F 5F 		.ascii "pio_pwm_mode_open_drain\000"
  1518      6D 6F 64 65 
  1518      5F 73 74 72 
  1518      6F 6E 67 5F 
  1518      73 74 69 63 
  1519                 	.LASF84:
- 1520 02b8 70 69 6F 5F 		.ascii "HrHwDataInit\000"
+ 1520 02be 70 69 6F 5F 		.ascii "HrHwDataInit\000"
  1520      69 32 63 5F 
  1520      70 75 6C 6C 
  1520      5F 6D 6F 64 
  1520      65 5F 73 74 
  1521                 	.LASF28:
- 1522 02c9 62 75 7A 7A 		.ascii "pio_mode_ser_flash_csb\000"
+ 1522 02d0 62 75 7A 7A 		.ascii "pio_mode_ser_flash_csb\000"
  1522      65 72 5F 74 
  1522      69 64 00 
  1523                 	.LASF24:
- 1524 02cf 70 69 6F 5F 		.ascii "pio_mode_pio_controller\000"
+ 1524 02d5 70 69 6F 5F 		.ascii "pio_mode_pio_controller\000"
  1524      70 77 6D 5F 
  1524      6D 6F 64 65 
  1524      5F 6F 70 65 
  1524      6E 5F 64 72 
  1525                 	.LASF57:
- 1526 02db 48 72 48 77 		.ascii "buzzer_beep_off\000"
+ 1526 02e1 48 72 48 77 		.ascii "buzzer_beep_off\000"
  1526      44 61 74 61 
  1526      49 6E 69 74 
  1526      00 
  1527                 	.LASF52:
- 1528 02e1 70 69 6F 5F 		.ascii "pio_pwm_mode_push_pull\000"
+ 1528 02e8 70 69 6F 5F 		.ascii "pio_pwm_mode_push_pull\000"
  1528      6D 6F 64 65 
  1528      5F 73 65 72 
  1528      5F 66 6C 61 
  1528      73 68 5F 63 
  1529                 	.LASF10:
- 1530 02ed 70 69 6F 5F 		.ascii "pio_mode_edge_capture\000"
+ 1530 02f3 70 69 6F 5F 		.ascii "pio_mode_edge_capture\000"
  1530      6D 6F 64 65 
  1530      5F 70 69 6F 
  1530      5F 63 6F 6E 
  1530      74 72 6F 6C 
  1531                 	.LASF42:
- 1532 02f9 62 75 7A 7A 		.ascii "pio_i2c_pull_mode_weak_pull_down\000"
+ 1532 02ff 62 75 7A 7A 		.ascii "pio_i2c_pull_mode_weak_pull_down\000"
  1532      65 72 5F 62 
  1532      65 65 70 5F 
  1532      6F 66 66 00 
  1533                 	.LASF38:
- 1534 0301 70 69 6F 5F 		.ascii "pio_mode_strong_pull_up\000"
+ 1534 0307 70 69 6F 5F 		.ascii "pio_mode_strong_pull_up\000"
  1534      70 77 6D 5F 
  1534      6D 6F 64 65 
  1534      5F 70 75 73 
  1534      68 5F 70 75 
  1535                 	.LASF74:
- 1536 030c 70 69 6F 5F 		.ascii "app_panic_read_tx_pwr_level\000"
+ 1536 0313 70 69 6F 5F 		.ascii "app_panic_read_tx_pwr_level\000"
  1536      6D 6F 64 65 
  1536      5F 65 64 67 
  1536      65 5F 63 61 
  1536      70 74 75 72 
  1537                 	.LASF35:
- 1538 0317 70 69 6F 5F 		.ascii "pio_mode_weak_pull_down\000"
+ 1538 031e 70 69 6F 5F 		.ascii "pio_mode_weak_pull_down\000"
  1538      69 32 63 5F 
  1538      70 75 6C 6C 
  1538      5F 6D 6F 64 
  1538      65 5F 77 65 
  1539                 	.LASF46:
- 1540 0328 70 69 6F 5F 		.ascii "pio_i2c_pull_mode_weak_sticky\000"
+ 1540 032e 70 69 6F 5F 		.ascii "pio_i2c_pull_mode_weak_sticky\000"
  1540      6D 6F 64 65 
  1540      5F 73 74 72 
  1540      6F 6E 67 5F 
  1540      70 75 6C 6C 
  1541                 	.LASF79:
- 1542 0334 61 70 70 5F 		.ascii "app_panic_unexpected_beep_type\000"
+ 1542 033a 61 70 70 5F 		.ascii "app_panic_unexpected_beep_type\000"
  1542      70 61 6E 69 
  1542      63 5F 72 65 
  1542      61 64 5F 74 
  1542      78 5F 70 77 
  1543                 	.LASF25:
- 1544 0342 70 69 6F 5F 		.ascii "pio_mode_pio_control_txd\000"
+ 1544 0348 70 69 6F 5F 		.ascii "pio_mode_pio_control_txd\000"
  1544      6D 6F 64 65 
  1544      5F 77 65 61 
  1544      6B 5F 70 75 
  1544      6C 6C 5F 64 
  1545                 	.LASF67:
- 1546 034e 70 69 6F 5F 		.ascii "APP_HW_DATA_T\000"
+ 1546 0354 70 69 6F 5F 		.ascii "APP_HW_DATA_T\000"
  1546      69 32 63 5F 
  1546      70 75 6C 6C 
  1546      5F 6D 6F 64 
  1546      65 5F 77 65 
  1547                 	.LASF51:
- 1548 035d 61 70 70 5F 		.ascii "pio_event_mode_both\000"
+ 1548 0363 61 70 70 5F 		.ascii "pio_event_mode_both\000"
  1548      70 61 6E 69 
  1548      63 5F 75 6E 
  1548      65 78 70 65 
  1548      63 74 65 64 
  1549                 	.LASF20:
- 1550 036c 70 69 6F 5F 		.ascii "pio_mode_uart\000"
+ 1550 0373 70 69 6F 5F 		.ascii "pio_mode_uart\000"
  1550      6D 6F 64 65 
  1550      5F 70 69 6F 
  1550      5F 63 6F 6E 
  1550      74 72 6F 6C 
  1551                 	.LASF86:
- 1552 0379 41 50 50 5F 		.ascii "GNU C 4.3.4 CSR version 21 for xap [1468380]\000"
+ 1552 037f 41 50 50 5F 		.ascii "GNU C 4.3.4 CSR version 21 for xap [1468380]\000"
  1552      48 57 5F 44 
  1552      41 54 41 5F 
  1552      54 00 
  1553                 	.LASF75:
- 1554 0380 70 69 6F 5F 		.ascii "app_panic_delete_whitelist\000"
+ 1554 0386 70 69 6F 5F 		.ascii "app_panic_delete_whitelist\000"
  1554      65 76 65 6E 
  1554      74 5F 6D 6F 
  1554      64 65 5F 62 
  1554      6F 74 68 00 
  1555                 		.ident	"GCC: (GNU) 4.3.4 CSR version 21 for xap [1468380]"
- 1556 038a 70 69 6F 5F 	...
+ 1556 0390 70 69 6F 5F 	...
  1556      6D 6F 64 65 
  1556      5F 75 61 72 
  1556      74 00 

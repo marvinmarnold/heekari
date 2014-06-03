@@ -30,4 +30,5 @@ depend_Release_CSR101x_A05/heart_rate_service.o: heart_rate_service.c \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/bt_event_types.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/timer.h \
   hr_sensor_gatt.h \
-  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/time.h
+  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/time.h \
+  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/pio.h

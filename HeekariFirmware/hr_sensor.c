@@ -2449,7 +2449,7 @@ extern void AppInit(sleep_state last_sleep_state)
 
     /* Turn off both LEDs by setting output to Low */
     PioSets((1UL << PIO_LIGHT), 0UL);
-    PioSet(PIO_LIGHT, TRUE); ///new
+    PioSet(PIO_LIGHT, FALSE); ///new
 }
 
 extern void FlipSwitch(void)
