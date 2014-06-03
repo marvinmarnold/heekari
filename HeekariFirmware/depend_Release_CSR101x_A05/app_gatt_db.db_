@@ -125,9 +125,10 @@ primary_service {
     characteristic {
         uuid : 0x5F55AEF509D648A5B44BE41D7DF55743,
         name : "SWITCH_INTENSITY",
-        properties : [read, write],
-        value : 0x00,
-        size_value: 0x00
+        properties : read,
+        size_value: 0x01,
+        value : 0x01
+
     }
 },
 # 19 "app_gatt_db.db" 2

@@ -105,6 +105,7 @@ public class DeviceControlActivity extends Activity {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			final String action = intent.getAction();
+			Log.d(TAG, "Received characteristic ######## " + action);
 			if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
 				mConnected = true;
 				updateConnectionState(R.string.connected);

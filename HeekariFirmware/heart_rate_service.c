@@ -330,6 +330,11 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
         }
         break;
 
+        // case HANDLE_SWITCH_INTENSITY:
+        // {
+          
+        // }
+        // break;
 
         default:
 
