@@ -60,5 +60,9 @@
  */
 #define CURRENT_BODY_SENSOR_LOCATION_VALUE            BODY_SENSOR_LOCATION_CHEST
 
+#define SWITCH_OFF                                    0x00
+#define SWITCH_ON                                     0x01
+
+#define CURRENT_SWITCH_STATE                          SWITCH_OFF
 
 #endif /* __HEART_RATE_SERVICE_UUID_H__ */

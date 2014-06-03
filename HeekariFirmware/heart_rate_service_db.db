@@ -68,10 +68,9 @@ primary_service {
     characteristic {
         uuid : UUID_SWITCH_INTENSITY,
         name : "SWITCH_INTENSITY",
-        flags : FLAG_IRQ,
         properties : [read, write],
         value : 0x00,
-        size_value: 0x01
+        size_value: CURRENT_SWITCH_STATE
     }
 },
 #endif /* __HEART_RATE_SERVICE_DB__ */
