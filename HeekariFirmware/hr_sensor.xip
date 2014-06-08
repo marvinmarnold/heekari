@@ -9,6 +9,7 @@
   <file path="hr_sensor_hw.c" />
   <file path="nvm_access.c" />
   <file path="switch_service.c" />
+  <file path="switch_hw.c" />
  </folder>
  <folder name="Header Files" >
   <extension name="h" />
@@ -29,6 +30,7 @@
   <file path="nvm_access.h" />
   <file path="switch_uuids.h" />
   <file path="switch_service.h" />
+  <file path="switch_hw.h" />
  </folder>
  <folder name="Assembler Files" >
   <extension name="asm" />
