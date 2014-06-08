@@ -62,6 +62,7 @@ Common symbol       size              file
 
 sm_long_term_key_ind
                     0x1               C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_sm.o)
+g_dimmer_data       0x1               depend_Release_CSR101x_A05\switch_hw.o
 sm_pairing_auth_ind
                     0x1               C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_sm.o)
 g_app_hw_data       0x4               depend_Release_CSR101x_A05\hr_sensor_hw.o
@@ -101,6 +102,13 @@ Discarded input sections
  .text          0x00000000        0x0 depend_Release_CSR101x_A05\switch_hw.o
  .data          0x00000000        0x0 depend_Release_CSR101x_A05\switch_hw.o
  .bss           0x00000000        0x0 depend_Release_CSR101x_A05\switch_hw.o
+ .text.HrInitSwitchHardware
+                0x00000000        0x0 depend_Release_CSR101x_A05\switch_hw.o
+ .text.HrInitSwitchData
+                0x00000000        0x0 depend_Release_CSR101x_A05\switch_hw.o
+ .text.HandleSwitchPIOChangedEvent
+                0x00000000        0x0 depend_Release_CSR101x_A05\switch_hw.o
+ COMMON         0x00000000        0x0 depend_Release_CSR101x_A05\switch_hw.o
  .text          0x00000000        0x0 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_ls_app_if.o)
  .data          0x00000000        0x0 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_ls_app_if.o)
  .bss           0x00000000        0x0 C:\CSR_uEnergy_SDK-2.2.2.13\tools\lib\CSR101x_A05\libgatt_lib_ram.a(patch_ls_app_if.o)
@@ -748,7 +756,7 @@ SLT             0x00009fdc        0x4
 LOAD c:/csr_uenergy_sdk-2.2.2.13/tools/bin/../lib/gcc/xap-local-xap/4.3.4\libgcc.a
 OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
 
-.debug_abbrev   0x00000000      0x6c7
+.debug_abbrev   0x00000000      0x716
  .debug_abbrev  0x00000000       0x46 depend_Release_CSR101x_A05\app_gatt_db.o
  .debug_abbrev  0x0000008b       0xf6 depend_Release_CSR101x_A05\battery_service.o
  .debug_abbrev  0x00000276       0xff depend_Release_CSR101x_A05\gap_service.o
@@ -758,9 +766,9 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
  .debug_abbrev  0x00000b19       0x93 depend_Release_CSR101x_A05\hr_sensor_hw.o
  .debug_abbrev  0x00000c3f       0x5b depend_Release_CSR101x_A05\nvm_access.o
  .debug_abbrev  0x00000cf4       0x4d depend_Release_CSR101x_A05\switch_service.o
- .debug_abbrev  0x00000d8d        0x1 depend_Release_CSR101x_A05\switch_hw.o
+ .debug_abbrev  0x00000d8d       0x50 depend_Release_CSR101x_A05\switch_hw.o
 
-.debug_info     0x00000000     0x3b23
+.debug_info     0x00000000     0x3b9f
  .debug_info    0x00000000       0x5f depend_Release_CSR101x_A05\app_gatt_db.o
  .debug_info    0x000000be      0x6a1 depend_Release_CSR101x_A05\battery_service.o
  .debug_info    0x00000dff      0x68d depend_Release_CSR101x_A05\gap_service.o
@@ -770,9 +778,9 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
  .debug_info    0x00006da7      0x1c1 depend_Release_CSR101x_A05\hr_sensor_hw.o
  .debug_info    0x00007128      0x204 depend_Release_CSR101x_A05\nvm_access.o
  .debug_info    0x0000752f       0x8b depend_Release_CSR101x_A05\switch_service.o
- .debug_info    0x00007645        0x0 depend_Release_CSR101x_A05\switch_hw.o
+ .debug_info    0x00007645       0x7c depend_Release_CSR101x_A05\switch_hw.o
 
-.debug_line     0x00000000      0xf33
+.debug_line     0x00000000      0xf84
  .debug_line    0x00000000       0x59 depend_Release_CSR101x_A05\app_gatt_db.o
  .debug_line    0x000000b1      0x171 depend_Release_CSR101x_A05\battery_service.o
  .debug_line    0x00000393      0x13f depend_Release_CSR101x_A05\gap_service.o
@@ -782,9 +790,9 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
  .debug_line    0x0000195a      0x172 depend_Release_CSR101x_A05\hr_sensor_hw.o
  .debug_line    0x00001c3d       0x9f depend_Release_CSR101x_A05\nvm_access.o
  .debug_line    0x00001d7a       0x67 depend_Release_CSR101x_A05\switch_service.o
- .debug_line    0x00001e48        0xf depend_Release_CSR101x_A05\switch_hw.o
+ .debug_line    0x00001e48       0x60 depend_Release_CSR101x_A05\switch_hw.o
 
-.debug_frame    0x00000000      0x30c
+.debug_frame    0x00000000      0x32c
  .debug_frame   0x00000000       0x14 depend_Release_CSR101x_A05\app_gatt_db.o
  .debug_frame   0x00000028       0x6c depend_Release_CSR101x_A05\battery_service.o
  .debug_frame   0x00000100       0x64 depend_Release_CSR101x_A05\gap_service.o
@@ -794,6 +802,7 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
  .debug_frame   0x00000500       0x44 depend_Release_CSR101x_A05\hr_sensor_hw.o
  .debug_frame   0x00000588       0x2c depend_Release_CSR101x_A05\nvm_access.o
  .debug_frame   0x000005e0       0x1c depend_Release_CSR101x_A05\switch_service.o
+ .debug_frame   0x00000618       0x20 depend_Release_CSR101x_A05\switch_hw.o
 
 .debug_loc      0x00000000      0x7e1
  .debug_loc     0x00000000       0x1f depend_Release_CSR101x_A05\app_gatt_db.o
@@ -807,7 +816,7 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
  .debug_loc     0x00000fa2       0x10 depend_Release_CSR101x_A05\switch_service.o
 
 .debug_pubnames
-                0x00000000      0x2f9
+                0x00000000      0x332
  .debug_pubnames
                 0x00000000       0x1c depend_Release_CSR101x_A05\app_gatt_db.o
  .debug_pubnames
@@ -826,8 +835,10 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
                 0x00000577       0x1f depend_Release_CSR101x_A05\nvm_access.o
  .debug_pubnames
                 0x000005b4       0x1f depend_Release_CSR101x_A05\switch_service.o
+ .debug_pubnames
+                0x000005f1       0x39 depend_Release_CSR101x_A05\switch_hw.o
 
-.debug_aranges  0x00000000      0x168
+.debug_aranges  0x00000000      0x180
  .debug_aranges
                 0x00000000       0x10 depend_Release_CSR101x_A05\app_gatt_db.o
  .debug_aranges
@@ -846,8 +857,10 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
                 0x00000278       0x18 depend_Release_CSR101x_A05\nvm_access.o
  .debug_aranges
                 0x000002a8       0x14 depend_Release_CSR101x_A05\switch_service.o
+ .debug_aranges
+                0x000002d0       0x18 depend_Release_CSR101x_A05\switch_hw.o
 
-.debug_ranges   0x00000000      0x194
+.debug_ranges   0x00000000      0x1a8
  .debug_ranges  0x00000000        0xc depend_Release_CSR101x_A05\app_gatt_db.o
  .debug_ranges  0x00000018       0x2c depend_Release_CSR101x_A05\battery_service.o
  .debug_ranges  0x00000070       0x28 depend_Release_CSR101x_A05\gap_service.o
@@ -857,8 +870,9 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
  .debug_ranges  0x000002a8       0x1c depend_Release_CSR101x_A05\hr_sensor_hw.o
  .debug_ranges  0x000002e0       0x14 depend_Release_CSR101x_A05\nvm_access.o
  .debug_ranges  0x00000308       0x10 depend_Release_CSR101x_A05\switch_service.o
+ .debug_ranges  0x00000328       0x14 depend_Release_CSR101x_A05\switch_hw.o
 
-.debug_str      0x00000000     0x29b6
+.debug_str      0x00000000     0x29f7
  .debug_str     0x00000000       0x7c depend_Release_CSR101x_A05\app_gatt_db.o
                                  0x88 (size before relaxing)
  .debug_str     0x000000f7     0x1260 depend_Release_CSR101x_A05\battery_service.o
@@ -877,6 +891,8 @@ OUTPUT(depend_Release_CSR101x_A05\hr_sensor.elf elf32-xap2)
                                 0x5f6 (size before relaxing)
  .debug_str     0x00005307       0x33 depend_Release_CSR101x_A05\switch_service.o
                                  0xe8 (size before relaxing)
+ .debug_str     0x0000536c       0x41 depend_Release_CSR101x_A05\switch_hw.o
+                                 0xa9 (size before relaxing)
 
 .comment        0x00000000      0x38e
  .comment       0x00000000       0x1a depend_Release_CSR101x_A05\app_gatt_db.o
