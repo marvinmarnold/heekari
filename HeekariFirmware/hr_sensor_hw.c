@@ -90,12 +90,21 @@
 
 #endif /* ENABLE_BUZZER */
 
+#define DIMMER_PIO              (3)
+
+#define PIO_BIT_MASK(pio)       (0x01 << (pio))
+
+#define DIMMER_PIO_MASK         (PIO_BIT_MASK(BUZZER_PIO))                                
+
 /*============================================================================*
  *  Public data
  *============================================================================*/
 
 /* Blood pressure application hardware data instance */
 APP_HW_DATA_T                   g_app_hw_data;
+
+/* Dimmer hardware data instance */
+SWITCH_DIMMER_DATA_T                   g_dimmer_data;
 
 /*============================================================================*
  *  Private Function Implementations
@@ -291,6 +300,7 @@ extern void HrInitHardware(void)
     /* Save power by changing the I2C pull mode to pull down.*/
     PioSetI2CPullMode(pio_i2c_pull_mode_strong_pull_down);
 
+    HrInitSwitchHardware();
 }
 
 
@@ -312,7 +322,7 @@ extern void HrHwDataInit(void)
     /* Delete button press timer */
     TimerDelete(g_app_hw_data.button_press_tid);
     g_app_hw_data.button_press_tid = TIMER_INVALID;
-
+    HrInitSwitchData();
 }
 
 
@@ -491,3 +501,61 @@ extern void HandlePIOChangedEvent(uint32 pio_changed)
 
 }
 
+/*----------------------------------------------------------------------------*
+ *  NAME
+ *      HrInitSwitchHardware 
+ *
+ *  DESCRIPTION
+ *      This function is called to initialise switch hardware
+ *
+ *  RETURNS
+ *      Nothing.
+ *
+ *---------------------------------------------------------------------------*/
+
+extern void HrInitSwitchHardware(void)
+{
+    PioSetModes(DIMMER_PIO_MASK, pio_mode_edge_capture); 
+    PioSetDir(DIMMER_PIO, PIO_DIRECTION_INPUT);
+    PioSetPullModes(DIMMER_PIO_MASK, pio_mode_strong_pull_up);
+
+    /* Enable the falling edge capture on PIO9 for heart rate */
+    PioEnableEdgeCapture(TRUE, FALSE);
+
+    /* Setup events on both rising as well as falling edges */
+    PioSetEventMask(DIMMER_PIO_MASK, pio_event_mode_both);
+}
+
+/*----------------------------------------------------------------------------*
+ *  NAME
+ *      HrHwDataInit
+ *
+ *  DESCRIPTION
+ *      This function initialises switch hardware data structure
+ *
+ *  RETURNS
+ *      Nothing.
+ *
+ *---------------------------------------------------------------------------*/
+
+extern void HrInitSwitchData(void)
+{
+    /* Reset last value */
+}
+
+/*----------------------------------------------------------------------------*
+ *  NAME
+ *      HandleSwitchPIOChangedEvent
+ *
+ *  DESCRIPTION
+ *      This function handles Switch PIO Changed event
+ *
+ *  RETURNS
+ *      Nothing.
+ *
+ *---------------------------------------------------------------------------*/
+
+extern void HandleSwitchPIOChangedEvent(uint32 pio_changed)
+{
+    g_dimmer_data.last_dimmer_var = 0;
+}

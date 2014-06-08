@@ -45,7 +45,6 @@
 #include "app_gatt_db.h"
 #include "nvm_access.h"
 #include "switch_service.h"
-#include "switch_hw.h"
 
 /*============================================================================*
  *  Private Definitions

@@ -11,4 +11,5 @@ depend_Release_CSR101x_A05/switch_hw.o: switch_hw.c \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/time.h \
   switch_hw.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/types.h \
-  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/bluetooth.h
+  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/bluetooth.h \
+  hr_sensor_hw.h
