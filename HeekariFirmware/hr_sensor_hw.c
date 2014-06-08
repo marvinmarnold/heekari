@@ -486,6 +486,10 @@ extern void HandlePIOChangedEvent(uint32 pio_changed)
             }
         }
     }
+    /* Move DIMMER_PIO_MASK directly into file if problems */
+    else if (pio_changed & DIMMER_PIO_MASK) {
+        HandleSwitchPIOChangedEvent(pio_changed);
+    }
 #ifndef NO_ACTUAL_MEASUREMENT
     else if(pio_changed & HR_INPUT_PIO_MASK)
     {
