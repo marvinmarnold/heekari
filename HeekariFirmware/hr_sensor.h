@@ -45,7 +45,7 @@
  /* The following macro should be defined to enable simulation of Heart rate 
   * sensor data
   */
-#define NO_ACTUAL_MEASUREMENT
+/*#define NO_ACTUAL_MEASUREMENT*/
 
 /* Max HR data that can be send in one ATT notification */
 #define MAX_ATT_HR_NOTI_LEN                               (21)

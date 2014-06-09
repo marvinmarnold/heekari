@@ -496,6 +496,7 @@ extern void HandlePIOChangedEvent(uint32 pio_changed)
         /* Process the event on the falling edge and ignore the rising edge 
          * events.
          */
+        FlipSwitch();
         if(!(pios & HR_INPUT_PIO_MASK))
         {
             HandleHRInputEvent();
@@ -562,4 +563,5 @@ extern void HrInitSwitchData(void)
 extern void HandleSwitchPIOChangedEvent(uint32 pio_changed)
 {
     g_dimmer_data.last_dimmer_var = 0;
+    FlipSwitch();
 }
