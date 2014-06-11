@@ -68,8 +68,7 @@ primary_service {
     characteristic {
         uuid : UUID_SWITCH_INTENSITY,
         name : "SWITCH_INTENSITY",
-        properties : read,
-        size_value: 0x01,
+        properties : [read, write],
         flags : FLAG_IRQ
     }
 },

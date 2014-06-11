@@ -100,6 +100,7 @@ public class BluetoothLeService extends Service {
 		@Override
 		public void onCharacteristicRead(BluetoothGatt gatt,
 				BluetoothGattCharacteristic characteristic, int status) {
+			Log.d(TAG, "Characteristic read");
 			if (status == BluetoothGatt.GATT_SUCCESS) {
 				broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
 			}
@@ -108,6 +109,7 @@ public class BluetoothLeService extends Service {
 		@Override
 		public void onCharacteristicChanged(BluetoothGatt gatt,
 				BluetoothGattCharacteristic characteristic) {
+			Log.d(TAG, "Characteristic changed");
 			broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
 		}
 

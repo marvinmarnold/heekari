@@ -441,7 +441,7 @@ extern void HandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
     /* For the received attribute handle, check all the services that support 
      * attribute 'Write' operation handled by application.
      */
-
+    // FlipSwitch();
     if(GapCheckHandleRange(p_ind->handle))
     {
         /* Attribute handle belongs to GAP service */

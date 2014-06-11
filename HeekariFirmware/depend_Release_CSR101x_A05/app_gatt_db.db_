@@ -125,8 +125,7 @@ primary_service {
     characteristic {
         uuid : 0x5F55AEF509D648A5B44BE41D7DF55743,
         name : "SWITCH_INTENSITY",
-        properties : read,
-        size_value: 0x01,
+        properties : [read, write],
         flags : FLAG_IRQ
     }
 },

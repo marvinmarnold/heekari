@@ -13975,8 +13975,8 @@
  10250      52 58 5F 54 
  10250      49 4D 49 4E 
  10250      47 5F 49 4E 
- 10251                 	.LASF44:
- 10252 04d0 53 4D 5F 50 		.ascii "skm_status_storage_full\000"
+ 10251                 	.LASF858:
+ 10252 04d0 53 4D 5F 50 		.ascii "C:\\Users\\pili\\git\\heekari\\HeekariFirmware\000"
  10252      41 53 53 4B 
  10252      45 59 5F 44 
  10252      49 53 50 4C 
@@ -14056,3959 +14056,3959 @@
  10280      6F 6C 6C 65 
  10280      72 5F 62 75 
  10281                 	.LASF807:
- 10282 0571 73 6B 6D 5F 		.ascii "nvm_sanity\000"
- 10282      73 74 61 74 
- 10282      75 73 5F 73 
- 10282      74 6F 72 61 
- 10282      67 65 5F 66 
+ 10282 0571 43 3A 5C 55 		.ascii "nvm_sanity\000"
+ 10282      73 65 72 73 
+ 10282      5C 70 69 6C 
+ 10282      69 5C 67 69 
+ 10282      74 5C 68 65 
  10283                 	.LASF328:
- 10284 057d 73 6D 5F 70 		.ascii "SYS_AIO_READ_REQ\000"
+ 10284 0586 73 6D 5F 70 		.ascii "SYS_AIO_READ_REQ\000"
  10284      61 73 73 6B 
  10284      65 79 5F 64 
  10284      69 73 70 6C 
  10284      61 79 5F 69 
  10285                 	.LASF530:
- 10286 0588 61 70 70 5F 		.ascii "LM_EV_DISCONNECT_COMPLETE_T\000"
+ 10286 0591 61 70 70 5F 		.ascii "LM_EV_DISCONNECT_COMPLETE_T\000"
  10286      73 74 61 74 
  10286      65 5F 63 6F 
  10286      6E 6E 65 63 
  10286      74 65 64 00 
  10287                 	.LASF232:
- 10288 0592 62 75 7A 7A 		.ascii "LS_DELETE_WHITELIST_DEVICE_REQ\000"
+ 10288 059b 62 75 7A 7A 		.ascii "LS_DELETE_WHITELIST_DEVICE_REQ\000"
  10288      65 72 5F 74 
  10288      69 64 00 
  10289                 	.LASF726:
- 10290 0598 53 59 53 5F 		.ascii "pio_mode_strong_pull_down\000"
+ 10290 05a1 53 59 53 5F 		.ascii "pio_mode_strong_pull_down\000"
  10290      41 49 4F 5F 
  10290      4F 46 46 5F 
  10290      52 45 51 00 
  10291                 	.LASF522:
- 10292 05a0 61 64 64 5F 		.ascii "GATT_UUID_NONE\000"
+ 10292 05a9 61 64 64 5F 		.ascii "GATT_UUID_NONE\000"
  10292      69 64 78 00 
  10293                 	.LASF622:
- 10294 05a4 4C 4D 5F 45 		.ascii "LS_RADIO_EVENT_IND_T\000"
+ 10294 05ad 4C 4D 5F 45 		.ascii "LS_RADIO_EVENT_IND_T\000"
  10294      56 5F 52 45 
  10294      4D 4F 54 45 
  10294      5F 55 53 45 
  10294      44 5F 46 45 
  10295                 	.LASF374:
- 10296 05b2 74 69 6D 65 		.ascii "SYS_AIO_READ_CFM\000"
+ 10296 05bb 74 69 6D 65 		.ascii "SYS_AIO_READ_CFM\000"
  10296      72 5F 76 61 
  10296      6C 75 65 00 
  10297                 	.LASF626:
- 10298 05b8 6C 6F 6E 67 		.ascii "LS_DATA_RX_TIMING_IND_T\000"
+ 10298 05c1 6C 6F 6E 67 		.ascii "LS_DATA_RX_TIMING_IND_T\000"
  10298      20 69 6E 74 
  10298      00 
  10299                 	.LASF259:
- 10300 05bd 53 59 53 5F 		.ascii "LS_DELETE_WHITELIST_DEVICE_CFM\000"
+ 10300 05c6 53 59 53 5F 		.ascii "LS_DELETE_WHITELIST_DEVICE_CFM\000"
  10300      53 45 54 5F 
  10300      50 49 4F 5F 
  10300      4D 4F 44 45 
  10300      5F 52 45 51 
  10301                 	.LASF398:
- 10302 05c7 4C 53 5F 52 		.ascii "address_type\000"
+ 10302 05d0 4C 53 5F 52 		.ascii "address_type\000"
  10302      45 4D 4F 54 
  10302      45 5F 55 53 
  10302      45 44 5F 46 
  10302      45 41 54 55 
  10303                 	.LASF648:
- 10304 05d5 67 61 74 74 		.ascii "prim_disconnect_ind\000"
+ 10304 05de 67 61 74 74 		.ascii "prim_disconnect_ind\000"
  10304      5F 73 74 61 
  10304      74 75 73 5F 
  10304      69 6E 73 75 
  10304      66 66 69 63 
  10305                 	.LASF214:
- 10306 05e7 67 61 74 74 		.ascii "SM_KEYS_IND\000"
+ 10306 05f0 67 61 74 74 		.ascii "SM_KEYS_IND\000"
  10306      5F 73 74 61 
  10306      74 75 73 5F 
  10306      69 6E 73 75 
  10306      66 66 69 63 
  10307                 	.LASF843:
- 10308 05fb 53 4D 5F 53 		.ascii "handleSignalGattAccessInd\000"
+ 10308 0604 53 4D 5F 53 		.ascii "handleSignalGattAccessInd\000"
  10308      49 4D 50 4C 
  10308      45 5F 50 41 
  10308      49 52 49 4E 
  10308      47 5F 43 4F 
  10309                 	.LASF310:
- 10310 060b 53 59 53 5F 		.ascii "SYS_SET_PIO_PWM_REQ\000"
+ 10310 0614 53 59 53 5F 		.ascii "SYS_SET_PIO_PWM_REQ\000"
  10310      53 45 54 5F 
  10310      50 49 4F 5F 
  10310      4D 4F 44 45 
  10310      5F 43 46 4D 
  10311                 	.LASF593:
- 10312 0615 6E 76 6D 5F 		.ascii "rand\000"
+ 10312 061e 6E 76 6D 5F 		.ascii "rand\000"
  10312      73 61 6E 69 
  10312      74 79 00 
  10313                 	.LASF773:
- 10314 061b 53 59 53 5F 		.ascii "pairing_button_pressed\000"
+ 10314 0624 53 59 53 5F 		.ascii "pairing_button_pressed\000"
  10314      41 49 4F 5F 
  10314      52 45 41 44 
  10314      5F 52 45 51 
  10314      00 
  10315                 	.LASF406:
- 10316 0623 4C 4D 5F 45 		.ascii "encryption_diversifier\000"
+ 10316 062c 4C 4D 5F 45 		.ascii "encryption_diversifier\000"
  10316      56 5F 44 49 
  10316      53 43 4F 4E 
  10316      4E 45 43 54 
  10316      5F 43 4F 4D 
  10317                 	.LASF590:
- 10318 0631 4C 53 5F 44 		.ascii "keys_present\000"
+ 10318 063a 4C 53 5F 44 		.ascii "keys_present\000"
  10318      45 4C 45 54 
  10318      45 5F 57 48 
  10318      49 54 45 4C 
  10318      49 53 54 5F 
  10319                 	.LASF358:
- 10320 0641 70 69 6F 5F 		.ascii "SYS_SET_PIO_PWM_CFM\000"
+ 10320 064a 70 69 6F 5F 		.ascii "SYS_SET_PIO_PWM_CFM\000"
  10320      6D 6F 64 65 
  10320      5F 73 74 72 
  10320      6F 6E 67 5F 
  10320      70 75 6C 6C 
  10321                 	.LASF584:
- 10322 064e 47 41 54 54 		.ascii "GATT_READ_MULTI_CHAR_VAL_CFM_T\000"
+ 10322 0657 47 41 54 54 		.ascii "GATT_READ_MULTI_CHAR_VAL_CFM_T\000"
  10322      5F 55 55 49 
  10322      44 5F 4E 4F 
  10322      4E 45 00 
  10323                 	.LASF628:
- 10324 0655 4C 53 5F 52 		.ascii "enc_change\000"
+ 10324 065e 4C 53 5F 52 		.ascii "enc_change\000"
  10324      41 44 49 4F 
  10324      5F 45 56 45 
  10324      4E 54 5F 49 
  10324      4E 44 5F 54 
  10325                 	.LASF446:
- 10326 0660 53 59 53 5F 		.ascii "ls_err_none\000"
+ 10326 0669 53 59 53 5F 		.ascii "ls_err_none\000"
  10326      41 49 4F 5F 
  10326      52 45 41 44 
  10326      5F 43 46 4D 
  10326      00 
  10327                 	.LASF527:
- 10328 0668 4C 53 5F 44 		.ascii "data\000"
+ 10328 0671 4C 53 5F 44 		.ascii "data\000"
  10328      41 54 41 5F 
  10328      52 58 5F 54 
  10328      49 4D 49 4E 
  10328      47 5F 49 4E 
  10329                 	.LASF48:
- 10330 0674 4C 53 5F 44 		.ascii "l2cap_status_conn_not_ongoing\000"
+ 10330 067d 4C 53 5F 44 		.ascii "l2cap_status_conn_not_ongoing\000"
  10330      45 4C 45 54 
  10330      45 5F 57 48 
  10330      49 54 45 4C 
  10330      49 53 54 5F 
  10331                 	.LASF333:
- 10332 0684 61 64 64 72 		.ascii "SYS_READ_FW_FAULT_ID_REQ\000"
+ 10332 068d 61 64 64 72 		.ascii "SYS_READ_FW_FAULT_ID_REQ\000"
  10332      65 73 73 5F 
  10332      74 79 70 65 
  10332      00 
  10333                 	.LASF95:
- 10334 068a 70 72 69 6D 		.ascii "sm_status_unspecified_reason\000"
+ 10334 0693 70 72 69 6D 		.ascii "sm_status_unspecified_reason\000"
  10334      5F 64 69 73 
  10334      63 6F 6E 6E 
  10334      65 63 74 5F 
  10334      69 6E 64 00 
  10335                 	.LASF375:
- 10336 0694 53 4D 5F 4B 		.ascii "SYS_AIO_OFF_CFM\000"
+ 10336 069d 53 4D 5F 4B 		.ascii "SYS_AIO_OFF_CFM\000"
  10336      45 59 53 5F 
  10336      49 4E 44 00 
  10337                 	.LASF234:
- 10338 069a 68 61 6E 64 		.ascii "LS_READ_RSSI_REQ\000"
+ 10338 06a3 68 61 6E 64 		.ascii "LS_READ_RSSI_REQ\000"
  10338      6C 65 53 69 
  10338      67 6E 61 6C 
  10338      47 61 74 74 
  10338      41 63 63 65 
  10339                 	.LASF691:
- 10340 06a7 53 59 53 5F 		.ascii "pio_cause\000"
+ 10340 06b0 53 59 53 5F 		.ascii "pio_cause\000"
  10340      53 45 54 5F 
  10340      50 49 4F 5F 
  10340      50 57 4D 5F 
  10340      52 45 51 00 
  10341                 	.LASF197:
- 10342 06b1 72 61 6E 64 		.ascii "SM_ADD_STORED_KEY_REQ\000"
+ 10342 06ba 72 61 6E 64 		.ascii "SM_ADD_STORED_KEY_REQ\000"
  10342      00 
  10343                 	.LASF71:
- 10344 06b4 70 61 69 72 		.ascii "gatt_status_timeout\000"
+ 10344 06bd 70 61 69 72 		.ascii "gatt_status_timeout\000"
  10344      69 6E 67 5F 
  10344      62 75 74 74 
  10344      6F 6E 5F 70 
  10344      72 65 73 73 
  10345                 	.LASF379:
- 10346 06bf 65 6E 63 72 		.ascii "SYS_READ_FW_FAULT_ID_CFM\000"
+ 10346 06c8 65 6E 63 72 		.ascii "SYS_READ_FW_FAULT_ID_CFM\000"
  10346      79 70 74 69 
  10346      6F 6E 5F 64 
  10346      69 76 65 72 
  10346      73 69 66 69 
  10347                 	.LASF756:
- 10348 06cb 6B 65 79 73 		.ascii "start_idx\000"
+ 10348 06d4 6B 65 79 73 		.ascii "start_idx\000"
  10348      5F 70 72 65 
  10348      73 65 6E 74 
  10348      00 
  10349                 	.LASF261:
- 10350 06d1 53 59 53 5F 		.ascii "LS_READ_RSSI_CFM\000"
+ 10350 06da 53 59 53 5F 		.ascii "LS_READ_RSSI_CFM\000"
  10350      53 45 54 5F 
  10350      50 49 4F 5F 
  10350      50 57 4D 5F 
  10350      43 46 4D 00 
  10351                 	.LASF729:
- 10352 06db 47 41 54 54 		.ascii "pio_mode_strong_sticky\000"
+ 10352 06e4 47 41 54 54 		.ascii "pio_mode_strong_sticky\000"
  10352      5F 52 45 41 
  10352      44 5F 4D 55 
  10352      4C 54 49 5F 
  10352      43 48 41 52 
  10353                 	.LASF8:
- 10354 06eb 65 6E 63 5F 		.ascii "signed char\000"
+ 10354 06f4 65 6E 63 5F 		.ascii "signed char\000"
  10354      63 68 61 6E 
  10354      67 65 00 
  10355                 	.LASF670:
- 10356 06f0 6C 73 5F 65 		.ascii "sm_simple_pairing_complete_ind\000"
+ 10356 06f9 6C 73 5F 65 		.ascii "sm_simple_pairing_complete_ind\000"
  10356      72 72 5F 6E 
  10356      6F 6E 65 00 
  10357                 	.LASF207:
- 10358 06f6 64 61 74 61 		.ascii "SM_ENCRYPT_RAW_AES_REQ\000"
+ 10358 06ff 64 61 74 61 		.ascii "SM_ENCRYPT_RAW_AES_REQ\000"
  10358      00 
  10359                 	.LASF155:
- 10360 06f9 6C 32 63 61 		.ascii "GATT_ACCESS_RSP\000"
+ 10360 0702 6C 32 63 61 		.ascii "GATT_ACCESS_RSP\000"
  10360      70 5F 73 74 
  10360      61 74 75 73 
  10360      5F 63 6F 6E 
  10360      6E 5F 6E 6F 
  10361                 	.LASF73:
- 10362 0708 53 59 53 5F 		.ascii "gatt_status_invalid_uuid\000"
+ 10362 0711 53 59 53 5F 		.ascii "gatt_status_invalid_uuid\000"
  10362      52 45 41 44 
  10362      5F 46 57 5F 
  10362      46 41 55 4C 
  10362      54 5F 49 44 
  10363                 	.LASF208:
- 10364 0714 73 6D 5F 73 		.ascii "SM_LONG_TERM_KEY_RSP\000"
+ 10364 071d 73 6D 5F 73 		.ascii "SM_LONG_TERM_KEY_RSP\000"
  10364      74 61 74 75 
  10364      73 5F 75 6E 
  10364      73 70 65 63 
  10364      69 66 69 65 
  10365                 	.LASF789:
- 10366 0723 53 59 53 5F 		.ascii "ResetIdleTimer\000"
+ 10366 072c 53 59 53 5F 		.ascii "ResetIdleTimer\000"
  10366      41 49 4F 5F 
  10366      4F 46 46 5F 
  10366      43 46 4D 00 
  10367                 	.LASF84:
- 10368 072b 4C 53 5F 52 		.ascii "gatt_status_app_mask\000"
+ 10368 0734 4C 53 5F 52 		.ascii "gatt_status_app_mask\000"
  10368      45 41 44 5F 
  10368      52 53 53 49 
  10368      5F 52 45 51 
  10368      00 
  10369                 	.LASF784:
- 10370 0733 70 69 6F 5F 		.ascii "beep_count\000"
+ 10370 073c 70 69 6F 5F 		.ascii "beep_count\000"
  10370      63 61 75 73 
  10370      65 00 
  10371                 	.LASF172:
- 10372 0738 53 4D 5F 41 		.ascii "GATT_CHAR_DECL_INFO_IND\000"
+ 10372 0741 53 4D 5F 41 		.ascii "GATT_CHAR_DECL_INFO_IND\000"
  10372      44 44 5F 53 
  10372      54 4F 52 45 
  10372      44 5F 4B 45 
  10372      59 5F 52 45 
  10373                 	.LASF796:
- 10374 0743 67 61 74 74 		.ascii "rr_val_arr\000"
+ 10374 074c 67 61 74 74 		.ascii "rr_val_arr\000"
  10374      5F 73 74 61 
  10374      74 75 73 5F 
  10374      74 69 6D 65 
  10374      6F 75 74 00 
  10375                 	.LASF397:
- 10376 074d 53 59 53 5F 		.ascii "event_type\000"
+ 10376 0756 53 59 53 5F 		.ascii "event_type\000"
  10376      52 45 41 44 
  10376      5F 46 57 5F 
  10376      46 41 55 4C 
  10376      54 5F 49 44 
  10377                 	.LASF193:
- 10378 075a 73 74 61 72 		.ascii "LS_RX_TIMING_REPORT_CFM\000"
+ 10378 0763 73 74 61 72 		.ascii "LS_RX_TIMING_REPORT_CFM\000"
  10378      74 5F 69 64 
  10378      78 00 
  10379                 	.LASF224:
- 10380 075f 4C 53 5F 52 		.ascii "SM_ENCRYPT_RAW_AES_CFM\000"
+ 10380 0768 4C 53 5F 52 		.ascii "SM_ENCRYPT_RAW_AES_CFM\000"
  10380      45 41 44 5F 
  10380      52 53 53 49 
  10380      5F 43 46 4D 
  10380      00 
  10381                 	.LASF607:
- 10382 0767 70 69 6F 5F 		.ascii "SM_CSRK_COUNTER_CHANGE_IND_T\000"
+ 10382 0770 70 69 6F 5F 		.ascii "SM_CSRK_COUNTER_CHANGE_IND_T\000"
  10382      6D 6F 64 65 
  10382      5F 73 74 72 
  10382      6F 6E 67 5F 
  10382      73 74 69 63 
  10383                 	.LASF384:
- 10384 0773 73 69 67 6E 		.ascii "event_code\000"
+ 10384 077c 73 69 67 6E 		.ascii "event_code\000"
  10384      65 64 20 63 
  10384      68 61 72 00 
  10385                 	.LASF357:
- 10386 0779 73 6D 5F 73 		.ascii "SYS_SET_PIO_I2C_PULL_MODE_CFM\000"
+ 10386 0782 73 6D 5F 73 		.ascii "SYS_SET_PIO_I2C_PULL_MODE_CFM\000"
  10386      69 6D 70 6C 
  10386      65 5F 70 61 
  10386      69 72 69 6E 
  10386      67 5F 63 6F 
  10387                 	.LASF505:
- 10388 0788 53 4D 5F 45 		.ascii "ls_err_conn_interval\000"
+ 10388 0791 53 4D 5F 45 		.ascii "ls_err_conn_interval\000"
  10388      4E 43 52 59 
  10388      50 54 5F 52 
  10388      41 57 5F 41 
  10388      45 53 5F 52 
  10389                 	.LASF547:
- 10390 0794 47 41 54 54 		.ascii "LM_EV_COMMAND_STATUS_T\000"
+ 10390 079d 47 41 54 54 		.ascii "LM_EV_COMMAND_STATUS_T\000"
  10390      5F 41 43 43 
  10390      45 53 53 5F 
  10390      52 53 50 00 
  10391                 	.LASF632:
- 10392 079c 67 61 74 74 		.ascii "adv_report\000"
+ 10392 07a5 67 61 74 74 		.ascii "adv_report\000"
  10392      5F 73 74 61 
  10392      74 75 73 5F 
  10392      69 6E 76 61 
  10392      6C 69 64 5F 
  10393                 	.LASF185:
- 10394 07a8 53 4D 5F 4C 		.ascii "GATT_ACCESS_IND\000"
+ 10394 07b1 53 4D 5F 4C 		.ascii "GATT_ACCESS_IND\000"
  10394      4F 4E 47 5F 
  10394      54 45 52 4D 
  10394      5F 4B 45 59 
  10394      5F 52 53 50 
  10395                 	.LASF225:
- 10396 07b3 52 65 73 65 		.ascii "SM_LONG_TERM_KEY_IND\000"
+ 10396 07bc 52 65 73 65 		.ascii "SM_LONG_TERM_KEY_IND\000"
  10396      74 49 64 6C 
  10396      65 54 69 6D 
  10396      65 72 00 
  10397                 	.LASF118:
- 10398 07ba 67 61 74 74 		.ascii "LM_EV_ENCRYPTION_CHANGE\000"
+ 10398 07c3 67 61 74 74 		.ascii "LM_EV_ENCRYPTION_CHANGE\000"
  10398      5F 73 74 61 
  10398      74 75 73 5F 
  10398      61 70 70 5F 
  10398      6D 61 73 6B 
  10399                 	.LASF624:
- 10400 07c5 62 65 65 70 		.ascii "tx_event_offset\000"
+ 10400 07ce 62 65 65 70 		.ascii "tx_event_offset\000"
  10400      5F 63 6F 75 
  10400      6E 74 00 
  10401                 	.LASF2:
- 10402 07ca 47 41 54 54 		.ascii "unsigned char\000"
+ 10402 07d3 47 41 54 54 		.ascii "unsigned char\000"
  10402      5F 43 48 41 
  10402      52 5F 44 45 
  10402      43 4C 5F 49 
  10402      4E 46 4F 5F 
  10403                 	.LASF643:
- 10404 07d6 72 72 5F 76 		.ascii "prim_add_db_cfm\000"
+ 10404 07df 72 72 5F 76 		.ascii "prim_add_db_cfm\000"
  10404      61 6C 5F 61 
  10404      72 72 00 
  10405                 	.LASF743:
- 10406 07dc 65 76 65 6E 		.ascii "app_panic_con_param_update\000"
+ 10406 07e5 65 76 65 6E 		.ascii "app_panic_con_param_update\000"
  10406      74 5F 74 79 
  10406      70 65 00 
  10407                 	.LASF612:
- 10408 07e1 4C 53 5F 52 		.ascii "SM_PAIRING_AUTH_IND_T\000"
+ 10408 07ea 4C 53 5F 52 		.ascii "SM_PAIRING_AUTH_IND_T\000"
  10408      58 5F 54 49 
  10408      4D 49 4E 47 
  10408      5F 52 45 50 
  10408      4F 52 54 5F 
  10409                 	.LASF769:
- 10410 07ed 53 4D 5F 45 		.ascii "central_device_irk\000"
+ 10410 07f6 53 4D 5F 45 		.ascii "central_device_irk\000"
  10410      4E 43 52 59 
  10410      50 54 5F 52 
  10410      41 57 5F 41 
  10410      45 53 5F 43 
  10411                 	.LASF286:
- 10412 07f9 53 4D 5F 43 		.ascii "LS_REMOTE_VERSION_INFO_IND\000"
+ 10412 0802 53 4D 5F 43 		.ascii "LS_REMOTE_VERSION_INFO_IND\000"
  10412      53 52 4B 5F 
  10412      43 4F 55 4E 
  10412      54 45 52 5F 
  10412      43 48 41 4E 
  10413                 	.LASF467:
- 10414 0807 65 76 65 6E 		.ascii "ls_err_oetc_power\000"
+ 10414 0810 65 76 65 6E 		.ascii "ls_err_oetc_power\000"
  10414      74 5F 63 6F 
  10414      64 65 00 
  10415                 	.LASF576:
- 10416 080d 53 59 53 5F 		.ascii "size_value\000"
+ 10416 0816 53 59 53 5F 		.ascii "size_value\000"
  10416      53 45 54 5F 
  10416      50 49 4F 5F 
  10416      49 32 43 5F 
  10416      50 55 4C 4C 
  10417                 	.LASF507:
- 10418 081c 6C 73 5F 65 		.ascii "ls_err_conn_mic\000"
+ 10418 0825 6C 73 5F 65 		.ascii "ls_err_conn_mic\000"
  10418      72 72 5F 63 
  10418      6F 6E 6E 5F 
  10418      69 6E 74 65 
  10418      72 76 61 6C 
  10419                 	.LASF543:
- 10420 0826 4C 4D 5F 45 		.ascii "num_bytes\000"
+ 10420 082f 4C 4D 5F 45 		.ascii "num_bytes\000"
  10420      56 5F 43 4F 
  10420      4D 4D 41 4E 
  10420      44 5F 53 54 
  10420      41 54 55 53 
  10421                 	.LASF752:
- 10422 0832 61 64 76 5F 		.ascii "app_state_idle\000"
+ 10422 083b 61 64 76 5F 		.ascii "app_state_idle\000"
  10422      72 65 70 6F 
  10422      72 74 00 
  10423                 	.LASF699:
- 10424 0837 47 41 54 54 		.ascii "pio_mode_edge_capture\000"
+ 10424 0840 47 41 54 54 		.ascii "pio_mode_edge_capture\000"
  10424      5F 41 43 43 
  10424      45 53 53 5F 
  10424      49 4E 44 00 
  10425                 	.LASF229:
- 10426 083f 53 4D 5F 4C 		.ascii "LS_READ_WHITELIST_SIZE_REQ\000"
+ 10426 0848 53 4D 5F 4C 		.ascii "LS_READ_WHITELIST_SIZE_REQ\000"
  10426      4F 4E 47 5F 
  10426      54 45 52 4D 
  10426      5F 4B 45 59 
  10426      5F 49 4E 44 
  10427                 	.LASF315:
- 10428 084a 4C 4D 5F 45 		.ascii "SYS_SET_PIO_QUADRATURE_DECODERS_REQ\000"
+ 10428 0853 4C 4D 5F 45 		.ascii "SYS_SET_PIO_QUADRATURE_DECODERS_REQ\000"
  10428      56 5F 45 4E 
  10428      43 52 59 50 
  10428      54 49 4F 4E 
  10428      5F 43 48 41 
  10429                 	.LASF518:
- 10430 0856 74 78 5F 65 		.ascii "gap_mode_security_unauthenticate\000"
+ 10430 085f 74 78 5F 65 		.ascii "gap_mode_security_unauthenticate\000"
  10430      76 65 6E 74 
  10430      5F 6F 66 66 
  10430      73 65 74 00 
  10431                 	.LASF771:
- 10432 085e 75 6E 73 69 		.ascii "pending_rr_values\000"
+ 10432 0867 75 6E 73 69 		.ascii "pending_rr_values\000"
  10432      67 6E 65 64 
  10432      20 63 68 61 
  10432      72 00 
  10433                 	.LASF490:
- 10434 0865 70 72 69 6D 		.ascii "ls_err_qos_param\000"
+ 10434 086e 70 72 69 6D 		.ascii "ls_err_qos_param\000"
  10434      5F 61 64 64 
  10434      5F 64 62 5F 
  10434      63 66 6D 00 
  10435                 	.LASF715:
- 10436 086d 61 70 70 5F 		.ascii "pio_mode_pio_control_rxd\000"
+ 10436 0876 61 70 70 5F 		.ascii "pio_mode_pio_control_rxd\000"
  10436      70 61 6E 69 
  10436      63 5F 63 6F 
  10436      6E 5F 70 61 
  10436      72 61 6D 5F 
  10437                 	.LASF147:
- 10438 087a 53 4D 5F 50 		.ascii "GATT_READ_CHAR_VAL_REQ\000"
+ 10438 0883 53 4D 5F 50 		.ascii "GATT_READ_CHAR_VAL_REQ\000"
  10438      41 49 52 49 
  10438      4E 47 5F 41 
  10438      55 54 48 5F 
  10438      49 4E 44 5F 
  10439                 	.LASF679:
- 10440 0885 63 65 6E 74 		.ascii "ls_conn_update_signal_ind\000"
+ 10440 088e 63 65 6E 74 		.ascii "ls_conn_update_signal_ind\000"
  10440      72 61 6C 5F 
  10440      64 65 76 69 
  10440      63 65 5F 69 
  10440      72 6B 00 
  10441                 	.LASF363:
- 10442 088f 4C 53 5F 52 		.ascii "SYS_SET_PIO_QUADRATURE_DECODERS_CFM\000"
+ 10442 0898 4C 53 5F 52 		.ascii "SYS_SET_PIO_QUADRATURE_DECODERS_CFM\000"
  10442      45 4D 4F 54 
  10442      45 5F 56 45 
  10442      52 53 49 4F 
  10442      4E 5F 49 4E 
  10443                 	.LASF697:
- 10444 089c 6C 73 5F 65 		.ascii "sleep_state\000"
+ 10444 08a5 6C 73 5F 65 		.ascii "sleep_state\000"
  10444      72 72 5F 6F 
  10444      65 74 63 5F 
  10444      70 6F 77 65 
  10444      72 00 
  10445                 	.LASF635:
- 10446 08a5 73 69 7A 65 		.ascii "long_term_key\000"
+ 10446 08ae 73 69 7A 65 		.ascii "long_term_key\000"
  10446      5F 76 61 6C 
  10446      75 65 00 
  10447                 	.LASF785:
- 10448 08ab 6C 73 5F 65 		.ascii "button_press_tid\000"
+ 10448 08b4 6C 73 5F 65 		.ascii "button_press_tid\000"
  10448      72 72 5F 63 
  10448      6F 6E 6E 5F 
  10448      6D 69 63 00 
  10449                 	.LASF822:
- 10450 08b3 6E 75 6D 5F 		.ascii "AppSetState\000"
+ 10450 08bc 6E 75 6D 5F 		.ascii "AppSetState\000"
  10450      62 79 74 65 
  10450      73 00 
  10451                 	.LASF39:
- 10452 08b8 61 70 70 5F 		.ascii "spi_status_erase_pending\000"
+ 10452 08c1 61 70 70 5F 		.ascii "spi_status_erase_pending\000"
  10452      73 74 61 74 
  10452      65 5F 69 64 
  10452      6C 65 00 
  10453                 	.LASF175:
- 10454 08bf 70 69 6F 5F 		.ascii "GATT_READ_CHAR_VAL_CFM\000"
+ 10454 08c8 70 69 6F 5F 		.ascii "GATT_READ_CHAR_VAL_CFM\000"
  10454      6D 6F 64 65 
  10454      5F 65 64 67 
  10454      65 5F 63 61 
  10454      70 74 75 72 
  10455                 	.LASF493:
- 10456 08ca 4C 53 5F 52 		.ascii "ls_err_security\000"
+ 10456 08d3 4C 53 5F 52 		.ascii "ls_err_security\000"
  10456      45 41 44 5F 
  10456      57 48 49 54 
  10456      45 4C 49 53 
  10456      54 5F 53 49 
  10457                 	.LASF851:
- 10458 08d8 53 59 53 5F 		.ascii "HandleHRInputEvent\000"
+ 10458 08e1 53 59 53 5F 		.ascii "HandleHRInputEvent\000"
  10458      53 45 54 5F 
  10458      50 49 4F 5F 
  10458      51 55 41 44 
  10458      52 41 54 55 
  10459                 	.LASF292:
- 10460 08ea 67 61 70 5F 		.ascii "SYS_GET_TX_POWER_REQ\000"
+ 10460 08f3 67 61 70 5F 		.ascii "SYS_GET_TX_POWER_REQ\000"
  10460      6D 6F 64 65 
  10460      5F 73 65 63 
  10460      75 72 69 74 
  10460      79 5F 75 6E 
  10461                 	.LASF633:
- 10462 08fa 70 65 6E 64 		.ascii "connection_update\000"
+ 10462 0903 70 65 6E 64 		.ascii "connection_update\000"
  10462      69 6E 67 5F 
  10462      72 72 5F 76 
  10462      61 6C 75 65 
  10462      73 00 
  10463                 	.LASF744:
- 10464 0903 6C 73 5F 65 		.ascii "app_panic_invalid_state\000"
+ 10464 090c 6C 73 5F 65 		.ascii "app_panic_invalid_state\000"
  10464      72 72 5F 71 
  10464      6F 73 5F 70 
  10464      61 72 61 6D 
  10464      00 
  10465                 	.LASF787:
- 10466 090c 70 69 6F 5F 		.ascii "HandleShortButtonPress\000"
+ 10466 0915 70 69 6F 5F 		.ascii "HandleShortButtonPress\000"
  10466      6D 6F 64 65 
  10466      5F 70 69 6F 
  10466      5F 63 6F 6E 
  10466      74 72 6F 6C 
  10467                 	.LASF609:
- 10468 0918 47 41 54 54 		.ascii "passkey\000"
+ 10468 0921 47 41 54 54 		.ascii "passkey\000"
  10468      5F 52 45 41 
  10468      44 5F 43 48 
  10468      41 52 5F 56 
  10468      41 4C 5F 52 
  10469                 	.LASF577:
- 10470 0924 6C 73 5F 63 		.ascii "value\000"
+ 10470 092d 6C 73 5F 63 		.ascii "value\000"
  10470      6F 6E 6E 5F 
  10470      75 70 64 61 
  10470      74 65 5F 73 
  10470      69 67 6E 61 
  10471                 	.LASF759:
- 10472 0931 53 59 53 5F 		.ascii "advert_timer_value\000"
+ 10472 093a 53 59 53 5F 		.ascii "advert_timer_value\000"
  10472      53 45 54 5F 
  10472      50 49 4F 5F 
  10472      51 55 41 44 
  10472      52 41 54 55 
  10473                 	.LASF588:
- 10474 0943 73 6C 65 65 		.ascii "flags\000"
+ 10474 094c 73 6C 65 65 		.ascii "flags\000"
  10474      70 5F 73 74 
  10474      61 74 65 00 
  10475                 	.LASF340:
- 10476 0949 6C 6F 6E 67 		.ascii "SYS_GET_TX_POWER_CFM\000"
+ 10476 0952 6C 6F 6E 67 		.ascii "SYS_GET_TX_POWER_CFM\000"
  10476      5F 74 65 72 
  10476      6D 5F 6B 65 
  10476      79 00 
  10477                 	.LASF566:
- 10478 0950 62 75 74 74 		.ascii "GATT_DISC_PRIM_SERV_BY_UUID_CFM_T\000"
+ 10478 0959 62 75 74 74 		.ascii "GATT_DISC_PRIM_SERV_BY_UUID_CFM_T\000"
  10478      6F 6E 5F 70 
  10478      72 65 73 73 
  10478      5F 74 69 64 
  10478      00 
  10479                 	.LASF855:
- 10480 0958 41 70 70 53 		.ascii "g_app_hw_data\000"
+ 10480 0961 41 70 70 53 		.ascii "g_app_hw_data\000"
  10480      65 74 53 74 
  10480      61 74 65 00 
  10481                 	.LASF458:
- 10482 095e 73 70 69 5F 		.ascii "ls_err_not_allowed\000"
+ 10482 0967 73 70 69 5F 		.ascii "ls_err_not_allowed\000"
  10482      73 74 61 74 
  10482      75 73 5F 65 
  10482      72 61 73 65 
  10482      5F 70 65 6E 
  10483                 	.LASF331:
- 10484 096b 47 41 54 54 		.ascii "SYS_READ_APP_PANIC_CODE_REQ\000"
+ 10484 0974 47 41 54 54 		.ascii "SYS_READ_APP_PANIC_CODE_REQ\000"
  10484      5F 52 45 41 
  10484      44 5F 43 48 
  10484      41 52 5F 56 
  10484      41 4C 5F 43 
  10485                 	.LASF309:
- 10486 0976 6C 73 5F 65 		.ascii "SYS_SET_PIO_I2C_PULL_MODE_REQ\000"
+ 10486 097f 6C 73 5F 65 		.ascii "SYS_SET_PIO_I2C_PULL_MODE_REQ\000"
  10486      72 72 5F 73 
  10486      65 63 75 72 
  10486      69 74 79 00 
  10487                 	.LASF652:
- 10488 097e 48 61 6E 64 		.ascii "prim_serv_info_ind\000"
+ 10488 0987 48 61 6E 64 		.ascii "prim_serv_info_ind\000"
  10488      6C 65 48 52 
  10488      49 6E 70 75 
  10488      74 45 76 65 
  10488      6E 74 00 
  10489                 	.LASF581:
- 10490 0988 53 59 53 5F 		.ascii "GATT_READ_LONG_CHAR_VAL_CFM_T\000"
+ 10490 0991 53 59 53 5F 		.ascii "GATT_READ_LONG_CHAR_VAL_CFM_T\000"
  10490      47 45 54 5F 
  10490      54 58 5F 50 
  10490      4F 57 45 52 
  10490      5F 52 45 51 
  10491                 	.LASF323:
- 10492 0992 63 6F 6E 6E 		.ascii "SYS_GET_BUILD_ID_REQ\000"
+ 10492 099b 63 6F 6E 6E 		.ascii "SYS_GET_BUILD_ID_REQ\000"
  10492      65 63 74 69 
  10492      6F 6E 5F 75 
  10492      70 64 61 74 
  10492      65 00 
  10493                 	.LASF68:
- 10494 099b 61 70 70 5F 		.ascii "gatt_status_device_not_found\000"
+ 10494 09a4 61 70 70 5F 		.ascii "gatt_status_device_not_found\000"
  10494      70 61 6E 69 
  10494      63 5F 69 6E 
  10494      76 61 6C 69 
  10494      64 5F 73 74 
  10495                 	.LASF806:
- 10496 09a7 48 61 6E 64 		.ascii "nvm_offset\000"
+ 10496 09b0 48 61 6E 64 		.ascii "nvm_offset\000"
  10496      6C 65 53 68 
  10496      6F 72 74 42 
  10496      75 74 74 6F 
  10496      6E 50 72 65 
  10497                 	.LASF793:
- 10498 09b3 70 61 73 73 		.ascii "p_hr_meas_flags\000"
+ 10498 09bc 70 61 73 73 		.ascii "p_hr_meas_flags\000"
  10498      6B 65 79 00 
  10499                 	.LASF377:
- 10500 09b7 76 61 6C 75 		.ascii "SYS_READ_APP_PANIC_CODE_CFM\000"
+ 10500 09c0 76 61 6C 75 		.ascii "SYS_READ_APP_PANIC_CODE_CFM\000"
  10500      65 00 
  10501                 	.LASF249:
- 10502 09ba 61 64 76 65 		.ascii "LS_GAP_SET_SCAN_TYPE_REQ\000"
+ 10502 09c3 61 64 76 65 		.ascii "LS_GAP_SET_SCAN_TYPE_REQ\000"
  10502      72 74 5F 74 
  10502      69 6D 65 72 
  10502      5F 76 61 6C 
  10502      75 65 00 
  10503                 	.LASF370:
- 10504 09c3 66 6C 61 67 		.ascii "SYS_GET_BUILD_ID_CFM\000"
+ 10504 09cc 66 6C 61 67 		.ascii "SYS_GET_BUILD_ID_CFM\000"
  10504      73 00 
  10505                 	.LASF45:
- 10506 09c6 53 59 53 5F 		.ascii "skm_status_too_many_keys\000"
+ 10506 09cf 53 59 53 5F 		.ascii "skm_status_too_many_keys\000"
  10506      47 45 54 5F 
  10506      54 58 5F 50 
  10506      4F 57 45 52 
  10506      5F 43 46 4D 
  10507                 	.LASF139:
- 10508 09d1 47 41 54 54 		.ascii "GATT_DISCONNECT_REASON_REQ\000"
+ 10508 09da 47 41 54 54 		.ascii "GATT_DISCONNECT_REASON_REQ\000"
  10508      5F 44 49 53 
  10508      43 5F 50 52 
  10508      49 4D 5F 53 
  10508      45 52 56 5F 
  10509                 	.LASF688:
- 10510 09e2 67 5F 61 70 		.ascii "sys_event_pio_ctrlr\000"
+ 10510 09eb 67 5F 61 70 		.ascii "sys_event_pio_ctrlr\000"
  10510      70 5F 68 77 
  10510      5F 64 61 74 
  10510      61 00 
  10511                 	.LASF24:
- 10512 09e9 6C 73 5F 65 		.ascii "nvm_status_invalid_buffer\000"
+ 10512 09f2 6C 73 5F 65 		.ascii "nvm_status_invalid_buffer\000"
  10512      72 72 5F 6E 
  10512      6F 74 5F 61 
  10512      6C 6C 6F 77 
  10512      65 64 00 
  10513                 	.LASF702:
- 10514 09f2 53 59 53 5F 		.ascii "pio_mode_pwm1\000"
+ 10514 09fb 53 59 53 5F 		.ascii "pio_mode_pwm1\000"
  10514      52 45 41 44 
  10514      5F 41 50 50 
  10514      5F 50 41 4E 
  10514      49 43 5F 43 
  10515                 	.LASF483:
- 10516 0a00 53 59 53 5F 		.ascii "ls_err_enc_not_allowed\000"
+ 10516 0a09 53 59 53 5F 		.ascii "ls_err_enc_not_allowed\000"
  10516      53 45 54 5F 
  10516      50 49 4F 5F 
  10516      49 32 43 5F 
  10516      50 55 4C 4C 
  10517                 	.LASF330:
- 10518 0a0f 70 72 69 6D 		.ascii "SYS_AIO_DIG_REQ\000"
+ 10518 0a18 70 72 69 6D 		.ascii "SYS_AIO_DIG_REQ\000"
  10518      5F 73 65 72 
  10518      76 5F 69 6E 
  10518      66 6F 5F 69 
  10518      6E 64 00 
  10519                 	.LASF552:
- 10520 0a19 47 41 54 54 		.ascii "GATT_CONNECT_CFM_T\000"
+ 10520 0a22 47 41 54 54 		.ascii "GATT_CONNECT_CFM_T\000"
  10520      5F 52 45 41 
  10520      44 5F 4C 4F 
  10520      4E 47 5F 43 
  10520      48 41 52 5F 
  10521                 	.LASF563:
- 10522 0a28 53 59 53 5F 		.ascii "uuid_type\000"
+ 10522 0a31 53 59 53 5F 		.ascii "uuid_type\000"
  10522      47 45 54 5F 
  10522      42 55 49 4C 
  10522      44 5F 49 44 
  10522      5F 52 45 51 
  10523                 	.LASF146:
- 10524 0a32 67 61 74 74 		.ascii "GATT_DISC_ALL_CHAR_DESC_REQ\000"
+ 10524 0a3b 67 61 74 74 		.ascii "GATT_DISC_ALL_CHAR_DESC_REQ\000"
  10524      5F 73 74 61 
  10524      74 75 73 5F 
  10524      64 65 76 69 
  10524      63 65 5F 6E 
  10525                 	.LASF625:
- 10526 0a41 6E 76 6D 5F 		.ascii "tx_transmit_offset\000"
+ 10526 0a4a 6E 76 6D 5F 		.ascii "tx_transmit_offset\000"
  10526      6F 66 66 73 
  10526      65 74 00 
  10527                 	.LASF471:
- 10528 0a46 70 5F 68 72 		.ascii "ls_err_lmp_unknown\000"
+ 10528 0a4f 70 5F 68 72 		.ascii "ls_err_lmp_unknown\000"
  10528      5F 6D 65 61 
  10528      73 5F 66 6C 
  10528      61 67 73 00 
  10529                 	.LASF130:
- 10530 0a4e 53 59 53 5F 		.ascii "LM_EV_LONG_TERM_KEY_REQUESTED\000"
+ 10530 0a57 53 59 53 5F 		.ascii "LM_EV_LONG_TERM_KEY_REQUESTED\000"
  10530      52 45 41 44 
  10530      5F 41 50 50 
  10530      5F 50 41 4E 
  10530      49 43 5F 43 
  10531                 	.LASF83:
- 10532 0a5c 4C 53 5F 47 		.ascii "gatt_status_irq_proceed\000"
+ 10532 0a65 4C 53 5F 47 		.ascii "gatt_status_irq_proceed\000"
  10532      41 50 5F 53 
  10532      45 54 5F 53 
  10532      43 41 4E 5F 
  10532      54 59 50 45 
  10533                 	.LASF482:
- 10534 0a69 53 59 53 5F 		.ascii "ls_err_lmp_unsupported\000"
+ 10534 0a72 53 59 53 5F 		.ascii "ls_err_lmp_unsupported\000"
  10534      47 45 54 5F 
  10534      42 55 49 4C 
  10534      44 5F 49 44 
  10534      5F 43 46 4D 
  10535                 	.LASF464:
- 10536 0a73 73 6B 6D 5F 		.ascii "ls_err_format\000"
+ 10536 0a7c 73 6B 6D 5F 		.ascii "ls_err_format\000"
  10536      73 74 61 74 
  10536      75 73 5F 74 
  10536      6F 6F 5F 6D 
  10536      61 6E 79 5F 
  10537                 	.LASF173:
- 10538 0a80 47 41 54 54 		.ascii "GATT_DISC_ALL_CHAR_DESC_CFM\000"
+ 10538 0a89 47 41 54 54 		.ascii "GATT_DISC_ALL_CHAR_DESC_CFM\000"
  10538      5F 44 49 53 
  10538      43 4F 4E 4E 
  10538      45 43 54 5F 
  10538      52 45 41 53 
  10539                 	.LASF209:
- 10540 0a8d 73 79 73 5F 		.ascii "SM_PRIVACY_GET_OWN_IRK_REQ\000"
+ 10540 0a96 73 79 73 5F 		.ascii "SM_PRIVACY_GET_OWN_IRK_REQ\000"
  10540      65 76 65 6E 
  10540      74 5F 70 69 
  10540      6F 5F 63 74 
  10540      72 6C 72 00 
  10541                 	.LASF818:
- 10542 0a97 6E 76 6D 5F 		.ascii "app_pref_conn_param\000"
+ 10542 0aa0 6E 76 6D 5F 		.ascii "app_pref_conn_param\000"
  10542      73 74 61 74 
  10542      75 73 5F 69 
  10542      6E 76 61 6C 
  10542      69 64 5F 62 
  10543                 	.LASF389:
- 10544 0aa4 70 69 6F 5F 		.ascii "peer_address_type\000"
+ 10544 0aad 70 69 6F 5F 		.ascii "peer_address_type\000"
  10544      6D 6F 64 65 
  10544      5F 70 77 6D 
  10544      31 00 
  10545                 	.LASF260:
- 10546 0aab 6C 73 5F 65 		.ascii "LS_READ_REMOTE_VERSION_INFO_CFM\000"
+ 10546 0ab4 6C 73 5F 65 		.ascii "LS_READ_REMOTE_VERSION_INFO_CFM\000"
  10546      72 72 5F 65 
  10546      6E 63 5F 6E 
  10546      6F 74 5F 61 
  10546      6C 6C 6F 77 
  10547                 	.LASF151:
- 10548 0ab7 53 59 53 5F 		.ascii "GATT_WRITE_CHAR_VAL_REQ\000"
+ 10548 0ac0 53 59 53 5F 		.ascii "GATT_WRITE_CHAR_VAL_REQ\000"
  10548      41 49 4F 5F 
  10548      44 49 47 5F 
  10548      52 45 51 00 
  10549                 	.LASF132:
- 10550 0abf 47 41 54 54 		.ascii "LM_EV_ACL_DATA_CONT\000"
+ 10550 0ac8 47 41 54 54 		.ascii "LM_EV_ACL_DATA_CONT\000"
  10550      5F 43 4F 4E 
  10550      4E 45 43 54 
  10550      5F 43 46 4D 
  10550      5F 54 00 
  10551                 	.LASF824:
- 10552 0ac8 75 75 69 64 		.ascii "old_state\000"
+ 10552 0ad1 75 75 69 64 		.ascii "old_state\000"
  10552      5F 74 79 70 
  10552      65 00 
  10553                 	.LASF617:
- 10554 0acd 47 41 54 54 		.ascii "conn_interval_max\000"
+ 10554 0ad6 47 41 54 54 		.ascii "conn_interval_max\000"
  10554      5F 44 49 53 
  10554      43 5F 41 4C 
  10554      4C 5F 43 48 
  10554      41 52 5F 44 
  10555                 	.LASF799:
- 10556 0adb 74 78 5F 74 		.ascii "hr_meas_count\000"
+ 10556 0ae4 74 78 5F 74 		.ascii "hr_meas_count\000"
  10556      72 61 6E 73 
  10556      6D 69 74 5F 
  10556      6F 66 66 73 
  10556      65 74 00 
  10557                 	.LASF570:
- 10558 0ae5 6C 73 5F 65 		.ascii "prop\000"
+ 10558 0aee 6C 73 5F 65 		.ascii "prop\000"
  10558      72 72 5F 6C 
  10558      6D 70 5F 75 
  10558      6E 6B 6E 6F 
  10558      77 6E 00 
  10559                 	.LASF695:
- 10560 0aee 4C 4D 5F 45 		.ascii "sleep_state_hibernate\000"
+ 10560 0af7 4C 4D 5F 45 		.ascii "sleep_state_hibernate\000"
  10560      56 5F 4C 4F 
  10560      4E 47 5F 54 
  10560      45 52 4D 5F 
  10560      4B 45 59 5F 
  10561                 	.LASF181:
- 10562 0afd 67 61 74 74 		.ascii "GATT_WRITE_CHAR_VAL_CFM\000"
+ 10562 0b06 67 61 74 74 		.ascii "GATT_WRITE_CHAR_VAL_CFM\000"
  10562      5F 73 74 61 
  10562      74 75 73 5F 
  10562      69 72 71 5F 
  10562      70 72 6F 63 
  10563                 	.LASF604:
- 10564 0b09 6C 73 5F 65 		.ascii "SM_SIMPLE_PAIRING_COMPLETE_IND_T\000"
+ 10564 0b12 6C 73 5F 65 		.ascii "SM_SIMPLE_PAIRING_COMPLETE_IND_T\000"
  10564      72 72 5F 6C 
  10564      6D 70 5F 75 
  10564      6E 73 75 70 
  10564      70 6F 72 74 
  10565                 	.LASF282:
- 10566 0b15 6C 73 5F 65 		.ascii "LS_DISCONNECT_COMPLETE_IND\000"
+ 10566 0b1e 6C 73 5F 65 		.ascii "LS_DISCONNECT_COMPLETE_IND\000"
  10566      72 72 5F 66 
  10566      6F 72 6D 61 
  10566      74 00 
  10567                 	.LASF690:
- 10568 0b1c 47 41 54 54 		.ascii "pio_state\000"
+ 10568 0b25 47 41 54 54 		.ascii "pio_state\000"
  10568      5F 44 49 53 
  10568      43 5F 41 4C 
  10568      4C 5F 43 48 
  10568      41 52 5F 44 
  10569                 	.LASF675:
- 10570 0b2a 53 4D 5F 50 		.ascii "sm_passkey_input_ind\000"
+ 10570 0b33 53 4D 5F 50 		.ascii "sm_passkey_input_ind\000"
  10570      52 49 56 41 
  10570      43 59 5F 47 
  10570      45 54 5F 4F 
  10570      57 4E 5F 49 
  10571                 	.LASF203:
- 10572 0b37 61 70 70 5F 		.ascii "SM_PRIVACY_REGENERATE_ADDRESS_REQ\000"
+ 10572 0b40 61 70 70 5F 		.ascii "SM_PRIVACY_REGENERATE_ADDRESS_REQ\000"
  10572      70 72 65 66 
  10572      5F 63 6F 6E 
  10572      6E 5F 70 61 
  10572      72 61 6D 00 
  10573                 	.LASF400:
- 10574 0b41 70 65 65 72 		.ascii "length_data\000"
+ 10574 0b4a 70 65 65 72 		.ascii "length_data\000"
  10574      5F 61 64 64 
  10574      72 65 73 73 
  10574      5F 74 79 70 
  10574      65 00 
  10575                 	.LASF415:
- 10576 0b4a 4C 53 5F 52 		.ascii "manuf_name\000"
+ 10576 0b53 4C 53 5F 52 		.ascii "manuf_name\000"
  10576      45 41 44 5F 
  10576      52 45 4D 4F 
  10576      54 45 5F 56 
  10576      45 52 53 49 
  10577                 	.LASF297:
- 10578 0b5a 47 41 54 54 		.ascii "SYS_GET_PIO_REQ\000"
+ 10578 0b63 47 41 54 54 		.ascii "SYS_GET_PIO_REQ\000"
  10578      5F 57 52 49 
  10578      54 45 5F 43 
  10578      48 41 52 5F 
  10578      56 41 4C 5F 
  10579                 	.LASF586:
- 10580 0b66 4C 4D 5F 45 		.ascii "GATT_WRITE_LONG_CHAR_VAL_CFM_T\000"
+ 10580 0b6f 4C 4D 5F 45 		.ascii "GATT_WRITE_LONG_CHAR_VAL_CFM_T\000"
  10580      56 5F 41 43 
  10580      4C 5F 44 41 
  10580      54 41 5F 43 
  10580      4F 4E 54 00 
  10581                 	.LASF477:
- 10582 0b70 6F 6C 64 5F 		.ascii "ls_err_unspecified\000"
+ 10582 0b79 6F 6C 64 5F 		.ascii "ls_err_unspecified\000"
  10582      73 74 61 74 
  10582      65 00 
  10583                 	.LASF665:
- 10584 0b75 63 6F 6E 6E 		.ascii "prim_read_multi_char_val_cfm\000"
+ 10584 0b7e 63 6F 6E 6E 		.ascii "prim_read_multi_char_val_cfm\000"
  10584      5F 69 6E 74 
  10584      65 72 76 61 
  10584      6C 5F 6D 61 
  10584      78 00 
  10585                 	.LASF403:
- 10586 0b7e 68 72 5F 6D 		.ascii "features\000"
+ 10586 0b87 68 72 5F 6D 		.ascii "features\000"
  10586      65 61 73 5F 
  10586      63 6F 75 6E 
  10586      74 00 
  10587                 	.LASF134:
- 10588 0b85 70 72 6F 70 		.ascii "GATT_ADD_DB_REQ\000"
+ 10588 0b8e 70 72 6F 70 		.ascii "GATT_ADD_DB_REQ\000"
  10588      00 
  10589                 	.LASF198:
- 10590 0b88 73 6C 65 65 		.ascii "SM_REMOVE_STORED_KEY_REQ\000"
+ 10590 0b91 73 6C 65 65 		.ascii "SM_REMOVE_STORED_KEY_REQ\000"
  10590      70 5F 73 74 
  10590      61 74 65 5F 
  10590      68 69 62 65 
  10590      72 6E 61 74 
  10591                 	.LASF14:
- 10592 0b93 47 41 54 54 		.ascii "hci_error_t\000"
+ 10592 0b9c 47 41 54 54 		.ascii "hci_error_t\000"
  10592      5F 57 52 49 
  10592      54 45 5F 43 
  10592      48 41 52 5F 
  10592      56 41 4C 5F 
  10593                 	.LASF723:
- 10594 0b9f 53 4D 5F 53 		.ascii "pio_mode_no_pulls\000"
+ 10594 0ba8 53 4D 5F 53 		.ascii "pio_mode_no_pulls\000"
  10594      49 4D 50 4C 
  10594      45 5F 50 41 
  10594      49 52 49 4E 
  10594      47 5F 43 4F 
  10595                 	.LASF681:
- 10596 0baf 4C 53 5F 44 		.ascii "ls_conn_param_update_ind\000"
+ 10596 0bb8 4C 53 5F 44 		.ascii "ls_conn_param_update_ind\000"
  10596      49 53 43 4F 
  10596      4E 4E 45 43 
  10596      54 5F 43 4F 
  10596      4D 50 4C 45 
  10597                 	.LASF157:
- 10598 0bbd 70 69 6F 5F 		.ascii "GATT_ADD_DB_CFM\000"
+ 10598 0bc6 70 69 6F 5F 		.ascii "GATT_ADD_DB_CFM\000"
  10598      73 74 61 74 
  10598      65 00 
  10599                 	.LASF432:
- 10600 0bc2 73 6D 5F 70 		.ascii "num2\000"
+ 10600 0bcb 73 6D 5F 70 		.ascii "num2\000"
  10600      61 73 73 6B 
  10600      65 79 5F 69 
  10600      6E 70 75 74 
  10600      5F 69 6E 64 
  10601                 	.LASF102:
- 10602 0bcc 53 4D 5F 50 		.ascii "con_handle_t\000"
+ 10602 0bd5 53 4D 5F 50 		.ascii "con_handle_t\000"
  10602      52 49 56 41 
  10602      43 59 5F 52 
  10602      45 47 45 4E 
  10602      45 52 41 54 
  10603                 	.LASF433:
- 10604 0bdd 6C 65 6E 67 		.ascii "num3\000"
+ 10604 0be6 6C 65 6E 67 		.ascii "num3\000"
  10604      74 68 5F 64 
  10604      61 74 61 00 
  10605                 	.LASF808:
- 10606 0be3 6D 61 6E 75 		.ascii "nvm_start_fresh\000"
+ 10606 0bec 6D 61 6E 75 		.ascii "nvm_start_fresh\000"
  10606      66 5F 6E 61 
  10606      6D 65 00 
  10607                 	.LASF589:
- 10608 0be9 53 59 53 5F 		.ascii "GATT_ACCESS_IND_T\000"
+ 10608 0bf2 53 59 53 5F 		.ascii "GATT_ACCESS_IND_T\000"
  10608      47 45 54 5F 
  10608      50 49 4F 5F 
  10608      52 45 51 00 
  10609                 	.LASF512:
- 10610 0bf1 47 41 54 54 		.ascii "ls_err_lc_buf_full\000"
+ 10610 0bfa 47 41 54 54 		.ascii "ls_err_lc_buf_full\000"
  10610      5F 57 52 49 
  10610      54 45 5F 4C 
  10610      4F 4E 47 5F 
  10610      43 48 41 52 
  10611                 	.LASF38:
- 10612 0c00 6C 73 5F 65 		.ascii "spi_status_hardware_busy\000"
+ 10612 0c09 6C 73 5F 65 		.ascii "spi_status_hardware_busy\000"
  10612      72 72 5F 75 
  10612      6E 73 70 65 
  10612      63 69 66 69 
  10612      65 64 00 
  10613                 	.LASF320:
- 10614 0c0a 70 72 69 6D 		.ascii "SYS_SET_PERSISTENT_MEM_REQ\000"
+ 10614 0c13 70 72 69 6D 		.ascii "SYS_SET_PERSISTENT_MEM_REQ\000"
  10614      5F 72 65 61 
  10614      64 5F 6D 75 
  10614      6C 74 69 5F 
  10614      63 68 61 72 
  10615                 	.LASF562:
- 10616 0c18 66 65 61 74 		.ascii "end_handle\000"
+ 10616 0c21 66 65 61 74 		.ascii "end_handle\000"
  10616      75 72 65 73 
  10616      00 
  10617                 	.LASF861:
- 10618 0c1d 47 41 54 54 		.ascii "hrSensorDataInit\000"
+ 10618 0c26 47 41 54 54 		.ascii "hrSensorDataInit\000"
  10618      5F 41 44 44 
  10618      5F 44 42 5F 
  10618      52 45 51 00 
  10619                 	.LASF183:
- 10620 0c25 53 4D 5F 52 		.ascii "GATT_CHAR_VAL_IND_CFM\000"
+ 10620 0c2e 53 4D 5F 52 		.ascii "GATT_CHAR_VAL_IND_CFM\000"
  10620      45 4D 4F 56 
  10620      45 5F 53 54 
  10620      4F 52 45 44 
  10620      5F 4B 45 59 
  10621                 	.LASF129:
- 10622 0c31 68 63 69 5F 		.ascii "LM_EV_REMOTE_USED_FEATURES\000"
+ 10622 0c3a 68 63 69 5F 		.ascii "LM_EV_REMOTE_USED_FEATURES\000"
  10622      65 72 72 6F 
  10622      72 5F 74 00 
  10623                 	.LASF674:
- 10624 0c37 70 69 6F 5F 		.ascii "sm_key_request_ind\000"
+ 10624 0c40 70 69 6F 5F 		.ascii "sm_key_request_ind\000"
  10624      6D 6F 64 65 
  10624      5F 6E 6F 5F 
  10624      70 75 6C 6C 
  10624      73 00 
  10625                 	.LASF419:
- 10626 0c40 6C 73 5F 63 		.ascii "HCI_EV_DATA_HARDWARE_ERROR_T\000"
+ 10626 0c49 6C 73 5F 63 		.ascii "HCI_EV_DATA_HARDWARE_ERROR_T\000"
  10626      6F 6E 6E 5F 
  10626      70 61 72 61 
  10626      6D 5F 75 70 
  10626      64 61 74 65 
  10627                 	.LASF621:
- 10628 0c4d 47 41 54 54 		.ascii "radio\000"
+ 10628 0c56 47 41 54 54 		.ascii "radio\000"
  10628      5F 41 44 44 
  10628      5F 44 42 5F 
  10628      43 46 4D 00 
  10629                 	.LASF846:
- 10630 0c55 6E 75 6D 32 		.ascii "AppProcessLmEvent\000"
+ 10630 0c5e 6E 75 6D 32 		.ascii "AppProcessLmEvent\000"
  10630      00 
  10631                 	.LASF809:
- 10632 0c57 63 6F 6E 5F 		.ascii "AppProcessSystemEvent\000"
+ 10632 0c60 63 6F 6E 5F 		.ascii "AppProcessSystemEvent\000"
  10632      68 61 6E 64 
  10632      6C 65 5F 74 
  10632      00 
  10633                 	.LASF142:
- 10634 0c5e 6E 75 6D 33 		.ascii "GATT_DISC_ALL_PRIM_SERV_REQ\000"
+ 10634 0c67 6E 75 6D 33 		.ascii "GATT_DISC_ALL_PRIM_SERV_REQ\000"
  10634      00 
  10635                 	.LASF16:
- 10636 0c60 6E 76 6D 5F 		.ascii "hci_link_enc_t\000"
+ 10636 0c69 6E 76 6D 5F 		.ascii "hci_link_enc_t\000"
  10636      73 74 61 72 
  10636      74 5F 66 72 
  10636      65 73 68 00 
  10637                 	.LASF669:
- 10638 0c68 47 41 54 54 		.ascii "prim_access_ind\000"
+ 10638 0c71 47 41 54 54 		.ascii "prim_access_ind\000"
  10638      5F 41 43 43 
  10638      45 53 53 5F 
  10638      49 4E 44 5F 
  10638      54 00 
  10639                 	.LASF236:
- 10640 0c71 6C 73 5F 65 		.ascii "LS_READ_REMOTE_USED_FEATURES_REQ\000"
+ 10640 0c7a 6C 73 5F 65 		.ascii "LS_READ_REMOTE_USED_FEATURES_REQ\000"
  10640      72 72 5F 6C 
  10640      63 5F 62 75 
  10640      66 5F 66 75 
  10640      6C 6C 00 
  10641                 	.LASF166:
- 10642 0c7b 73 70 69 5F 		.ascii "GATT_DISC_ALL_PRIM_SERV_CFM\000"
+ 10642 0c84 73 70 69 5F 		.ascii "GATT_DISC_ALL_PRIM_SERV_CFM\000"
  10642      73 74 61 74 
  10642      75 73 5F 68 
  10642      61 72 64 77 
  10642      61 72 65 5F 
  10643                 	.LASF646:
- 10644 0c87 53 59 53 5F 		.ascii "prim_cancel_connect_cfm\000"
+ 10644 0c90 53 59 53 5F 		.ascii "prim_cancel_connect_cfm\000"
  10644      53 45 54 5F 
  10644      50 45 52 53 
  10644      49 53 54 45 
  10644      4E 54 5F 4D 
  10645                 	.LASF121:
- 10646 0c95 65 6E 64 5F 		.ascii "LM_EV_COMMAND_STATUS\000"
+ 10646 0c9e 65 6E 64 5F 		.ascii "LM_EV_COMMAND_STATUS\000"
  10646      68 61 6E 64 
  10646      6C 65 00 
  10647                 	.LASF288:
- 10648 0c9a 68 72 53 65 		.ascii "SYS_BACKGROUND_TICK_REQ\000"
+ 10648 0ca3 68 72 53 65 		.ascii "SYS_BACKGROUND_TICK_REQ\000"
  10648      6E 73 6F 72 
  10648      44 61 74 61 
  10648      49 6E 69 74 
  10648      00 
  10649                 	.LASF263:
- 10650 0ca3 47 41 54 54 		.ascii "LS_READ_REMOTE_USED_FEATURES_CFM\000"
+ 10650 0cac 47 41 54 54 		.ascii "LS_READ_REMOTE_USED_FEATURES_CFM\000"
  10650      5F 43 48 41 
  10650      52 5F 56 41 
  10650      4C 5F 49 4E 
  10650      44 5F 43 46 
  10651                 	.LASF513:
- 10652 0cae 4C 4D 5F 45 		.ascii "ls_err_con_invalid_state\000"
+ 10652 0cb7 4C 4D 5F 45 		.ascii "ls_err_con_invalid_state\000"
  10652      56 5F 52 45 
  10652      4D 4F 54 45 
  10652      5F 55 53 45 
  10652      44 5F 46 45 
  10653                 	.LASF455:
- 10654 0cbb 73 6D 5F 6B 		.ascii "ls_err_conn_limit\000"
+ 10654 0cc4 73 6D 5F 6B 		.ascii "ls_err_conn_limit\000"
  10654      65 79 5F 72 
  10654      65 71 75 65 
  10654      73 74 5F 69 
  10654      6E 64 00 
  10655                 	.LASF296:
- 10656 0cc5 48 43 49 5F 		.ascii "SYS_SET_PIO_REQ\000"
+ 10656 0cce 48 43 49 5F 		.ascii "SYS_SET_PIO_REQ\000"
  10656      45 56 5F 44 
  10656      41 54 41 5F 
  10656      48 41 52 44 
  10656      57 41 52 45 
  10657                 	.LASF521:
- 10658 0cd3 72 61 64 69 		.ascii "time48\000"
+ 10658 0cdc 72 61 64 69 		.ascii "time48\000"
  10658      6F 00 
  10659                 	.LASF837:
- 10660 0cd6 41 70 70 50 		.ascii "approve_div\000"
+ 10660 0cdf 41 70 70 50 		.ascii "approve_div\000"
  10660      72 6F 63 65 
  10660      73 73 4C 6D 
  10660      45 76 65 6E 
  10660      74 00 
  10661                 	.LASF336:
- 10662 0cdf 41 70 70 50 		.ascii "SYS_BACKGROUND_TICK_CFM\000"
+ 10662 0ce8 41 70 70 50 		.ascii "SYS_BACKGROUND_TICK_CFM\000"
  10662      72 6F 63 65 
  10662      73 73 53 79 
  10662      73 74 65 6D 
  10662      45 76 65 6E 
  10663                 	.LASF836:
- 10664 0cea 47 41 54 54 		.ascii "handleSignalSmDivApproveInd\000"
+ 10664 0cf3 47 41 54 54 		.ascii "handleSignalSmDivApproveInd\000"
  10664      5F 44 49 53 
  10664      43 5F 41 4C 
  10664      4C 5F 50 52 
  10664      49 4D 5F 53 
  10665                 	.LASF344:
- 10666 0cf8 68 63 69 5F 		.ascii "SYS_SET_PIO_CFM\000"
+ 10666 0d01 68 63 69 5F 		.ascii "SYS_SET_PIO_CFM\000"
  10666      6C 69 6E 6B 
  10666      5F 65 6E 63 
  10666      5F 74 00 
  10667                 	.LASF815:
- 10668 0d00 70 72 69 6D 		.ascii "panic_code\000"
+ 10668 0d09 70 72 69 6D 		.ascii "panic_code\000"
  10668      5F 61 63 63 
  10668      65 73 73 5F 
  10668      69 6E 64 00 
  10669                 	.LASF457:
- 10670 0d08 4C 53 5F 52 		.ascii "ls_err_acl_limit\000"
+ 10670 0d11 4C 53 5F 52 		.ascii "ls_err_acl_limit\000"
  10670      45 41 44 5F 
  10670      52 45 4D 4F 
  10670      54 45 5F 55 
  10670      53 45 44 5F 
  10671                 	.LASF667:
- 10672 0d18 47 41 54 54 		.ascii "prim_write_long_char_val_cfm\000"
+ 10672 0d21 47 41 54 54 		.ascii "prim_write_long_char_val_cfm\000"
  10672      5F 44 49 53 
  10672      43 5F 41 4C 
  10672      4C 5F 50 52 
  10672      49 4D 5F 53 
  10673                 	.LASF311:
- 10674 0d26 70 72 69 6D 		.ascii "SYS_SET_PIO_ENABLE_PWM_REQ\000"
+ 10674 0d2f 70 72 69 6D 		.ascii "SYS_SET_PIO_ENABLE_PWM_REQ\000"
  10674      5F 63 61 6E 
  10674      63 65 6C 5F 
  10674      63 6F 6E 6E 
  10674      65 63 74 5F 
  10675                 	.LASF120:
- 10676 0d32 4C 4D 5F 45 		.ascii "LM_EV_COMMAND_COMPLETE\000"
+ 10676 0d3b 4C 4D 5F 45 		.ascii "LM_EV_COMMAND_COMPLETE\000"
  10676      56 5F 43 4F 
  10676      4D 4D 41 4E 
  10676      44 5F 53 54 
  10676      41 54 55 53 
  10677                 	.LASF447:
- 10678 0d3d 53 59 53 5F 		.ascii "ls_err_illegal_command\000"
+ 10678 0d46 53 59 53 5F 		.ascii "ls_err_illegal_command\000"
  10678      42 41 43 4B 
  10678      47 52 4F 55 
  10678      4E 44 5F 54 
  10678      49 43 4B 5F 
  10679                 	.LASF515:
- 10680 0d49 4C 53 5F 52 		.ascii "ls_err_con_param_rej_tgap_violation\000"
+ 10680 0d52 4C 53 5F 52 		.ascii "ls_err_con_param_rej_tgap_violation\000"
  10680      45 41 44 5F 
  10680      52 45 4D 4F 
  10680      54 45 5F 55 
  10680      53 45 44 5F 
  10681                 	.LASF724:
- 10682 0d59 6C 73 5F 65 		.ascii "pio_mode_weak_pull_down\000"
+ 10682 0d62 6C 73 5F 65 		.ascii "pio_mode_weak_pull_down\000"
  10682      72 72 5F 63 
  10682      6F 6E 5F 69 
  10682      6E 76 61 6C 
  10682      69 64 5F 73 
  10683                 	.LASF707:
- 10684 0d66 6C 73 5F 65 		.ascii "pio_mode_quadrature2\000"
+ 10684 0d6f 6C 73 5F 65 		.ascii "pio_mode_quadrature2\000"
  10684      72 72 5F 63 
  10684      6F 6E 6E 5F 
  10684      6C 69 6D 69 
  10684      74 00 
  10685                 	.LASF833:
- 10686 0d6f 53 59 53 5F 		.ascii "handleSignalGattConnectCfm\000"
+ 10686 0d78 53 59 53 5F 		.ascii "handleSignalGattConnectCfm\000"
  10686      53 45 54 5F 
  10686      50 49 4F 5F 
  10686      52 45 51 00 
  10687                 	.LASF475:
- 10688 0d77 74 69 6D 65 		.ascii "ls_err_sco_rejected\000"
+ 10688 0d80 74 69 6D 65 		.ascii "ls_err_sco_rejected\000"
  10688      34 38 00 
  10689                 	.LASF359:
- 10690 0d7a 61 70 70 72 		.ascii "SYS_SET_PIO_ENABLE_PWM_CFM\000"
+ 10690 0d83 61 70 70 72 		.ascii "SYS_SET_PIO_ENABLE_PWM_CFM\000"
  10690      6F 76 65 5F 
  10690      64 69 76 00 
  10691                 	.LASF266:
- 10692 0d80 53 59 53 5F 		.ascii "LS_CONNECTION_PARAM_UPDATE_IND\000"
+ 10692 0d89 53 59 53 5F 		.ascii "LS_CONNECTION_PARAM_UPDATE_IND\000"
  10692      42 41 43 4B 
  10692      47 52 4F 55 
  10692      4E 44 5F 54 
  10692      49 43 4B 5F 
  10693                 	.LASF227:
- 10694 0d8c 68 61 6E 64 		.ascii "SM_LOST_BOND_IND\000"
+ 10694 0d95 68 61 6E 64 		.ascii "SM_LOST_BOND_IND\000"
  10694      6C 65 53 69 
  10694      67 6E 61 6C 
  10694      53 6D 44 69 
  10694      76 41 70 70 
  10695                 	.LASF161:
- 10696 0d9a 53 59 53 5F 		.ascii "GATT_CANCEL_CONNECT_CFM\000"
+ 10696 0da3 53 59 53 5F 		.ascii "GATT_CANCEL_CONNECT_CFM\000"
  10696      53 45 54 5F 
  10696      50 49 4F 5F 
  10696      43 46 4D 00 
  10697                 	.LASF623:
- 10698 0da2 70 61 6E 69 		.ascii "tx_duration\000"
+ 10698 0dab 70 61 6E 69 		.ascii "tx_duration\000"
  10698      63 5F 63 6F 
  10698      64 65 00 
  10699                 	.LASF115:
- 10700 0da8 6C 73 5F 65 		.ascii "con_super_timeout\000"
+ 10700 0db1 6C 73 5F 65 		.ascii "con_super_timeout\000"
  10700      72 72 5F 61 
  10700      63 6C 5F 6C 
  10700      69 6D 69 74 
  10700      00 
  10701                 	.LASF108:
- 10702 0db0 70 72 69 6D 		.ascii "radio_event_tx_data\000"
+ 10702 0db9 70 72 69 6D 		.ascii "radio_event_tx_data\000"
  10702      5F 77 72 69 
  10702      74 65 5F 6C 
  10702      6F 6E 67 5F 
  10702      63 68 61 72 
  10703                 	.LASF603:
- 10704 0dbf 53 59 53 5F 		.ascii "security_level\000"
+ 10704 0dc8 53 59 53 5F 		.ascii "security_level\000"
  10704      53 45 54 5F 
  10704      50 49 4F 5F 
  10704      45 4E 41 42 
  10704      4C 45 5F 50 
  10705                 	.LASF767:
- 10706 0dcc 4C 4D 5F 45 		.ascii "con_param_update_tid\000"
+ 10706 0dd5 4C 4D 5F 45 		.ascii "con_param_update_tid\000"
  10706      56 5F 43 4F 
  10706      4D 4D 41 4E 
  10706      44 5F 43 4F 
  10706      4D 50 4C 45 
  10707                 	.LASF472:
- 10708 0dd8 6C 73 5F 65 		.ascii "ls_err_remote_unsupported\000"
+ 10708 0de1 6C 73 5F 65 		.ascii "ls_err_remote_unsupported\000"
  10708      72 72 5F 69 
  10708      6C 6C 65 67 
  10708      61 6C 5F 63 
  10708      6F 6D 6D 61 
  10709                 	.LASF248:
- 10710 0de3 6C 73 5F 65 		.ascii "LS_GAP_SET_ADV_INTERVAL_REQ\000"
+ 10710 0dec 6C 73 5F 65 		.ascii "LS_GAP_SET_ADV_INTERVAL_REQ\000"
  10710      72 72 5F 63 
  10710      6F 6E 5F 70 
  10710      61 72 61 6D 
  10710      5F 72 65 6A 
  10711                 	.LASF114:
- 10712 0df5 70 69 6F 5F 		.ascii "con_slave_latency\000"
+ 10712 0dfe 70 69 6F 5F 		.ascii "con_slave_latency\000"
  10712      6D 6F 64 65 
  10712      5F 77 65 61 
  10712      6B 5F 70 75 
  10712      6C 6C 5F 64 
  10713                 	.LASF59:
- 10714 0e01 70 69 6F 5F 		.ascii "gatt_status_prepare_queue_full\000"
+ 10714 0e0a 70 69 6F 5F 		.ascii "gatt_status_prepare_queue_full\000"
  10714      6D 6F 64 65 
  10714      5F 71 75 61 
  10714      64 72 61 74 
  10714      75 72 65 32 
  10715                 	.LASF75:
- 10716 0e0c 68 61 6E 64 		.ascii "gatt_status_success_sent\000"
+ 10716 0e15 68 61 6E 64 		.ascii "gatt_status_success_sent\000"
  10716      6C 65 53 69 
  10716      67 6E 61 6C 
  10716      47 61 74 74 
  10716      43 6F 6E 6E 
  10717                 	.LASF275:
- 10718 0e19 6C 73 5F 65 		.ascii "LS_GAP_SET_ADV_INTERVAL_CFM\000"
+ 10718 0e22 6C 73 5F 65 		.ascii "LS_GAP_SET_ADV_INTERVAL_CFM\000"
  10718      72 72 5F 73 
  10718      63 6F 5F 72 
  10718      65 6A 65 63 
  10718      74 65 64 00 
  10719                 	.LASF5:
- 10720 0e23 53 59 53 5F 		.ascii "long unsigned int\000"
+ 10720 0e2c 53 59 53 5F 		.ascii "long unsigned int\000"
  10720      53 45 54 5F 
  10720      50 49 4F 5F 
  10720      45 4E 41 42 
  10720      4C 45 5F 50 
  10721                 	.LASF186:
- 10722 0e31 4C 53 5F 43 		.ascii "GATT_IND_CHAR_VAL_IND\000"
+ 10722 0e3a 4C 53 5F 43 		.ascii "GATT_IND_CHAR_VAL_IND\000"
  10722      4F 4E 4E 45 
  10722      43 54 49 4F 
  10722      4E 5F 50 41 
  10722      52 41 4D 5F 
  10723                 	.LASF391:
- 10724 0e40 53 4D 5F 4C 		.ascii "conn_interval\000"
+ 10724 0e49 53 4D 5F 4C 		.ascii "conn_interval\000"
  10724      4F 53 54 5F 
  10724      42 4F 4E 44 
  10724      5F 49 4E 44 
  10724      00 
  10725                 	.LASF31:
- 10726 0e49 47 41 54 54 		.ascii "i2c_status_fail_bus_busy\000"
+ 10726 0e52 47 41 54 54 		.ascii "i2c_status_fail_bus_busy\000"
  10726      5F 43 41 4E 
  10726      43 45 4C 5F 
  10726      43 4F 4E 4E 
  10726      45 43 54 5F 
  10727                 	.LASF76:
- 10728 0e55 74 78 5F 64 		.ascii "gatt_status_invalid_cid\000"
+ 10728 0e5e 74 78 5F 64 		.ascii "gatt_status_invalid_cid\000"
  10728      75 72 61 74 
  10728      69 6F 6E 00 
  10729                 	.LASF847:
- 10730 0e5b 63 6F 6E 5F 		.ascii "HandleExtraLongButtonPress\000"
+ 10730 0e64 63 6F 6E 5F 		.ascii "HandleExtraLongButtonPress\000"
  10730      73 75 70 65 
  10730      72 5F 74 69 
  10730      6D 65 6F 75 
  10730      74 00 
  10731                 	.LASF40:
- 10732 0e64 72 61 64 69 		.ascii "spi_status_fail\000"
+ 10732 0e6d 72 61 64 69 		.ascii "spi_status_fail\000"
  10732      6F 5F 65 76 
  10732      65 6E 74 5F 
  10732      74 78 5F 64 
  10732      61 74 61 00 
  10733                 	.LASF544:
- 10734 0e6e 73 65 63 75 		.ascii "LM_EV_ACL_DATA_T\000"
+ 10734 0e77 73 65 63 75 		.ascii "LM_EV_ACL_DATA_T\000"
  10734      72 69 74 79 
  10734      5F 6C 65 76 
  10734      65 6C 00 
  10735                 	.LASF618:
- 10736 0e75 63 6F 6E 5F 		.ascii "slave_latency\000"
+ 10736 0e7e 63 6F 6E 5F 		.ascii "slave_latency\000"
  10736      70 61 72 61 
  10736      6D 5F 75 70 
  10736      64 61 74 65 
  10736      5F 74 69 64 
  10737                 	.LASF386:
- 10738 0e80 6C 73 5F 65 		.ascii "status\000"
+ 10738 0e89 6C 73 5F 65 		.ascii "status\000"
  10738      72 72 5F 72 
  10738      65 6D 6F 74 
  10738      65 5F 75 6E 
  10738      73 75 70 70 
  10739                 	.LASF468:
- 10740 0e8d 4C 53 5F 47 		.ascii "ls_err_conn_terminated\000"
+ 10740 0e96 4C 53 5F 47 		.ascii "ls_err_conn_terminated\000"
  10740      41 50 5F 53 
  10740      45 54 5F 41 
  10740      44 56 5F 49 
  10740      4E 54 45 52 
  10741                 	.LASF800:
- 10742 0e9b 63 6F 6E 5F 		.ascii "p_hr_meas_data\000"
+ 10742 0ea4 63 6F 6E 5F 		.ascii "p_hr_meas_data\000"
  10742      73 6C 61 76 
  10742      65 5F 6C 61 
  10742      74 65 6E 63 
  10742      79 00 
  10743                 	.LASF399:
- 10744 0ea4 67 61 74 74 		.ascii "address\000"
+ 10744 0ead 67 61 74 74 		.ascii "address\000"
  10744      5F 73 74 61 
  10744      74 75 73 5F 
  10744      70 72 65 70 
  10744      61 72 65 5F 
  10745                 	.LASF748:
- 10746 0eb3 67 61 74 74 		.ascii "app_state_fast_advertising\000"
+ 10746 0ebc 67 61 74 74 		.ascii "app_state_fast_advertising\000"
  10746      5F 73 74 61 
  10746      74 75 73 5F 
  10746      73 75 63 63 
  10746      65 73 73 5F 
  10747                 	.LASF428:
- 10748 0ec0 4C 53 5F 47 		.ascii "HCI_EV_DATA_COMMAND_STATUS_T\000"
+ 10748 0ec9 4C 53 5F 47 		.ascii "HCI_EV_DATA_COMMAND_STATUS_T\000"
  10748      41 50 5F 53 
  10748      45 54 5F 41 
  10748      44 56 5F 49 
  10748      4E 54 45 52 
  10749                 	.LASF514:
- 10750 0ece 6C 6F 6E 67 		.ascii "ls_err_con_param_rej_remote_dev\000"
+ 10750 0ed7 6C 6F 6E 67 		.ascii "ls_err_con_param_rej_remote_dev\000"
  10750      20 75 6E 73 
  10750      69 67 6E 65 
  10750      64 20 69 6E 
  10750      74 00 
  10751                 	.LASF233:
- 10752 0ed7 47 41 54 54 		.ascii "LS_READ_REMOTE_VERSION_INFO_REQ\000"
+ 10752 0ee0 47 41 54 54 		.ascii "LS_READ_REMOTE_VERSION_INFO_REQ\000"
  10752      5F 49 4E 44 
  10752      5F 43 48 41 
  10752      52 5F 56 41 
  10752      4C 5F 49 4E 
  10753                 	.LASF685:
- 10754 0ee2 63 6F 6E 6E 		.ascii "sys_event_wakeup\000"
+ 10754 0eeb 63 6F 6E 6E 		.ascii "sys_event_wakeup\000"
  10754      5F 69 6E 74 
  10754      65 72 76 61 
  10754      6C 00 
  10755                 	.LASF127:
- 10756 0ee9 69 32 63 5F 		.ascii "LM_EV_ADVERTISING_REPORT\000"
+ 10756 0ef2 69 32 63 5F 		.ascii "LM_EV_ADVERTISING_REPORT\000"
  10756      73 74 61 74 
  10756      75 73 5F 66 
  10756      61 69 6C 5F 
  10756      62 75 73 5F 
  10757                 	.LASF117:
- 10758 0ef5 67 61 74 74 		.ascii "LM_EV_DISCONNECT_COMPLETE\000"
+ 10758 0efe 67 61 74 74 		.ascii "LM_EV_DISCONNECT_COMPLETE\000"
  10758      5F 73 74 61 
  10758      74 75 73 5F 
  10758      69 6E 76 61 
  10758      6C 69 64 5F 
  10759                 	.LASF664:
- 10760 0f01 48 61 6E 64 		.ascii "prim_read_char_using_uuid_cfm\000"
+ 10760 0f0a 48 61 6E 64 		.ascii "prim_read_char_using_uuid_cfm\000"
  10760      6C 65 45 78 
  10760      74 72 61 4C 
  10760      6F 6E 67 42 
  10760      75 74 74 6F 
  10761                 	.LASF67:
- 10762 0f0f 73 70 69 5F 		.ascii "gatt_status_insufficient_resources\000"
+ 10762 0f18 73 70 69 5F 		.ascii "gatt_status_insufficient_resources\000"
  10762      73 74 61 74 
  10762      75 73 5F 66 
  10762      61 69 6C 00 
  10763                 	.LASF598:
- 10764 0f17 4C 4D 5F 45 		.ascii "remote_addr\000"
+ 10764 0f20 4C 4D 5F 45 		.ascii "remote_addr\000"
  10764      56 5F 41 43 
  10764      4C 5F 44 41 
  10764      54 41 5F 54 
  10764      00 
  10765                 	.LASF244:
- 10766 0f1f 73 6C 61 76 		.ascii "LS_GAP_SET_MODE_REQ\000"
+ 10766 0f28 73 6C 61 76 		.ascii "LS_GAP_SET_MODE_REQ\000"
  10766      65 5F 6C 61 
  10766      74 65 6E 63 
  10766      79 00 
  10767                 	.LASF441:
- 10768 0f26 73 74 61 74 		.ascii "EV_MNFR_EXTN_PAYLOAD_T\000"
+ 10768 0f2f 73 74 61 74 		.ascii "EV_MNFR_EXTN_PAYLOAD_T\000"
  10768      75 73 00 
  10769                 	.LASF405:
- 10770 0f2a 6C 73 5F 65 		.ascii "random_number\000"
+ 10770 0f33 6C 73 5F 65 		.ascii "random_number\000"
  10770      72 72 5F 63 
  10770      6F 6E 6E 5F 
  10770      74 65 72 6D 
  10770      69 6E 61 74 
  10771                 	.LASF163:
- 10772 0f35 70 5F 68 72 		.ascii "GATT_DISCONNECT_IND\000"
+ 10772 0f3e 70 5F 68 72 		.ascii "GATT_DISCONNECT_IND\000"
  10772      5F 6D 65 61 
  10772      73 5F 64 61 
  10772      74 61 00 
  10773                 	.LASF216:
- 10774 0f3d 61 64 64 72 		.ascii "SM_UNSTORED_KEY_IND\000"
+ 10774 0f46 61 64 64 72 		.ascii "SM_UNSTORED_KEY_IND\000"
  10774      65 73 73 00 
  10775                 	.LASF456:
- 10776 0f41 61 70 70 5F 		.ascii "ls_err_sco_limit\000"
+ 10776 0f4a 61 70 70 5F 		.ascii "ls_err_sco_limit\000"
  10776      73 74 61 74 
  10776      65 5F 66 61 
  10776      73 74 5F 61 
  10776      64 76 65 72 
  10777                 	.LASF537:
- 10778 0f4e 48 43 49 5F 		.ascii "LM_EV_LONG_TERM_KEY_REQUESTED_T\000"
+ 10778 0f57 48 43 49 5F 		.ascii "LM_EV_LONG_TERM_KEY_REQUESTED_T\000"
  10778      45 56 5F 44 
  10778      41 54 41 5F 
  10778      43 4F 4D 4D 
  10778      41 4E 44 5F 
  10779                 	.LASF666:
- 10780 0f5d 6C 73 5F 65 		.ascii "prim_write_char_val_cfm\000"
+ 10780 0f66 6C 73 5F 65 		.ascii "prim_write_char_val_cfm\000"
  10780      72 72 5F 63 
  10780      6F 6E 5F 70 
  10780      61 72 61 6D 
  10780      5F 72 65 6A 
  10781                 	.LASF314:
- 10782 0f6d 4C 53 5F 52 		.ascii "SYS_SET_PIO_QUADRATURE_DECODER_REQ\000"
+ 10782 0f76 4C 53 5F 52 		.ascii "SYS_SET_PIO_QUADRATURE_DECODER_REQ\000"
  10782      45 41 44 5F 
  10782      52 45 4D 4F 
  10782      54 45 5F 56 
  10782      45 52 53 49 
  10783                 	.LASF174:
- 10784 0f7d 73 79 73 5F 		.ascii "GATT_CHAR_DESC_INFO_IND\000"
+ 10784 0f86 73 79 73 5F 		.ascii "GATT_CHAR_DESC_INFO_IND\000"
  10784      65 76 65 6E 
  10784      74 5F 77 61 
  10784      6B 65 75 70 
  10784      00 
  10785                 	.LASF21:
- 10786 0f85 4C 4D 5F 45 		.ascii "nvm_status_invalid_configuration\000"
+ 10786 0f8e 4C 4D 5F 45 		.ascii "nvm_status_invalid_configuration\000"
  10786      56 5F 41 44 
  10786      56 45 52 54 
  10786      49 53 49 4E 
  10786      47 5F 52 45 
  10787                 	.LASF826:
- 10788 0f92 4C 4D 5F 45 		.ascii "readPersistentStore\000"
+ 10788 0f9b 4C 4D 5F 45 		.ascii "readPersistentStore\000"
  10788      56 5F 44 49 
  10788      53 43 4F 4E 
  10788      4E 45 43 54 
  10788      5F 43 4F 4D 
  10789                 	.LASF362:
- 10790 0f9f 70 72 69 6D 		.ascii "SYS_SET_PIO_QUADRATURE_DECODER_CFM\000"
+ 10790 0fa8 70 72 69 6D 		.ascii "SYS_SET_PIO_QUADRATURE_DECODER_CFM\000"
  10790      5F 72 65 61 
  10790      64 5F 63 68 
  10790      61 72 5F 75 
  10790      73 69 6E 67 
  10791                 	.LASF448:
- 10792 0fae 67 61 74 74 		.ascii "ls_err_no_connection\000"
+ 10792 0fb7 67 61 74 74 		.ascii "ls_err_no_connection\000"
  10792      5F 73 74 61 
  10792      74 75 73 5F 
  10792      69 6E 73 75 
  10792      66 66 69 63 
  10793                 	.LASF141:
- 10794 0fbf 72 65 6D 6F 		.ascii "GATT_EXCHANGE_MTU_RSP\000"
+ 10794 0fc8 72 65 6D 6F 		.ascii "GATT_EXCHANGE_MTU_RSP\000"
  10794      74 65 5F 61 
  10794      64 64 72 00 
  10795                 	.LASF854:
- 10796 0fc5 4C 53 5F 47 		.ascii "switch_intensity\000"
+ 10796 0fce 4C 53 5F 47 		.ascii "switch_intensity\000"
  10796      41 50 5F 53 
  10796      45 54 5F 4D 
  10796      4F 44 45 5F 
  10796      52 45 51 00 
  10797                 	.LASF239:
- 10798 0fcf 45 56 5F 4D 		.ascii "LS_UNUSED_CONNECTION_PARAM_UPDATE_RSP\000"
+ 10798 0fd8 45 56 5F 4D 		.ascii "LS_UNUSED_CONNECTION_PARAM_UPDATE_RSP\000"
  10798      4E 46 52 5F 
  10798      45 58 54 4E 
  10798      5F 50 41 59 
  10798      4C 4F 41 44 
  10799                 	.LASF444:
- 10800 0fdb 72 61 6E 64 		.ascii "payload\000"
+ 10800 0fe4 72 61 6E 64 		.ascii "payload\000"
  10800      6F 6D 5F 6E 
  10800      75 6D 62 65 
  10800      72 00 
  10801                 	.LASF402:
- 10802 0fe2 47 41 54 54 		.ascii "HCI_EV_DATA_ULP_CONNECTION_UPDATE_COMPLETE_T\000"
+ 10802 0feb 47 41 54 54 		.ascii "HCI_EV_DATA_ULP_CONNECTION_UPDATE_COMPLETE_T\000"
  10802      5F 44 49 53 
  10802      43 4F 4E 4E 
  10802      45 43 54 5F 
  10802      49 4E 44 00 
  10803                 	.LASF221:
- 10804 0fec 53 4D 5F 55 		.ascii "SM_DIV_APPROVE_IND\000"
+ 10804 0ff5 53 4D 5F 55 		.ascii "SM_DIV_APPROVE_IND\000"
  10804      4E 53 54 4F 
  10804      52 45 44 5F 
  10804      4B 45 59 5F 
  10804      49 4E 44 00 
  10805                 	.LASF716:
- 10806 0ff6 6C 73 5F 65 		.ascii "pio_mode_ser_flash_dout\000"
+ 10806 0fff 6C 73 5F 65 		.ascii "pio_mode_ser_flash_dout\000"
  10806      72 72 5F 73 
  10806      63 6F 5F 6C 
  10806      69 6D 69 74 
  10806      00 
  10807                 	.LASF728:
- 10808 0ffe 4C 4D 5F 45 		.ascii "pio_mode_weak_sticky\000"
+ 10808 1007 4C 4D 5F 45 		.ascii "pio_mode_weak_sticky\000"
  10808      56 5F 4C 4F 
  10808      4E 47 5F 54 
  10808      45 52 4D 5F 
  10808      4B 45 59 5F 
  10809                 	.LASF711:
- 10810 100e 70 72 69 6D 		.ascii "pio_mode_radio_tx_en\000"
+ 10810 1017 70 72 69 6D 		.ascii "pio_mode_radio_tx_en\000"
  10810      5F 77 72 69 
  10810      74 65 5F 63 
  10810      68 61 72 5F 
  10810      76 61 6C 5F 
  10811                 	.LASF680:
- 10812 101a 53 59 53 5F 		.ascii "ls_conn_param_update_cfm\000"
+ 10812 1023 53 59 53 5F 		.ascii "ls_conn_param_update_cfm\000"
  10812      53 45 54 5F 
  10812      50 49 4F 5F 
  10812      51 55 41 44 
  10812      52 41 54 55 
  10813                 	.LASF860:
- 10814 102c 47 41 54 54 		.ascii "receivedHRMeasReading\000"
+ 10814 1035 47 41 54 54 		.ascii "receivedHRMeasReading\000"
  10814      5F 43 48 41 
  10814      52 5F 44 45 
  10814      53 43 5F 49 
  10814      4E 46 4F 5F 
  10815                 	.LASF849:
- 10816 1038 6E 76 6D 5F 		.ascii "raw_RR\000"
+ 10816 1041 6E 76 6D 5F 		.ascii "raw_RR\000"
  10816      73 74 61 74 
  10816      75 73 5F 69 
  10816      6E 76 61 6C 
  10816      69 64 5F 63 
  10817                 	.LASF133:
- 10818 1048 72 65 61 64 		.ascii "LM_EV_MANUFACTURER_EXTENSION\000"
+ 10818 1051 72 65 61 64 		.ascii "LM_EV_MANUFACTURER_EXTENSION\000"
  10818      50 65 72 73 
  10818      69 73 74 65 
  10818      6E 74 53 74 
  10818      6F 72 65 00 
  10819                 	.LASF17:
- 10820 1052 53 59 53 5F 		.ascii "hci_op_code_t\000"
+ 10820 105b 53 59 53 5F 		.ascii "hci_op_code_t\000"
  10820      53 45 54 5F 
  10820      50 49 4F 5F 
  10820      51 55 41 44 
  10820      52 41 54 55 
  10821                 	.LASF334:
- 10822 1064 6C 73 5F 65 		.ascii "SYS_CLEAR_FW_FAULT_ID_REQ\000"
+ 10822 106d 6C 73 5F 65 		.ascii "SYS_CLEAR_FW_FAULT_ID_REQ\000"
  10822      72 72 5F 6E 
  10822      6F 5F 63 6F 
  10822      6E 6E 65 63 
  10822      74 69 6F 6E 
  10823                 	.LASF46:
- 10824 106e 47 41 54 54 		.ascii "l2cap_status_invalid_conn_state\000"
+ 10824 1077 47 41 54 54 		.ascii "l2cap_status_invalid_conn_state\000"
  10824      5F 45 58 43 
  10824      48 41 4E 47 
  10824      45 5F 4D 54 
  10824      55 5F 52 53 
  10825                 	.LASF165:
- 10826 1079 73 77 69 74 		.ascii "GATT_EXCHANGE_MTU_IND\000"
+ 10826 1082 73 77 69 74 		.ascii "GATT_EXCHANGE_MTU_IND\000"
  10826      63 68 5F 69 
  10826      6E 74 65 6E 
  10826      73 69 74 79 
  10826      00 
  10827                 	.LASF143:
- 10828 1082 4C 53 5F 55 		.ascii "GATT_DISC_PRIM_SERV_BY_UUID_REQ\000"
+ 10828 108b 4C 53 5F 55 		.ascii "GATT_DISC_PRIM_SERV_BY_UUID_REQ\000"
  10828      4E 55 53 45 
  10828      44 5F 43 4F 
  10828      4E 4E 45 43 
  10828      54 49 4F 4E 
  10829                 	.LASF497:
- 10830 1095 70 61 79 6C 		.ascii "ls_err_scm_pending\000"
+ 10830 109e 70 61 79 6C 		.ascii "ls_err_scm_pending\000"
  10830      6F 61 64 00 
  10831                 	.LASF496:
- 10832 1099 48 43 49 5F 		.ascii "ls_err_role_pending\000"
+ 10832 10a2 48 43 49 5F 		.ascii "ls_err_role_pending\000"
  10832      45 56 5F 44 
  10832      41 54 41 5F 
  10832      55 4C 50 5F 
  10832      43 4F 4E 4E 
  10833                 	.LASF481:
- 10834 10af 53 4D 5F 44 		.ascii "ls_err_lmp_collision\000"
+ 10834 10b8 53 4D 5F 44 		.ascii "ls_err_lmp_collision\000"
  10834      49 56 5F 41 
  10834      50 50 52 4F 
  10834      56 45 5F 49 
  10834      4E 44 00 
  10835                 	.LASF461:
- 10836 10b9 70 69 6F 5F 		.ascii "ls_err_remote_user\000"
+ 10836 10c2 70 69 6F 5F 		.ascii "ls_err_remote_user\000"
  10836      6D 6F 64 65 
  10836      5F 73 65 72 
  10836      5F 66 6C 61 
  10836      73 68 5F 64 
  10837                 	.LASF380:
- 10838 10c5 70 69 6F 5F 		.ascii "SYS_CLEAR_FW_FAULT_ID_CFM\000"
+ 10838 10ce 70 69 6F 5F 		.ascii "SYS_CLEAR_FW_FAULT_ID_CFM\000"
  10838      6D 6F 64 65 
  10838      5F 77 65 61 
  10838      6B 5F 73 74 
  10838      69 63 6B 79 
  10839                 	.LASF168:
- 10840 10cf 70 69 6F 5F 		.ascii "GATT_DISC_PRIM_SERV_BY_UUID_CFM\000"
+ 10840 10d8 70 69 6F 5F 		.ascii "GATT_DISC_PRIM_SERV_BY_UUID_CFM\000"
  10840      6D 6F 64 65 
  10840      5F 72 61 64 
  10840      69 6F 5F 74 
  10840      78 5F 65 6E 
  10841                 	.LASF150:
- 10842 10da 6C 73 5F 63 		.ascii "GATT_READ_MULTI_CHAR_VAL_REQ\000"
+ 10842 10e3 6C 73 5F 63 		.ascii "GATT_READ_MULTI_CHAR_VAL_REQ\000"
  10842      6F 6E 6E 5F 
  10842      70 61 72 61 
  10842      6D 5F 75 70 
  10842      64 61 74 65 
  10843                 	.LASF251:
- 10844 10e6 72 65 63 65 		.ascii "LS_GAP_GET_RANDOM_ADDR_REQ\000"
+ 10844 10ef 72 65 63 65 		.ascii "LS_GAP_GET_RANDOM_ADDR_REQ\000"
  10844      69 76 65 64 
  10844      48 52 4D 65 
  10844      61 73 52 65 
  10844      61 64 69 6E 
  10845                 	.LASF306:
- 10846 10f1 72 61 77 5F 		.ascii "SYS_SET_PIOS_MODE_REQ\000"
+ 10846 10fa 72 61 77 5F 		.ascii "SYS_SET_PIOS_MODE_REQ\000"
  10846      52 52 00 
  10847                 	.LASF453:
- 10848 10f5 4C 4D 5F 45 		.ascii "ls_err_mem\000"
+ 10848 10fe 4C 4D 5F 45 		.ascii "ls_err_mem\000"
  10848      56 5F 4D 41 
  10848      4E 55 46 41 
  10848      43 54 55 52 
  10848      45 52 5F 45 
  10849                 	.LASF180:
- 10850 1103 68 63 69 5F 		.ascii "GATT_READ_MULTI_CHAR_VAL_CFM\000"
+ 10850 110c 68 63 69 5F 		.ascii "GATT_READ_MULTI_CHAR_VAL_CFM\000"
  10850      6F 70 5F 63 
  10850      6F 64 65 5F 
  10850      74 00 
  10851                 	.LASF719:
- 10852 110a 53 59 53 5F 		.ascii "pio_mode_i2c_clock\000"
+ 10852 1113 53 59 53 5F 		.ascii "pio_mode_i2c_clock\000"
  10852      43 4C 45 41 
  10852      52 5F 46 57 
  10852      5F 46 41 55 
  10852      4C 54 5F 49 
  10853                 	.LASF154:
- 10854 1117 6C 32 63 61 		.ascii "GATT_CHAR_VAL_INDICATION_REQ\000"
+ 10854 1120 6C 32 63 61 		.ascii "GATT_CHAR_VAL_INDICATION_REQ\000"
  10854      70 5F 73 74 
  10854      61 74 75 73 
  10854      5F 69 6E 76 
  10854      61 6C 69 64 
  10855                 	.LASF600:
- 10856 1127 47 41 54 54 		.ascii "keys\000"
+ 10856 1130 47 41 54 54 		.ascii "keys\000"
  10856      5F 45 58 43 
  10856      48 41 4E 47 
  10856      45 5F 4D 54 
  10856      55 5F 49 4E 
  10857                 	.LASF278:
- 10858 1132 47 41 54 54 		.ascii "LS_GAP_GET_RANDOM_ADDR_CFM\000"
+ 10858 113b 47 41 54 54 		.ascii "LS_GAP_GET_RANDOM_ADDR_CFM\000"
  10858      5F 44 49 53 
  10858      43 5F 50 52 
  10858      49 4D 5F 53 
  10858      45 52 56 5F 
  10859                 	.LASF510:
- 10860 1142 6C 73 5F 65 		.ascii "ls_err_arg\000"
+ 10860 114b 6C 73 5F 65 		.ascii "ls_err_arg\000"
  10860      72 72 5F 73 
  10860      63 6D 5F 70 
  10860      65 6E 64 69 
  10860      6E 67 00 
  10861                 	.LASF354:
- 10862 114c 6C 73 5F 65 		.ascii "SYS_SET_PIOS_MODE_CFM\000"
+ 10862 1155 6C 73 5F 65 		.ascii "SYS_SET_PIOS_MODE_CFM\000"
  10862      72 72 5F 72 
  10862      6F 6C 65 5F 
  10862      70 65 6E 64 
  10862      69 6E 67 00 
  10863                 	.LASF774:
- 10864 1156 6C 73 5F 65 		.ascii "conn_timeout\000"
+ 10864 115f 6C 73 5F 65 		.ascii "conn_timeout\000"
  10864      72 72 5F 6C 
  10864      6D 70 5F 63 
  10864      6F 6C 6C 69 
  10864      73 69 6F 6E 
  10865                 	.LASF757:
- 10866 1160 6C 73 5F 65 		.ascii "CQUEUE_RR_VALUES_T\000"
+ 10866 1169 6C 73 5F 65 		.ascii "CQUEUE_RR_VALUES_T\000"
  10866      72 72 5F 72 
  10866      65 6D 6F 74 
  10866      65 5F 75 73 
  10866      65 72 00 
  10867                 	.LASF383:
- 10868 116a 53 59 53 5F 		.ascii "lm_event_code\000"
+ 10868 1173 53 59 53 5F 		.ascii "lm_event_code\000"
  10868      43 4C 45 41 
  10868      52 5F 46 57 
  10868      5F 46 41 55 
  10868      4C 54 5F 49 
  10869                 	.LASF252:
- 10870 1177 47 41 54 54 		.ascii "LS_RADIO_EVENT_NOTIFICATION_REQ\000"
+ 10870 1180 47 41 54 54 		.ascii "LS_RADIO_EVENT_NOTIFICATION_REQ\000"
  10870      5F 44 49 53 
  10870      43 5F 50 52 
  10870      49 4D 5F 53 
  10870      45 52 56 5F 
  10871                 	.LASF152:
- 10872 1187 47 41 54 54 		.ascii "GATT_WRITE_LONG_CHAR_VAL_REQ\000"
+ 10872 1190 47 41 54 54 		.ascii "GATT_WRITE_LONG_CHAR_VAL_REQ\000"
  10872      5F 52 45 41 
  10872      44 5F 4D 55 
  10872      4C 54 49 5F 
  10872      43 48 41 52 
  10873                 	.LASF794:
- 10874 1195 4C 53 5F 47 		.ascii "energy_expended\000"
+ 10874 119e 4C 53 5F 47 		.ascii "energy_expended\000"
  10874      41 50 5F 47 
  10874      45 54 5F 52 
  10874      41 4E 44 4F 
  10874      4D 5F 41 44 
  10875                 	.LASF606:
- 10876 11a3 53 59 53 5F 		.ascii "counter\000"
+ 10876 11ac 53 59 53 5F 		.ascii "counter\000"
  10876      53 45 54 5F 
  10876      50 49 4F 53 
  10876      5F 4D 4F 44 
  10876      45 5F 52 45 
  10877                 	.LASF20:
- 10878 11ae 6C 73 5F 65 		.ascii "nvm_status_needs_erase\000"
+ 10878 11b7 6C 73 5F 65 		.ascii "nvm_status_needs_erase\000"
  10878      72 72 5F 6D 
  10878      65 6D 00 
  10879                 	.LASF60:
- 10880 11b3 47 41 54 54 		.ascii "gatt_status_attr_not_found\000"
+ 10880 11bc 47 41 54 54 		.ascii "gatt_status_attr_not_found\000"
  10880      5F 52 45 41 
  10880      44 5F 4D 55 
  10880      4C 54 49 5F 
  10880      43 48 41 52 
  10881                 	.LASF25:
- 10882 11c2 70 69 6F 5F 		.ascii "i2c_status_waiting\000"
+ 10882 11cb 70 69 6F 5F 		.ascii "i2c_status_waiting\000"
  10882      6D 6F 64 65 
  10882      5F 69 32 63 
  10882      5F 63 6C 6F 
  10882      63 6B 00 
  10883                 	.LASF413:
- 10884 11cb 47 41 54 54 		.ascii "HCI_EV_DATA_ENCRYPTION_KEY_REFRESH_COMPLETE_T\000"
+ 10884 11d4 47 41 54 54 		.ascii "HCI_EV_DATA_ENCRYPTION_KEY_REFRESH_COMPLETE_T\000"
  10884      5F 43 48 41 
  10884      52 5F 56 41 
  10884      4C 5F 49 4E 
  10884      44 49 43 41 
  10885                 	.LASF279:
- 10886 11da 6B 65 79 73 		.ascii "LS_RADIO_EVENT_NOTIFICATION_CFM\000"
+ 10886 11e3 6B 65 79 73 		.ascii "LS_RADIO_EVENT_NOTIFICATION_CFM\000"
  10886      00 
  10887                 	.LASF182:
- 10888 11dc 4C 53 5F 47 		.ascii "GATT_WRITE_LONG_CHAR_VAL_CFM\000"
+ 10888 11e5 4C 53 5F 47 		.ascii "GATT_WRITE_LONG_CHAR_VAL_CFM\000"
  10888      41 50 5F 47 
  10888      45 54 5F 52 
  10888      41 4E 44 4F 
  10888      4D 5F 41 44 
  10889                 	.LASF639:
- 10890 11ea 6C 73 5F 65 		.ascii "command_status\000"
+ 10890 11f3 6C 73 5F 65 		.ascii "command_status\000"
  10890      72 72 5F 61 
  10890      72 67 00 
  10891                 	.LASF149:
- 10892 11ef 53 59 53 5F 		.ascii "GATT_READ_LONG_CHAR_VAL_REQ\000"
+ 10892 11f8 53 59 53 5F 		.ascii "GATT_READ_LONG_CHAR_VAL_REQ\000"
  10892      53 45 54 5F 
  10892      50 49 4F 53 
  10892      5F 4D 4F 44 
  10892      45 5F 43 46 
  10893                 	.LASF638:
- 10894 11fa 63 6F 6E 6E 		.ascii "number_completed_packets\000"
+ 10894 1203 63 6F 6E 6E 		.ascii "number_completed_packets\000"
  10894      5F 74 69 6D 
  10894      65 6F 75 74 
  10894      00 
  10895                 	.LASF258:
- 10896 1201 43 51 55 45 		.ascii "LS_ADD_DEVICE_TO_WHITELIST_CFM\000"
+ 10896 120a 43 51 55 45 		.ascii "LS_ADD_DEVICE_TO_WHITELIST_CFM\000"
  10896      55 45 5F 52 
  10896      52 5F 56 41 
  10896      4C 55 45 53 
  10896      5F 54 00 
  10897                 	.LASF533:
- 10898 120a 6C 6D 5F 65 		.ascii "LM_EV_CONNECTION_COMPLETE_T\000"
+ 10898 1213 6C 6D 5F 65 		.ascii "LM_EV_CONNECTION_COMPLETE_T\000"
  10898      76 65 6E 74 
  10898      5F 63 6F 64 
  10898      65 00 
  10899                 	.LASF178:
- 10900 1211 4C 53 5F 52 		.ascii "GATT_READ_LONG_CHAR_VAL_CFM\000"
+ 10900 121a 4C 53 5F 52 		.ascii "GATT_READ_LONG_CHAR_VAL_CFM\000"
  10900      41 44 49 4F 
  10900      5F 45 56 45 
  10900      4E 54 5F 4E 
  10900      4F 54 49 46 
  10901                 	.LASF766:
- 10902 1221 47 41 54 54 		.ascii "enable_white_list\000"
+ 10902 122a 47 41 54 54 		.ascii "enable_white_list\000"
  10902      5F 57 52 49 
  10902      54 45 5F 4C 
  10902      4F 4E 47 5F 
  10902      43 48 41 52 
  10903                 	.LASF395:
- 10904 1230 65 6E 65 72 		.ascii "HCI_EV_DATA_ULP_CONNECTION_COMPLETE_T\000"
+ 10904 1239 65 6E 65 72 		.ascii "HCI_EV_DATA_ULP_CONNECTION_COMPLETE_T\000"
  10904      67 79 5F 65 
  10904      78 70 65 6E 
  10904      64 65 64 00 
  10905                 	.LASF765:
- 10906 1238 63 6F 75 6E 		.ascii "diversifier\000"
+ 10906 1241 63 6F 75 6E 		.ascii "diversifier\000"
  10906      74 65 72 00 
  10907                 	.LASF74:
- 10908 123c 6E 76 6D 5F 		.ascii "gatt_status_success_more\000"
+ 10908 1245 6E 76 6D 5F 		.ascii "gatt_status_success_more\000"
  10908      73 74 61 74 
  10908      75 73 5F 6E 
  10908      65 65 64 73 
  10908      5F 65 72 61 
  10909                 	.LASF396:
- 10910 1247 67 61 74 74 		.ascii "num_reports\000"
+ 10910 1250 67 61 74 74 		.ascii "num_reports\000"
  10910      5F 73 74 61 
  10910      74 75 73 5F 
  10910      61 74 74 72 
  10910      5F 6E 6F 74 
  10911                 	.LASF136:
- 10912 1255 69 32 63 5F 		.ascii "GATT_CONNECT_REQ\000"
+ 10912 125e 69 32 63 5F 		.ascii "GATT_CONNECT_REQ\000"
  10912      73 74 61 74 
  10912      75 73 5F 77 
  10912      61 69 74 69 
  10912      6E 67 00 
  10913                 	.LASF611:
- 10914 125e 48 43 49 5F 		.ascii "SM_DIV_APPROVE_IND_T\000"
+ 10914 1267 48 43 49 5F 		.ascii "SM_DIV_APPROVE_IND_T\000"
  10914      45 56 5F 44 
  10914      41 54 41 5F 
  10914      45 4E 43 52 
  10914      59 50 54 49 
  10915                 	.LASF517:
- 10916 1275 4C 53 5F 52 		.ascii "gap_mode_security_none\000"
+ 10916 127e 4C 53 5F 52 		.ascii "gap_mode_security_none\000"
  10916      41 44 49 4F 
  10916      5F 45 56 45 
  10916      4E 54 5F 4E 
  10916      4F 54 49 46 
  10917                 	.LASF825:
- 10918 1285 47 41 54 54 		.ascii "hrSensorIdleTimerHandler\000"
+ 10918 128e 47 41 54 54 		.ascii "hrSensorIdleTimerHandler\000"
  10918      5F 57 52 49 
  10918      54 45 5F 4C 
  10918      4F 4E 47 5F 
  10918      43 48 41 52 
  10919                 	.LASF501:
- 10920 1294 63 6F 6D 6D 		.ascii "ls_err_sp_unsupported\000"
+ 10920 129d 63 6F 6D 6D 		.ascii "ls_err_sp_unsupported\000"
  10920      61 6E 64 5F 
  10920      73 74 61 74 
  10920      75 73 00 
  10921                 	.LASF677:
- 10922 129b 47 41 54 54 		.ascii "sm_div_approve_ind\000"
+ 10922 12a4 47 41 54 54 		.ascii "sm_div_approve_ind\000"
  10922      5F 52 45 41 
  10922      44 5F 4C 4F 
  10922      4E 47 5F 43 
  10922      48 41 52 5F 
  10923                 	.LASF442:
- 10924 12a9 6E 75 6D 62 		.ascii "payload_descriptor\000"
+ 10924 12b2 6E 75 6D 62 		.ascii "payload_descriptor\000"
  10924      65 72 5F 63 
  10924      6F 6D 70 6C 
  10924      65 74 65 64 
  10924      5F 70 61 63 
  10925                 	.LASF325:
- 10926 12b6 4C 53 5F 41 		.ascii "SYS_GET_BATTERY_VOLTAGE_REQ\000"
+ 10926 12bf 4C 53 5F 41 		.ascii "SYS_GET_BATTERY_VOLTAGE_REQ\000"
  10926      44 44 5F 44 
  10926      45 56 49 43 
  10926      45 5F 54 4F 
  10926      5F 57 48 49 
  10927                 	.LASF23:
- 10928 12c5 4C 4D 5F 45 		.ascii "nvm_status_invalid_offset\000"
+ 10928 12ce 4C 4D 5F 45 		.ascii "nvm_status_invalid_offset\000"
  10928      56 5F 43 4F 
  10928      4E 4E 45 43 
  10928      54 49 4F 4E 
  10928      5F 43 4F 4D 
  10929                 	.LASF792:
- 10930 12d3 47 41 54 54 		.ascii "p_hr_meas\000"
+ 10930 12dc 47 41 54 54 		.ascii "p_hr_meas\000"
  10930      5F 52 45 41 
  10930      44 5F 4C 4F 
  10930      4E 47 5F 43 
  10930      48 41 52 5F 
  10931                 	.LASF159:
- 10932 12e1 65 6E 61 62 		.ascii "GATT_CONNECT_CFM\000"
+ 10932 12ea 65 6E 61 62 		.ascii "GATT_CONNECT_CFM\000"
  10932      6C 65 5F 77 
  10932      68 69 74 65 
  10932      5F 6C 69 73 
  10932      74 00 
  10933                 	.LASF50:
- 10934 12ea 48 43 49 5F 		.ascii "ls_status_limited_advertising_timeout\000"
+ 10934 12f3 48 43 49 5F 		.ascii "ls_status_limited_advertising_timeout\000"
  10934      45 56 5F 44 
  10934      41 54 41 5F 
  10934      55 4C 50 5F 
  10934      43 4F 4E 4E 
  10935                 	.LASF491:
- 10936 12fd 64 69 76 65 		.ascii "ls_err_qos_rejected\000"
+ 10936 1306 64 69 76 65 		.ascii "ls_err_qos_rejected\000"
  10936      72 73 69 66 
  10936      69 65 72 00 
  10937                 	.LASF53:
- 10938 1303 67 61 74 74 		.ascii "gatt_status_write_not_permitted\000"
+ 10938 130c 67 61 74 74 		.ascii "gatt_status_write_not_permitted\000"
  10938      5F 73 74 61 
  10938      74 75 73 5F 
  10938      73 75 63 63 
  10938      65 73 73 5F 
  10939                 	.LASF322:
- 10940 1310 6E 75 6D 5F 		.ascii "SYS_WARM_RESET_REQ\000"
+ 10940 1319 6E 75 6D 5F 		.ascii "SYS_WARM_RESET_REQ\000"
  10940      72 65 70 6F 
  10940      72 74 73 00 
  10941                 	.LASF372:
- 10942 1316 47 41 54 54 		.ascii "SYS_GET_BATTERY_VOLTAGE_CFM\000"
+ 10942 131f 47 41 54 54 		.ascii "SYS_GET_BATTERY_VOLTAGE_CFM\000"
  10942      5F 43 4F 4E 
  10942      4E 45 43 54 
  10942      5F 52 45 51 
  10942      00 
  10943                 	.LASF745:
- 10944 131e 53 4D 5F 44 		.ascii "app_panic_unexpected_beep_type\000"
+ 10944 1327 53 4D 5F 44 		.ascii "app_panic_unexpected_beep_type\000"
  10944      49 56 5F 41 
  10944      50 50 52 4F 
  10944      56 45 5F 49 
  10944      4E 44 5F 54 
  10945                 	.LASF416:
- 10946 1329 67 61 70 5F 		.ascii "lmp_subversion\000"
+ 10946 1332 67 61 70 5F 		.ascii "lmp_subversion\000"
  10946      6D 6F 64 65 
  10946      5F 73 65 63 
  10946      75 72 69 74 
  10946      79 5F 6E 6F 
  10947                 	.LASF709:
- 10948 1334 68 72 53 65 		.ascii "pio_mode_uart\000"
+ 10948 133d 68 72 53 65 		.ascii "pio_mode_uart\000"
  10948      6E 73 6F 72 
  10948      49 64 6C 65 
  10948      54 69 6D 65 
  10948      72 48 61 6E 
  10949                 	.LASF64:
- 10950 1341 6C 73 5F 65 		.ascii "gatt_status_unlikely_error\000"
+ 10950 134a 6C 73 5F 65 		.ascii "gatt_status_unlikely_error\000"
  10950      72 72 5F 73 
  10950      70 5F 75 6E 
  10950      73 75 70 70 
  10950      6F 72 74 65 
- 10951                 	.LASF324:
- 10952 134c 73 6D 5F 64 		.ascii "SYS_GET_ROM_BUILD_ID_REQ\000"
+ 10951                 	.LASF44:
+ 10952 1355 73 6D 5F 64 		.ascii "skm_status_storage_full\000"
  10952      69 76 5F 61 
  10952      70 70 72 6F 
  10952      76 65 5F 69 
  10952      6E 64 00 
- 10953                 	.LASF487:
- 10954 1355 70 61 79 6C 		.ascii "ls_err_unit_key_unsupported\000"
+ 10953                 	.LASF324:
+ 10954 135e 70 61 79 6C 		.ascii "SYS_GET_ROM_BUILD_ID_REQ\000"
  10954      6F 61 64 5F 
  10954      64 65 73 63 
  10954      72 69 70 74 
  10954      6F 72 00 
- 10955                 	.LASF420:
- 10956 135f 53 59 53 5F 		.ascii "link_type\000"
+ 10955                 	.LASF487:
+ 10956 1368 53 59 53 5F 		.ascii "ls_err_unit_key_unsupported\000"
  10956      47 45 54 5F 
  10956      42 41 54 54 
  10956      45 52 59 5F 
  10956      56 4F 4C 54 
- 10957                 	.LASF110:
- 10958 136d 6E 76 6D 5F 		.ascii "radio_event_first_tx\000"
+ 10957                 	.LASF420:
+ 10958 1376 6E 76 6D 5F 		.ascii "link_type\000"
  10958      73 74 61 74 
  10958      75 73 5F 69 
  10958      6E 76 61 6C 
  10958      69 64 5F 6F 
- 10959                 	.LASF526:
- 10960 137a 70 5F 68 72 		.ascii "event\000"
+ 10959                 	.LASF110:
+ 10960 1383 70 5F 68 72 		.ascii "radio_event_first_tx\000"
  10960      5F 6D 65 61 
  10960      73 00 
- 10961                 	.LASF62:
- 10962 137f 47 41 54 54 		.ascii "gatt_status_insufficient_encr_key_size\000"
+ 10961                 	.LASF526:
+ 10962 1388 47 41 54 54 		.ascii "event\000"
  10962      5F 43 4F 4E 
  10962      4E 45 43 54 
  10962      5F 43 46 4D 
  10962      00 
- 10963                 	.LASF105:
- 10964 1387 6C 73 5F 73 		.ascii "addr\000"
+ 10963                 	.LASF62:
+ 10964 1390 6C 73 5F 73 		.ascii "gatt_status_insufficient_encr_key_size\000"
  10964      74 61 74 75 
  10964      73 5F 6C 69 
  10964      6D 69 74 65 
  10964      64 5F 61 64 
- 10965                 	.LASF550:
- 10966 139a 6C 73 5F 65 		.ascii "GATT_ADD_DB_CFM_T\000"
+ 10965                 	.LASF105:
+ 10966 13a3 6C 73 5F 65 		.ascii "addr\000"
  10966      72 72 5F 71 
  10966      6F 73 5F 72 
  10966      65 6A 65 63 
  10966      74 65 64 00 
- 10967                 	.LASF371:
- 10968 13a4 67 61 74 74 		.ascii "SYS_GET_ROM_BUILD_ID_CFM\000"
+ 10967                 	.LASF550:
+ 10968 13ad 67 61 74 74 		.ascii "GATT_ADD_DB_CFM_T\000"
  10968      5F 73 74 61 
  10968      74 75 73 5F 
  10968      77 72 69 74 
  10968      65 5F 6E 6F 
- 10969                 	.LASF411:
- 10970 13b4 53 59 53 5F 		.ascii "enc_enable\000"
+ 10969                 	.LASF371:
+ 10970 13bd 53 59 53 5F 		.ascii "SYS_GET_ROM_BUILD_ID_CFM\000"
  10970      57 41 52 4D 
  10970      5F 52 45 53 
  10970      45 54 5F 52 
  10970      45 51 00 
- 10971                 	.LASF663:
- 10972 13be 53 59 53 5F 		.ascii "prim_long_char_val_ind\000"
+ 10971                 	.LASF411:
+ 10972 13c7 53 59 53 5F 		.ascii "enc_enable\000"
  10972      47 45 54 5F 
  10972      42 41 54 54 
  10972      45 52 59 5F 
  10972      56 4F 4C 54 
- 10973                 	.LASF671:
- 10974 13cc 61 70 70 5F 		.ascii "sm_csrk_counter_change_ind\000"
+ 10973                 	.LASF663:
+ 10974 13d5 61 70 70 5F 		.ascii "prim_long_char_val_ind\000"
  10974      70 61 6E 69 
  10974      63 5F 75 6E 
  10974      65 78 70 65 
  10974      63 74 65 64 
- 10975                 	.LASF126:
- 10976 13db 6C 6D 70 5F 		.ascii "LM_EV_CONNECTION_COMPLETE\000"
+ 10975                 	.LASF671:
+ 10976 13e4 6C 6D 70 5F 		.ascii "sm_csrk_counter_change_ind\000"
  10976      73 75 62 76 
  10976      65 72 73 69 
  10976      6F 6E 00 
- 10977                 	.LASF538:
- 10978 13e3 70 69 6F 5F 		.ascii "LM_EV_BUFFER_OVERFLOW_T\000"
+ 10977                 	.LASF126:
+ 10978 13ec 70 69 6F 5F 		.ascii "LM_EV_CONNECTION_COMPLETE\000"
  10978      6D 6F 64 65 
  10978      5F 75 61 72 
  10978      74 00 
- 10979                 	.LASF564:
- 10980 13ea 67 61 74 74 		.ascii "uuid\000"
+ 10979                 	.LASF538:
+ 10980 13f3 67 61 74 74 		.ascii "LM_EV_BUFFER_OVERFLOW_T\000"
  10980      5F 73 74 61 
  10980      74 75 73 5F 
  10980      75 6E 6C 69 
  10980      6B 65 6C 79 
- 10981                 	.LASF12:
- 10982 13f7 53 59 53 5F 		.ascii "unsigned int\000"
- 10982      47 45 54 5F 
- 10982      52 4F 4D 5F 
- 10982      42 55 49 4C 
- 10982      44 5F 49 44 
- 10983                 	.LASF492:
- 10984 1404 6C 73 5F 65 		.ascii "ls_err_channel_class_unsupported\000"
- 10984      72 72 5F 75 
- 10984      6E 69 74 5F 
- 10984      6B 65 79 5F 
- 10984      75 6E 73 75 
- 10985                 	.LASF754:
- 10986 1412 6C 69 6E 6B 		.ascii "CENTRAL_DEVICE_IRK_T\000"
- 10986      5F 74 79 70 
- 10986      65 00 
- 10987                 	.LASF300:
- 10988 1417 72 61 64 69 		.ascii "SYS_SET_PIO_DIR_REQ\000"
- 10988      6F 5F 65 76 
- 10988      65 6E 74 5F 
- 10988      66 69 72 73 
- 10988      74 5F 74 78 
- 10989                 	.LASF546:
- 10990 1421 65 76 65 6E 		.ascii "LM_EV_COMMAND_COMPLETE_T\000"
- 10990      74 00 
- 10991                 	.LASF841:
- 10992 1424 67 61 74 74 		.ascii "handleSignalLsRadioEventInd\000"
- 10992      5F 73 74 61 
- 10992      74 75 73 5F 
- 10992      69 6E 73 75 
- 10992      66 66 69 63 
- 10993                 	.LASF422:
- 10994 1438 61 64 64 72 		.ascii "num_completed\000"
- 10994      00 
- 10995                 	.LASF58:
- 10996 143a 47 41 54 54 		.ascii "gatt_status_insufficient_authorization\000"
- 10996      5F 41 44 44 
- 10996      5F 44 42 5F 
- 10996      43 46 4D 5F 
- 10996      54 00 
- 10997                 	.LASF242:
- 10998 1443 53 59 53 5F 		.ascii "LS_ADVERTISE_REQ\000"
- 10998      47 45 54 5F 
- 10998      52 4F 4D 5F 
- 10998      42 55 49 4C 
- 10998      44 5F 49 44 
- 10999                 	.LASF605:
- 11000 1450 65 6E 63 5F 		.ascii "local_csrk\000"
- 11000      65 6E 61 62 
- 11000      6C 65 00 
- 11001                 	.LASF555:
- 11002 1455 70 72 69 6D 		.ascii "GATT_DISCONNECT_CFM_T\000"
- 11002      5F 6C 6F 6E 
- 11002      67 5F 63 68 
- 11002      61 72 5F 76 
- 11002      61 6C 5F 69 
- 11003                 	.LASF452:
- 11004 1461 73 6D 5F 63 		.ascii "ls_err_key\000"
- 11004      73 72 6B 5F 
- 11004      63 6F 75 6E 
- 11004      74 65 72 5F 
- 11004      63 68 61 6E 
- 11005                 	.LASF459:
- 11006 146e 4C 4D 5F 45 		.ascii "ls_err_remote_resource\000"
- 11006      56 5F 43 4F 
- 11006      4E 4E 45 43 
- 11006      54 49 4F 4E 
- 11006      5F 43 4F 4D 
- 11007                 	.LASF269:
- 11008 147b 4C 4D 5F 45 		.ascii "LS_ADVERTISE_CFM\000"
- 11008      56 5F 42 55 
- 11008      46 46 45 52 
- 11008      5F 4F 56 45 
- 11008      52 46 4C 4F 
- 11009                 	.LASF779:
- 11010 1487 75 75 69 64 		.ascii "buzzer_beep_twice\000"
- 11010      00 
- 11011                 	.LASF701:
- 11012 148a 75 6E 73 69 		.ascii "pio_mode_pwm0\000"
- 11012      67 6E 65 64 
- 11012      20 69 6E 74 
+ 10981                 	.LASF564:
+ 10982 1400 73 6B 6D 5F 		.ascii "uuid\000"
+ 10982      73 74 61 74 
+ 10982      75 73 5F 73 
+ 10982      74 6F 72 61 
+ 10982      67 65 5F 66 
+ 10983                 	.LASF12:
+ 10984 140c 53 59 53 5F 		.ascii "unsigned int\000"
+ 10984      47 45 54 5F 
+ 10984      52 4F 4D 5F 
+ 10984      42 55 49 4C 
+ 10984      44 5F 49 44 
+ 10985                 	.LASF492:
+ 10986 1419 6C 73 5F 65 		.ascii "ls_err_channel_class_unsupported\000"
+ 10986      72 72 5F 75 
+ 10986      6E 69 74 5F 
+ 10986      6B 65 79 5F 
+ 10986      75 6E 73 75 
+ 10987                 	.LASF754:
+ 10988 1427 6C 69 6E 6B 		.ascii "CENTRAL_DEVICE_IRK_T\000"
+ 10988      5F 74 79 70 
+ 10988      65 00 
+ 10989                 	.LASF300:
+ 10990 142c 72 61 64 69 		.ascii "SYS_SET_PIO_DIR_REQ\000"
+ 10990      6F 5F 65 76 
+ 10990      65 6E 74 5F 
+ 10990      66 69 72 73 
+ 10990      74 5F 74 78 
+ 10991                 	.LASF546:
+ 10992 1436 65 76 65 6E 		.ascii "LM_EV_COMMAND_COMPLETE_T\000"
+ 10992      74 00 
+ 10993                 	.LASF841:
+ 10994 1439 67 61 74 74 		.ascii "handleSignalLsRadioEventInd\000"
+ 10994      5F 73 74 61 
+ 10994      74 75 73 5F 
+ 10994      69 6E 73 75 
+ 10994      66 66 69 63 
+ 10995                 	.LASF422:
+ 10996 144d 61 64 64 72 		.ascii "num_completed\000"
+ 10996      00 
+ 10997                 	.LASF58:
+ 10998 144f 47 41 54 54 		.ascii "gatt_status_insufficient_authorization\000"
+ 10998      5F 41 44 44 
+ 10998      5F 44 42 5F 
+ 10998      43 46 4D 5F 
+ 10998      54 00 
+ 10999                 	.LASF242:
+ 11000 1458 53 59 53 5F 		.ascii "LS_ADVERTISE_REQ\000"
+ 11000      47 45 54 5F 
+ 11000      52 4F 4D 5F 
+ 11000      42 55 49 4C 
+ 11000      44 5F 49 44 
+ 11001                 	.LASF605:
+ 11002 1465 65 6E 63 5F 		.ascii "local_csrk\000"
+ 11002      65 6E 61 62 
+ 11002      6C 65 00 
+ 11003                 	.LASF555:
+ 11004 146a 70 72 69 6D 		.ascii "GATT_DISCONNECT_CFM_T\000"
+ 11004      5F 6C 6F 6E 
+ 11004      67 5F 63 68 
+ 11004      61 72 5F 76 
+ 11004      61 6C 5F 69 
+ 11005                 	.LASF452:
+ 11006 1476 73 6D 5F 63 		.ascii "ls_err_key\000"
+ 11006      73 72 6B 5F 
+ 11006      63 6F 75 6E 
+ 11006      74 65 72 5F 
+ 11006      63 68 61 6E 
+ 11007                 	.LASF459:
+ 11008 1483 4C 4D 5F 45 		.ascii "ls_err_remote_resource\000"
+ 11008      56 5F 43 4F 
+ 11008      4E 4E 45 43 
+ 11008      54 49 4F 4E 
+ 11008      5F 43 4F 4D 
+ 11009                 	.LASF269:
+ 11010 1490 4C 4D 5F 45 		.ascii "LS_ADVERTISE_CFM\000"
+ 11010      56 5F 42 55 
+ 11010      46 46 45 52 
+ 11010      5F 4F 56 45 
+ 11010      52 46 4C 4F 
+ 11011                 	.LASF779:
+ 11012 149c 75 75 69 64 		.ascii "buzzer_beep_twice\000"
  11012      00 
- 11013                 	.LASF683:
- 11014 1490 6C 73 5F 65 		.ascii "ls_data_rx_timing_ind\000"
- 11014      72 72 5F 63 
- 11014      68 61 6E 6E 
- 11014      65 6C 5F 63 
- 11014      6C 61 73 73 
- 11015                 	.LASF703:
- 11016 14a1 43 45 4E 54 		.ascii "pio_mode_pwm2\000"
- 11016      52 41 4C 5F 
- 11016      44 45 56 49 
- 11016      43 45 5F 49 
- 11016      52 4B 5F 54 
- 11017                 	.LASF295:
- 11018 14ab 53 59 53 5F 		.ascii "SYS_GET_TEMPERATURE_REQ\000"
- 11018      53 45 54 5F 
- 11018      50 49 4F 5F 
- 11018      44 49 52 5F 
- 11018      52 45 51 00 
- 11019                 	.LASF318:
- 11020 14b5 4C 4D 5F 45 		.ascii "SYS_GET_PERSISTENT_MEM_SIZE_REQ\000"
- 11020      56 5F 43 4F 
- 11020      4D 4D 41 4E 
- 11020      44 5F 43 4F 
- 11020      4D 50 4C 45 
- 11021                 	.LASF619:
- 11022 14c2 68 61 6E 64 		.ascii "LS_CONNECTION_UPDATE_SIGNALLING_IND_T\000"
- 11022      6C 65 53 69 
- 11022      67 6E 61 6C 
- 11022      4C 73 52 61 
- 11022      64 69 6F 45 
- 11023                 	.LASF554:
- 11024 14d0 6E 75 6D 5F 		.ascii "GATT_CONNECT_IND_T\000"
- 11024      63 6F 6D 70 
- 11024      6C 65 74 65 
- 11024      64 00 
- 11025                 	.LASF343:
- 11026 14d7 67 61 74 74 		.ascii "SYS_GET_TEMPERATURE_CFM\000"
- 11026      5F 73 74 61 
- 11026      74 75 73 5F 
- 11026      69 6E 73 75 
- 11026      66 66 69 63 
- 11027                 	.LASF727:
- 11028 14ea 4C 53 5F 41 		.ascii "pio_mode_strong_pull_up\000"
- 11028      44 56 45 52 
- 11028      54 49 53 45 
- 11028      5F 52 45 51 
- 11028      00 
- 11029                 	.LASF366:
- 11030 14f3 6C 6F 63 61 		.ascii "SYS_GET_PERSISTENT_MEM_SIZE_CFM\000"
- 11030      6C 5F 63 73 
- 11030      72 6B 00 
- 11031                 	.LASF313:
- 11032 14f8 47 41 54 54 		.ascii "SYS_GET_PIO_EDGE_CAPTURE_REQ\000"
- 11032      5F 44 49 53 
- 11032      43 4F 4E 4E 
- 11032      45 43 54 5F 
- 11032      43 46 4D 5F 
- 11033                 	.LASF786:
- 11034 1503 6C 73 5F 65 		.ascii "APP_HW_DATA_T\000"
- 11034      72 72 5F 6B 
- 11034      65 79 00 
- 11035                 	.LASF738:
- 11036 1509 6C 73 5F 65 		.ascii "app_panic_nvm_read\000"
- 11036      72 72 5F 72 
- 11036      65 6D 6F 74 
- 11036      65 5F 72 65 
- 11036      73 6F 75 72 
- 11037                 	.LASF524:
- 11038 1514 4C 53 5F 41 		.ascii "GATT_UUID128\000"
- 11038      44 56 45 52 
- 11038      54 49 53 45 
- 11038      5F 43 46 4D 
- 11038      00 
- 11039                 	.LASF210:
- 11040 151d 62 75 7A 7A 		.ascii "SM_DISTRIBUTE_MASTER_LTK_REQ\000"
- 11040      65 72 5F 62 
- 11040      65 65 70 5F 
- 11040      74 77 69 63 
- 11040      65 00 
- 11041                 	.LASF654:
- 11042 1526 70 69 6F 5F 		.ascii "prim_disc_prim_serv_by_uuid_ind\000"
- 11042      6D 6F 64 65 
- 11042      5F 70 77 6D 
- 11042      30 00 
- 11043                 	.LASF673:
- 11044 152d 6C 73 5F 64 		.ascii "sm_unstored_key_ind\000"
- 11044      61 74 61 5F 
- 11044      72 78 5F 74 
- 11044      69 6D 69 6E 
- 11044      67 5F 69 6E 
- 11045                 	.LASF122:
- 11046 1538 70 69 6F 5F 		.ascii "LM_EV_HARDWARE_ERROR\000"
- 11046      6D 6F 64 65 
- 11046      5F 70 77 6D 
- 11046      32 00 
- 11047                 	.LASF361:
- 11048 153f 53 59 53 5F 		.ascii "SYS_GET_PIO_EDGE_CAPTURE_CFM\000"
- 11048      47 45 54 5F 
- 11048      54 45 4D 50 
- 11048      45 52 41 54 
- 11048      55 52 45 5F 
- 11049                 	.LASF219:
- 11050 154b 53 59 53 5F 		.ascii "SM_PASSKEY_COMPARE_IND\000"
+ 11013                 	.LASF701:
+ 11014 149f 75 6E 73 69 		.ascii "pio_mode_pwm0\000"
+ 11014      67 6E 65 64 
+ 11014      20 69 6E 74 
+ 11014      00 
+ 11015                 	.LASF683:
+ 11016 14a5 6C 73 5F 65 		.ascii "ls_data_rx_timing_ind\000"
+ 11016      72 72 5F 63 
+ 11016      68 61 6E 6E 
+ 11016      65 6C 5F 63 
+ 11016      6C 61 73 73 
+ 11017                 	.LASF703:
+ 11018 14b6 43 45 4E 54 		.ascii "pio_mode_pwm2\000"
+ 11018      52 41 4C 5F 
+ 11018      44 45 56 49 
+ 11018      43 45 5F 49 
+ 11018      52 4B 5F 54 
+ 11019                 	.LASF295:
+ 11020 14c0 53 59 53 5F 		.ascii "SYS_GET_TEMPERATURE_REQ\000"
+ 11020      53 45 54 5F 
+ 11020      50 49 4F 5F 
+ 11020      44 49 52 5F 
+ 11020      52 45 51 00 
+ 11021                 	.LASF318:
+ 11022 14ca 4C 4D 5F 45 		.ascii "SYS_GET_PERSISTENT_MEM_SIZE_REQ\000"
+ 11022      56 5F 43 4F 
+ 11022      4D 4D 41 4E 
+ 11022      44 5F 43 4F 
+ 11022      4D 50 4C 45 
+ 11023                 	.LASF619:
+ 11024 14d7 68 61 6E 64 		.ascii "LS_CONNECTION_UPDATE_SIGNALLING_IND_T\000"
+ 11024      6C 65 53 69 
+ 11024      67 6E 61 6C 
+ 11024      4C 73 52 61 
+ 11024      64 69 6F 45 
+ 11025                 	.LASF554:
+ 11026 14e5 6E 75 6D 5F 		.ascii "GATT_CONNECT_IND_T\000"
+ 11026      63 6F 6D 70 
+ 11026      6C 65 74 65 
+ 11026      64 00 
+ 11027                 	.LASF343:
+ 11028 14ec 67 61 74 74 		.ascii "SYS_GET_TEMPERATURE_CFM\000"
+ 11028      5F 73 74 61 
+ 11028      74 75 73 5F 
+ 11028      69 6E 73 75 
+ 11028      66 66 69 63 
+ 11029                 	.LASF727:
+ 11030 14ff 4C 53 5F 41 		.ascii "pio_mode_strong_pull_up\000"
+ 11030      44 56 45 52 
+ 11030      54 49 53 45 
+ 11030      5F 52 45 51 
+ 11030      00 
+ 11031                 	.LASF366:
+ 11032 1508 6C 6F 63 61 		.ascii "SYS_GET_PERSISTENT_MEM_SIZE_CFM\000"
+ 11032      6C 5F 63 73 
+ 11032      72 6B 00 
+ 11033                 	.LASF313:
+ 11034 150d 47 41 54 54 		.ascii "SYS_GET_PIO_EDGE_CAPTURE_REQ\000"
+ 11034      5F 44 49 53 
+ 11034      43 4F 4E 4E 
+ 11034      45 43 54 5F 
+ 11034      43 46 4D 5F 
+ 11035                 	.LASF786:
+ 11036 1518 6C 73 5F 65 		.ascii "APP_HW_DATA_T\000"
+ 11036      72 72 5F 6B 
+ 11036      65 79 00 
+ 11037                 	.LASF738:
+ 11038 151e 6C 73 5F 65 		.ascii "app_panic_nvm_read\000"
+ 11038      72 72 5F 72 
+ 11038      65 6D 6F 74 
+ 11038      65 5F 72 65 
+ 11038      73 6F 75 72 
+ 11039                 	.LASF524:
+ 11040 1529 4C 53 5F 41 		.ascii "GATT_UUID128\000"
+ 11040      44 56 45 52 
+ 11040      54 49 53 45 
+ 11040      5F 43 46 4D 
+ 11040      00 
+ 11041                 	.LASF210:
+ 11042 1532 62 75 7A 7A 		.ascii "SM_DISTRIBUTE_MASTER_LTK_REQ\000"
+ 11042      65 72 5F 62 
+ 11042      65 65 70 5F 
+ 11042      74 77 69 63 
+ 11042      65 00 
+ 11043                 	.LASF654:
+ 11044 153b 70 69 6F 5F 		.ascii "prim_disc_prim_serv_by_uuid_ind\000"
+ 11044      6D 6F 64 65 
+ 11044      5F 70 77 6D 
+ 11044      30 00 
+ 11045                 	.LASF673:
+ 11046 1542 6C 73 5F 64 		.ascii "sm_unstored_key_ind\000"
+ 11046      61 74 61 5F 
+ 11046      72 78 5F 74 
+ 11046      69 6D 69 6E 
+ 11046      67 5F 69 6E 
+ 11047                 	.LASF122:
+ 11048 154d 70 69 6F 5F 		.ascii "LM_EV_HARDWARE_ERROR\000"
+ 11048      6D 6F 64 65 
+ 11048      5F 70 77 6D 
+ 11048      32 00 
+ 11049                 	.LASF361:
+ 11050 1554 53 59 53 5F 		.ascii "SYS_GET_PIO_EDGE_CAPTURE_CFM\000"
  11050      47 45 54 5F 
- 11050      50 45 52 53 
- 11050      49 53 54 45 
- 11050      4E 54 5F 4D 
- 11051                 	.LASF124:
- 11052 155b 4C 53 5F 43 		.ascii "LM_EV_BUFFER_OVERFLOW\000"
- 11052      4F 4E 4E 45 
- 11052      43 54 49 4F 
- 11052      4E 5F 55 50 
- 11052      44 41 54 45 
- 11053                 	.LASF480:
- 11054 156e 47 41 54 54 		.ascii "ls_err_lmp_timeout\000"
- 11054      5F 43 4F 4E 
- 11054      4E 45 43 54 
- 11054      5F 49 4E 44 
- 11054      5F 54 00 
- 11055                 	.LASF206:
- 11056 1577 53 59 53 5F 		.ascii "SM_FEATURES_REQ\000"
- 11056      47 45 54 5F 
- 11056      54 45 4D 50 
- 11056      45 52 41 54 
- 11056      55 52 45 5F 
- 11057                 	.LASF803:
- 11058 1583 70 69 6F 5F 		.ascii "StartSendingHRMeasurements\000"
- 11058      6D 6F 64 65 
- 11058      5F 73 74 72 
- 11058      6F 6E 67 5F 
- 11058      70 75 6C 6C 
- 11059                 	.LASF582:
- 11060 158f 53 59 53 5F 		.ascii "offset\000"
- 11060      47 45 54 5F 
- 11060      50 45 52 53 
- 11060      49 53 54 45 
- 11060      4E 54 5F 4D 
- 11061                 	.LASF696:
- 11062 159f 53 59 53 5F 		.ascii "sleep_state_warm_reset\000"
+ 11050      54 45 4D 50 
+ 11050      45 52 41 54 
+ 11050      55 52 45 5F 
+ 11051                 	.LASF219:
+ 11052 1560 53 59 53 5F 		.ascii "SM_PASSKEY_COMPARE_IND\000"
+ 11052      47 45 54 5F 
+ 11052      50 45 52 53 
+ 11052      49 53 54 45 
+ 11052      4E 54 5F 4D 
+ 11053                 	.LASF124:
+ 11054 1570 4C 53 5F 43 		.ascii "LM_EV_BUFFER_OVERFLOW\000"
+ 11054      4F 4E 4E 45 
+ 11054      43 54 49 4F 
+ 11054      4E 5F 55 50 
+ 11054      44 41 54 45 
+ 11055                 	.LASF480:
+ 11056 1583 47 41 54 54 		.ascii "ls_err_lmp_timeout\000"
+ 11056      5F 43 4F 4E 
+ 11056      4E 45 43 54 
+ 11056      5F 49 4E 44 
+ 11056      5F 54 00 
+ 11057                 	.LASF206:
+ 11058 158c 53 59 53 5F 		.ascii "SM_FEATURES_REQ\000"
+ 11058      47 45 54 5F 
+ 11058      54 45 4D 50 
+ 11058      45 52 41 54 
+ 11058      55 52 45 5F 
+ 11059                 	.LASF803:
+ 11060 1598 70 69 6F 5F 		.ascii "StartSendingHRMeasurements\000"
+ 11060      6D 6F 64 65 
+ 11060      5F 73 74 72 
+ 11060      6F 6E 67 5F 
+ 11060      70 75 6C 6C 
+ 11061                 	.LASF582:
+ 11062 15a4 53 59 53 5F 		.ascii "offset\000"
  11062      47 45 54 5F 
- 11062      50 49 4F 5F 
- 11062      45 44 47 45 
- 11062      5F 43 41 50 
- 11063                 	.LASF81:
- 11064 15ae 41 50 50 5F 		.ascii "gatt_status_invalid_param_value\000"
- 11064      48 57 5F 44 
- 11064      41 54 41 5F 
- 11064      54 00 
- 11065                 	.LASF223:
- 11066 15b5 61 70 70 5F 		.ascii "SM_FEATURES_CFM\000"
- 11066      70 61 6E 69 
- 11066      63 5F 6E 76 
- 11066      6D 5F 72 65 
- 11066      61 64 00 
- 11067                 	.LASF613:
- 11068 15be 47 41 54 54 		.ascii "LS_CONNECTION_PARAM_UPDATE_CFM_T\000"
- 11068      5F 55 55 49 
- 11068      44 31 32 38 
- 11068      00 
- 11069                 	.LASF557:
- 11070 15c5 53 4D 5F 44 		.ascii "GATT_EXCHANGE_MTU_CFM_T\000"
- 11070      49 53 54 52 
- 11070      49 42 55 54 
- 11070      45 5F 4D 41 
- 11070      53 54 45 52 
- 11071                 	.LASF658:
- 11072 15d3 70 72 69 6D 		.ascii "prim_char_desc_info_ind\000"
- 11072      5F 64 69 73 
- 11072      63 5F 70 72 
- 11072      69 6D 5F 73 
- 11072      65 72 76 5F 
- 11073                 	.LASF614:
- 11074 15e3 73 6D 5F 75 		.ascii "con_handle\000"
- 11074      6E 73 74 6F 
- 11074      72 65 64 5F 
- 11074      6B 65 79 5F 
- 11074      69 6E 64 00 
- 11075                 	.LASF98:
- 11076 15ed 4C 4D 5F 45 		.ascii "sm_status_last_standardised\000"
- 11076      56 5F 48 41 
- 11076      52 44 57 41 
- 11076      52 45 5F 45 
- 11076      52 52 4F 52 
- 11077                 	.LASF834:
- 11078 15f8 53 59 53 5F 		.ascii "handleSignalSmKeysInd\000"
- 11078      47 45 54 5F 
- 11078      50 49 4F 5F 
- 11078      45 44 47 45 
- 11078      5F 43 41 50 
- 11079                 	.LASF410:
- 11080 1606 53 4D 5F 50 		.ascii "HCI_EV_DATA_DISCONNECT_COMPLETE_T\000"
- 11080      41 53 53 4B 
- 11080      45 59 5F 43 
- 11080      4F 4D 50 41 
- 11080      52 45 5F 49 
- 11081                 	.LASF721:
- 11082 1612 4C 4D 5F 45 		.ascii "pio_mode_pio_control_timer\000"
- 11082      56 5F 42 55 
- 11082      46 46 45 52 
- 11082      5F 4F 56 45 
- 11082      52 46 4C 4F 
- 11083                 	.LASF853:
- 11084 161d 6C 73 5F 65 		.ascii "g_hr_data\000"
- 11084      72 72 5F 6C 
- 11084      6D 70 5F 74 
- 11084      69 6D 65 6F 
- 11084      75 74 00 
- 11085                 	.LASF148:
- 11086 1626 53 4D 5F 46 		.ascii "GATT_READ_CHAR_USING_UUID_REQ\000"
- 11086      45 41 54 55 
- 11086      52 45 53 5F 
- 11086      52 45 51 00 
- 11087                 	.LASF832:
- 11088 162e 53 74 61 72 		.ascii "handleSignalLmEvConnectionComplete\000"
- 11088      74 53 65 6E 
- 11088      64 69 6E 67 
- 11088      48 52 4D 65 
- 11088      61 73 75 72 
- 11089                 	.LASF761:
- 11090 163c 6F 66 66 73 		.ascii "con_bd_addr\000"
- 11090      65 74 00 
- 11091                 	.LASF568:
- 11092 163f 73 6C 65 65 		.ascii "GATT_FIND_INCLUDED_SERV_CFM_T\000"
- 11092      70 5F 73 74 
- 11092      61 74 65 5F 
- 11092      77 61 72 6D 
- 11092      5F 72 65 73 
- 11093                 	.LASF587:
- 11094 164b 67 61 74 74 		.ascii "GATT_CHAR_VAL_IND_CFM_T\000"
- 11094      5F 73 74 61 
- 11094      74 75 73 5F 
- 11094      69 6E 76 61 
- 11094      6C 69 64 5F 
- 11095                 	.LASF247:
- 11096 165b 53 4D 5F 46 		.ascii "LS_GAP_SET_SCAN_INTERVAL_REQ\000"
- 11096      45 41 54 55 
- 11096      52 45 53 5F 
- 11096      43 46 4D 00 
- 11097                 	.LASF254:
- 11098 1663 4C 53 5F 43 		.ascii "LS_HOLD_TX_UNTIL_RX_REQ\000"
- 11098      4F 4E 4E 45 
- 11098      43 54 49 4F 
- 11098      4E 5F 50 41 
- 11098      52 41 4D 5F 
- 11099                 	.LASF176:
- 11100 1673 47 41 54 54 		.ascii "GATT_READ_CHAR_USING_UUID_CFM\000"
- 11100      5F 45 58 43 
- 11100      48 41 4E 47 
- 11100      45 5F 4D 54 
- 11100      55 5F 43 46 
- 11101                 	.LASF390:
- 11102 167f 70 72 69 6D 		.ascii "peer_address\000"
- 11102      5F 63 68 61 
- 11102      72 5F 64 65 
- 11102      73 63 5F 69 
- 11102      6E 66 6F 5F 
- 11103                 	.LASF11:
- 11104 168b 63 6F 6E 5F 		.ascii "bool\000"
- 11104      68 61 6E 64 
- 11104      6C 65 00 
- 11105                 	.LASF661:
- 11106 1691 73 6D 5F 73 		.ascii "prim_char_val_ind\000"
- 11106      74 61 74 75 
- 11106      73 5F 6C 61 
- 11106      73 74 5F 73 
- 11106      74 61 6E 64 
- 11107                 	.LASF495:
- 11108 169f 68 61 6E 64 		.ascii "ls_err_scm\000"
- 11108      6C 65 53 69 
- 11108      67 6E 61 6C 
- 11108      53 6D 4B 65 
- 11108      79 73 49 6E 
- 11109                 	.LASF602:
- 11110 16aa 48 43 49 5F 		.ascii "SM_UNSTORED_KEY_IND_T\000"
- 11110      45 56 5F 44 
- 11110      41 54 41 5F 
- 11110      44 49 53 43 
- 11110      4F 4E 4E 45 
- 11111                 	.LASF274:
- 11112 16bb 70 69 6F 5F 		.ascii "LS_GAP_SET_SCAN_INTERVAL_CFM\000"
- 11112      6D 6F 64 65 
- 11112      5F 70 69 6F 
- 11112      5F 63 6F 6E 
- 11112      74 72 6F 6C 
- 11113                 	.LASF783:
- 11114 16c8 67 5F 68 72 		.ascii "beep_type\000"
- 11114      5F 64 61 74 
- 11114      61 00 
- 11115                 	.LASF192:
- 11116 16cd 47 41 54 54 		.ascii "LS_HOLD_TX_UNTIL_RX_CFM\000"
- 11116      5F 52 45 41 
- 11116      44 5F 43 48 
- 11116      41 52 5F 55 
- 11116      53 49 4E 47 
- 11117                 	.LASF595:
- 11118 16dc 68 61 6E 64 		.ascii "sign_counter\000"
- 11118      6C 65 53 69 
- 11118      67 6E 61 6C 
- 11118      4C 6D 45 76 
- 11118      43 6F 6E 6E 
- 11119                 	.LASF520:
- 11120 16ee 63 6F 6E 5F 		.ascii "gap_mode_security\000"
- 11120      62 64 5F 61 
- 11120      64 64 72 00 
- 11121                 	.LASF775:
- 11122 16f4 47 41 54 54 		.ascii "HR_DATA_T\000"
- 11122      5F 46 49 4E 
- 11122      44 5F 49 4E 
- 11122      43 4C 55 44 
- 11122      45 44 5F 53 
- 11123                 	.LASF596:
- 11124 1703 47 41 54 54 		.ascii "id_addr\000"
- 11124      5F 43 48 41 
- 11124      52 5F 56 41 
- 11124      4C 5F 49 4E 
- 11124      44 5F 43 46 
- 11125                 	.LASF407:
- 11126 170f 4C 53 5F 47 		.ascii "HCI_EV_DATA_ULP_LONG_TERM_KEY_REQUESTED_T\000"
- 11126      41 50 5F 53 
- 11126      45 54 5F 53 
- 11126      43 41 4E 5F 
- 11126      49 4E 54 45 
- 11127                 	.LASF34:
- 11128 171d 4C 53 5F 48 		.ascii "i2c_status_fail_inactive\000"
- 11128      4F 4C 44 5F 
- 11128      54 58 5F 55 
- 11128      4E 54 49 4C 
- 11128      5F 52 58 5F 
- 11129                 	.LASF230:
- 11130 1729 47 41 54 54 		.ascii "LS_RESET_WHITELIST_REQ\000"
- 11130      5F 52 45 41 
- 11130      44 5F 43 48 
- 11130      41 52 5F 55 
- 11130      53 49 4E 47 
- 11131                 	.LASF272:
- 11132 1738 70 65 65 72 		.ascii "LS_GAP_SET_RANDOM_ADDR_CFM\000"
- 11132      5F 61 64 64 
- 11132      72 65 73 73 
- 11132      00 
- 11133                 	.LASF51:
- 11134 173f 62 6F 6F 6C 		.ascii "gatt_status_invalid_handle\000"
+ 11062      50 45 52 53 
+ 11062      49 53 54 45 
+ 11062      4E 54 5F 4D 
+ 11063                 	.LASF696:
+ 11064 15b4 53 59 53 5F 		.ascii "sleep_state_warm_reset\000"
+ 11064      47 45 54 5F 
+ 11064      50 49 4F 5F 
+ 11064      45 44 47 45 
+ 11064      5F 43 41 50 
+ 11065                 	.LASF81:
+ 11066 15c3 41 50 50 5F 		.ascii "gatt_status_invalid_param_value\000"
+ 11066      48 57 5F 44 
+ 11066      41 54 41 5F 
+ 11066      54 00 
+ 11067                 	.LASF223:
+ 11068 15ca 61 70 70 5F 		.ascii "SM_FEATURES_CFM\000"
+ 11068      70 61 6E 69 
+ 11068      63 5F 6E 76 
+ 11068      6D 5F 72 65 
+ 11068      61 64 00 
+ 11069                 	.LASF613:
+ 11070 15d3 47 41 54 54 		.ascii "LS_CONNECTION_PARAM_UPDATE_CFM_T\000"
+ 11070      5F 55 55 49 
+ 11070      44 31 32 38 
+ 11070      00 
+ 11071                 	.LASF557:
+ 11072 15da 53 4D 5F 44 		.ascii "GATT_EXCHANGE_MTU_CFM_T\000"
+ 11072      49 53 54 52 
+ 11072      49 42 55 54 
+ 11072      45 5F 4D 41 
+ 11072      53 54 45 52 
+ 11073                 	.LASF658:
+ 11074 15e8 70 72 69 6D 		.ascii "prim_char_desc_info_ind\000"
+ 11074      5F 64 69 73 
+ 11074      63 5F 70 72 
+ 11074      69 6D 5F 73 
+ 11074      65 72 76 5F 
+ 11075                 	.LASF614:
+ 11076 15f8 73 6D 5F 75 		.ascii "con_handle\000"
+ 11076      6E 73 74 6F 
+ 11076      72 65 64 5F 
+ 11076      6B 65 79 5F 
+ 11076      69 6E 64 00 
+ 11077                 	.LASF98:
+ 11078 1602 4C 4D 5F 45 		.ascii "sm_status_last_standardised\000"
+ 11078      56 5F 48 41 
+ 11078      52 44 57 41 
+ 11078      52 45 5F 45 
+ 11078      52 52 4F 52 
+ 11079                 	.LASF834:
+ 11080 160d 53 59 53 5F 		.ascii "handleSignalSmKeysInd\000"
+ 11080      47 45 54 5F 
+ 11080      50 49 4F 5F 
+ 11080      45 44 47 45 
+ 11080      5F 43 41 50 
+ 11081                 	.LASF410:
+ 11082 161b 53 4D 5F 50 		.ascii "HCI_EV_DATA_DISCONNECT_COMPLETE_T\000"
+ 11082      41 53 53 4B 
+ 11082      45 59 5F 43 
+ 11082      4F 4D 50 41 
+ 11082      52 45 5F 49 
+ 11083                 	.LASF721:
+ 11084 1627 4C 4D 5F 45 		.ascii "pio_mode_pio_control_timer\000"
+ 11084      56 5F 42 55 
+ 11084      46 46 45 52 
+ 11084      5F 4F 56 45 
+ 11084      52 46 4C 4F 
+ 11085                 	.LASF853:
+ 11086 1632 6C 73 5F 65 		.ascii "g_hr_data\000"
+ 11086      72 72 5F 6C 
+ 11086      6D 70 5F 74 
+ 11086      69 6D 65 6F 
+ 11086      75 74 00 
+ 11087                 	.LASF148:
+ 11088 163b 53 4D 5F 46 		.ascii "GATT_READ_CHAR_USING_UUID_REQ\000"
+ 11088      45 41 54 55 
+ 11088      52 45 53 5F 
+ 11088      52 45 51 00 
+ 11089                 	.LASF832:
+ 11090 1643 53 74 61 72 		.ascii "handleSignalLmEvConnectionComplete\000"
+ 11090      74 53 65 6E 
+ 11090      64 69 6E 67 
+ 11090      48 52 4D 65 
+ 11090      61 73 75 72 
+ 11091                 	.LASF761:
+ 11092 1651 6F 66 66 73 		.ascii "con_bd_addr\000"
+ 11092      65 74 00 
+ 11093                 	.LASF568:
+ 11094 1654 73 6C 65 65 		.ascii "GATT_FIND_INCLUDED_SERV_CFM_T\000"
+ 11094      70 5F 73 74 
+ 11094      61 74 65 5F 
+ 11094      77 61 72 6D 
+ 11094      5F 72 65 73 
+ 11095                 	.LASF587:
+ 11096 1660 67 61 74 74 		.ascii "GATT_CHAR_VAL_IND_CFM_T\000"
+ 11096      5F 73 74 61 
+ 11096      74 75 73 5F 
+ 11096      69 6E 76 61 
+ 11096      6C 69 64 5F 
+ 11097                 	.LASF247:
+ 11098 1670 53 4D 5F 46 		.ascii "LS_GAP_SET_SCAN_INTERVAL_REQ\000"
+ 11098      45 41 54 55 
+ 11098      52 45 53 5F 
+ 11098      43 46 4D 00 
+ 11099                 	.LASF254:
+ 11100 1678 4C 53 5F 43 		.ascii "LS_HOLD_TX_UNTIL_RX_REQ\000"
+ 11100      4F 4E 4E 45 
+ 11100      43 54 49 4F 
+ 11100      4E 5F 50 41 
+ 11100      52 41 4D 5F 
+ 11101                 	.LASF176:
+ 11102 1688 47 41 54 54 		.ascii "GATT_READ_CHAR_USING_UUID_CFM\000"
+ 11102      5F 45 58 43 
+ 11102      48 41 4E 47 
+ 11102      45 5F 4D 54 
+ 11102      55 5F 43 46 
+ 11103                 	.LASF390:
+ 11104 1694 70 72 69 6D 		.ascii "peer_address\000"
+ 11104      5F 63 68 61 
+ 11104      72 5F 64 65 
+ 11104      73 63 5F 69 
+ 11104      6E 66 6F 5F 
+ 11105                 	.LASF11:
+ 11106 16a0 63 6F 6E 5F 		.ascii "bool\000"
+ 11106      68 61 6E 64 
+ 11106      6C 65 00 
+ 11107                 	.LASF661:
+ 11108 16a6 73 6D 5F 73 		.ascii "prim_char_val_ind\000"
+ 11108      74 61 74 75 
+ 11108      73 5F 6C 61 
+ 11108      73 74 5F 73 
+ 11108      74 61 6E 64 
+ 11109                 	.LASF495:
+ 11110 16b4 68 61 6E 64 		.ascii "ls_err_scm\000"
+ 11110      6C 65 53 69 
+ 11110      67 6E 61 6C 
+ 11110      53 6D 4B 65 
+ 11110      79 73 49 6E 
+ 11111                 	.LASF602:
+ 11112 16bf 48 43 49 5F 		.ascii "SM_UNSTORED_KEY_IND_T\000"
+ 11112      45 56 5F 44 
+ 11112      41 54 41 5F 
+ 11112      44 49 53 43 
+ 11112      4F 4E 4E 45 
+ 11113                 	.LASF274:
+ 11114 16d0 70 69 6F 5F 		.ascii "LS_GAP_SET_SCAN_INTERVAL_CFM\000"
+ 11114      6D 6F 64 65 
+ 11114      5F 70 69 6F 
+ 11114      5F 63 6F 6E 
+ 11114      74 72 6F 6C 
+ 11115                 	.LASF783:
+ 11116 16dd 67 5F 68 72 		.ascii "beep_type\000"
+ 11116      5F 64 61 74 
+ 11116      61 00 
+ 11117                 	.LASF192:
+ 11118 16e2 47 41 54 54 		.ascii "LS_HOLD_TX_UNTIL_RX_CFM\000"
+ 11118      5F 52 45 41 
+ 11118      44 5F 43 48 
+ 11118      41 52 5F 55 
+ 11118      53 49 4E 47 
+ 11119                 	.LASF595:
+ 11120 16f1 68 61 6E 64 		.ascii "sign_counter\000"
+ 11120      6C 65 53 69 
+ 11120      67 6E 61 6C 
+ 11120      4C 6D 45 76 
+ 11120      43 6F 6E 6E 
+ 11121                 	.LASF520:
+ 11122 1703 63 6F 6E 5F 		.ascii "gap_mode_security\000"
+ 11122      62 64 5F 61 
+ 11122      64 64 72 00 
+ 11123                 	.LASF775:
+ 11124 1709 47 41 54 54 		.ascii "HR_DATA_T\000"
+ 11124      5F 46 49 4E 
+ 11124      44 5F 49 4E 
+ 11124      43 4C 55 44 
+ 11124      45 44 5F 53 
+ 11125                 	.LASF596:
+ 11126 1718 47 41 54 54 		.ascii "id_addr\000"
+ 11126      5F 43 48 41 
+ 11126      52 5F 56 41 
+ 11126      4C 5F 49 4E 
+ 11126      44 5F 43 46 
+ 11127                 	.LASF407:
+ 11128 1724 4C 53 5F 47 		.ascii "HCI_EV_DATA_ULP_LONG_TERM_KEY_REQUESTED_T\000"
+ 11128      41 50 5F 53 
+ 11128      45 54 5F 53 
+ 11128      43 41 4E 5F 
+ 11128      49 4E 54 45 
+ 11129                 	.LASF34:
+ 11130 1732 4C 53 5F 48 		.ascii "i2c_status_fail_inactive\000"
+ 11130      4F 4C 44 5F 
+ 11130      54 58 5F 55 
+ 11130      4E 54 49 4C 
+ 11130      5F 52 58 5F 
+ 11131                 	.LASF230:
+ 11132 173e 47 41 54 54 		.ascii "LS_RESET_WHITELIST_REQ\000"
+ 11132      5F 52 45 41 
+ 11132      44 5F 43 48 
+ 11132      41 52 5F 55 
+ 11132      53 49 4E 47 
+ 11133                 	.LASF272:
+ 11134 174d 70 65 65 72 		.ascii "LS_GAP_SET_RANDOM_ADDR_CFM\000"
+ 11134      5F 61 64 64 
+ 11134      72 65 73 73 
  11134      00 
- 11135                 	.LASF237:
- 11136 1741 70 72 69 6D 		.ascii "LS_SET_NEW_CONNECTION_PARAM_REQ\000"
- 11136      5F 63 68 61 
- 11136      72 5F 76 61 
- 11136      6C 5F 69 6E 
- 11136      64 00 
- 11137                 	.LASF257:
- 11138 174a 6C 73 5F 65 		.ascii "LS_RESET_WHITELIST_CFM\000"
- 11138      72 72 5F 73 
- 11138      63 6D 00 
- 11139                 	.LASF439:
- 11140 1750 53 4D 5F 55 		.ascii "HCI_EV_DEBUG_T\000"
- 11140      4E 53 54 4F 
- 11140      52 45 44 5F 
- 11140      4B 45 59 5F 
- 11140      49 4E 44 5F 
- 11141                 	.LASF777:
- 11142 175b 4C 53 5F 47 		.ascii "buzzer_beep_short\000"
- 11142      41 50 5F 53 
- 11142      45 54 5F 53 
- 11142      43 41 4E 5F 
- 11142      49 4E 54 45 
- 11143                 	.LASF264:
- 11144 1769 62 65 65 70 		.ascii "LS_SET_NEW_CONNECTION_PARAM_CFM\000"
- 11144      5F 74 79 70 
- 11144      65 00 
- 11145                 	.LASF720:
- 11146 176e 4C 53 5F 48 		.ascii "pio_mode_uart_flow_ctrl\000"
- 11146      4F 4C 44 5F 
- 11146      54 58 5F 55 
- 11146      4E 54 49 4C 
- 11146      5F 52 58 5F 
- 11147                 	.LASF519:
- 11148 177a 73 69 67 6E 		.ascii "gap_mode_security_authenticate\000"
- 11148      5F 63 6F 75 
- 11148      6E 74 65 72 
- 11148      00 
- 11149                 	.LASF332:
- 11150 1781 67 61 70 5F 		.ascii "SYS_CLEAR_APP_PANIC_CODE_REQ\000"
- 11150      6D 6F 64 65 
- 11150      5F 73 65 63 
- 11150      75 72 69 74 
- 11150      79 00 
- 11151                 	.LASF200:
- 11152 178a 48 52 5F 44 		.ascii "SM_PASSKEY_DISPLAY_RSP\000"
- 11152      41 54 41 5F 
- 11152      54 00 
- 11153                 	.LASF770:
- 11154 178f 69 64 5F 61 		.ascii "num_conn_update_req\000"
- 11154      64 64 72 00 
- 11155                 	.LASF848:
- 11156 1793 48 43 49 5F 		.ascii "addRRToQueue\000"
- 11156      45 56 5F 44 
- 11156      41 54 41 5F 
- 11156      55 4C 50 5F 
- 11156      4C 4F 4E 47 
- 11157                 	.LASF408:
- 11158 17a8 69 32 63 5F 		.ascii "handle\000"
- 11158      73 74 61 74 
- 11158      75 73 5F 66 
- 11158      61 69 6C 5F 
- 11158      69 6E 61 63 
- 11159                 	.LASF858:
- 11160 17b4 4C 53 5F 52 		.ascii "C:\\Users\\hiro\\Documents\\GitHub\\heekari\\HeekariFirmware\000"
- 11160      45 53 45 54 
- 11160      5F 57 48 49 
- 11160      54 45 4C 49 
- 11160      53 54 5F 52 
+ 11135                 	.LASF51:
+ 11136 1754 62 6F 6F 6C 		.ascii "gatt_status_invalid_handle\000"
+ 11136      00 
+ 11137                 	.LASF237:
+ 11138 1756 70 72 69 6D 		.ascii "LS_SET_NEW_CONNECTION_PARAM_REQ\000"
+ 11138      5F 63 68 61 
+ 11138      72 5F 76 61 
+ 11138      6C 5F 69 6E 
+ 11138      64 00 
+ 11139                 	.LASF257:
+ 11140 175f 6C 73 5F 65 		.ascii "LS_RESET_WHITELIST_CFM\000"
+ 11140      72 72 5F 73 
+ 11140      63 6D 00 
+ 11141                 	.LASF439:
+ 11142 1765 53 4D 5F 55 		.ascii "HCI_EV_DEBUG_T\000"
+ 11142      4E 53 54 4F 
+ 11142      52 45 44 5F 
+ 11142      4B 45 59 5F 
+ 11142      49 4E 44 5F 
+ 11143                 	.LASF777:
+ 11144 1770 4C 53 5F 47 		.ascii "buzzer_beep_short\000"
+ 11144      41 50 5F 53 
+ 11144      45 54 5F 53 
+ 11144      43 41 4E 5F 
+ 11144      49 4E 54 45 
+ 11145                 	.LASF264:
+ 11146 177e 62 65 65 70 		.ascii "LS_SET_NEW_CONNECTION_PARAM_CFM\000"
+ 11146      5F 74 79 70 
+ 11146      65 00 
+ 11147                 	.LASF720:
+ 11148 1783 4C 53 5F 48 		.ascii "pio_mode_uart_flow_ctrl\000"
+ 11148      4F 4C 44 5F 
+ 11148      54 58 5F 55 
+ 11148      4E 54 49 4C 
+ 11148      5F 52 58 5F 
+ 11149                 	.LASF519:
+ 11150 178f 73 69 67 6E 		.ascii "gap_mode_security_authenticate\000"
+ 11150      5F 63 6F 75 
+ 11150      6E 74 65 72 
+ 11150      00 
+ 11151                 	.LASF332:
+ 11152 1796 67 61 70 5F 		.ascii "SYS_CLEAR_APP_PANIC_CODE_REQ\000"
+ 11152      6D 6F 64 65 
+ 11152      5F 73 65 63 
+ 11152      75 72 69 74 
+ 11152      79 00 
+ 11153                 	.LASF200:
+ 11154 179f 48 52 5F 44 		.ascii "SM_PASSKEY_DISPLAY_RSP\000"
+ 11154      41 54 41 5F 
+ 11154      54 00 
+ 11155                 	.LASF770:
+ 11156 17a4 69 64 5F 61 		.ascii "num_conn_update_req\000"
+ 11156      64 64 72 00 
+ 11157                 	.LASF848:
+ 11158 17a8 48 43 49 5F 		.ascii "addRRToQueue\000"
+ 11158      45 56 5F 44 
+ 11158      41 54 41 5F 
+ 11158      55 4C 50 5F 
+ 11158      4C 4F 4E 47 
+ 11159                 	.LASF408:
+ 11160 17bd 69 32 63 5F 		.ascii "handle\000"
+ 11160      73 74 61 74 
+ 11160      75 73 5F 66 
+ 11160      61 69 6C 5F 
+ 11160      69 6E 61 63 
  11161                 	.LASF627:
- 11162 17c0 4C 53 5F 47 		.ascii "disconnect_complete\000"
- 11162      41 50 5F 53 
- 11162      45 54 5F 52 
- 11162      41 4E 44 4F 
- 11162      4D 5F 41 44 
+ 11162 17c9 4C 53 5F 52 		.ascii "disconnect_complete\000"
+ 11162      45 53 45 54 
+ 11162      5F 57 48 49 
+ 11162      54 45 4C 49 
+ 11162      53 54 5F 52 
  11163                 	.LASF473:
- 11164 17cd 67 61 74 74 		.ascii "ls_err_sco_offs\000"
- 11164      5F 73 74 61 
- 11164      74 75 73 5F 
- 11164      69 6E 76 61 
- 11164      6C 69 64 5F 
+ 11164 17d5 4C 53 5F 47 		.ascii "ls_err_sco_offs\000"
+ 11164      41 50 5F 53 
+ 11164      45 54 5F 52 
+ 11164      41 4E 44 4F 
+ 11164      4D 5F 41 44 
  11165                 	.LASF204:
- 11166 17db 4C 53 5F 53 		.ascii "SM_DIV_APPROVAL_RSP\000"
- 11166      45 54 5F 4E 
- 11166      45 57 5F 43 
- 11166      4F 4E 4E 45 
- 11166      43 54 49 4F 
+ 11166 17e2 67 61 74 74 		.ascii "SM_DIV_APPROVAL_RSP\000"
+ 11166      5F 73 74 61 
+ 11166      74 75 73 5F 
+ 11166      69 6E 76 61 
+ 11166      6C 69 64 5F 
  11167                 	.LASF378:
- 11168 17eb 4C 53 5F 52 		.ascii "SYS_CLEAR_APP_PANIC_CODE_CFM\000"
- 11168      45 53 45 54 
- 11168      5F 57 48 49 
- 11168      54 45 4C 49 
- 11168      53 54 5F 43 
+ 11168 17f0 4C 53 5F 53 		.ascii "SYS_CLEAR_APP_PANIC_CODE_CFM\000"
+ 11168      45 54 5F 4E 
+ 11168      45 57 5F 43 
+ 11168      4F 4E 4E 45 
+ 11168      43 54 49 4F 
  11169                 	.LASF655:
- 11170 17f6 48 43 49 5F 		.ascii "prim_find_included_serv_cfm\000"
- 11170      45 56 5F 44 
- 11170      45 42 55 47 
- 11170      5F 54 00 
+ 11170 1800 4C 53 5F 52 		.ascii "prim_find_included_serv_cfm\000"
+ 11170      45 53 45 54 
+ 11170      5F 57 48 49 
+ 11170      54 45 4C 49 
+ 11170      53 54 5F 43 
  11171                 	.LASF762:
- 11172 17fe 62 75 7A 7A 		.ascii "st_ucid\000"
- 11172      65 72 5F 62 
- 11172      65 65 70 5F 
- 11172      73 68 6F 72 
- 11172      74 00 
+ 11172 180b 48 43 49 5F 		.ascii "st_ucid\000"
+ 11172      45 56 5F 44 
+ 11172      45 42 55 47 
+ 11172      5F 54 00 
  11173                 	.LASF470:
- 11174 1807 4C 53 5F 53 		.ascii "ls_err_pairing_not_allowed\000"
- 11174      45 54 5F 4E 
- 11174      45 57 5F 43 
- 11174      4F 4E 4E 45 
- 11174      43 54 49 4F 
+ 11174 1813 62 75 7A 7A 		.ascii "ls_err_pairing_not_allowed\000"
+ 11174      65 72 5F 62 
+ 11174      65 65 70 5F 
+ 11174      73 68 6F 72 
+ 11174      74 00 
  11175                 	.LASF301:
- 11176 1817 70 69 6F 5F 		.ascii "SYS_GET_PIO_DIR_REQ\000"
- 11176      6D 6F 64 65 
- 11176      5F 75 61 72 
- 11176      74 5F 66 6C 
- 11176      6F 77 5F 63 
+ 11176 181c 4C 53 5F 53 		.ascii "SYS_GET_PIO_DIR_REQ\000"
+ 11176      45 54 5F 4E 
+ 11176      45 57 5F 43 
+ 11176      4F 4E 4E 45 
+ 11176      43 54 49 4F 
  11177                 	.LASF217:
- 11178 1823 67 61 70 5F 		.ascii "SM_PASSKEY_DISPLAY_IND\000"
+ 11178 182c 70 69 6F 5F 		.ascii "SM_PASSKEY_DISPLAY_IND\000"
  11178      6D 6F 64 65 
- 11178      5F 73 65 63 
- 11178      75 72 69 74 
- 11178      79 5F 61 75 
+ 11178      5F 75 61 72 
+ 11178      74 5F 66 6C 
+ 11178      6F 77 5F 63 
  11179                 	.LASF387:
- 11180 1832 53 59 53 5F 		.ascii "connection_handle\000"
- 11180      43 4C 45 41 
- 11180      52 5F 41 50 
- 11180      50 5F 50 41 
- 11180      4E 49 43 5F 
+ 11180 1838 67 61 70 5F 		.ascii "connection_handle\000"
+ 11180      6D 6F 64 65 
+ 11180      5F 73 65 63 
+ 11180      75 72 69 74 
+ 11180      79 5F 61 75 
  11181                 	.LASF644:
- 11182 1841 53 4D 5F 50 		.ascii "prim_connect_cfm\000"
- 11182      41 53 53 4B 
- 11182      45 59 5F 44 
- 11182      49 53 50 4C 
- 11182      41 59 5F 52 
+ 11182 1847 53 59 53 5F 		.ascii "prim_connect_cfm\000"
+ 11182      43 4C 45 41 
+ 11182      52 5F 41 50 
+ 11182      50 5F 50 41 
+ 11182      4E 49 43 5F 
  11183                 	.LASF349:
- 11184 184c 6E 75 6D 5F 		.ascii "SYS_GET_PIO_DIR_CFM\000"
- 11184      63 6F 6E 6E 
- 11184      5F 75 70 64 
- 11184      61 74 65 5F 
- 11184      72 65 71 00 
+ 11184 1856 53 4D 5F 50 		.ascii "SYS_GET_PIO_DIR_CFM\000"
+ 11184      41 53 53 4B 
+ 11184      45 59 5F 44 
+ 11184      49 53 50 4C 
+ 11184      41 59 5F 52 
  11185                 	.LASF657:
- 11186 1856 61 64 64 52 		.ascii "prim_disc_service_char_cfm\000"
- 11186      52 54 6F 51 
- 11186      75 65 75 65 
- 11186      00 
+ 11186 1861 6E 75 6D 5F 		.ascii "prim_disc_service_char_cfm\000"
+ 11186      63 6F 6E 6E 
+ 11186      5F 75 70 64 
+ 11186      61 74 65 5F 
+ 11186      72 65 71 00 
  11187                 	.LASF620:
- 11188 185d 68 61 6E 64 		.ascii "LS_CONNECTION_PARAM_UPDATE_IND_T\000"
- 11188      6C 65 00 
+ 11188 186b 61 64 64 52 		.ascii "LS_CONNECTION_PARAM_UPDATE_IND_T\000"
+ 11188      52 54 6F 51 
+ 11188      75 65 75 65 
+ 11188      00 
  11189                 	.LASF238:
- 11190 1860 43 3A 5C 55 		.ascii "LS_CONNECTION_PARAM_UPDATE_REQ\000"
- 11190      73 65 72 73 
- 11190      5C 68 69 72 
- 11190      6F 5C 44 6F 
- 11190      63 75 6D 65 
+ 11190 1872 68 61 6E 64 		.ascii "LS_CONNECTION_PARAM_UPDATE_REQ\000"
+ 11190      6C 65 00 
  11191                 	.LASF718:
- 11192 187c 64 69 73 63 		.ascii "pio_mode_i2c_data\000"
+ 11192 1875 64 69 73 63 		.ascii "pio_mode_i2c_data\000"
  11192      6F 6E 6E 65 
  11192      63 74 5F 63 
  11192      6F 6D 70 6C 
  11192      65 74 65 00 
  11193                 	.LASF489:
- 11194 1886 6C 73 5F 65 		.ascii "ls_err_scm_resources\000"
+ 11194 187f 6C 73 5F 65 		.ascii "ls_err_scm_resources\000"
  11194      72 72 5F 73 
  11194      63 6F 5F 6F 
  11194      66 66 73 00 
  11195                 	.LASF454:
- 11196 188e 53 4D 5F 44 		.ascii "ls_err_conn_timeout\000"
+ 11196 1887 53 4D 5F 44 		.ascii "ls_err_conn_timeout\000"
  11196      49 56 5F 41 
  11196      50 50 52 4F 
  11196      56 41 4C 5F 
  11196      52 53 50 00 
  11197                 	.LASF565:
- 11198 1898 53 59 53 5F 		.ascii "GATT_SERV_INFO_IND_T\000"
+ 11198 1891 53 59 53 5F 		.ascii "GATT_SERV_INFO_IND_T\000"
  11198      43 4C 45 41 
  11198      52 5F 41 50 
  11198      50 5F 50 41 
  11198      4E 49 43 5F 
  11199                 	.LASF485:
- 11200 18a6 70 72 69 6D 		.ascii "ls_err_qos_unsupported\000"
+ 11200 18a0 70 72 69 6D 		.ascii "ls_err_qos_unsupported\000"
  11200      5F 66 69 6E 
  11200      64 5F 69 6E 
  11200      63 6C 75 64 
  11200      65 64 5F 73 
  11201                 	.LASF751:
- 11202 18b4 73 74 5F 75 		.ascii "app_state_disconnecting\000"
+ 11202 18ae 73 74 5F 75 		.ascii "app_state_disconnecting\000"
  11202      63 69 64 00 
  11203                 	.LASF802:
- 11204 18b8 6C 73 5F 65 		.ascii "faked\000"
+ 11204 18b2 6C 73 5F 65 		.ascii "faked\000"
  11204      72 72 5F 70 
  11204      61 69 72 69 
  11204      6E 67 5F 6E 
  11204      6F 74 5F 61 
  11205                 	.LASF404:
- 11206 18c6 53 59 53 5F 		.ascii "HCI_EV_DATA_ULP_READ_REMOTE_USED_FEATURES_COMPLETE_T\000"
+ 11206 18bf 53 59 53 5F 		.ascii "HCI_EV_DATA_ULP_READ_REMOTE_USED_FEATURES_COMPLETE_T\000"
  11206      47 45 54 5F 
  11206      50 49 4F 5F 
  11206      44 49 52 5F 
  11206      52 45 51 00 
  11207                 	.LASF746:
- 11208 18d0 53 4D 5F 50 		.ascii "app_panic_code\000"
+ 11208 18c9 53 4D 5F 50 		.ascii "app_panic_code\000"
  11208      41 53 53 4B 
  11208      45 59 5F 44 
  11208      49 53 50 4C 
  11208      41 59 5F 49 
  11209                 	.LASF630:
- 11210 18db 63 6F 6E 6E 		.ascii "enc_key_refresh\000"
+ 11210 18d5 63 6F 6E 6E 		.ascii "enc_key_refresh\000"
  11210      65 63 74 69 
  11210      6F 6E 5F 68 
  11210      61 6E 64 6C 
  11210      65 00 
  11211                 	.LASF66:
- 11212 18e4 70 72 69 6D 		.ascii "gatt_status_unsupported_group_type\000"
+ 11212 18de 70 72 69 6D 		.ascii "gatt_status_unsupported_group_type\000"
  11212      5F 63 6F 6E 
  11212      6E 65 63 74 
  11212      5F 63 66 6D 
  11212      00 
  11213                 	.LASF689:
- 11214 18ed 53 59 53 5F 		.ascii "sys_event_id\000"
+ 11214 18e6 53 59 53 5F 		.ascii "sys_event_id\000"
  11214      47 45 54 5F 
  11214      50 49 4F 5F 
  11214      44 49 52 5F 
  11214      43 46 4D 00 
  11215                 	.LASF545:
- 11216 18f7 70 72 69 6D 		.ascii "length\000"
+ 11216 18f0 70 72 69 6D 		.ascii "length\000"
  11216      5F 64 69 73 
  11216      63 5F 73 65 
  11216      72 76 69 63 
  11216      65 5F 63 68 
  11217                 	.LASF35:
- 11218 1904 4C 53 5F 43 		.ascii "i2c_status_fail_unknown\000"
+ 11218 18fe 4C 53 5F 43 		.ascii "i2c_status_fail_unknown\000"
  11218      4F 4E 4E 45 
  11218      43 54 49 4F 
  11218      4E 5F 50 41 
  11218      52 41 4D 5F 
  11219                 	.LASF78:
- 11220 1915 4C 53 5F 43 		.ascii "gatt_status_db_full\000"
+ 11220 190e 4C 53 5F 43 		.ascii "gatt_status_db_full\000"
  11220      4F 4E 4E 45 
  11220      43 54 49 4F 
  11220      4E 5F 50 41 
  11220      52 41 4D 5F 
  11221                 	.LASF18:
- 11222 1924 70 69 6F 5F 		.ascii "sys_status_success\000"
+ 11222 191e 70 69 6F 5F 		.ascii "sys_status_success\000"
  11222      6D 6F 64 65 
  11222      5F 69 32 63 
  11222      5F 64 61 74 
  11222      61 00 
  11223                 	.LASF647:
- 11224 192d 6C 73 5F 65 		.ascii "prim_disconnect_cfm\000"
+ 11224 1927 6C 73 5F 65 		.ascii "prim_disconnect_cfm\000"
  11224      72 72 5F 73 
  11224      63 6D 5F 72 
  11224      65 73 6F 75 
  11224      72 63 65 73 
  11225                 	.LASF94:
- 11226 1938 6C 73 5F 65 		.ascii "sm_status_command_not_supported\000"
+ 11226 1931 6C 73 5F 65 		.ascii "sm_status_command_not_supported\000"
  11226      72 72 5F 63 
  11226      6F 6E 6E 5F 
  11226      74 69 6D 65 
  11226      6F 75 74 00 
  11227                 	.LASF111:
- 11228 1942 47 41 54 54 		.ascii "radio_event\000"
+ 11228 193b 47 41 54 54 		.ascii "radio_event\000"
  11228      5F 53 45 52 
  11228      56 5F 49 4E 
  11228      46 4F 5F 49 
  11228      4E 44 5F 54 
  11229                 	.LASF317:
- 11230 194c 6C 73 5F 65 		.ascii "SYS_GET_PERSISTENT_MEM_VALID_REQ\000"
+ 11230 1946 6C 73 5F 65 		.ascii "SYS_GET_PERSISTENT_MEM_VALID_REQ\000"
  11230      72 72 5F 71 
  11230      6F 73 5F 75 
  11230      6E 73 75 70 
  11230      70 6F 72 74 
  11231                 	.LASF764:
- 11232 1958 61 70 70 5F 		.ascii "bonded_bd_addr\000"
+ 11232 1951 61 70 70 5F 		.ascii "bonded_bd_addr\000"
  11232      73 74 61 74 
  11232      65 5F 64 69 
  11232      73 63 6F 6E 
  11232      6E 65 63 74 
  11233                 	.LASF364:
- 11234 1964 66 61 6B 65 		.ascii "SYS_GET_PIO_QUADRATURE_DECODER_CFM\000"
+ 11234 195d 66 61 6B 65 		.ascii "SYS_GET_PIO_QUADRATURE_DECODER_CFM\000"
  11234      64 00 
  11235                 	.LASF856:
- 11236 1967 48 43 49 5F 		.ascii "GNU C 4.3.4 CSR version 21 for xap [1468380]\000"
+ 11236 1960 48 43 49 5F 		.ascii "GNU C 4.3.4 CSR version 21 for xap [1468380]\000"
  11236      45 56 5F 44 
  11236      41 54 41 5F 
  11236      55 4C 50 5F 
  11236      52 45 41 44 
  11237                 	.LASF640:
- 11238 1981 61 70 70 5F 		.ascii "command_complete\000"
+ 11238 197b 61 70 70 5F 		.ascii "command_complete\000"
  11238      70 61 6E 69 
  11238      63 5F 63 6F 
  11238      64 65 00 
  11239                 	.LASF478:
- 11240 1989 65 6E 63 5F 		.ascii "ls_err_lmp_param\000"
+ 11240 1982 65 6E 63 5F 		.ascii "ls_err_lmp_param\000"
  11240      6B 65 79 5F 
  11240      72 65 66 72 
  11240      65 73 68 00 
  11241                 	.LASF365:
- 11242 1991 67 61 74 74 		.ascii "SYS_GET_PERSISTENT_MEM_VALID_CFM\000"
+ 11242 198a 67 61 74 74 		.ascii "SYS_GET_PERSISTENT_MEM_VALID_CFM\000"
  11242      5F 73 74 61 
  11242      74 75 73 5F 
  11242      75 6E 73 75 
  11242      70 70 6F 72 
  11243                 	.LASF629:
- 11244 19a2 73 79 73 5F 		.ascii "remote_version_info\000"
+ 11244 199c 73 79 73 5F 		.ascii "remote_version_info\000"
  11244      65 76 65 6E 
  11244      74 5F 69 64 
  11244      00 
  11245                 	.LASF684:
- 11246 19a9 6C 65 6E 67 		.ascii "LM_EVENT_T\000"
+ 11246 19a2 6C 65 6E 67 		.ascii "LM_EVENT_T\000"
  11246      74 68 00 
  11247                 	.LASF112:
- 11248 19ac 69 32 63 5F 		.ascii "con_min_interval\000"
+ 11248 19a6 69 32 63 5F 		.ascii "con_min_interval\000"
  11248      73 74 61 74 
  11248      75 73 5F 66 
  11248      61 69 6C 5F 
  11248      75 6E 6B 6E 
  11249                 	.LASF503:
- 11250 19b8 67 61 74 74 		.ascii "ls_err_con_reject\000"
+ 11250 19b2 67 61 74 74 		.ascii "ls_err_con_reject\000"
  11250      5F 73 74 61 
  11250      74 75 73 5F 
  11250      64 62 5F 66 
  11250      75 6C 6C 00 
  11251                 	.LASF768:
- 11252 19c2 73 79 73 5F 		.ascii "hr_meas_tid\000"
+ 11252 19bc 73 79 73 5F 		.ascii "hr_meas_tid\000"
  11252      73 74 61 74 
  11252      75 73 5F 73 
  11252      75 63 63 65 
  11252      73 73 00 
  11253                 	.LASF823:
- 11254 19cc 70 72 69 6D 		.ascii "new_state\000"
+ 11254 19c5 70 72 69 6D 		.ascii "new_state\000"
  11254      5F 64 69 73 
  11254      63 6F 6E 6E 
  11254      65 63 74 5F 
  11254      63 66 6D 00 
  11255                 	.LASF167:
- 11256 19d6 73 6D 5F 73 		.ascii "GATT_SERV_INFO_IND\000"
+ 11256 19cf 73 6D 5F 73 		.ascii "GATT_SERV_INFO_IND\000"
  11256      74 61 74 75 
  11256      73 5F 63 6F 
  11256      6D 6D 61 6E 
  11256      64 5F 6E 6F 
  11257                 	.LASF731:
- 11258 19e6 72 61 64 69 		.ascii "SM_DIV_APPROVED\000"
+ 11258 19df 72 61 64 69 		.ascii "SM_DIV_APPROVED\000"
  11258      6F 5F 65 76 
  11258      65 6E 74 00 
  11259                 	.LASF845:
- 11260 19ec 53 59 53 5F 		.ascii "AppIsDeviceBonded\000"
+ 11260 19e5 53 59 53 5F 		.ascii "AppIsDeviceBonded\000"
  11260      47 45 54 5F 
  11260      50 45 52 53 
  11260      49 53 54 45 
  11260      4E 54 5F 4D 
  11261                 	.LASF256:
- 11262 19fc 62 6F 6E 64 		.ascii "LS_READ_WHITELIST_SIZE_CFM\000"
+ 11262 19f6 62 6F 6E 64 		.ascii "LS_READ_WHITELIST_SIZE_CFM\000"
  11262      65 64 5F 62 
  11262      64 5F 61 64 
  11262      64 72 00 
  11263                 	.LASF409:
- 11264 1a04 53 59 53 5F 		.ascii "reason\000"
+ 11264 19fd 53 59 53 5F 		.ascii "reason\000"
  11264      47 45 54 5F 
  11264      50 49 4F 5F 
  11264      51 55 41 44 
  11264      52 41 54 55 
  11265                 	.LASF326:
- 11266 1a15 47 4E 55 20 		.ascii "SYS_PANIC_REQ\000"
+ 11266 1a0f 47 4E 55 20 		.ascii "SYS_PANIC_REQ\000"
  11266      43 20 34 2E 
  11266      33 2E 34 20 
  11266      43 53 52 20 
  11266      76 65 72 73 
  11267                 	.LASF107:
- 11268 1a2c 63 6F 6D 6D 		.ascii "radio_event_none\000"
+ 11268 1a25 63 6F 6D 6D 		.ascii "radio_event_none\000"
  11268      61 6E 64 5F 
  11268      63 6F 6D 70 
  11268      6C 65 74 65 
  11268      00 
  11269                 	.LASF506:
- 11270 1a34 6C 73 5F 65 		.ascii "ls_err_diradv_timeout\000"
+ 11270 1a2e 6C 73 5F 65 		.ascii "ls_err_diradv_timeout\000"
  11270      72 72 5F 6C 
  11270      6D 70 5F 70 
  11270      61 72 61 6D 
  11270      00 
  11271                 	.LASF184:
- 11272 1a3d 53 59 53 5F 		.ascii "GATT_CHAR_VAL_NOT_CFM\000"
+ 11272 1a36 53 59 53 5F 		.ascii "GATT_CHAR_VAL_NOT_CFM\000"
  11272      47 45 54 5F 
  11272      50 45 52 53 
  11272      49 53 54 45 
  11272      4E 54 5F 4D 
  11273                 	.LASF797:
- 11274 1a4d 72 65 6D 6F 		.ascii "sum_of_rr_intervals\000"
+ 11274 1a47 72 65 6D 6F 		.ascii "sum_of_rr_intervals\000"
  11274      74 65 5F 76 
  11274      65 72 73 69 
  11274      6F 6E 5F 69 
  11274      6E 66 6F 00 
  11275                 	.LASF672:
- 11276 1a57 4C 4D 5F 45 		.ascii "sm_keys_ind\000"
+ 11276 1a51 4C 4D 5F 45 		.ascii "sm_keys_ind\000"
  11276      56 45 4E 54 
  11276      5F 54 00 
  11277                 	.LASF592:
- 11278 1a5d 63 6F 6E 5F 		.ascii "ediv\000"
+ 11278 1a56 63 6F 6E 5F 		.ascii "ediv\000"
  11278      6D 69 6E 5F 
  11278      69 6E 74 65 
  11278      72 76 61 6C 
  11278      00 
  11279                 	.LASF280:
- 11280 1a65 6C 73 5F 65 		.ascii "LS_RADIO_EVENT_IND\000"
+ 11280 1a5f 6C 73 5F 65 		.ascii "LS_RADIO_EVENT_IND\000"
  11280      72 72 5F 63 
  11280      6F 6E 5F 72 
  11280      65 6A 65 63 
  11280      74 00 
  11281                 	.LASF838:
- 11282 1a6e 68 72 5F 6D 		.ascii "handleSignalLsConnParamUpdateCfm\000"
+ 11282 1a68 68 72 5F 6D 		.ascii "handleSignalLsConnParamUpdateCfm\000"
  11282      65 61 73 5F 
  11282      74 69 64 00 
  11283                 	.LASF760:
- 11284 1a74 6E 65 77 5F 		.ascii "app_tid\000"
+ 11284 1a6e 6E 65 77 5F 		.ascii "app_tid\000"
  11284      73 74 61 74 
  11284      65 00 
  11285                 	.LASF368:
- 11286 1a79 47 41 54 54 		.ascii "SYS_SET_PERSISTENT_MEM_CFM\000"
+ 11286 1a73 47 41 54 54 		.ascii "SYS_SET_PERSISTENT_MEM_CFM\000"
  11286      5F 53 45 52 
  11286      56 5F 49 4E 
  11286      46 4F 5F 49 
  11286      4E 44 00 
  11287                 	.LASF532:
- 11288 1a83 53 4D 5F 44 		.ascii "LM_EV_REMOTE_VERSION_INFO_T\000"
+ 11288 1a7c 53 4D 5F 44 		.ascii "LM_EV_REMOTE_VERSION_INFO_T\000"
  11288      49 56 5F 41 
  11288      50 50 52 4F 
  11288      56 45 44 00 
  11289                 	.LASF187:
- 11290 1a8b 41 70 70 49 		.ascii "GATT_NOT_CHAR_VAL_IND\000"
+ 11290 1a84 41 70 70 49 		.ascii "GATT_NOT_CHAR_VAL_IND\000"
  11290      73 44 65 76 
  11290      69 63 65 42 
  11290      6F 6E 64 65 
  11290      64 00 
  11291                 	.LASF421:
- 11292 1a94 4C 53 5F 52 		.ascii "HCI_EV_DATA_DATA_BUFFER_OVERFLOW_T\000"
+ 11292 1a8d 4C 53 5F 52 		.ascii "HCI_EV_DATA_DATA_BUFFER_OVERFLOW_T\000"
  11292      45 41 44 5F 
  11292      57 48 49 54 
  11292      45 4C 49 53 
  11292      54 5F 53 49 
  11293                 	.LASF293:
- 11294 1aa1 72 65 61 73 		.ascii "SYS_GET_USER_KEY_REQ\000"
+ 11294 1a9b 72 65 61 73 		.ascii "SYS_GET_USER_KEY_REQ\000"
  11294      6F 6E 00 
  11295                 	.LASF69:
- 11296 1aa5 53 59 53 5F 		.ascii "gatt_status_sign_failed\000"
+ 11296 1a9e 53 59 53 5F 		.ascii "gatt_status_sign_failed\000"
  11296      50 41 4E 49 
  11296      43 5F 52 45 
  11296      51 00 
  11297                 	.LASF840:
- 11298 1aac 72 61 64 69 		.ascii "handleSignalLsConnParamUpdateInd\000"
+ 11298 1aa5 72 61 64 69 		.ascii "handleSignalLsConnParamUpdateInd\000"
  11298      6F 5F 65 76 
  11298      65 6E 74 5F 
  11298      6E 6F 6E 65 
  11298      00 
  11299                 	.LASF240:
- 11300 1ab4 6C 73 5F 65 		.ascii "LS_CONNECTION_UPDATE_SIGNALLING_RSP\000"
+ 11300 1aae 6C 73 5F 65 		.ascii "LS_CONNECTION_UPDATE_SIGNALLING_RSP\000"
  11300      72 72 5F 64 
  11300      69 72 61 64 
  11300      76 5F 74 69 
  11300      6D 65 6F 75 
  11301                 	.LASF508:
- 11302 1abf 47 41 54 54 		.ascii "ls_err_conn_fail\000"
+ 11302 1ab9 47 41 54 54 		.ascii "ls_err_conn_fail\000"
  11302      5F 43 48 41 
  11302      52 5F 56 41 
  11302      4C 5F 4E 4F 
  11302      54 5F 43 46 
  11303                 	.LASF77:
- 11304 1aca 73 75 6D 5F 		.ascii "gatt_status_invalid_db\000"
+ 11304 1ac4 73 75 6D 5F 		.ascii "gatt_status_invalid_db\000"
  11304      6F 66 5F 72 
  11304      72 5F 69 6E 
  11304      74 65 72 76 
  11304      61 6C 73 00 
  11305                 	.LASF188:
- 11306 1ad4 73 6D 5F 6B 		.ascii "LS_LONG_TERM_KEY_REQUESTED_IND\000"
+ 11306 1ace 73 6D 5F 6B 		.ascii "LS_LONG_TERM_KEY_REQUESTED_IND\000"
  11306      65 79 73 5F 
  11306      69 6E 64 00 
  11307                 	.LASF828:
- 11308 1ada 65 64 69 76 		.ascii "p_rr_val_arr\000"
+ 11308 1ad4 65 64 69 76 		.ascii "p_rr_val_arr\000"
  11308      00 
  11309                 	.LASF341:
- 11310 1add 4C 53 5F 52 		.ascii "SYS_GET_USER_KEY_CFM\000"
+ 11310 1ad6 4C 53 5F 52 		.ascii "SYS_GET_USER_KEY_CFM\000"
  11310      41 44 49 4F 
  11310      5F 45 56 45 
  11310      4E 54 5F 49 
  11310      4E 44 00 
  11311                 	.LASF426:
- 11312 1ae6 68 61 6E 64 		.ascii "argument_ptr\000"
+ 11312 1ae0 68 61 6E 64 		.ascii "argument_ptr\000"
  11312      6C 65 53 69 
  11312      67 6E 61 6C 
  11312      4C 73 43 6F 
  11312      6E 6E 50 61 
  11313                 	.LASF599:
- 11314 1af7 61 70 70 5F 		.ascii "SM_KEY_REQUEST_IND_T\000"
+ 11314 1af0 61 70 70 5F 		.ascii "SM_KEY_REQUEST_IND_T\000"
  11314      74 69 64 00 
  11315                 	.LASF511:
- 11316 1afb 53 59 53 5F 		.ascii "ls_err_mode\000"
+ 11316 1af4 53 59 53 5F 		.ascii "ls_err_mode\000"
  11316      53 45 54 5F 
  11316      50 45 52 53 
  11316      49 53 54 45 
  11316      4E 54 5F 4D 
  11317                 	.LASF82:
- 11318 1b08 4C 4D 5F 45 		.ascii "gatt_status_data_validation_failed\000"
+ 11318 1b02 4C 4D 5F 45 		.ascii "gatt_status_data_validation_failed\000"
  11318      56 5F 52 45 
  11318      4D 4F 54 45 
  11318      5F 56 45 52 
  11318      53 49 4F 4E 
  11319                 	.LASF303:
- 11320 1b16 47 41 54 54 		.ascii "SYS_GET_PIOS_DIR_REQ\000"
+ 11320 1b10 47 41 54 54 		.ascii "SYS_GET_PIOS_DIR_REQ\000"
  11320      5F 4E 4F 54 
  11320      5F 43 48 41 
  11320      52 5F 56 41 
  11320      4C 5F 49 4E 
  11321                 	.LASF302:
- 11322 1b21 48 43 49 5F 		.ascii "SYS_SET_PIOS_DIR_REQ\000"
+ 11322 1b1b 48 43 49 5F 		.ascii "SYS_SET_PIOS_DIR_REQ\000"
  11322      45 56 5F 44 
  11322      41 54 41 5F 
  11322      44 41 54 41 
  11322      5F 42 55 46 
  11323                 	.LASF338:
- 11324 1b33 53 59 53 5F 		.ascii "SYS_GET_LOCAL_VERSION_INFO_CFM\000"
+ 11324 1b2c 53 59 53 5F 		.ascii "SYS_GET_LOCAL_VERSION_INFO_CFM\000"
  11324      47 45 54 5F 
  11324      55 53 45 52 
  11324      5F 4B 45 59 
  11324      5F 52 45 51 
  11325                 	.LASF267:
- 11326 1b3d 67 61 74 74 		.ascii "LS_CONNECTION_UPDATE_SIGNALLING_IND\000"
+ 11326 1b37 67 61 74 74 		.ascii "LS_CONNECTION_UPDATE_SIGNALLING_IND\000"
  11326      5F 73 74 61 
  11326      74 75 73 5F 
  11326      73 69 67 6E 
  11326      5F 66 61 69 
  11327                 	.LASF351:
- 11328 1b49 68 61 6E 64 		.ascii "SYS_GET_PIOS_DIR_CFM\000"
+ 11328 1b43 68 61 6E 64 		.ascii "SYS_GET_PIOS_DIR_CFM\000"
  11328      6C 65 53 69 
  11328      67 6E 61 6C 
  11328      4C 73 43 6F 
  11328      6E 6E 50 61 
  11329                 	.LASF350:
- 11330 1b5a 4C 53 5F 43 		.ascii "SYS_SET_PIOS_DIR_CFM\000"
+ 11330 1b53 4C 53 5F 43 		.ascii "SYS_SET_PIOS_DIR_CFM\000"
  11330      4F 4E 4E 45 
  11330      43 54 49 4F 
  11330      4E 5F 55 50 
  11330      44 41 54 45 
  11331                 	.LASF291:
- 11332 1b6c 6C 73 5F 65 		.ascii "SYS_SET_EVENT_MASK_REQ\000"
+ 11332 1b65 6C 73 5F 65 		.ascii "SYS_SET_EVENT_MASK_REQ\000"
  11332      72 72 5F 63 
  11332      6F 6E 6E 5F 
  11332      66 61 69 6C 
  11332      00 
  11333                 	.LASF500:
- 11334 1b74 67 61 74 74 		.ascii "ls_err_inquiry_limit\000"
+ 11334 1b6e 67 61 74 74 		.ascii "ls_err_inquiry_limit\000"
  11334      5F 73 74 61 
  11334      74 75 73 5F 
  11334      69 6E 76 61 
  11334      6C 69 64 5F 
  11335                 	.LASF474:
- 11336 1b80 4C 53 5F 4C 		.ascii "ls_err_sco_interval\000"
+ 11336 1b79 4C 53 5F 4C 		.ascii "ls_err_sco_interval\000"
  11336      4F 4E 47 5F 
  11336      54 45 52 4D 
  11336      5F 4B 45 59 
  11336      5F 52 45 51 
  11337                 	.LASF791:
- 11338 1b8f 70 5F 72 72 		.ascii "sum_rr_intervals\000"
+ 11338 1b89 70 5F 72 72 		.ascii "sum_rr_intervals\000"
  11338      5F 76 61 6C 
  11338      5F 61 72 72 
  11338      00 
  11339                 	.LASF844:
- 11340 1b96 53 59 53 5F 		.ascii "handleSignalLmDisconnectComplete\000"
+ 11340 1b8f 53 59 53 5F 		.ascii "handleSignalLmDisconnectComplete\000"
  11340      47 45 54 5F 
  11340      55 53 45 52 
  11340      5F 4B 45 59 
  11340      5F 43 46 4D 
  11341                 	.LASF339:
- 11342 1ba0 61 72 67 75 		.ascii "SYS_SET_EVENT_MASK_CFM\000"
+ 11342 1b9a 61 72 67 75 		.ascii "SYS_SET_EVENT_MASK_CFM\000"
  11342      6D 65 6E 74 
  11342      5F 70 74 72 
  11342      00 
  11343                 	.LASF710:
- 11344 1ba7 53 4D 5F 4B 		.ascii "pio_mode_radio_rx_en\000"
+ 11344 1ba0 53 4D 5F 4B 		.ascii "pio_mode_radio_rx_en\000"
  11344      45 59 5F 52 
  11344      45 51 55 45 
  11344      53 54 5F 49 
  11344      4E 44 5F 54 
  11345                 	.LASF290:
- 11346 1bb1 6C 73 5F 65 		.ascii "SYS_GET_LOCAL_VERSION_INFO_REQ\000"
+ 11346 1bab 6C 73 5F 65 		.ascii "SYS_GET_LOCAL_VERSION_INFO_REQ\000"
  11346      72 72 5F 6D 
  11346      6F 64 65 00 
  11347                 	.LASF22:
- 11348 1bb7 67 61 74 74 		.ascii "nvm_status_not_initialised\000"
+ 11348 1bb1 67 61 74 74 		.ascii "nvm_status_not_initialised\000"
  11348      5F 73 74 61 
  11348      74 75 73 5F 
  11348      64 61 74 61 
  11348      5F 76 61 6C 
  11349                 	.LASF749:
- 11350 1bc9 53 59 53 5F 		.ascii "app_state_slow_advertising\000"
+ 11350 1bc2 53 59 53 5F 		.ascii "app_state_slow_advertising\000"
  11350      47 45 54 5F 
  11350      50 49 4F 53 
  11350      5F 44 49 52 
  11350      5F 52 45 51 
  11351                 	.LASF810:
- 11352 1bd3 53 59 53 5F 		.ascii "AppInit\000"
+ 11352 1bcd 53 59 53 5F 		.ascii "AppInit\000"
  11352      53 45 54 5F 
  11352      50 49 4F 53 
  11352      5F 44 49 52 
  11352      5F 52 45 51 
  11353                 	.LASF645:
- 11354 1bde 53 59 53 5F 		.ascii "prim_connect_ind\000"
+ 11354 1bd7 53 59 53 5F 		.ascii "prim_connect_ind\000"
  11354      47 45 54 5F 
  11354      4C 4F 43 41 
  11354      4C 5F 56 45 
  11354      52 53 49 4F 
  11355                 	.LASF418:
- 11356 1bed 4C 53 5F 43 		.ascii "hw_error\000"
+ 11356 1be7 4C 53 5F 43 		.ascii "hw_error\000"
  11356      4F 4E 4E 45 
  11356      43 54 49 4F 
  11356      4E 5F 55 50 
  11356      44 41 54 45 
  11357                 	.LASF231:
- 11358 1bff 53 59 53 5F 		.ascii "LS_ADD_DEVICE_TO_WHITELIST_REQ\000"
+ 11358 1bf9 53 59 53 5F 		.ascii "LS_ADD_DEVICE_TO_WHITELIST_REQ\000"
  11358      47 45 54 5F 
  11358      50 49 4F 53 
  11358      5F 44 49 52 
  11358      5F 43 46 4D 
  11359                 	.LASF687:
- 11360 1c0a 53 59 53 5F 		.ascii "sys_event_pio_changed\000"
+ 11360 1c03 53 59 53 5F 		.ascii "sys_event_pio_changed\000"
  11360      53 45 54 5F 
  11360      50 49 4F 53 
  11360      5F 44 49 52 
  11360      5F 43 46 4D 
  11361                 	.LASF123:
- 11362 1c14 53 59 53 5F 		.ascii "LM_EV_NUMBER_COMPLETED_PACKETS\000"
+ 11362 1c0e 53 59 53 5F 		.ascii "LM_EV_NUMBER_COMPLETED_PACKETS\000"
  11362      53 45 54 5F 
  11362      45 56 45 4E 
  11362      54 5F 4D 41 
  11362      53 4B 5F 52 
  11363                 	.LASF574:
- 11364 1c20 6C 73 5F 65 		.ascii "desc_handle\000"
+ 11364 1c19 6C 73 5F 65 		.ascii "desc_handle\000"
  11364      72 72 5F 69 
  11364      6E 71 75 69 
  11364      72 79 5F 6C 
  11364      69 6D 69 74 
  11365                 	.LASF109:
- 11366 1c2a 6C 73 5F 65 		.ascii "radio_event_connection_event\000"
+ 11366 1c24 6C 73 5F 65 		.ascii "radio_event_connection_event\000"
  11366      72 72 5F 73 
  11366      63 6F 5F 69 
  11366      6E 74 65 72 
  11366      76 61 6C 00 
  11367                 	.LASF13:
- 11368 1c34 73 75 6D 5F 		.ascii "hci_return_t\000"
+ 11368 1c2e 73 75 6D 5F 		.ascii "hci_return_t\000"
  11368      72 72 5F 69 
  11368      6E 74 65 72 
  11368      76 61 6C 73 
  11368      00 
  11369                 	.LASF103:
- 11370 1c3d 68 61 6E 64 		.ascii "BD_ADDR_T\000"
+ 11370 1c36 68 61 6E 64 		.ascii "BD_ADDR_T\000"
  11370      6C 65 53 69 
  11370      67 6E 61 6C 
  11370      4C 6D 44 69 
  11370      73 63 6F 6E 
  11371                 	.LASF835:
- 11372 1c4d 53 59 53 5F 		.ascii "handleSignalSmSimplePairingCompleteInd\000"
+ 11372 1c47 53 59 53 5F 		.ascii "handleSignalSmSimplePairingCompleteInd\000"
  11372      53 45 54 5F 
  11372      45 56 45 4E 
  11372      54 5F 4D 41 
  11372      53 4B 5F 43 
  11373                 	.LASF56:
- 11374 1c59 70 69 6F 5F 		.ascii "gatt_status_request_not_supported\000"
+ 11374 1c52 70 69 6F 5F 		.ascii "gatt_status_request_not_supported\000"
  11374      6D 6F 64 65 
  11374      5F 72 61 64 
  11374      69 6F 5F 72 
  11374      78 5F 65 6E 
  11375                 	.LASF788:
- 11376 1c63 53 59 53 5F 		.ascii "AppPowerOnReset\000"
+ 11376 1c5d 53 59 53 5F 		.ascii "AppPowerOnReset\000"
  11376      47 45 54 5F 
  11376      4C 4F 43 41 
  11376      4C 5F 56 45 
  11376      52 53 49 4F 
  11377                 	.LASF717:
- 11378 1c73 6E 76 6D 5F 		.ascii "pio_mode_ser_flash_csb\000"
+ 11378 1c6c 6E 76 6D 5F 		.ascii "pio_mode_ser_flash_csb\000"
  11378      73 74 61 74 
  11378      75 73 5F 6E 
  11378      6F 74 5F 69 
  11378      6E 69 74 69 
  11379                 	.LASF299:
- 11380 1c80 61 70 70 5F 		.ascii "SYS_GET_PIOS_REQ\000"
+ 11380 1c7a 61 70 70 5F 		.ascii "SYS_GET_PIOS_REQ\000"
  11380      73 74 61 74 
  11380      65 5F 73 6C 
  11380      6F 77 5F 61 
  11380      64 76 65 72 
  11381                 	.LASF72:
- 11382 1c8e 41 70 70 49 		.ascii "gatt_status_invalid_mtu\000"
+ 11382 1c87 41 70 70 49 		.ascii "gatt_status_invalid_mtu\000"
  11382      6E 69 74 00 
  11383                 	.LASF798:
- 11384 1c92 70 72 69 6D 		.ascii "heart_rate\000"
+ 11384 1c8b 70 72 69 6D 		.ascii "heart_rate\000"
  11384      5F 63 6F 6E 
  11384      6E 65 63 74 
  11384      5F 69 6E 64 
  11384      00 
  11385                 	.LASF0:
- 11386 1c9a 68 77 5F 65 		.ascii "uint8\000"
+ 11386 1c94 68 77 5F 65 		.ascii "uint8\000"
  11386      72 72 6F 72 
  11386      00 
  11387                 	.LASF830:
- 11388 1c9f 4C 53 5F 41 		.ascii "handleSignalGattCancelConnectCfm\000"
+ 11388 1c98 4C 53 5F 41 		.ascii "handleSignalGattCancelConnectCfm\000"
  11388      44 44 5F 44 
  11388      45 56 49 43 
  11388      45 5F 54 4F 
  11388      5F 57 48 49 
  11389                 	.LASF430:
- 11390 1cae 73 79 73 5F 		.ascii "num0\000"
+ 11390 1ca8 73 79 73 5F 		.ascii "num0\000"
  11390      65 76 65 6E 
  11390      74 5F 70 69 
  11390      6F 5F 63 68 
  11390      61 6E 67 65 
  11391                 	.LASF431:
- 11392 1cb9 4C 4D 5F 45 		.ascii "num1\000"
+ 11392 1cb3 4C 4D 5F 45 		.ascii "num1\000"
  11392      56 5F 4E 55 
  11392      4D 42 45 52 
  11392      5F 43 4F 4D 
  11392      50 4C 45 54 
  11393                 	.LASF86:
- 11394 1cc9 64 65 73 63 		.ascii "gatt_status_app_last_code\000"
+ 11394 1cc2 64 65 73 63 		.ascii "gatt_status_app_last_code\000"
  11394      5F 68 61 6E 
  11394      64 6C 65 00 
  11395                 	.LASF347:
- 11396 1ccf 72 61 64 69 		.ascii "SYS_GET_PIOS_CFM\000"
+ 11396 1cc8 72 61 64 69 		.ascii "SYS_GET_PIOS_CFM\000"
  11396      6F 5F 65 76 
  11396      65 6E 74 5F 
  11396      63 6F 6E 6E 
  11396      65 63 74 69 
  11397                 	.LASF434:
- 11398 1cdd 68 63 69 5F 		.ascii "num4\000"
+ 11398 1cd7 68 63 69 5F 		.ascii "num4\000"
  11398      72 65 74 75 
  11398      72 6E 5F 74 
  11398      00 
  11399                 	.LASF435:
- 11400 1ce4 42 44 5F 41 		.ascii "num5\000"
+ 11400 1cdd 42 44 5F 41 		.ascii "num5\000"
  11400      44 44 52 5F 
  11400      54 00 
  11401                 	.LASF436:
- 11402 1ce9 68 61 6E 64 		.ascii "num6\000"
+ 11402 1ce2 68 61 6E 64 		.ascii "num6\000"
  11402      6C 65 53 69 
  11402      67 6E 61 6C 
  11402      53 6D 53 69 
  11402      6D 70 6C 65 
  11403                 	.LASF437:
- 11404 1cfc 67 61 74 74 		.ascii "num7\000"
+ 11404 1cf6 67 61 74 74 		.ascii "num7\000"
  11404      5F 73 74 61 
  11404      74 75 73 5F 
  11404      72 65 71 75 
  11404      65 73 74 5F 
  11405                 	.LASF438:
- 11406 1d0d 41 70 70 50 		.ascii "num8\000"
+ 11406 1d07 41 70 70 50 		.ascii "num8\000"
  11406      6F 77 65 72 
  11406      4F 6E 52 65 
  11406      73 65 74 00 
  11407                 	.LASF19:
- 11408 1d15 70 69 6F 5F 		.ascii "nvm_status_empty\000"
+ 11408 1d0f 70 69 6F 5F 		.ascii "nvm_status_empty\000"
  11408      6D 6F 64 65 
  11408      5F 73 65 72 
  11408      5F 66 6C 61 
  11408      73 68 5F 63 
  11409                 	.LASF9:
- 11410 1d21 53 59 53 5F 		.ascii "short int\000"
+ 11410 1d1a 53 59 53 5F 		.ascii "short int\000"
  11410      47 45 54 5F 
  11410      50 49 4F 53 
  11410      5F 52 45 51 
  11410      00 
  11411                 	.LASF859:
- 11412 1d29 67 61 74 74 		.ascii "getRRValuesInQueue\000"
+ 11412 1d23 67 61 74 74 		.ascii "getRRValuesInQueue\000"
  11412      5F 73 74 61 
  11412      74 75 73 5F 
  11412      69 6E 76 61 
  11412      6C 69 64 5F 
  11413                 	.LASF539:
- 11414 1d35 68 65 61 72 		.ascii "LM_EV_HARDWARE_ERROR_T\000"
+ 11414 1d2f 68 65 61 72 		.ascii "LM_EV_HARDWARE_ERROR_T\000"
  11414      74 5F 72 61 
  11414      74 65 00 
  11415                 	.LASF220:
- 11416 1d3b 75 69 6E 74 		.ascii "SMx_DEBUG\000"
+ 11416 1d34 75 69 6E 74 		.ascii "SMx_DEBUG\000"
  11416      38 00 
  11417                 	.LASF597:
- 11418 1d3e 68 61 6E 64 		.ascii "SM_KEYSET_T\000"
+ 11418 1d37 68 61 6E 64 		.ascii "SM_KEYSET_T\000"
  11418      6C 65 53 69 
  11418      67 6E 61 6C 
  11418      47 61 74 74 
  11418      43 61 6E 63 
  11419                 	.LASF753:
- 11420 1d4e 6E 75 6D 30 		.ascii "app_state\000"
+ 11420 1d48 6E 75 6D 30 		.ascii "app_state\000"
  11420      00 
  11421                 	.LASF427:
- 11422 1d51 6E 75 6D 31 		.ascii "HCI_EV_DATA_COMMAND_COMPLETE_T\000"
+ 11422 1d4a 6E 75 6D 31 		.ascii "HCI_EV_DATA_COMMAND_COMPLETE_T\000"
  11422      00 
  11423                 	.LASF401:
- 11424 1d53 67 61 74 74 		.ascii "HCI_EV_DATA_ULP_ADVERTISING_REPORT_T\000"
+ 11424 1d4d 67 61 74 74 		.ascii "HCI_EV_DATA_ULP_ADVERTISING_REPORT_T\000"
  11424      5F 73 74 61 
  11424      74 75 73 5F 
  11424      61 70 70 5F 
  11424      6C 61 73 74 
  11425                 	.LASF668:
- 11426 1d60 53 59 53 5F 		.ascii "prim_val_ind_cfm\000"
+ 11426 1d5a 53 59 53 5F 		.ascii "prim_val_ind_cfm\000"
  11426      47 45 54 5F 
  11426      50 49 4F 53 
  11426      5F 43 46 4D 
  11426      00 
  11427                 	.LASF376:
- 11428 1d69 6E 75 6D 34 		.ascii "SYS_AIO_DIG_CFM\000"
+ 11428 1d62 6E 75 6D 34 		.ascii "SYS_AIO_DIG_CFM\000"
  11428      00 
  11429                 	.LASF817:
- 11430 1d6b 6E 75 6D 35 		.ascii "requestConnParamUpdate\000"
+ 11430 1d65 6E 75 6D 35 		.ascii "requestConnParamUpdate\000"
  11430      00 
  11431                 	.LASF659:
- 11432 1d6e 6E 75 6D 36 		.ascii "prim_disc_all_char_desc_cfm\000"
+ 11432 1d67 6E 75 6D 36 		.ascii "prim_disc_all_char_desc_cfm\000"
  11432      00 
  11433                 	.LASF213:
- 11434 1d70 6E 75 6D 37 		.ascii "SM_CSRK_COUNTER_CHANGE_IND\000"
+ 11434 1d6a 6E 75 6D 37 		.ascii "SM_CSRK_COUNTER_CHANGE_IND\000"
  11434      00 
  11435                 	.LASF116:
- 11436 1d73 6E 75 6D 38 		.ascii "ble_con_params\000"
+ 11436 1d6c 6E 75 6D 38 		.ascii "ble_con_params\000"
  11436      00 
  11437                 	.LASF243:
- 11438 1d75 6E 76 6D 5F 		.ascii "LS_SCAN_REQ\000"
+ 11438 1d6f 6E 76 6D 5F 		.ascii "LS_SCAN_REQ\000"
  11438      73 74 61 74 
  11438      75 73 5F 65 
  11438      6D 70 74 79 
  11438      00 
  11439                 	.LASF385:
- 11440 1d7e 73 68 6F 72 		.ascii "LM_EVENT_COMMON_T\000"
+ 11440 1d77 73 68 6F 72 		.ascii "LM_EVENT_COMMON_T\000"
  11440      74 20 69 6E 
  11440      74 00 
  11441                 	.LASF316:
- 11442 1d83 67 65 74 52 		.ascii "SYS_GET_PIO_QUADRATURE_DECODER_REQ\000"
+ 11442 1d7c 67 65 74 52 		.ascii "SYS_GET_PIO_QUADRATURE_DECODER_REQ\000"
  11442      52 56 61 6C 
  11442      75 65 73 49 
  11442      6E 51 75 65 
  11442      75 65 00 
  11443                 	.LASF811:
- 11444 1d8c 4C 4D 5F 45 		.ascii "last_sleep_state\000"
+ 11444 1d86 4C 4D 5F 45 		.ascii "last_sleep_state\000"
  11444      56 5F 48 41 
  11444      52 44 57 41 
  11444      52 45 5F 45 
  11444      52 52 4F 52 
  11445                 	.LASF812:
- 11446 1d98 53 4D 78 5F 		.ascii "gatt_db_length\000"
+ 11446 1d91 53 4D 78 5F 		.ascii "gatt_db_length\000"
  11446      44 45 42 55 
  11446      47 00 
  11447                 	.LASF90:
- 11448 1d9d 53 4D 5F 4B 		.ascii "sm_status_authentication_requirements\000"
+ 11448 1d96 53 4D 5F 4B 		.ascii "sm_status_authentication_requirements\000"
  11448      45 59 53 45 
  11448      54 5F 54 00 
  11449                 	.LASF373:
- 11450 1da3 61 70 70 5F 		.ascii "SYS_AIO_DRIVE_CFM\000"
+ 11450 1d9c 61 70 70 5F 		.ascii "SYS_AIO_DRIVE_CFM\000"
  11450      73 74 61 74 
  11450      65 00 
  11451                 	.LASF270:
- 11452 1da8 48 43 49 5F 		.ascii "LS_SCAN_CFM\000"
+ 11452 1da1 48 43 49 5F 		.ascii "LS_SCAN_CFM\000"
  11452      45 56 5F 44 
  11452      41 54 41 5F 
  11452      43 4F 4D 4D 
  11452      41 4E 44 5F 
  11453                 	.LASF335:
- 11454 1db7 48 43 49 5F 		.ascii "SYS_BACKGROUND_TICK_IND\000"
+ 11454 1db1 48 43 49 5F 		.ascii "SYS_BACKGROUND_TICK_IND\000"
  11454      45 56 5F 44 
  11454      41 54 41 5F 
  11454      55 4C 50 5F 
  11454      41 44 56 45 
  11455                 	.LASF99:
- 11456 1dca 70 72 69 6D 		.ascii "sm_status_timeout\000"
+ 11456 1dc3 70 72 69 6D 		.ascii "sm_status_timeout\000"
  11456      5F 76 61 6C 
  11456      5F 69 6E 64 
  11456      5F 63 66 6D 
  11456      00 
  11457                 	.LASF37:
- 11458 1dd2 53 59 53 5F 		.ascii "spi_status_waiting\000"
+ 11458 1dcc 53 59 53 5F 		.ascii "spi_status_waiting\000"
  11458      41 49 4F 5F 
  11458      44 49 47 5F 
  11458      43 46 4D 00 
  11459                 	.LASF425:
- 11460 1dda 72 65 71 75 		.ascii "op_code\000"
+ 11460 1dd4 72 65 71 75 		.ascii "op_code\000"
  11460      65 73 74 43 
  11460      6F 6E 6E 50 
  11460      61 72 61 6D 
  11460      55 70 64 61 
  11461                 	.LASF591:
- 11462 1de6 70 72 69 6D 		.ascii "encryption_key_size\000"
+ 11462 1ddf 70 72 69 6D 		.ascii "encryption_key_size\000"
  11462      5F 64 69 73 
  11462      63 5F 61 6C 
  11462      6C 5F 63 68 
  11462      61 72 5F 64 
  11463                 	.LASF321:
- 11464 1df4 53 4D 5F 43 		.ascii "SYS_RESET_PERSISTENT_MEM_REQ\000"
+ 11464 1ded 53 4D 5F 43 		.ascii "SYS_RESET_PERSISTENT_MEM_REQ\000"
  11464      53 52 4B 5F 
  11464      43 4F 55 4E 
  11464      54 45 52 5F 
  11464      43 48 41 4E 
  11465                 	.LASF494:
- 11466 1e01 62 6C 65 5F 		.ascii "ls_err_range\000"
+ 11466 1dfb 62 6C 65 5F 		.ascii "ls_err_range\000"
  11466      63 6F 6E 5F 
  11466      70 61 72 61 
  11466      6D 73 00 
  11467                 	.LASF813:
- 11468 1e09 4C 53 5F 53 		.ascii "p_gatt_db_pointer\000"
+ 11468 1e02 4C 53 5F 53 		.ascii "p_gatt_db_pointer\000"
  11468      43 41 4E 5F 
  11468      52 45 51 00 
  11469                 	.LASF128:
- 11470 1e0f 4C 4D 5F 45 		.ascii "LM_EV_CONNECTION_UPDATE\000"
+ 11470 1e08 4C 4D 5F 45 		.ascii "LM_EV_CONNECTION_UPDATE\000"
  11470      56 45 4E 54 
  11470      5F 43 4F 4D 
  11470      4D 4F 4E 5F 
  11470      54 00 
  11471                 	.LASF488:
- 11472 1e18 53 59 53 5F 		.ascii "ls_err_collision\000"
+ 11472 1e11 53 59 53 5F 		.ascii "ls_err_collision\000"
  11472      47 45 54 5F 
  11472      50 49 4F 5F 
  11472      51 55 41 44 
  11472      52 41 54 55 
  11473                 	.LASF246:
- 11474 1e29 6C 61 73 74 		.ascii "LS_GAP_SET_ADV_ADDR_REQ\000"
+ 11474 1e23 6C 61 73 74 		.ascii "LS_GAP_SET_ADV_ADDR_REQ\000"
  11474      5F 73 6C 65 
  11474      65 70 5F 73 
  11474      74 61 74 65 
  11474      00 
  11475                 	.LASF289:
- 11476 1e32 67 61 74 74 		.ascii "SYS_GET_LOCAL_ADDR_REQ\000"
+ 11476 1e2b 67 61 74 74 		.ascii "SYS_GET_LOCAL_ADDR_REQ\000"
  11476      5F 64 62 5F 
  11476      6C 65 6E 67 
  11476      74 68 00 
  11477                 	.LASF369:
- 11478 1e39 73 6D 5F 73 		.ascii "SYS_RESET_PERSISTENT_MEM_CFM\000"
+ 11478 1e33 73 6D 5F 73 		.ascii "SYS_RESET_PERSISTENT_MEM_CFM\000"
  11478      74 61 74 75 
  11478      73 5F 61 75 
  11478      74 68 65 6E 
  11478      74 69 63 61 
  11479                 	.LASF529:
- 11480 1e4c 53 59 53 5F 		.ascii "LM_EV_ADVERTISING_REPORT_T\000"
+ 11480 1e46 53 59 53 5F 		.ascii "LM_EV_ADVERTISING_REPORT_T\000"
  11480      41 49 4F 5F 
  11480      44 52 49 56 
  11480      45 5F 43 46 
  11480      4D 00 
  11481                 	.LASF778:
- 11482 1e55 4C 53 5F 53 		.ascii "buzzer_beep_long\000"
+ 11482 1e4f 4C 53 5F 53 		.ascii "buzzer_beep_long\000"
  11482      43 41 4E 5F 
  11482      43 46 4D 00 
  11483                 	.LASF195:
- 11484 1e5b 53 59 53 5F 		.ascii "SM_SECURITY_LEVEL_REQ\000"
+ 11484 1e55 53 59 53 5F 		.ascii "SM_SECURITY_LEVEL_REQ\000"
  11484      42 41 43 4B 
  11484      47 52 4F 55 
  11484      4E 44 5F 54 
  11484      49 43 4B 5F 
  11485                 	.LASF113:
- 11486 1e67 73 6D 5F 73 		.ascii "con_max_interval\000"
+ 11486 1e61 73 6D 5F 73 		.ascii "con_max_interval\000"
  11486      74 61 74 75 
  11486      73 5F 74 69 
  11486      6D 65 6F 75 
  11486      74 00 
  11487                 	.LASF337:
- 11488 1e70 73 70 69 5F 		.ascii "SYS_GET_LOCAL_ADDR_CFM\000"
+ 11488 1e6a 73 70 69 5F 		.ascii "SYS_GET_LOCAL_ADDR_CFM\000"
  11488      73 74 61 74 
  11488      75 73 5F 77 
  11488      61 69 74 69 
  11488      6E 67 00 
  11489                 	.LASF694:
- 11490 1e7a 6F 70 5F 63 		.ascii "sleep_state_dormant\000"
+ 11490 1e73 6F 70 5F 63 		.ascii "sleep_state_dormant\000"
  11490      6F 64 65 00 
  11491                 	.LASF556:
- 11492 1e7e 65 6E 63 72 		.ascii "GATT_DISCONNECT_IND_T\000"
+ 11492 1e77 65 6E 63 72 		.ascii "GATT_DISCONNECT_IND_T\000"
  11492      79 70 74 69 
  11492      6F 6E 5F 6B 
  11492      65 79 5F 73 
  11492      69 7A 65 00 
  11493                 	.LASF253:
- 11494 1e88 53 59 53 5F 		.ascii "LS_SET_TRANSMIT_POWER_LEVEL_REQ\000"
+ 11494 1e81 53 59 53 5F 		.ascii "LS_SET_TRANSMIT_POWER_LEVEL_REQ\000"
  11494      52 45 53 45 
  11494      54 5F 50 45 
  11494      52 53 49 53 
  11494      54 45 4E 54 
  11495                 	.LASF212:
- 11496 1e96 6C 73 5F 65 		.ascii "SM_SECURITY_LEVEL_CFM\000"
+ 11496 1e90 6C 73 5F 65 		.ascii "SM_SECURITY_LEVEL_CFM\000"
  11496      72 72 5F 72 
  11496      61 6E 67 65 
  11496      00 
  11497                 	.LASF660:
- 11498 1e9d 70 5F 67 61 		.ascii "prim_read_char_val_cfm\000"
+ 11498 1e96 70 5F 67 61 		.ascii "prim_read_char_val_cfm\000"
  11498      74 74 5F 64 
  11498      62 5F 70 6F 
  11498      69 6E 74 65 
  11498      72 00 
  11499                 	.LASF740:
- 11500 1ea6 4C 4D 5F 45 		.ascii "app_panic_read_tx_pwr_level\000"
+ 11500 1e9f 4C 4D 5F 45 		.ascii "app_panic_read_tx_pwr_level\000"
  11500      56 5F 43 4F 
  11500      4E 4E 45 43 
  11500      54 49 4F 4E 
  11500      5F 55 50 44 
  11501                 	.LASF772:
- 11502 1eb2 6C 73 5F 65 		.ascii "hr_meas_data\000"
+ 11502 1eab 6C 73 5F 65 		.ascii "hr_meas_data\000"
  11502      72 72 5F 63 
  11502      6F 6C 6C 69 
  11502      73 69 6F 6E 
  11502      00 
  11503                 	.LASF730:
- 11504 1eba 4C 53 5F 47 		.ascii "timer_id\000"
+ 11504 1eb4 4C 53 5F 47 		.ascii "timer_id\000"
  11504      41 50 5F 53 
  11504      45 54 5F 41 
  11504      44 56 5F 41 
  11504      44 44 52 5F 
  11505                 	.LASF191:
- 11506 1ec6 53 59 53 5F 		.ascii "LS_SET_TRANSMIT_POWER_LEVEL_CFM\000"
+ 11506 1ec0 53 59 53 5F 		.ascii "LS_SET_TRANSMIT_POWER_LEVEL_CFM\000"
  11506      47 45 54 5F 
  11506      4C 4F 43 41 
  11506      4C 5F 41 44 
  11506      44 52 5F 52 
  11507                 	.LASF571:
- 11508 1ed2 53 59 53 5F 		.ascii "val_handle\000"
+ 11508 1ecb 53 59 53 5F 		.ascii "val_handle\000"
  11508      52 45 53 45 
  11508      54 5F 50 45 
  11508      52 53 49 53 
  11508      54 45 4E 54 
  11509                 	.LASF54:
- 11510 1ee0 4C 4D 5F 45 		.ascii "gatt_status_invalid_pdu\000"
+ 11510 1eda 4C 4D 5F 45 		.ascii "gatt_status_invalid_pdu\000"
  11510      56 5F 41 44 
  11510      56 45 52 54 
  11510      49 53 49 4E 
  11510      47 5F 52 45 
  11511                 	.LASF829:
- 11512 1eee 62 75 7A 7A 		.ascii "p_event_data\000"
+ 11512 1ee7 62 75 7A 7A 		.ascii "p_event_data\000"
  11512      65 72 5F 62 
  11512      65 65 70 5F 
  11512      6C 6F 6E 67 
  11512      00 
  11513                 	.LASF101:
- 11514 1ef6 53 4D 5F 53 		.ascii "sys_status\000"
+ 11514 1ef0 53 4D 5F 53 		.ascii "sys_status\000"
  11514      45 43 55 52 
  11514      49 54 59 5F 
  11514      4C 45 56 45 
  11514      4C 5F 52 45 
  11515                 	.LASF601:
- 11516 1f01 63 6F 6E 5F 		.ascii "SM_KEYS_IND_T\000"
+ 11516 1efb 63 6F 6E 5F 		.ascii "SM_KEYS_IND_T\000"
  11516      6D 61 78 5F 
  11516      69 6E 74 65 
  11516      72 76 61 6C 
  11516      00 
  11517                 	.LASF700:
- 11518 1f0a 53 59 53 5F 		.ascii "pio_mode_clk_req\000"
+ 11518 1f03 53 59 53 5F 		.ascii "pio_mode_clk_req\000"
  11518      47 45 54 5F 
  11518      4C 4F 43 41 
  11518      4C 5F 41 44 
  11518      44 52 5F 43 
  11519                 	.LASF469:
- 11520 1f15 73 6C 65 65 		.ascii "ls_err_auth_repeated\000"
+ 11520 1f0f 73 6C 65 65 		.ascii "ls_err_auth_repeated\000"
  11520      70 5F 73 74 
  11520      61 74 65 5F 
  11520      64 6F 72 6D 
  11520      61 6E 74 00 
  11521                 	.LASF776:
- 11522 1f1f 47 41 54 54 		.ascii "buzzer_beep_off\000"
+ 11522 1f19 47 41 54 54 		.ascii "buzzer_beep_off\000"
  11522      5F 44 49 53 
  11522      43 4F 4E 4E 
  11522      45 43 54 5F 
  11522      49 4E 44 5F 
  11523                 	.LASF732:
- 11524 1f2a 4C 53 5F 53 		.ascii "SM_DIV_REVOKED\000"
+ 11524 1f24 4C 53 5F 53 		.ascii "SM_DIV_REVOKED\000"
  11524      45 54 5F 54 
  11524      52 41 4E 53 
  11524      4D 49 54 5F 
  11524      50 4F 57 45 
  11525                 	.LASF271:
- 11526 1f3a 53 4D 5F 53 		.ascii "LS_GAP_SET_MODE_CFM\000"
+ 11526 1f34 53 4D 5F 53 		.ascii "LS_GAP_SET_MODE_CFM\000"
  11526      45 43 55 52 
  11526      49 54 59 5F 
  11526      4C 45 56 45 
  11526      4C 5F 43 46 
  11527                 	.LASF287:
- 11528 1f45 70 72 69 6D 		.ascii "LS_CONNECTION_COMPLETE_IND\000"
+ 11528 1f3f 70 72 69 6D 		.ascii "LS_CONNECTION_COMPLETE_IND\000"
  11528      5F 72 65 61 
  11528      64 5F 63 68 
  11528      61 72 5F 76 
  11528      61 6C 5F 63 
  11529                 	.LASF523:
- 11530 1f51 61 70 70 5F 		.ascii "GATT_UUID16\000"
+ 11530 1f4a 61 70 70 5F 		.ascii "GATT_UUID16\000"
  11530      70 61 6E 69 
  11530      63 5F 72 65 
  11530      61 64 5F 74 
  11530      78 5F 70 77 
  11531                 	.LASF466:
- 11532 1f5f 68 72 5F 6D 		.ascii "ls_err_oetc_resource\000"
+ 11532 1f58 68 72 5F 6D 		.ascii "ls_err_oetc_resource\000"
  11532      65 61 73 5F 
  11532      64 61 74 61 
  11532      00 
  11533                 	.LASF651:
- 11534 1f65 74 69 6D 65 		.ascii "prim_disc_all_prim_serv_cfm\000"
+ 11534 1f5f 74 69 6D 65 		.ascii "prim_disc_all_prim_serv_cfm\000"
  11534      72 5F 69 64 
  11534      00 
  11535                 	.LASF179:
- 11536 1f6a 4C 53 5F 53 		.ascii "GATT_LONG_CHAR_VAL_IND\000"
+ 11536 1f63 4C 53 5F 53 		.ascii "GATT_LONG_CHAR_VAL_IND\000"
  11536      45 54 5F 54 
  11536      52 41 4E 53 
  11536      4D 49 54 5F 
  11536      50 4F 57 45 
  11537                 	.LASF827:
- 11538 1f7a 76 61 6C 5F 		.ascii "handleSignalGattAddDBCfm\000"
+ 11538 1f73 76 61 6C 5F 		.ascii "handleSignalGattAddDBCfm\000"
  11538      68 61 6E 64 
  11538      6C 65 00 
  11539                 	.LASF235:
- 11540 1f7f 67 61 74 74 		.ascii "LS_READ_TRANSMIT_POWER_LEVEL_REQ\000"
+ 11540 1f79 67 61 74 74 		.ascii "LS_READ_TRANSMIT_POWER_LEVEL_REQ\000"
  11540      5F 73 74 61 
  11540      74 75 73 5F 
  11540      69 6E 76 61 
  11540      6C 69 64 5F 
  11541                 	.LASF631:
- 11542 1f8b 70 5F 65 76 		.ascii "connection_complete\000"
+ 11542 1f85 70 5F 65 76 		.ascii "connection_complete\000"
  11542      65 6E 74 5F 
  11542      64 61 74 61 
  11542      00 
  11543                 	.LASF573:
- 11544 1f92 73 79 73 5F 		.ascii "GATT_DISC_ALL_CHAR_DESC_CFM_T\000"
+ 11544 1f8b 73 79 73 5F 		.ascii "GATT_DISC_ALL_CHAR_DESC_CFM_T\000"
  11544      73 74 61 74 
  11544      75 73 00 
  11545                 	.LASF580:
- 11546 1f97 53 4D 5F 4B 		.ascii "GATT_CHAR_VAL_IND_T\000"
+ 11546 1f91 53 4D 5F 4B 		.ascii "GATT_CHAR_VAL_IND_T\000"
  11546      45 59 53 5F 
  11546      49 4E 44 5F 
  11546      54 00 
  11547                 	.LASF857:
- 11548 1f9e 70 69 6F 5F 		.ascii "hr_sensor.c\000"
+ 11548 1f98 70 69 6F 5F 		.ascii "hr_sensor.c\000"
  11548      6D 6F 64 65 
  11548      5F 63 6C 6B 
  11548      5F 72 65 71 
  11548      00 
  11549                 	.LASF281:
- 11550 1fa7 6C 73 5F 65 		.ascii "LS_ADVERTISING_REPORT_IND\000"
+ 11550 1fa0 6C 73 5F 65 		.ascii "LS_ADVERTISING_REPORT_IND\000"
  11550      72 72 5F 61 
  11550      75 74 68 5F 
  11550      72 65 70 65 
  11550      61 74 65 64 
  11551                 	.LASF736:
- 11552 1fb1 62 75 7A 7A 		.ascii "app_panic_set_scan_rsp_data\000"
+ 11552 1fab 62 75 7A 7A 		.ascii "app_panic_set_scan_rsp_data\000"
  11552      65 72 5F 62 
  11552      65 65 70 5F 
  11552      6F 66 66 00 
  11553                 	.LASF479:
- 11554 1fb9 53 4D 5F 44 		.ascii "ls_err_role_change\000"
+ 11554 1fb3 53 4D 5F 44 		.ascii "ls_err_role_change\000"
  11554      49 56 5F 52 
  11554      45 56 4F 4B 
  11554      45 44 00 
  11555                 	.LASF542:
- 11556 1fc1 4C 53 5F 47 		.ascii "LM_EV_NUMBER_COMPLETED_PACKETS_T\000"
+ 11556 1fba 4C 53 5F 47 		.ascii "LM_EV_NUMBER_COMPLETED_PACKETS_T\000"
  11556      41 50 5F 53 
  11556      45 54 5F 4D 
  11556      4F 44 45 5F 
  11556      43 46 4D 00 
  11557                 	.LASF725:
- 11558 1fcb 4C 53 5F 43 		.ascii "pio_mode_weak_pull_up\000"
+ 11558 1fc4 4C 53 5F 43 		.ascii "pio_mode_weak_pull_up\000"
  11558      4F 4E 4E 45 
  11558      43 54 49 4F 
  11558      4E 5F 43 4F 
  11558      4D 50 4C 45 
  11559                 	.LASF57:
- 11560 1fd8 47 41 54 54 		.ascii "gatt_status_invalid_offset\000"
+ 11560 1fd2 47 41 54 54 		.ascii "gatt_status_invalid_offset\000"
  11560      5F 55 55 49 
  11560      44 31 36 00 
  11561                 	.LASF739:
- 11562 1fde 6C 73 5F 65 		.ascii "app_panic_nvm_write\000"
+ 11562 1fd8 6C 73 5F 65 		.ascii "app_panic_nvm_write\000"
  11562      72 72 5F 6F 
  11562      65 74 63 5F 
  11562      72 65 73 6F 
  11562      75 72 63 65 
  11563                 	.LASF559:
- 11564 1fe9 70 72 69 6D 		.ascii "GATT_EXCHANGE_MTU_IND_T\000"
+ 11564 1fe2 70 72 69 6D 		.ascii "GATT_EXCHANGE_MTU_IND_T\000"
  11564      5F 64 69 73 
  11564      63 5F 61 6C 
  11564      6C 5F 70 72 
  11564      69 6D 5F 73 
  11565                 	.LASF43:
- 11566 1ff7 47 41 54 54 		.ascii "skm_status_key_not_found\000"
+ 11566 1ff0 47 41 54 54 		.ascii "skm_status_key_not_found\000"
  11566      5F 4C 4F 4E 
  11566      47 5F 43 48 
  11566      41 52 5F 56 
  11566      41 4C 5F 49 
  11567                 	.LASF735:
- 11568 2002 68 61 6E 64 		.ascii "app_panic_set_advert_data\000"
+ 11568 1ffc 68 61 6E 64 		.ascii "app_panic_set_advert_data\000"
  11568      6C 65 53 69 
  11568      67 6E 61 6C 
  11568      47 61 74 74 
  11568      41 64 64 44 
  11569                 	.LASF70:
- 11570 200f 4C 53 5F 52 		.ascii "gatt_status_busy\000"
+ 11570 2008 4C 53 5F 52 		.ascii "gatt_status_busy\000"
  11570      45 41 44 5F 
  11570      54 52 41 4E 
  11570      53 4D 49 54 
  11570      5F 50 4F 57 
  11571                 	.LASF52:
- 11572 201f 63 6F 6E 6E 		.ascii "gatt_status_read_not_permitted\000"
+ 11572 2019 63 6F 6E 6E 		.ascii "gatt_status_read_not_permitted\000"
  11572      65 63 74 69 
  11572      6F 6E 5F 63 
  11572      6F 6D 70 6C 
  11572      65 74 65 00 
  11573                 	.LASF450:
- 11574 2029 47 41 54 54 		.ascii "ls_err_page_timeout\000"
+ 11574 2023 47 41 54 54 		.ascii "ls_err_page_timeout\000"
  11574      5F 44 49 53 
  11574      43 5F 41 4C 
  11574      4C 5F 43 48 
  11574      41 52 5F 44 
  11575                 	.LASF642:
- 11576 2038 47 41 54 54 		.ascii "acl_data\000"
+ 11576 2032 47 41 54 54 		.ascii "acl_data\000"
  11576      5F 43 48 41 
  11576      52 5F 56 41 
  11576      4C 5F 49 4E 
  11576      44 5F 54 00 
  11577                 	.LASF414:
- 11578 2042 68 72 5F 73 		.ascii "lmp_version\000"
+ 11578 203c 68 72 5F 73 		.ascii "lmp_version\000"
  11578      65 6E 73 6F 
  11578      72 2E 63 00 
  11579                 	.LASF763:
- 11580 2048 4C 53 5F 41 		.ascii "bonded\000"
+ 11580 2042 4C 53 5F 41 		.ascii "bonded\000"
  11580      44 56 45 52 
  11580      54 49 53 49 
  11580      4E 47 5F 52 
  11580      45 50 4F 52 
  11581                 	.LASF265:
- 11582 2055 61 70 70 5F 		.ascii "LS_CONNECTION_PARAM_UPDATE_CFM\000"
+ 11582 204f 61 70 70 5F 		.ascii "LS_CONNECTION_PARAM_UPDATE_CFM\000"
  11582      70 61 6E 69 
  11582      63 5F 73 65 
  11582      74 5F 73 63 
  11582      61 6E 5F 72 
  11583                 	.LASF755:
- 11584 2063 6C 73 5F 65 		.ascii "rr_value\000"
+ 11584 205d 6C 73 5F 65 		.ascii "rr_value\000"
  11584      72 72 5F 72 
  11584      6F 6C 65 5F 
  11584      63 68 61 6E 
  11584      67 65 00 
  11585                 	.LASF781:
- 11586 206d 4C 4D 5F 45 		.ascii "buzzer_beep_type\000"
+ 11586 2066 4C 4D 5F 45 		.ascii "buzzer_beep_type\000"
  11586      56 5F 4E 55 
  11586      4D 42 45 52 
  11586      5F 43 4F 4D 
  11586      50 4C 45 54 
  11587                 	.LASF88:
- 11588 207d 70 69 6F 5F 		.ascii "sm_status_passkey_entry_failed\000"
+ 11588 2077 70 69 6F 5F 		.ascii "sm_status_passkey_entry_failed\000"
  11588      6D 6F 64 65 
  11588      5F 77 65 61 
  11588      6B 5F 70 75 
  11588      6C 6C 5F 75 
  11589                 	.LASF153:
- 11590 2088 67 61 74 74 		.ascii "GATT_CHAR_VAL_NOTIFICATION_REQ\000"
+ 11590 2082 67 61 74 74 		.ascii "GATT_CHAR_VAL_NOTIFICATION_REQ\000"
  11590      5F 73 74 61 
  11590      74 75 73 5F 
  11590      69 6E 76 61 
  11590      6C 69 64 5F 
  11591                 	.LASF531:
- 11592 2096 61 70 70 5F 		.ascii "LM_EV_ENCRYPTION_CHANGE_T\000"
+ 11592 208f 61 70 70 5F 		.ascii "LM_EV_ENCRYPTION_CHANGE_T\000"
  11592      70 61 6E 69 
  11592      63 5F 6E 76 
  11592      6D 5F 77 72 
  11592      69 74 65 00 
  11593                 	.LASF615:
- 11594 20a0 47 41 54 54 		.ascii "sig_identifier\000"
+ 11594 2099 47 41 54 54 		.ascii "sig_identifier\000"
  11594      5F 45 58 43 
  11594      48 41 4E 47 
  11594      45 5F 4D 54 
  11594      55 5F 49 4E 
  11595                 	.LASF534:
- 11596 20ac 73 6B 6D 5F 		.ascii "LM_EV_CONNECTION_UPDATE_T\000"
+ 11596 20a5 73 6B 6D 5F 		.ascii "LM_EV_CONNECTION_UPDATE_T\000"
  11596      73 74 61 74 
  11596      75 73 5F 6B 
  11596      65 79 5F 6E 
  11596      6F 74 5F 66 
  11597                 	.LASF3:
- 11598 20b8 61 70 70 5F 		.ascii "short unsigned int\000"
+ 11598 20b2 61 70 70 5F 		.ascii "short unsigned int\000"
  11598      70 61 6E 69 
  11598      63 5F 73 65 
  11598      74 5F 61 64 
  11598      76 65 72 74 
  11599                 	.LASF388:
- 11600 20c5 67 61 74 74 		.ascii "role\000"
+ 11600 20bf 67 61 74 74 		.ascii "role\000"
  11600      5F 73 74 61 
  11600      74 75 73 5F 
  11600      62 75 73 79 
  11600      00 
  11601                 	.LASF91:
- 11602 20ce 67 61 74 74 		.ascii "sm_status_confirm_value_failed\000"
+ 11602 20c7 67 61 74 74 		.ascii "sm_status_confirm_value_failed\000"
  11602      5F 73 74 61 
  11602      74 75 73 5F 
  11602      72 65 61 64 
  11602      5F 6E 6F 74 
  11603                 	.LASF733:
- 11604 20dd 6C 73 5F 65 		.ascii "sm_div_verdict\000"
+ 11604 20d7 6C 73 5F 65 		.ascii "sm_div_verdict\000"
  11604      72 72 5F 70 
  11604      61 67 65 5F 
  11604      74 69 6D 65 
  11604      6F 75 74 00 
  11605                 	.LASF201:
- 11606 20e7 61 63 6C 5F 		.ascii "SM_PASSKEY_INPUT_RSP\000"
+ 11606 20e1 61 63 6C 5F 		.ascii "SM_PASSKEY_INPUT_RSP\000"
  11606      64 61 74 61 
  11606      00 
  11607                 	.LASF156:
- 11608 20ec 6C 6D 70 5F 		.ascii "GATT_STOP_CURRENT_PROC_REQ\000"
+ 11608 20e5 6C 6D 70 5F 		.ascii "GATT_STOP_CURRENT_PROC_REQ\000"
  11608      76 65 72 73 
  11608      69 6F 6E 00 
  11609                 	.LASF382:
- 11610 20f2 62 6F 6E 64 		.ascii "SYS_TEST_CHANNEL_MAP_CFM\000"
+ 11610 20eb 62 6F 6E 64 		.ascii "SYS_TEST_CHANNEL_MAP_CFM\000"
  11610      65 64 00 
  11611                 	.LASF805:
- 11612 20f5 4C 53 5F 43 		.ascii "FlipSwitch\000"
+ 11612 20ef 4C 53 5F 43 		.ascii "FlipSwitch\000"
  11612      4F 4E 4E 45 
  11612      43 54 49 4F 
  11612      4E 5F 50 41 
  11612      52 41 4D 5F 
  11613                 	.LASF367:
- 11614 2105 72 72 5F 76 		.ascii "SYS_GET_PERSISTENT_MEM_CFM\000"
+ 11614 20fe 72 72 5F 76 		.ascii "SYS_GET_PERSISTENT_MEM_CFM\000"
  11614      61 6C 75 65 
  11614      00 
  11615                 	.LASF356:
- 11616 2109 62 75 7A 7A 		.ascii "SYS_SET_PIOS_EVENT_MODE_CFM\000"
+ 11616 2103 62 75 7A 7A 		.ascii "SYS_SET_PIOS_EVENT_MODE_CFM\000"
  11616      65 72 5F 62 
  11616      65 65 70 5F 
  11616      74 79 70 65 
  11616      00 
  11617                 	.LASF36:
- 11618 2112 73 6D 5F 73 		.ascii "i2c_status_fail_write_poll_timeout\000"
+ 11618 210b 73 6D 5F 73 		.ascii "i2c_status_fail_write_poll_timeout\000"
  11618      74 61 74 75 
  11618      73 5F 70 61 
  11618      73 73 6B 65 
  11618      79 5F 65 6E 
  11619                 	.LASF579:
- 11620 2121 47 41 54 54 		.ascii "GATT_READ_CHAR_USING_UUID_CFM_T\000"
+ 11620 211b 47 41 54 54 		.ascii "GATT_READ_CHAR_USING_UUID_CFM_T\000"
  11620      5F 43 48 41 
  11620      52 5F 56 41 
  11620      4C 5F 4E 4F 
  11620      54 49 46 49 
  11621                 	.LASF686:
- 11622 2131 4C 4D 5F 45 		.ascii "sys_event_battery_low\000"
+ 11622 212a 4C 4D 5F 45 		.ascii "sys_event_battery_low\000"
  11622      56 5F 45 4E 
  11622      43 52 59 50 
  11622      54 49 4F 4E 
  11622      5F 43 48 41 
  11623                 	.LASF196:
- 11624 213e 73 69 67 5F 		.ascii "SM_KEY_REQUEST_RSP\000"
+ 11624 2137 73 69 67 5F 		.ascii "SM_KEY_REQUEST_RSP\000"
  11624      69 64 65 6E 
  11624      74 69 66 69 
  11624      65 72 00 
  11625                 	.LASF169:
- 11626 2145 4C 4D 5F 45 		.ascii "GATT_DISC_PRIM_SERV_BY_UUID_IND\000"
+ 11626 213f 4C 4D 5F 45 		.ascii "GATT_DISC_PRIM_SERV_BY_UUID_IND\000"
  11626      56 5F 43 4F 
  11626      4E 4E 45 43 
  11626      54 49 4F 4E 
  11626      5F 55 50 44 
  11627                 	.LASF462:
- 11628 2152 73 68 6F 72 		.ascii "ls_err_host_timeout\000"
+ 11628 214c 73 68 6F 72 		.ascii "ls_err_host_timeout\000"
  11628      74 20 75 6E 
  11628      73 69 67 6E 
  11628      65 64 20 69 
  11628      6E 74 00 
  11629                 	.LASF262:
- 11630 215c 72 6F 6C 65 		.ascii "LS_READ_TRANSMIT_POWER_LEVEL_CFM\000"
+ 11630 2155 72 6F 6C 65 		.ascii "LS_READ_TRANSMIT_POWER_LEVEL_CFM\000"
  11630      00 
  11631                 	.LASF393:
- 11632 215e 73 6D 5F 73 		.ascii "supervision_timeout\000"
+ 11632 2158 73 6D 5F 73 		.ascii "supervision_timeout\000"
  11632      74 61 74 75 
  11632      73 5F 63 6F 
  11632      6E 66 69 72 
  11632      6D 5F 76 61 
  11633                 	.LASF839:
- 11634 216e 73 6D 5F 64 		.ascii "handleSignalLmConnectionUpdate\000"
+ 11634 2167 73 6D 5F 64 		.ascii "handleSignalLmConnectionUpdate\000"
  11634      69 76 5F 76 
  11634      65 72 64 69 
  11634      63 74 00 
  11635                 	.LASF47:
- 11636 2175 53 4D 5F 50 		.ascii "l2cap_status_conn_disallowed\000"
+ 11636 216f 53 4D 5F 50 		.ascii "l2cap_status_conn_disallowed\000"
  11636      41 53 53 4B 
  11636      45 59 5F 49 
  11636      4E 50 55 54 
  11636      5F 52 53 50 
  11637                 	.LASF319:
- 11638 2180 47 41 54 54 		.ascii "SYS_GET_PERSISTENT_MEM_REQ\000"
+ 11638 2179 47 41 54 54 		.ascii "SYS_GET_PERSISTENT_MEM_REQ\000"
  11638      5F 53 54 4F 
  11638      50 5F 43 55 
  11638      52 52 45 4E 
  11638      54 5F 50 52 
  11639                 	.LASF816:
- 11640 218d 53 59 53 5F 		.ascii "sendHRMeasurement\000"
+ 11640 2187 53 59 53 5F 		.ascii "sendHRMeasurement\000"
  11640      54 45 53 54 
  11640      5F 43 48 41 
  11640      4E 4E 45 4C 
  11640      5F 4D 41 50 
  11641                 	.LASF412:
- 11642 219a 46 6C 69 70 		.ascii "HCI_EV_DATA_ENCRYPTION_CHANGE_T\000"
+ 11642 2193 46 6C 69 70 		.ascii "HCI_EV_DATA_ENCRYPTION_CHANGE_T\000"
  11642      53 77 69 74 
  11642      63 68 00 
  11643                 	.LASF96:
- 11644 219f 53 59 53 5F 		.ascii "sm_status_repeated_attempts\000"
+ 11644 2199 53 59 53 5F 		.ascii "sm_status_repeated_attempts\000"
  11644      47 45 54 5F 
  11644      50 45 52 53 
  11644      49 53 54 45 
  11644      4E 54 5F 4D 
  11645                 	.LASF215:
- 11646 21ad 53 59 53 5F 		.ascii "SM_KEY_REQUEST_IND\000"
+ 11646 21a6 53 59 53 5F 		.ascii "SM_KEY_REQUEST_IND\000"
  11646      53 45 54 5F 
  11646      50 49 4F 53 
  11646      5F 45 56 45 
  11646      4E 54 5F 4D 
  11647                 	.LASF616:
- 11648 21bb 69 32 63 5F 		.ascii "conn_interval_min\000"
+ 11648 21b4 69 32 63 5F 		.ascii "conn_interval_min\000"
  11648      73 74 61 74 
  11648      75 73 5F 66 
  11648      61 69 6C 5F 
  11648      77 72 69 74 
  11649                 	.LASF540:
- 11650 21cc 47 41 54 54 		.ascii "num_handles\000"
+ 11650 21c6 47 41 54 54 		.ascii "num_handles\000"
  11650      5F 52 45 41 
  11650      44 5F 43 48 
  11650      41 52 5F 55 
  11650      53 49 4E 47 
  11651                 	.LASF283:
- 11652 21dc 73 79 73 5F 		.ascii "LS_ENCRYPTION_CHANGE_IND\000"
+ 11652 21d6 73 79 73 5F 		.ascii "LS_ENCRYPTION_CHANGE_IND\000"
  11652      65 76 65 6E 
  11652      74 5F 62 61 
  11652      74 74 65 72 
  11652      79 5F 6C 6F 
  11653                 	.LASF312:
- 11654 21e7 53 4D 5F 4B 		.ascii "SYS_SET_PIO_ENABLE_EDGE_CAPTURE_REQ\000"
+ 11654 21e1 53 4D 5F 4B 		.ascii "SYS_SET_PIO_ENABLE_EDGE_CAPTURE_REQ\000"
  11654      45 59 5F 52 
  11654      45 51 55 45 
  11654      53 54 5F 52 
  11654      53 50 00 
  11655                 	.LASF551:
- 11656 21f1 47 41 54 54 		.ascii "bd_addr\000"
+ 11656 21ea 47 41 54 54 		.ascii "bd_addr\000"
  11656      5F 44 49 53 
  11656      43 5F 50 52 
  11656      49 4D 5F 53 
  11656      45 52 56 5F 
  11657                 	.LASF138:
- 11658 2201 6C 73 5F 65 		.ascii "GATT_DISCONNECT_REQ\000"
+ 11658 21fa 6C 73 5F 65 		.ascii "GATT_DISCONNECT_REQ\000"
  11658      72 72 5F 68 
  11658      6F 73 74 5F 
  11658      74 69 6D 65 
  11658      6F 75 74 00 
  11659                 	.LASF528:
- 11660 220b 4C 53 5F 52 		.ascii "rssi\000"
+ 11660 2204 4C 53 5F 52 		.ascii "rssi\000"
  11660      45 41 44 5F 
  11660      54 52 41 4E 
  11660      53 4D 49 54 
  11660      5F 50 4F 57 
  11661                 	.LASF662:
- 11662 221b 73 75 70 65 		.ascii "prim_read_long_char_val_cfm\000"
+ 11662 2215 73 75 70 65 		.ascii "prim_read_long_char_val_cfm\000"
  11662      72 76 69 73 
  11662      69 6F 6E 5F 
  11662      74 69 6D 65 
  11662      6F 75 74 00 
  11663                 	.LASF440:
- 11664 2225 68 61 6E 64 		.ascii "bccmd\000"
+ 11664 221f 68 61 6E 64 		.ascii "bccmd\000"
  11664      6C 65 53 69 
  11664      67 6E 61 6C 
  11664      4C 6D 43 6F 
  11664      6E 6E 65 63 
  11665                 	.LASF424:
- 11666 2235 6C 32 63 61 		.ascii "num_hci_command_pkts\000"
+ 11666 222e 6C 32 63 61 		.ascii "num_hci_command_pkts\000"
  11666      70 5F 73 74 
  11666      61 74 75 73 
  11666      5F 63 6F 6E 
  11666      6E 5F 64 69 
  11667                 	.LASF509:
- 11668 2243 53 59 53 5F 		.ascii "ls_err_conn_mac\000"
+ 11668 223d 53 59 53 5F 		.ascii "ls_err_conn_mac\000"
  11668      47 45 54 5F 
  11668      50 45 52 53 
  11668      49 53 54 45 
  11668      4E 54 5F 4D 
  11669                 	.LASF307:
- 11670 2251 73 65 6E 64 		.ascii "SYS_SET_PIO_ANA_MON_CLK_REQ\000"
+ 11670 224a 73 65 6E 64 		.ascii "SYS_SET_PIO_ANA_MON_CLK_REQ\000"
  11670      48 52 4D 65 
  11670      61 73 75 72 
  11670      65 6D 65 6E 
  11670      74 00 
  11671                 	.LASF360:
- 11672 225a 48 43 49 5F 		.ascii "SYS_SET_PIO_ENABLE_EDGE_CAPTURE_CFM\000"
+ 11672 2253 48 43 49 5F 		.ascii "SYS_SET_PIO_ENABLE_EDGE_CAPTURE_CFM\000"
  11672      45 56 5F 44 
  11672      41 54 41 5F 
  11672      45 4E 43 52 
  11672      59 50 54 49 
  11673                 	.LASF162:
- 11674 226a 73 6D 5F 73 		.ascii "GATT_DISCONNECT_CFM\000"
+ 11674 2263 73 6D 5F 73 		.ascii "GATT_DISCONNECT_CFM\000"
  11674      74 61 74 75 
  11674      73 5F 72 65 
  11674      70 65 61 74 
  11674      65 64 5F 61 
  11675                 	.LASF698:
- 11676 2278 53 4D 5F 4B 		.ascii "pio_mode_user\000"
+ 11676 2271 53 4D 5F 4B 		.ascii "pio_mode_user\000"
  11676      45 59 5F 52 
  11676      45 51 55 45 
  11676      53 54 5F 49 
  11676      4E 44 00 
  11677                 	.LASF250:
- 11678 2281 63 6F 6E 6E 		.ascii "LS_GAP_SET_ADV_CHAN_MASK_REQ\000"
+ 11678 227b 63 6F 6E 6E 		.ascii "LS_GAP_SET_ADV_CHAN_MASK_REQ\000"
  11678      5F 69 6E 74 
  11678      65 72 76 61 
  11678      6C 5F 6D 69 
  11678      6E 00 
  11679                 	.LASF476:
- 11680 228a 6E 75 6D 5F 		.ascii "ls_err_lmp_invalid\000"
+ 11680 2284 6E 75 6D 5F 		.ascii "ls_err_lmp_invalid\000"
  11680      68 61 6E 64 
  11680      6C 65 73 00 
  11681                 	.LASF355:
- 11682 2290 4C 53 5F 45 		.ascii "SYS_SET_PIO_ANA_MON_CLK_CFM\000"
+ 11682 228a 4C 53 5F 45 		.ascii "SYS_SET_PIO_ANA_MON_CLK_CFM\000"
  11682      4E 43 52 59 
  11682      50 54 49 4F 
  11682      4E 5F 43 48 
  11682      41 4E 47 45 
  11683                 	.LASF42:
- 11684 229d 53 59 53 5F 		.ascii "spi_status_page_overflow\000"
+ 11684 2296 53 59 53 5F 		.ascii "spi_status_page_overflow\000"
  11684      53 45 54 5F 
  11684      50 49 4F 5F 
  11684      45 4E 41 42 
  11684      4C 45 5F 45 
  11685                 	.LASF241:
- 11686 22af 62 64 5F 61 		.ascii "LS_STORE_ADV_SCAN_DATA_REQ\000"
+ 11686 22a8 62 64 5F 61 		.ascii "LS_STORE_ADV_SCAN_DATA_REQ\000"
  11686      64 64 72 00 
  11687                 	.LASF734:
- 11688 22b3 47 41 54 54 		.ascii "app_panic_set_advert_params\000"
+ 11688 22ac 47 41 54 54 		.ascii "app_panic_set_advert_params\000"
  11688      5F 44 49 53 
  11688      43 4F 4E 4E 
  11688      45 43 54 5F 
  11688      52 45 51 00 
  11689                 	.LASF1:
- 11690 22bd 72 73 73 69 		.ascii "uint16\000"
+ 11690 22b6 72 73 73 69 		.ascii "uint16\000"
  11690      00 
  11691                 	.LASF277:
- 11692 22bf 70 72 69 6D 		.ascii "LS_GAP_SET_ADV_CHAN_MASK_CFM\000"
+ 11692 22b9 70 72 69 6D 		.ascii "LS_GAP_SET_ADV_CHAN_MASK_CFM\000"
  11692      5F 72 65 61 
  11692      64 5F 6C 6F 
  11692      6E 67 5F 63 
  11692      68 61 72 5F 
  11693                 	.LASF801:
- 11694 22cd 62 63 63 6D 		.ascii "hr_meas_len\000"
+ 11694 22c7 62 63 63 6D 		.ascii "hr_meas_len\000"
  11694      64 00 
  11695                 	.LASF722:
- 11696 22d0 6E 75 6D 5F 		.ascii "pio_mode_ana_mon_clk_pio\000"
+ 11696 22ca 6E 75 6D 5F 		.ascii "pio_mode_ana_mon_clk_pio\000"
  11696      68 63 69 5F 
  11696      63 6F 6D 6D 
  11696      61 6E 64 5F 
  11696      70 6B 74 73 
  11697                 	.LASF714:
- 11698 22db 6C 73 5F 65 		.ascii "pio_mode_pio_control_txd\000"
+ 11698 22d4 6C 73 5F 65 		.ascii "pio_mode_pio_control_txd\000"
  11698      72 72 5F 63 
  11698      6F 6E 6E 5F 
  11698      6D 61 63 00 
  11699                 	.LASF268:
- 11700 22e3 53 59 53 5F 		.ascii "LS_STORE_ADV_SCAN_DATA_CFM\000"
+ 11700 22dc 53 59 53 5F 		.ascii "LS_STORE_ADV_SCAN_DATA_CFM\000"
  11700      53 45 54 5F 
  11700      50 49 4F 5F 
  11700      41 4E 41 5F 
  11700      4D 4F 4E 5F 
  11701                 	.LASF561:
- 11702 22f1 53 59 53 5F 		.ascii "strt_handle\000"
+ 11702 22ea 53 59 53 5F 		.ascii "strt_handle\000"
  11702      53 45 54 5F 
  11702      50 49 4F 5F 
  11702      45 4E 41 42 
  11702      4C 45 5F 45 
  11703                 	.LASF345:
- 11704 2303 47 41 54 54 		.ascii "SYS_GET_PIO_CFM\000"
+ 11704 22fc 47 41 54 54 		.ascii "SYS_GET_PIO_CFM\000"
  11704      5F 44 49 53 
  11704      43 4F 4E 4E 
  11704      45 43 54 5F 
  11704      43 46 4D 00 
  11705                 	.LASF89:
- 11706 230d 70 69 6F 5F 		.ascii "sm_status_oob_not_available\000"
+ 11706 2306 70 69 6F 5F 		.ascii "sm_status_oob_not_available\000"
  11706      6D 6F 64 65 
  11706      5F 75 73 65 
  11706      72 00 
  11707                 	.LASF704:
- 11708 2314 4C 53 5F 47 		.ascii "pio_mode_pwm3\000"
+ 11708 230d 4C 53 5F 47 		.ascii "pio_mode_pwm3\000"
  11708      41 50 5F 53 
  11708      45 54 5F 41 
  11708      44 56 5F 43 
  11708      48 41 4E 5F 
  11709                 	.LASF553:
- 11710 2322 6C 73 5F 65 		.ascii "GATT_CANCEL_CONNECT_CFM_T\000"
+ 11710 231c 6C 73 5F 65 		.ascii "GATT_CANCEL_CONNECT_CFM_T\000"
  11710      72 72 5F 6C 
  11710      6D 70 5F 69 
  11710      6E 76 61 6C 
  11710      69 64 00 
  11711                 	.LASF525:
- 11712 232c 53 59 53 5F 		.ascii "GATT_UUID_T\000"
+ 11712 2325 53 59 53 5F 		.ascii "GATT_UUID_T\000"
  11712      53 45 54 5F 
  11712      50 49 4F 5F 
  11712      41 4E 41 5F 
  11712      4D 4F 4E 5F 
  11713                 	.LASF294:
- 11714 233a 73 70 69 5F 		.ascii "NOT_USED_SYS_SMFEATURES_REQ\000"
+ 11714 2333 73 70 69 5F 		.ascii "NOT_USED_SYS_SMFEATURES_REQ\000"
  11714      73 74 61 74 
  11714      75 73 5F 70 
  11714      61 67 65 5F 
  11714      6F 76 65 72 
  11715                 	.LASF140:
- 11716 2346 4C 53 5F 53 		.ascii "GATT_EXCHANGE_MTU_REQ\000"
+ 11716 2340 4C 53 5F 53 		.ascii "GATT_EXCHANGE_MTU_REQ\000"
  11716      54 4F 52 45 
  11716      5F 41 44 56 
  11716      5F 53 43 41 
  11716      4E 5F 44 41 
  11717                 	.LASF160:
- 11718 2354 61 70 70 5F 		.ascii "GATT_CONNECT_IND\000"
+ 11718 234d 61 70 70 5F 		.ascii "GATT_CONNECT_IND\000"
  11718      70 61 6E 69 
  11718      63 5F 73 65 
  11718      74 5F 61 64 
  11718      76 65 72 74 
  11719                 		.ident	"GCC: (GNU) 4.3.4 CSR version 21 for xap [1468380]"
- 11720 2362 75 69 6E 74 	...
+ 11720 235b 75 69 6E 74 	...
  11720      31 36 00 

@@ -339,7 +339,7 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
           length = 1;
           // p_val = 1;
           // PioSet(10, TRUE);
-          FlipSwitch();
+          // FlipSwitch();
           p_val = (uint8*)&switch_intensity;
           // xx = !xx;
           // p_val = (uint8*)&xx;
@@ -390,7 +390,9 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
     uint8 *p_value = p_ind->value;
     gatt_client_config client_config;
     sys_status rc = sys_status_success;
-
+    uint8  *p_val = NULL;
+    uint16 length = 1;
+    // FlipSwitch();
     switch(p_ind->handle)
     {
         
@@ -404,11 +406,10 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
           //                     g_hr_serv_data.nvm_offset + 
           //                     HR_NVM_SWITCH_OFFSET);
 
-          // FlipSwitch();
-          
+          FlipSwitch();
+          p_val = (uint8*)&switch_intensity;
           break;
         }
-        
         case HANDLE_HEART_RATE_MEASUREMENT_C_CFG:
         {
             client_config = BufReadUint16(&p_value);
@@ -460,18 +461,24 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
 
             break;
         }
-
         default:
         {
             rc = gatt_status_write_not_permitted;
-            break;
+            break; 
         }
     }
 
     
 
-    /* Send ACCESS RESPONSE */
-    GattAccessRsp(p_ind->cid, p_ind->handle, rc, 0, NULL);
+    
+
+    if(p_ind->handle == HANDLE_SWITCH_INTENSITY) {
+      GattAccessRsp(p_ind->cid, p_ind->handle, rc,
+                          length, p_val);
+    } else {
+      /* Send ACCESS RESPONSE */
+      GattAccessRsp(p_ind->cid, p_ind->handle, rc, 0, NULL);
+    }
 
 }
 

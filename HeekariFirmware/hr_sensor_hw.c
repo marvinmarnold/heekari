@@ -92,8 +92,6 @@
 
 #define DIMMER_PIO              (3)
 
-#define PIO_BIT_MASK(pio)       (0x01 << (pio))
-
 #define DIMMER_PIO_MASK         (PIO_BIT_MASK(BUZZER_PIO))                                
 
 /*============================================================================*
