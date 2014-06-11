@@ -44,7 +44,6 @@
 #include "hr_sensor_gatt.h"
 #include "app_gatt_db.h"
 #include "nvm_access.h"
-#include "switch_service.h"
 
 /*============================================================================*
  *  Private Definitions
@@ -135,8 +134,6 @@
 
 /* HR Sensor application data instance */
 HR_DATA_T g_hr_data;
-
-bool switch_intensity = FALSE;
 
 /*============================================================================*
  *  Private Data
@@ -235,9 +232,6 @@ static void hrSensorDataInit(void)
 
     /* Heart Rate Service data initialisation */
     HRDataInit();
-    
-    /* Switch Service data initialisation */
-    SwitchDataInit();
 
 }
 
@@ -2406,9 +2400,6 @@ extern void AppInit(sleep_state last_sleep_state)
     /* Battery Initialisation on Chip reset */
     BatteryInitChipReset();
 
-    /* Switch Initialisation on Chip reset */
-    SwitchInitChipReset();
-
     /* Initialize the gap data. Needs to be done before readPersistentStore */
     GapDataInit();
 
@@ -2450,12 +2441,6 @@ extern void AppInit(sleep_state last_sleep_state)
     /* Turn off both LEDs by setting output to Low */
     PioSets((1UL << PIO_LIGHT), 0UL);
     PioSet(PIO_LIGHT, FALSE); ///new
-}
-
-extern void FlipSwitch(void)
-{
-    switch_intensity = !switch_intensity;
-    PioSet(PIO_LIGHT, switch_intensity);
 }
 
 /*----------------------------------------------------------------------------*

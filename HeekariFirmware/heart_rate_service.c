@@ -45,6 +45,8 @@ typedef struct
     /* Heart rate measurement client configuration */
     gatt_client_config             hr_meas_client_config; 
 
+    uint8                          switch_intensity;
+
     /* Offset at which Battery data is stored in NVM */
     uint16                         nvm_offset;
 
@@ -122,7 +124,7 @@ extern void HRDataInit(void)
               g_hr_serv_data.nvm_offset + 
               HR_NVM_ENERGY_EXPENDED_OFFSET);
 
-
+    WriteSwitchIntensity();
 }
 
 
@@ -143,6 +145,8 @@ extern void HRInitChipReset(void)
 {
     /* Reset energy expended value at chip reset for initialisation */
     g_hr_serv_data.energy_expended = 0;
+
+    g_hr_serv_data.switch_intensity = 0;
 }
 
 
@@ -336,11 +340,14 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
 
         case HANDLE_SWITCH_INTENSITY:
         {
-          length = 1;
+          length = sizeof(g_hr_serv_data.switch_intensity);
           // p_val = 1;
           // PioSet(10, TRUE);
           // FlipSwitch();
-          p_val = (uint8*)&switch_intensity;
+            Nvm_Read((uint16*)&g_hr_serv_data.switch_intensity, 
+             length, 
+             g_hr_serv_data.nvm_offset + HR_NVM_SWITCH_OFFSET);
+          // p_val = (uint8*)&g_hr_serv_data.switch_intensity;
           // xx = !xx;
           // p_val = (uint8*)&xx;
           // if(switch_intensity == TRUE) {
@@ -361,7 +368,7 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
 
     if(p_ind->handle == HANDLE_SWITCH_INTENSITY) {
       GattAccessRsp(p_ind->cid, p_ind->handle, rc,
-                          length, p_val);
+                          length, &g_hr_serv_data.switch_intensity);
     } else {
       GattAccessRsp(p_ind->cid, p_ind->handle, rc,
                           length, value);
@@ -370,6 +377,22 @@ extern void HeartRateHandleAccessRead(GATT_ACCESS_IND_T *p_ind)
 
 }
 
+extern void AdjustSwitchIntensity(uint8 new_switch_intensity)
+{
+    // p_val = &switch_intensity;
+    g_hr_serv_data.switch_intensity = new_switch_intensity;
+    WriteSwitchIntensity();
+
+    // switch_intensity = new_switch_intensity;//GetSwitchIntensity();
+    // PioSet(PIO_LIGHT, new_switch_intensity);
+}
+
+extern void WriteSwitchIntensity(void){
+  Nvm_Write((uint16*)&g_hr_serv_data.switch_intensity,
+                          sizeof(g_hr_serv_data.switch_intensity),
+                          g_hr_serv_data.nvm_offset + 
+                          HR_NVM_SWITCH_OFFSET);
+}
 
 /*----------------------------------------------------------------------------*
  *  NAME
@@ -400,14 +423,10 @@ extern void HeartRateHandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
         {
           // rc = gatt_status_write_not_permitted;
           // switch_to_state = BufReadUint16(&p_value);
-
-          // Nvm_Write((uint16*)&p_value,
-          //                     sizeof(p_value),
-          //                     g_hr_serv_data.nvm_offset + 
-          //                     HR_NVM_SWITCH_OFFSET);
-
-          FlipSwitch();
-          p_val = (uint8*)&switch_intensity;
+          // p_val = (uint8)FlipSwitch();           
+          uint8 new_switch_intensity = BufReadUint16(&p_value);
+          AdjustSwitchIntensity(new_switch_intensity);
+          // p_val = (uint8*)&g_hr_serv_data.switch_intensity;
           break;
         }
         case HANDLE_HEART_RATE_MEASUREMENT_C_CFG:
@@ -533,3 +552,4 @@ extern void HeartRateBondingNotify(void)
     }
 
 }
+

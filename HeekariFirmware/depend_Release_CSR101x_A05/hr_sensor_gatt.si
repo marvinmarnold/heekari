@@ -60,570 +60,569 @@
   36:hr_sensor_gatt.c **** #include "gap_service.h"
   37:hr_sensor_gatt.c **** #include "heart_rate_service.h"
   38:hr_sensor_gatt.c **** #include "battery_service.h"
-  39:hr_sensor_gatt.c **** #include "switch_service.h"
-  40:hr_sensor_gatt.c **** #include "heart_rate_service_uuids.h"
-  41:hr_sensor_gatt.c **** #include "battery_uuids.h"
-  42:hr_sensor_gatt.c **** #include "switch_uuids.h"
-  43:hr_sensor_gatt.c **** 
-  44:hr_sensor_gatt.c **** /*============================================================================*
-  45:hr_sensor_gatt.c ****  *  Private Definitions
-  46:hr_sensor_gatt.c ****  *============================================================================*/
-  47:hr_sensor_gatt.c **** 
-  48:hr_sensor_gatt.c **** /* This constant is used in the main server app to define array that is 
-  49:hr_sensor_gatt.c ****    large enough to hold the advertisement data.
-  50:hr_sensor_gatt.c ****  */
-  51:hr_sensor_gatt.c **** #define MAX_ADV_DATA_LEN                                  (31)
-  52:hr_sensor_gatt.c **** 
-  53:hr_sensor_gatt.c **** /* Acceptable shortened device name length that can be sent in advertisement 
-  54:hr_sensor_gatt.c ****  * data 
-  55:hr_sensor_gatt.c ****  */
-  56:hr_sensor_gatt.c **** #define SHORTENED_DEV_NAME_LEN                            (8)
-  57:hr_sensor_gatt.c **** 
-  58:hr_sensor_gatt.c ****  /* length of Tx Power prefixed with 'Tx Power' AD Type */
-  59:hr_sensor_gatt.c **** #define TX_POWER_VALUE_LENGTH                             (2)
-  60:hr_sensor_gatt.c **** 
-  61:hr_sensor_gatt.c **** /*============================================================================*
-  62:hr_sensor_gatt.c ****  *  Private Function Prototypes
-  63:hr_sensor_gatt.c ****  *============================================================================*/
-  64:hr_sensor_gatt.c **** 
-  65:hr_sensor_gatt.c **** static void addDeviceNameToAdvData(uint16 adv_data_len, uint16 scan_data_len);
-  66:hr_sensor_gatt.c **** static void gattSetAdvertParams(bool fast_connection);
-  67:hr_sensor_gatt.c **** static void gattAdvertTimerHandler(timer_id tid);
-  68:hr_sensor_gatt.c **** 
-  69:hr_sensor_gatt.c **** /*============================================================================*
-  70:hr_sensor_gatt.c ****  *  Private Function Implementations
-  71:hr_sensor_gatt.c ****  *============================================================================*/
-  72:hr_sensor_gatt.c **** 
-  73:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
-  74:hr_sensor_gatt.c ****  *  NAME
-  75:hr_sensor_gatt.c ****  *      addDeviceNameToAdvData
-  76:hr_sensor_gatt.c ****  *
-  77:hr_sensor_gatt.c ****  *  DESCRIPTION
-  78:hr_sensor_gatt.c ****  *      This function is used to add device name to advertisement or scan 
-  79:hr_sensor_gatt.c ****  *      response data. It follows below steps:
-  80:hr_sensor_gatt.c ****  *      a. Try to add complete device name to the advertisment packet
-  81:hr_sensor_gatt.c ****  *      b. Try to add complete device name to the scan response packet
-  82:hr_sensor_gatt.c ****  *      c. Try to add shortened device name to the advertisement packet
-  83:hr_sensor_gatt.c ****  *      d. Try to add shortened (max possible) device name to the scan 
-  84:hr_sensor_gatt.c ****  *         response packet
-  85:hr_sensor_gatt.c ****  *
-  86:hr_sensor_gatt.c ****  *  RETURNS
-  87:hr_sensor_gatt.c ****  *      Nothing.
-  88:hr_sensor_gatt.c ****  *
-  89:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
-  90:hr_sensor_gatt.c **** 
-  91:hr_sensor_gatt.c **** static void addDeviceNameToAdvData(uint16 adv_data_len, uint16 scan_data_len)
-  92:hr_sensor_gatt.c **** {
-  93:hr_sensor_gatt.c **** 
-  94:hr_sensor_gatt.c ****     uint8 *p_device_name = NULL;
-  95:hr_sensor_gatt.c ****     uint16 device_name_adtype_len;
-  96:hr_sensor_gatt.c **** 
-  97:hr_sensor_gatt.c ****     /* Read device name along with AD Type and its length */
-  98:hr_sensor_gatt.c ****     p_device_name = GapGetNameAndLength(&device_name_adtype_len);
-  99:hr_sensor_gatt.c **** 
- 100:hr_sensor_gatt.c ****     /* Add complete device name to Advertisement data */
- 101:hr_sensor_gatt.c ****     p_device_name[0] = AD_TYPE_LOCAL_NAME_COMPLETE;
- 102:hr_sensor_gatt.c **** 
- 103:hr_sensor_gatt.c ****     /* Increment device_name_length by one to account for length field
- 104:hr_sensor_gatt.c ****      * which will be added by the GAP layer. 
- 105:hr_sensor_gatt.c ****      */
- 106:hr_sensor_gatt.c **** 
- 107:hr_sensor_gatt.c ****     /* Check if Complete Device Name can fit in remaining advertisement 
- 108:hr_sensor_gatt.c ****      * data space 
- 109:hr_sensor_gatt.c ****      */
- 110:hr_sensor_gatt.c ****     if((device_name_adtype_len + 1) <= (MAX_ADV_DATA_LEN - adv_data_len))
- 111:hr_sensor_gatt.c ****     {
- 112:hr_sensor_gatt.c ****         /* Add Complete Device Name to Advertisement Data */
- 113:hr_sensor_gatt.c ****         if (LsStoreAdvScanData(device_name_adtype_len , p_device_name, 
- 114:hr_sensor_gatt.c ****                       ad_src_advertise) != ls_err_none)
- 115:hr_sensor_gatt.c ****         {
- 116:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_advert_data);
- 117:hr_sensor_gatt.c ****         }
- 118:hr_sensor_gatt.c **** 
- 119:hr_sensor_gatt.c ****     }
- 120:hr_sensor_gatt.c ****     /* Check if Complete Device Name can fit in Scan response message */
- 121:hr_sensor_gatt.c ****     else if((device_name_adtype_len + 1) <= (MAX_ADV_DATA_LEN - scan_data_len)) 
- 122:hr_sensor_gatt.c ****     {
- 123:hr_sensor_gatt.c ****         /* Add Complete Device Name to Scan Response Data */
- 124:hr_sensor_gatt.c ****         if (LsStoreAdvScanData(device_name_adtype_len , p_device_name, 
- 125:hr_sensor_gatt.c ****                       ad_src_scan_rsp) != ls_err_none)
- 126:hr_sensor_gatt.c ****         {
- 127:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_scan_rsp_data);
- 128:hr_sensor_gatt.c ****         }
- 129:hr_sensor_gatt.c **** 
- 130:hr_sensor_gatt.c ****     }
- 131:hr_sensor_gatt.c ****     /* Check if Shortened Device Name can fit in remaining advertisement 
- 132:hr_sensor_gatt.c ****      * data space 
- 133:hr_sensor_gatt.c ****      */
- 134:hr_sensor_gatt.c ****     else if((MAX_ADV_DATA_LEN - adv_data_len) >=
- 135:hr_sensor_gatt.c ****             (SHORTENED_DEV_NAME_LEN + 2)) /* Added 2 for Length and AD type 
- 136:hr_sensor_gatt.c ****                                            * added by GAP layer
- 137:hr_sensor_gatt.c ****                                            */
- 138:hr_sensor_gatt.c ****     {
- 139:hr_sensor_gatt.c ****         /* Add shortened device name to Advertisement data */
- 140:hr_sensor_gatt.c ****         p_device_name[0] = AD_TYPE_LOCAL_NAME_SHORT;
- 141:hr_sensor_gatt.c **** 
- 142:hr_sensor_gatt.c ****        if (LsStoreAdvScanData(SHORTENED_DEV_NAME_LEN , p_device_name, 
- 143:hr_sensor_gatt.c ****                       ad_src_advertise) != ls_err_none)
- 144:hr_sensor_gatt.c ****         {
- 145:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_advert_data);
- 146:hr_sensor_gatt.c ****         }
- 147:hr_sensor_gatt.c **** 
- 148:hr_sensor_gatt.c ****     }
- 149:hr_sensor_gatt.c ****     else /* Add device name to remaining Scan reponse data space */
- 150:hr_sensor_gatt.c ****     {
- 151:hr_sensor_gatt.c ****         /* Add as much as can be stored in Scan Response data */
- 152:hr_sensor_gatt.c ****         p_device_name[0] = AD_TYPE_LOCAL_NAME_SHORT;
- 153:hr_sensor_gatt.c **** 
- 154:hr_sensor_gatt.c ****        if (LsStoreAdvScanData(MAX_ADV_DATA_LEN - scan_data_len, 
- 155:hr_sensor_gatt.c ****                                     p_device_name, 
- 156:hr_sensor_gatt.c ****                                     ad_src_scan_rsp) != ls_err_none)
- 157:hr_sensor_gatt.c ****         {
- 158:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_scan_rsp_data);
- 159:hr_sensor_gatt.c ****         }
- 160:hr_sensor_gatt.c **** 
- 161:hr_sensor_gatt.c ****     }
- 162:hr_sensor_gatt.c **** 
- 163:hr_sensor_gatt.c **** }
+  39:hr_sensor_gatt.c **** #include "heart_rate_service_uuids.h"
+  40:hr_sensor_gatt.c **** #include "battery_uuids.h"
+  41:hr_sensor_gatt.c **** #include "switch_uuids.h"
+  42:hr_sensor_gatt.c **** 
+  43:hr_sensor_gatt.c **** /*============================================================================*
+  44:hr_sensor_gatt.c ****  *  Private Definitions
+  45:hr_sensor_gatt.c ****  *============================================================================*/
+  46:hr_sensor_gatt.c **** 
+  47:hr_sensor_gatt.c **** /* This constant is used in the main server app to define array that is 
+  48:hr_sensor_gatt.c ****    large enough to hold the advertisement data.
+  49:hr_sensor_gatt.c ****  */
+  50:hr_sensor_gatt.c **** #define MAX_ADV_DATA_LEN                                  (31)
+  51:hr_sensor_gatt.c **** 
+  52:hr_sensor_gatt.c **** /* Acceptable shortened device name length that can be sent in advertisement 
+  53:hr_sensor_gatt.c ****  * data 
+  54:hr_sensor_gatt.c ****  */
+  55:hr_sensor_gatt.c **** #define SHORTENED_DEV_NAME_LEN                            (8)
+  56:hr_sensor_gatt.c **** 
+  57:hr_sensor_gatt.c ****  /* length of Tx Power prefixed with 'Tx Power' AD Type */
+  58:hr_sensor_gatt.c **** #define TX_POWER_VALUE_LENGTH                             (2)
+  59:hr_sensor_gatt.c **** 
+  60:hr_sensor_gatt.c **** /*============================================================================*
+  61:hr_sensor_gatt.c ****  *  Private Function Prototypes
+  62:hr_sensor_gatt.c ****  *============================================================================*/
+  63:hr_sensor_gatt.c **** 
+  64:hr_sensor_gatt.c **** static void addDeviceNameToAdvData(uint16 adv_data_len, uint16 scan_data_len);
+  65:hr_sensor_gatt.c **** static void gattSetAdvertParams(bool fast_connection);
+  66:hr_sensor_gatt.c **** static void gattAdvertTimerHandler(timer_id tid);
+  67:hr_sensor_gatt.c **** 
+  68:hr_sensor_gatt.c **** /*============================================================================*
+  69:hr_sensor_gatt.c ****  *  Private Function Implementations
+  70:hr_sensor_gatt.c ****  *============================================================================*/
+  71:hr_sensor_gatt.c **** 
+  72:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
+  73:hr_sensor_gatt.c ****  *  NAME
+  74:hr_sensor_gatt.c ****  *      addDeviceNameToAdvData
+  75:hr_sensor_gatt.c ****  *
+  76:hr_sensor_gatt.c ****  *  DESCRIPTION
+  77:hr_sensor_gatt.c ****  *      This function is used to add device name to advertisement or scan 
+  78:hr_sensor_gatt.c ****  *      response data. It follows below steps:
+  79:hr_sensor_gatt.c ****  *      a. Try to add complete device name to the advertisment packet
+  80:hr_sensor_gatt.c ****  *      b. Try to add complete device name to the scan response packet
+  81:hr_sensor_gatt.c ****  *      c. Try to add shortened device name to the advertisement packet
+  82:hr_sensor_gatt.c ****  *      d. Try to add shortened (max possible) device name to the scan 
+  83:hr_sensor_gatt.c ****  *         response packet
+  84:hr_sensor_gatt.c ****  *
+  85:hr_sensor_gatt.c ****  *  RETURNS
+  86:hr_sensor_gatt.c ****  *      Nothing.
+  87:hr_sensor_gatt.c ****  *
+  88:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
+  89:hr_sensor_gatt.c **** 
+  90:hr_sensor_gatt.c **** static void addDeviceNameToAdvData(uint16 adv_data_len, uint16 scan_data_len)
+  91:hr_sensor_gatt.c **** {
+  92:hr_sensor_gatt.c **** 
+  93:hr_sensor_gatt.c ****     uint8 *p_device_name = NULL;
+  94:hr_sensor_gatt.c ****     uint16 device_name_adtype_len;
+  95:hr_sensor_gatt.c **** 
+  96:hr_sensor_gatt.c ****     /* Read device name along with AD Type and its length */
+  97:hr_sensor_gatt.c ****     p_device_name = GapGetNameAndLength(&device_name_adtype_len);
+  98:hr_sensor_gatt.c **** 
+  99:hr_sensor_gatt.c ****     /* Add complete device name to Advertisement data */
+ 100:hr_sensor_gatt.c ****     p_device_name[0] = AD_TYPE_LOCAL_NAME_COMPLETE;
+ 101:hr_sensor_gatt.c **** 
+ 102:hr_sensor_gatt.c ****     /* Increment device_name_length by one to account for length field
+ 103:hr_sensor_gatt.c ****      * which will be added by the GAP layer. 
+ 104:hr_sensor_gatt.c ****      */
+ 105:hr_sensor_gatt.c **** 
+ 106:hr_sensor_gatt.c ****     /* Check if Complete Device Name can fit in remaining advertisement 
+ 107:hr_sensor_gatt.c ****      * data space 
+ 108:hr_sensor_gatt.c ****      */
+ 109:hr_sensor_gatt.c ****     if((device_name_adtype_len + 1) <= (MAX_ADV_DATA_LEN - adv_data_len))
+ 110:hr_sensor_gatt.c ****     {
+ 111:hr_sensor_gatt.c ****         /* Add Complete Device Name to Advertisement Data */
+ 112:hr_sensor_gatt.c ****         if (LsStoreAdvScanData(device_name_adtype_len , p_device_name, 
+ 113:hr_sensor_gatt.c ****                       ad_src_advertise) != ls_err_none)
+ 114:hr_sensor_gatt.c ****         {
+ 115:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_advert_data);
+ 116:hr_sensor_gatt.c ****         }
+ 117:hr_sensor_gatt.c **** 
+ 118:hr_sensor_gatt.c ****     }
+ 119:hr_sensor_gatt.c ****     /* Check if Complete Device Name can fit in Scan response message */
+ 120:hr_sensor_gatt.c ****     else if((device_name_adtype_len + 1) <= (MAX_ADV_DATA_LEN - scan_data_len)) 
+ 121:hr_sensor_gatt.c ****     {
+ 122:hr_sensor_gatt.c ****         /* Add Complete Device Name to Scan Response Data */
+ 123:hr_sensor_gatt.c ****         if (LsStoreAdvScanData(device_name_adtype_len , p_device_name, 
+ 124:hr_sensor_gatt.c ****                       ad_src_scan_rsp) != ls_err_none)
+ 125:hr_sensor_gatt.c ****         {
+ 126:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_scan_rsp_data);
+ 127:hr_sensor_gatt.c ****         }
+ 128:hr_sensor_gatt.c **** 
+ 129:hr_sensor_gatt.c ****     }
+ 130:hr_sensor_gatt.c ****     /* Check if Shortened Device Name can fit in remaining advertisement 
+ 131:hr_sensor_gatt.c ****      * data space 
+ 132:hr_sensor_gatt.c ****      */
+ 133:hr_sensor_gatt.c ****     else if((MAX_ADV_DATA_LEN - adv_data_len) >=
+ 134:hr_sensor_gatt.c ****             (SHORTENED_DEV_NAME_LEN + 2)) /* Added 2 for Length and AD type 
+ 135:hr_sensor_gatt.c ****                                            * added by GAP layer
+ 136:hr_sensor_gatt.c ****                                            */
+ 137:hr_sensor_gatt.c ****     {
+ 138:hr_sensor_gatt.c ****         /* Add shortened device name to Advertisement data */
+ 139:hr_sensor_gatt.c ****         p_device_name[0] = AD_TYPE_LOCAL_NAME_SHORT;
+ 140:hr_sensor_gatt.c **** 
+ 141:hr_sensor_gatt.c ****        if (LsStoreAdvScanData(SHORTENED_DEV_NAME_LEN , p_device_name, 
+ 142:hr_sensor_gatt.c ****                       ad_src_advertise) != ls_err_none)
+ 143:hr_sensor_gatt.c ****         {
+ 144:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_advert_data);
+ 145:hr_sensor_gatt.c ****         }
+ 146:hr_sensor_gatt.c **** 
+ 147:hr_sensor_gatt.c ****     }
+ 148:hr_sensor_gatt.c ****     else /* Add device name to remaining Scan reponse data space */
+ 149:hr_sensor_gatt.c ****     {
+ 150:hr_sensor_gatt.c ****         /* Add as much as can be stored in Scan Response data */
+ 151:hr_sensor_gatt.c ****         p_device_name[0] = AD_TYPE_LOCAL_NAME_SHORT;
+ 152:hr_sensor_gatt.c **** 
+ 153:hr_sensor_gatt.c ****        if (LsStoreAdvScanData(MAX_ADV_DATA_LEN - scan_data_len, 
+ 154:hr_sensor_gatt.c ****                                     p_device_name, 
+ 155:hr_sensor_gatt.c ****                                     ad_src_scan_rsp) != ls_err_none)
+ 156:hr_sensor_gatt.c ****         {
+ 157:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_scan_rsp_data);
+ 158:hr_sensor_gatt.c ****         }
+ 159:hr_sensor_gatt.c **** 
+ 160:hr_sensor_gatt.c ****     }
+ 161:hr_sensor_gatt.c **** 
+ 162:hr_sensor_gatt.c **** }
+ 163:hr_sensor_gatt.c **** 
  164:hr_sensor_gatt.c **** 
- 165:hr_sensor_gatt.c **** 
- 166:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
- 167:hr_sensor_gatt.c ****  *  NAME
- 168:hr_sensor_gatt.c ****  *      gattSetAdvertParams
- 169:hr_sensor_gatt.c ****  *
- 170:hr_sensor_gatt.c ****  *  DESCRIPTION
- 171:hr_sensor_gatt.c ****  *      This function is used to set advertisement parameters 
- 172:hr_sensor_gatt.c ****  *
- 173:hr_sensor_gatt.c ****  *  RETURNS
- 174:hr_sensor_gatt.c ****  *      Nothing.
- 175:hr_sensor_gatt.c ****  *
- 176:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
- 177:hr_sensor_gatt.c **** 
- 178:hr_sensor_gatt.c **** static void gattSetAdvertParams(bool fast_connection)
- 179:hr_sensor_gatt.c **** {
- 180:hr_sensor_gatt.c ****     uint8 advert_data[MAX_ADV_DATA_LEN];
- 181:hr_sensor_gatt.c ****     uint16 length;
- 182:hr_sensor_gatt.c ****     uint32 adv_interval_min = RP_ADVERTISING_INTERVAL_MIN;
- 183:hr_sensor_gatt.c ****     uint32 adv_interval_max = RP_ADVERTISING_INTERVAL_MAX;
- 184:hr_sensor_gatt.c **** 
- 185:hr_sensor_gatt.c ****     int8 tx_power_level = 0xff; /* Signed value */
- 186:hr_sensor_gatt.c **** 
- 187:hr_sensor_gatt.c ****     /* Tx power level value prefixed with 'Tx Power' AD Type */
- 188:hr_sensor_gatt.c ****     uint8 device_tx_power[TX_POWER_VALUE_LENGTH] = {
- 189:hr_sensor_gatt.c ****                 AD_TYPE_TX_POWER
- 190:hr_sensor_gatt.c ****                 };
- 191:hr_sensor_gatt.c **** 
- 192:hr_sensor_gatt.c ****     uint8 device_appearance[ATTR_LEN_DEVICE_APPEARANCE + 1] = {
- 193:hr_sensor_gatt.c ****                 AD_TYPE_APPEARANCE,
- 194:hr_sensor_gatt.c ****                 LE8_L(APPEARANCE_HR_SENSOR_VALUE),
- 195:hr_sensor_gatt.c ****                 LE8_H(APPEARANCE_HR_SENSOR_VALUE)
- 196:hr_sensor_gatt.c ****                 };
- 197:hr_sensor_gatt.c **** 
- 198:hr_sensor_gatt.c ****     /* A variable to keep track of the data added to AdvData. The limit is 
- 199:hr_sensor_gatt.c ****      * MAX_ADV_DATA_LEN. GAP layer will add AD Flags to AdvData which 
- 200:hr_sensor_gatt.c ****      * is 3 bytes. Refer BT Spec 4.0, Vol 3, Part C, Sec 11.1.3.
- 201:hr_sensor_gatt.c ****      */
- 202:hr_sensor_gatt.c ****     uint16 length_added_to_adv = 3;
- 203:hr_sensor_gatt.c **** 
- 204:hr_sensor_gatt.c ****     if(fast_connection)
- 205:hr_sensor_gatt.c ****     {
- 206:hr_sensor_gatt.c ****         adv_interval_min = FC_ADVERTISING_INTERVAL_MIN;
- 207:hr_sensor_gatt.c ****         adv_interval_max = FC_ADVERTISING_INTERVAL_MAX;
- 208:hr_sensor_gatt.c ****     }
- 209:hr_sensor_gatt.c **** 
- 210:hr_sensor_gatt.c ****     /* In a Public Environment like Gym, there is a requirement for HR Sensor 
- 211:hr_sensor_gatt.c ****      * to communicate with fitness machines even without having a bond. So, 
- 212:hr_sensor_gatt.c ****      * for HR Sensor application we will not enforce bonding by calling SM 
- 213:hr_sensor_gatt.c ****      * Slave Security Request. Though, we will set HR Sensor's security 
- 214:hr_sensor_gatt.c ****      * capabilities to 'gap_mode_bond_yes' so that we accept bonding if the 
- 215:hr_sensor_gatt.c ****      * collector (like Watch or Cell Phone) would like to bond.
- 216:hr_sensor_gatt.c ****      */
- 217:hr_sensor_gatt.c **** 
- 218:hr_sensor_gatt.c ****     if((GapSetMode(gap_role_peripheral, gap_mode_discover_general,
- 219:hr_sensor_gatt.c ****                         gap_mode_connect_undirected, 
- 220:hr_sensor_gatt.c ****                         gap_mode_bond_yes,
- 221:hr_sensor_gatt.c ****                         gap_mode_security_unauthenticate) != ls_err_none) ||
- 222:hr_sensor_gatt.c ****        (GapSetAdvInterval(adv_interval_min, adv_interval_max) 
- 223:hr_sensor_gatt.c ****                         != ls_err_none))
- 224:hr_sensor_gatt.c ****     {
- 225:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_params);
- 226:hr_sensor_gatt.c ****     }
- 227:hr_sensor_gatt.c **** 
- 228:hr_sensor_gatt.c ****     /* Add bonded device to white list.*/
- 229:hr_sensor_gatt.c ****     if((g_hr_data.enable_white_list == TRUE))
- 230:hr_sensor_gatt.c ****     {
- 231:hr_sensor_gatt.c ****         /* Initial case when advertisements are started for Bonded host for 
- 232:hr_sensor_gatt.c ****          * 10 seconds. White list is configured with the Bonded host address
- 233:hr_sensor_gatt.c ****          */
- 234:hr_sensor_gatt.c ****         if(LsAddWhiteListDevice(&g_hr_data.bonded_bd_addr)!=
- 235:hr_sensor_gatt.c ****             ls_err_none)
- 236:hr_sensor_gatt.c ****         {
- 237:hr_sensor_gatt.c ****             ReportPanic(app_panic_add_whitelist);
- 238:hr_sensor_gatt.c ****         }
- 239:hr_sensor_gatt.c ****     }
- 240:hr_sensor_gatt.c **** 
- 241:hr_sensor_gatt.c ****     /* Reset existing advertising data */
- 242:hr_sensor_gatt.c ****     if(LsStoreAdvScanData(0, NULL, ad_src_advertise) != ls_err_none)
- 243:hr_sensor_gatt.c ****     {
- 244:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
- 245:hr_sensor_gatt.c ****     }
- 246:hr_sensor_gatt.c **** 
- 247:hr_sensor_gatt.c ****     /* Reset existing scan response data */
- 248:hr_sensor_gatt.c ****     if(LsStoreAdvScanData(0, NULL, ad_src_scan_rsp) != ls_err_none)
- 249:hr_sensor_gatt.c ****     {
- 250:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_scan_rsp_data);
- 251:hr_sensor_gatt.c ****     }
- 252:hr_sensor_gatt.c **** 
- 253:hr_sensor_gatt.c ****     /* Setup ADVERTISEMENT DATA */
- 254:hr_sensor_gatt.c **** 
- 255:hr_sensor_gatt.c ****     /* Add UUID list of the services supported by the device */
- 256:hr_sensor_gatt.c ****     length = GetSupported16BitUUIDServiceList(advert_data);
- 257:hr_sensor_gatt.c **** 
- 258:hr_sensor_gatt.c ****     /* One added for Length field, which will be added to Adv Data by GAP 
- 259:hr_sensor_gatt.c ****      * layer 
- 260:hr_sensor_gatt.c ****      */
- 261:hr_sensor_gatt.c ****     length_added_to_adv += (length + 1);
- 262:hr_sensor_gatt.c **** 
- 263:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(length, advert_data, 
- 264:hr_sensor_gatt.c ****                         ad_src_advertise) != ls_err_none)
- 265:hr_sensor_gatt.c ****     {
- 266:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
- 267:hr_sensor_gatt.c ****     }
- 268:hr_sensor_gatt.c **** 
- 269:hr_sensor_gatt.c ****     /* One added for Length field, which will be added to Adv Data by GAP 
- 270:hr_sensor_gatt.c ****      * layer 
- 271:hr_sensor_gatt.c ****      */
- 272:hr_sensor_gatt.c ****     length_added_to_adv += (sizeof(device_appearance) + 1);
- 273:hr_sensor_gatt.c **** 
- 274:hr_sensor_gatt.c ****     /* Add device appearance to the advertisements */
- 275:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(ATTR_LEN_DEVICE_APPEARANCE + 1, 
- 276:hr_sensor_gatt.c ****         device_appearance, ad_src_advertise) != ls_err_none)
- 277:hr_sensor_gatt.c ****     {
- 278:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
- 279:hr_sensor_gatt.c ****     }
- 280:hr_sensor_gatt.c **** 
- 281:hr_sensor_gatt.c ****     /* Read tx power of the chip */
- 282:hr_sensor_gatt.c ****     if(LsReadTransmitPowerLevel(&tx_power_level) != ls_err_none)
- 283:hr_sensor_gatt.c ****     {
- 284:hr_sensor_gatt.c ****         /* Reading tx power failed */
- 285:hr_sensor_gatt.c ****         ReportPanic(app_panic_read_tx_pwr_level);
- 286:hr_sensor_gatt.c ****     }
- 287:hr_sensor_gatt.c **** 
- 288:hr_sensor_gatt.c ****     /* Add the read tx power level to device_tx_power 
- 289:hr_sensor_gatt.c ****       * Tx power level value is of 1 byte 
- 290:hr_sensor_gatt.c ****       */
- 291:hr_sensor_gatt.c ****     device_tx_power[TX_POWER_VALUE_LENGTH - 1] = (uint8 )tx_power_level;
- 292:hr_sensor_gatt.c **** 
- 293:hr_sensor_gatt.c ****     /* One added for Length field, which will be added to Adv Data by GAP 
- 294:hr_sensor_gatt.c ****      * layer 
- 295:hr_sensor_gatt.c ****      */
- 296:hr_sensor_gatt.c ****     length_added_to_adv += (TX_POWER_VALUE_LENGTH + 1);
- 297:hr_sensor_gatt.c **** 
- 298:hr_sensor_gatt.c ****     /* Add tx power value of device to the advertising data */
- 299:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(TX_POWER_VALUE_LENGTH, device_tx_power, 
- 300:hr_sensor_gatt.c ****                           ad_src_advertise) != ls_err_none)
- 301:hr_sensor_gatt.c ****     {
- 302:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
- 303:hr_sensor_gatt.c ****     }
- 304:hr_sensor_gatt.c **** 
- 305:hr_sensor_gatt.c ****     addDeviceNameToAdvData(length_added_to_adv, 0);
- 306:hr_sensor_gatt.c **** 
- 307:hr_sensor_gatt.c **** }
+ 165:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
+ 166:hr_sensor_gatt.c ****  *  NAME
+ 167:hr_sensor_gatt.c ****  *      gattSetAdvertParams
+ 168:hr_sensor_gatt.c ****  *
+ 169:hr_sensor_gatt.c ****  *  DESCRIPTION
+ 170:hr_sensor_gatt.c ****  *      This function is used to set advertisement parameters 
+ 171:hr_sensor_gatt.c ****  *
+ 172:hr_sensor_gatt.c ****  *  RETURNS
+ 173:hr_sensor_gatt.c ****  *      Nothing.
+ 174:hr_sensor_gatt.c ****  *
+ 175:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
+ 176:hr_sensor_gatt.c **** 
+ 177:hr_sensor_gatt.c **** static void gattSetAdvertParams(bool fast_connection)
+ 178:hr_sensor_gatt.c **** {
+ 179:hr_sensor_gatt.c ****     uint8 advert_data[MAX_ADV_DATA_LEN];
+ 180:hr_sensor_gatt.c ****     uint16 length;
+ 181:hr_sensor_gatt.c ****     uint32 adv_interval_min = RP_ADVERTISING_INTERVAL_MIN;
+ 182:hr_sensor_gatt.c ****     uint32 adv_interval_max = RP_ADVERTISING_INTERVAL_MAX;
+ 183:hr_sensor_gatt.c **** 
+ 184:hr_sensor_gatt.c ****     int8 tx_power_level = 0xff; /* Signed value */
+ 185:hr_sensor_gatt.c **** 
+ 186:hr_sensor_gatt.c ****     /* Tx power level value prefixed with 'Tx Power' AD Type */
+ 187:hr_sensor_gatt.c ****     uint8 device_tx_power[TX_POWER_VALUE_LENGTH] = {
+ 188:hr_sensor_gatt.c ****                 AD_TYPE_TX_POWER
+ 189:hr_sensor_gatt.c ****                 };
+ 190:hr_sensor_gatt.c **** 
+ 191:hr_sensor_gatt.c ****     uint8 device_appearance[ATTR_LEN_DEVICE_APPEARANCE + 1] = {
+ 192:hr_sensor_gatt.c ****                 AD_TYPE_APPEARANCE,
+ 193:hr_sensor_gatt.c ****                 LE8_L(APPEARANCE_HR_SENSOR_VALUE),
+ 194:hr_sensor_gatt.c ****                 LE8_H(APPEARANCE_HR_SENSOR_VALUE)
+ 195:hr_sensor_gatt.c ****                 };
+ 196:hr_sensor_gatt.c **** 
+ 197:hr_sensor_gatt.c ****     /* A variable to keep track of the data added to AdvData. The limit is 
+ 198:hr_sensor_gatt.c ****      * MAX_ADV_DATA_LEN. GAP layer will add AD Flags to AdvData which 
+ 199:hr_sensor_gatt.c ****      * is 3 bytes. Refer BT Spec 4.0, Vol 3, Part C, Sec 11.1.3.
+ 200:hr_sensor_gatt.c ****      */
+ 201:hr_sensor_gatt.c ****     uint16 length_added_to_adv = 3;
+ 202:hr_sensor_gatt.c **** 
+ 203:hr_sensor_gatt.c ****     if(fast_connection)
+ 204:hr_sensor_gatt.c ****     {
+ 205:hr_sensor_gatt.c ****         adv_interval_min = FC_ADVERTISING_INTERVAL_MIN;
+ 206:hr_sensor_gatt.c ****         adv_interval_max = FC_ADVERTISING_INTERVAL_MAX;
+ 207:hr_sensor_gatt.c ****     }
+ 208:hr_sensor_gatt.c **** 
+ 209:hr_sensor_gatt.c ****     /* In a Public Environment like Gym, there is a requirement for HR Sensor 
+ 210:hr_sensor_gatt.c ****      * to communicate with fitness machines even without having a bond. So, 
+ 211:hr_sensor_gatt.c ****      * for HR Sensor application we will not enforce bonding by calling SM 
+ 212:hr_sensor_gatt.c ****      * Slave Security Request. Though, we will set HR Sensor's security 
+ 213:hr_sensor_gatt.c ****      * capabilities to 'gap_mode_bond_yes' so that we accept bonding if the 
+ 214:hr_sensor_gatt.c ****      * collector (like Watch or Cell Phone) would like to bond.
+ 215:hr_sensor_gatt.c ****      */
+ 216:hr_sensor_gatt.c **** 
+ 217:hr_sensor_gatt.c ****     if((GapSetMode(gap_role_peripheral, gap_mode_discover_general,
+ 218:hr_sensor_gatt.c ****                         gap_mode_connect_undirected, 
+ 219:hr_sensor_gatt.c ****                         gap_mode_bond_yes,
+ 220:hr_sensor_gatt.c ****                         gap_mode_security_unauthenticate) != ls_err_none) ||
+ 221:hr_sensor_gatt.c ****        (GapSetAdvInterval(adv_interval_min, adv_interval_max) 
+ 222:hr_sensor_gatt.c ****                         != ls_err_none))
+ 223:hr_sensor_gatt.c ****     {
+ 224:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_params);
+ 225:hr_sensor_gatt.c ****     }
+ 226:hr_sensor_gatt.c **** 
+ 227:hr_sensor_gatt.c ****     /* Add bonded device to white list.*/
+ 228:hr_sensor_gatt.c ****     if((g_hr_data.enable_white_list == TRUE))
+ 229:hr_sensor_gatt.c ****     {
+ 230:hr_sensor_gatt.c ****         /* Initial case when advertisements are started for Bonded host for 
+ 231:hr_sensor_gatt.c ****          * 10 seconds. White list is configured with the Bonded host address
+ 232:hr_sensor_gatt.c ****          */
+ 233:hr_sensor_gatt.c ****         if(LsAddWhiteListDevice(&g_hr_data.bonded_bd_addr)!=
+ 234:hr_sensor_gatt.c ****             ls_err_none)
+ 235:hr_sensor_gatt.c ****         {
+ 236:hr_sensor_gatt.c ****             ReportPanic(app_panic_add_whitelist);
+ 237:hr_sensor_gatt.c ****         }
+ 238:hr_sensor_gatt.c ****     }
+ 239:hr_sensor_gatt.c **** 
+ 240:hr_sensor_gatt.c ****     /* Reset existing advertising data */
+ 241:hr_sensor_gatt.c ****     if(LsStoreAdvScanData(0, NULL, ad_src_advertise) != ls_err_none)
+ 242:hr_sensor_gatt.c ****     {
+ 243:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
+ 244:hr_sensor_gatt.c ****     }
+ 245:hr_sensor_gatt.c **** 
+ 246:hr_sensor_gatt.c ****     /* Reset existing scan response data */
+ 247:hr_sensor_gatt.c ****     if(LsStoreAdvScanData(0, NULL, ad_src_scan_rsp) != ls_err_none)
+ 248:hr_sensor_gatt.c ****     {
+ 249:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_scan_rsp_data);
+ 250:hr_sensor_gatt.c ****     }
+ 251:hr_sensor_gatt.c **** 
+ 252:hr_sensor_gatt.c ****     /* Setup ADVERTISEMENT DATA */
+ 253:hr_sensor_gatt.c **** 
+ 254:hr_sensor_gatt.c ****     /* Add UUID list of the services supported by the device */
+ 255:hr_sensor_gatt.c ****     length = GetSupported16BitUUIDServiceList(advert_data);
+ 256:hr_sensor_gatt.c **** 
+ 257:hr_sensor_gatt.c ****     /* One added for Length field, which will be added to Adv Data by GAP 
+ 258:hr_sensor_gatt.c ****      * layer 
+ 259:hr_sensor_gatt.c ****      */
+ 260:hr_sensor_gatt.c ****     length_added_to_adv += (length + 1);
+ 261:hr_sensor_gatt.c **** 
+ 262:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(length, advert_data, 
+ 263:hr_sensor_gatt.c ****                         ad_src_advertise) != ls_err_none)
+ 264:hr_sensor_gatt.c ****     {
+ 265:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
+ 266:hr_sensor_gatt.c ****     }
+ 267:hr_sensor_gatt.c **** 
+ 268:hr_sensor_gatt.c ****     /* One added for Length field, which will be added to Adv Data by GAP 
+ 269:hr_sensor_gatt.c ****      * layer 
+ 270:hr_sensor_gatt.c ****      */
+ 271:hr_sensor_gatt.c ****     length_added_to_adv += (sizeof(device_appearance) + 1);
+ 272:hr_sensor_gatt.c **** 
+ 273:hr_sensor_gatt.c ****     /* Add device appearance to the advertisements */
+ 274:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(ATTR_LEN_DEVICE_APPEARANCE + 1, 
+ 275:hr_sensor_gatt.c ****         device_appearance, ad_src_advertise) != ls_err_none)
+ 276:hr_sensor_gatt.c ****     {
+ 277:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
+ 278:hr_sensor_gatt.c ****     }
+ 279:hr_sensor_gatt.c **** 
+ 280:hr_sensor_gatt.c ****     /* Read tx power of the chip */
+ 281:hr_sensor_gatt.c ****     if(LsReadTransmitPowerLevel(&tx_power_level) != ls_err_none)
+ 282:hr_sensor_gatt.c ****     {
+ 283:hr_sensor_gatt.c ****         /* Reading tx power failed */
+ 284:hr_sensor_gatt.c ****         ReportPanic(app_panic_read_tx_pwr_level);
+ 285:hr_sensor_gatt.c ****     }
+ 286:hr_sensor_gatt.c **** 
+ 287:hr_sensor_gatt.c ****     /* Add the read tx power level to device_tx_power 
+ 288:hr_sensor_gatt.c ****       * Tx power level value is of 1 byte 
+ 289:hr_sensor_gatt.c ****       */
+ 290:hr_sensor_gatt.c ****     device_tx_power[TX_POWER_VALUE_LENGTH - 1] = (uint8 )tx_power_level;
+ 291:hr_sensor_gatt.c **** 
+ 292:hr_sensor_gatt.c ****     /* One added for Length field, which will be added to Adv Data by GAP 
+ 293:hr_sensor_gatt.c ****      * layer 
+ 294:hr_sensor_gatt.c ****      */
+ 295:hr_sensor_gatt.c ****     length_added_to_adv += (TX_POWER_VALUE_LENGTH + 1);
+ 296:hr_sensor_gatt.c **** 
+ 297:hr_sensor_gatt.c ****     /* Add tx power value of device to the advertising data */
+ 298:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(TX_POWER_VALUE_LENGTH, device_tx_power, 
+ 299:hr_sensor_gatt.c ****                           ad_src_advertise) != ls_err_none)
+ 300:hr_sensor_gatt.c ****     {
+ 301:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
+ 302:hr_sensor_gatt.c ****     }
+ 303:hr_sensor_gatt.c **** 
+ 304:hr_sensor_gatt.c ****     addDeviceNameToAdvData(length_added_to_adv, 0);
+ 305:hr_sensor_gatt.c **** 
+ 306:hr_sensor_gatt.c **** }
+ 307:hr_sensor_gatt.c **** 
  308:hr_sensor_gatt.c **** 
- 309:hr_sensor_gatt.c **** 
- 310:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
- 311:hr_sensor_gatt.c ****  *  NAME
- 312:hr_sensor_gatt.c ****  *      gattAdvertTimerHandler
- 313:hr_sensor_gatt.c ****  *
- 314:hr_sensor_gatt.c ****  *  DESCRIPTION
- 315:hr_sensor_gatt.c ****  *      This function is used to handle Advertisement timer.expiry.
- 316:hr_sensor_gatt.c ****  *
- 317:hr_sensor_gatt.c ****  *  RETURNS
- 318:hr_sensor_gatt.c ****  *      Nothing.
- 319:hr_sensor_gatt.c ****  *
- 320:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
- 321:hr_sensor_gatt.c **** 
- 322:hr_sensor_gatt.c **** static void gattAdvertTimerHandler(timer_id tid)
- 323:hr_sensor_gatt.c **** {
- 324:hr_sensor_gatt.c ****     /* Based upon the timer id, stop on-going advertisements */
- 325:hr_sensor_gatt.c ****     if(g_hr_data.app_tid == tid)
- 326:hr_sensor_gatt.c ****     {
- 327:hr_sensor_gatt.c ****         g_hr_data.app_tid = TIMER_INVALID;
- 328:hr_sensor_gatt.c **** 
- 329:hr_sensor_gatt.c ****         switch(g_hr_data.state)
- 330:hr_sensor_gatt.c ****         {
- 331:hr_sensor_gatt.c ****             case app_state_fast_advertising:
- 332:hr_sensor_gatt.c ****             {
- 333:hr_sensor_gatt.c ****                 if((g_hr_data.enable_white_list == TRUE))
- 334:hr_sensor_gatt.c ****                 {
- 335:hr_sensor_gatt.c ****                     /* Set advertisement timer for remaining 20 seconds for 
- 336:hr_sensor_gatt.c ****                      * fast connections with out any device in the white 
- 337:hr_sensor_gatt.c ****                      * list.
- 338:hr_sensor_gatt.c ****                      */
- 339:hr_sensor_gatt.c ****                     g_hr_data.advert_timer_value = 
- 340:hr_sensor_gatt.c ****                                     FAST_CONNECTION_ADVERT_TIMEOUT_VALUE - 
- 341:hr_sensor_gatt.c ****                                     BONDED_DEVICE_ADVERT_TIMEOUT_VALUE;
- 342:hr_sensor_gatt.c ****                 }
- 343:hr_sensor_gatt.c ****                 else
- 344:hr_sensor_gatt.c ****                 {
- 345:hr_sensor_gatt.c ****                     /* No advertisement timer for reduced power 
- 346:hr_sensor_gatt.c ****                      * connections 
- 347:hr_sensor_gatt.c ****                      */
- 348:hr_sensor_gatt.c ****                     g_hr_data.advert_timer_value = 
- 349:hr_sensor_gatt.c ****                                 SLOW_CONNECTION_ADVERT_TIMEOUT_VALUE;
- 350:hr_sensor_gatt.c ****                 }
- 351:hr_sensor_gatt.c ****             }
- 352:hr_sensor_gatt.c ****             /* FALLTHROUGH */
- 353:hr_sensor_gatt.c **** 
- 354:hr_sensor_gatt.c ****             case app_state_slow_advertising:
- 355:hr_sensor_gatt.c ****                 /* Stop on-going advertisements */
- 356:hr_sensor_gatt.c ****                 GattStopAdverts();
- 357:hr_sensor_gatt.c ****             break;
- 358:hr_sensor_gatt.c **** 
- 359:hr_sensor_gatt.c ****             default:
- 360:hr_sensor_gatt.c ****                 /* Ignore timer in remaining states */
- 361:hr_sensor_gatt.c ****             break;
- 362:hr_sensor_gatt.c ****         }
- 363:hr_sensor_gatt.c **** 
- 364:hr_sensor_gatt.c ****     }/* Else ignore timer expiry, could be because of 
- 365:hr_sensor_gatt.c ****       * some race condition */
- 366:hr_sensor_gatt.c **** 
- 367:hr_sensor_gatt.c **** }
+ 309:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
+ 310:hr_sensor_gatt.c ****  *  NAME
+ 311:hr_sensor_gatt.c ****  *      gattAdvertTimerHandler
+ 312:hr_sensor_gatt.c ****  *
+ 313:hr_sensor_gatt.c ****  *  DESCRIPTION
+ 314:hr_sensor_gatt.c ****  *      This function is used to handle Advertisement timer.expiry.
+ 315:hr_sensor_gatt.c ****  *
+ 316:hr_sensor_gatt.c ****  *  RETURNS
+ 317:hr_sensor_gatt.c ****  *      Nothing.
+ 318:hr_sensor_gatt.c ****  *
+ 319:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
+ 320:hr_sensor_gatt.c **** 
+ 321:hr_sensor_gatt.c **** static void gattAdvertTimerHandler(timer_id tid)
+ 322:hr_sensor_gatt.c **** {
+ 323:hr_sensor_gatt.c ****     /* Based upon the timer id, stop on-going advertisements */
+ 324:hr_sensor_gatt.c ****     if(g_hr_data.app_tid == tid)
+ 325:hr_sensor_gatt.c ****     {
+ 326:hr_sensor_gatt.c ****         g_hr_data.app_tid = TIMER_INVALID;
+ 327:hr_sensor_gatt.c **** 
+ 328:hr_sensor_gatt.c ****         switch(g_hr_data.state)
+ 329:hr_sensor_gatt.c ****         {
+ 330:hr_sensor_gatt.c ****             case app_state_fast_advertising:
+ 331:hr_sensor_gatt.c ****             {
+ 332:hr_sensor_gatt.c ****                 if((g_hr_data.enable_white_list == TRUE))
+ 333:hr_sensor_gatt.c ****                 {
+ 334:hr_sensor_gatt.c ****                     /* Set advertisement timer for remaining 20 seconds for 
+ 335:hr_sensor_gatt.c ****                      * fast connections with out any device in the white 
+ 336:hr_sensor_gatt.c ****                      * list.
+ 337:hr_sensor_gatt.c ****                      */
+ 338:hr_sensor_gatt.c ****                     g_hr_data.advert_timer_value = 
+ 339:hr_sensor_gatt.c ****                                     FAST_CONNECTION_ADVERT_TIMEOUT_VALUE - 
+ 340:hr_sensor_gatt.c ****                                     BONDED_DEVICE_ADVERT_TIMEOUT_VALUE;
+ 341:hr_sensor_gatt.c ****                 }
+ 342:hr_sensor_gatt.c ****                 else
+ 343:hr_sensor_gatt.c ****                 {
+ 344:hr_sensor_gatt.c ****                     /* No advertisement timer for reduced power 
+ 345:hr_sensor_gatt.c ****                      * connections 
+ 346:hr_sensor_gatt.c ****                      */
+ 347:hr_sensor_gatt.c ****                     g_hr_data.advert_timer_value = 
+ 348:hr_sensor_gatt.c ****                                 SLOW_CONNECTION_ADVERT_TIMEOUT_VALUE;
+ 349:hr_sensor_gatt.c ****                 }
+ 350:hr_sensor_gatt.c ****             }
+ 351:hr_sensor_gatt.c ****             /* FALLTHROUGH */
+ 352:hr_sensor_gatt.c **** 
+ 353:hr_sensor_gatt.c ****             case app_state_slow_advertising:
+ 354:hr_sensor_gatt.c ****                 /* Stop on-going advertisements */
+ 355:hr_sensor_gatt.c ****                 GattStopAdverts();
+ 356:hr_sensor_gatt.c ****             break;
+ 357:hr_sensor_gatt.c **** 
+ 358:hr_sensor_gatt.c ****             default:
+ 359:hr_sensor_gatt.c ****                 /* Ignore timer in remaining states */
+ 360:hr_sensor_gatt.c ****             break;
+ 361:hr_sensor_gatt.c ****         }
+ 362:hr_sensor_gatt.c **** 
+ 363:hr_sensor_gatt.c ****     }/* Else ignore timer expiry, could be because of 
+ 364:hr_sensor_gatt.c ****       * some race condition */
+ 365:hr_sensor_gatt.c **** 
+ 366:hr_sensor_gatt.c **** }
+ 367:hr_sensor_gatt.c **** 
  368:hr_sensor_gatt.c **** 
- 369:hr_sensor_gatt.c **** 
- 370:hr_sensor_gatt.c **** /*============================================================================*
- 371:hr_sensor_gatt.c ****  *  Public Function Implementations
- 372:hr_sensor_gatt.c ****  *============================================================================*/
- 373:hr_sensor_gatt.c **** 
- 374:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
- 375:hr_sensor_gatt.c ****  *  NAME
- 376:hr_sensor_gatt.c ****  *      HandleAccessRead
- 377:hr_sensor_gatt.c ****  *
- 378:hr_sensor_gatt.c ****  *  DESCRIPTION
- 379:hr_sensor_gatt.c ****  *      This function handles read operation on attributes (as received in 
- 380:hr_sensor_gatt.c ****  *      GATT_ACCESS_IND message) maintained by the application and respond 
- 381:hr_sensor_gatt.c ****  *      with the GATT_ACCESS_RSP message.
- 382:hr_sensor_gatt.c ****  *
- 383:hr_sensor_gatt.c ****  *  RETURNS
- 384:hr_sensor_gatt.c ****  *      Nothing
- 385:hr_sensor_gatt.c ****  *
- 386:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
- 387:hr_sensor_gatt.c **** 
- 388:hr_sensor_gatt.c **** extern void HandleAccessRead(GATT_ACCESS_IND_T *p_ind)
- 389:hr_sensor_gatt.c **** {
- 390:hr_sensor_gatt.c **** 
- 391:hr_sensor_gatt.c ****     /* For the received attribute handle, check all the services that support 
- 392:hr_sensor_gatt.c ****      * attribute 'Read' operation handled by application.
- 393:hr_sensor_gatt.c ****      */
- 394:hr_sensor_gatt.c **** 
- 395:hr_sensor_gatt.c ****     if(GapCheckHandleRange(p_ind->handle))
- 396:hr_sensor_gatt.c ****     {
- 397:hr_sensor_gatt.c ****         /* Attribute handle belongs to GAP service */
- 398:hr_sensor_gatt.c ****         GapHandleAccessRead(p_ind);
- 399:hr_sensor_gatt.c ****     }
- 400:hr_sensor_gatt.c ****     else if(HeartRateCheckHandleRange(p_ind->handle))
- 401:hr_sensor_gatt.c ****     {
- 402:hr_sensor_gatt.c ****         /* Attribute handle belongs to Heart Rate service */
- 403:hr_sensor_gatt.c ****         HeartRateHandleAccessRead(p_ind);
- 404:hr_sensor_gatt.c ****     }
- 405:hr_sensor_gatt.c ****     else if(BatteryCheckHandleRange(p_ind->handle))
- 406:hr_sensor_gatt.c ****     {
- 407:hr_sensor_gatt.c ****         /* Attribute handle belongs to Battery service */
- 408:hr_sensor_gatt.c ****         BatteryHandleAccessRead(p_ind);
- 409:hr_sensor_gatt.c ****     }
- 410:hr_sensor_gatt.c ****     else
- 411:hr_sensor_gatt.c ****     {
- 412:hr_sensor_gatt.c ****         /* Application doesn't support 'Read' operation on received 
- 413:hr_sensor_gatt.c ****          * attribute handle, hence return 'gatt_status_read_not_permitted'
- 414:hr_sensor_gatt.c ****          * status
- 415:hr_sensor_gatt.c ****          */
- 416:hr_sensor_gatt.c ****         GattAccessRsp(p_ind->cid, p_ind->handle, 
- 417:hr_sensor_gatt.c ****                       gatt_status_read_not_permitted,
- 418:hr_sensor_gatt.c ****                       0, NULL);
- 419:hr_sensor_gatt.c ****     }
- 420:hr_sensor_gatt.c **** 
- 421:hr_sensor_gatt.c **** }
+ 369:hr_sensor_gatt.c **** /*============================================================================*
+ 370:hr_sensor_gatt.c ****  *  Public Function Implementations
+ 371:hr_sensor_gatt.c ****  *============================================================================*/
+ 372:hr_sensor_gatt.c **** 
+ 373:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
+ 374:hr_sensor_gatt.c ****  *  NAME
+ 375:hr_sensor_gatt.c ****  *      HandleAccessRead
+ 376:hr_sensor_gatt.c ****  *
+ 377:hr_sensor_gatt.c ****  *  DESCRIPTION
+ 378:hr_sensor_gatt.c ****  *      This function handles read operation on attributes (as received in 
+ 379:hr_sensor_gatt.c ****  *      GATT_ACCESS_IND message) maintained by the application and respond 
+ 380:hr_sensor_gatt.c ****  *      with the GATT_ACCESS_RSP message.
+ 381:hr_sensor_gatt.c ****  *
+ 382:hr_sensor_gatt.c ****  *  RETURNS
+ 383:hr_sensor_gatt.c ****  *      Nothing
+ 384:hr_sensor_gatt.c ****  *
+ 385:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
+ 386:hr_sensor_gatt.c **** 
+ 387:hr_sensor_gatt.c **** extern void HandleAccessRead(GATT_ACCESS_IND_T *p_ind)
+ 388:hr_sensor_gatt.c **** {
+ 389:hr_sensor_gatt.c **** 
+ 390:hr_sensor_gatt.c ****     /* For the received attribute handle, check all the services that support 
+ 391:hr_sensor_gatt.c ****      * attribute 'Read' operation handled by application.
+ 392:hr_sensor_gatt.c ****      */
+ 393:hr_sensor_gatt.c **** 
+ 394:hr_sensor_gatt.c ****     if(GapCheckHandleRange(p_ind->handle))
+ 395:hr_sensor_gatt.c ****     {
+ 396:hr_sensor_gatt.c ****         /* Attribute handle belongs to GAP service */
+ 397:hr_sensor_gatt.c ****         GapHandleAccessRead(p_ind);
+ 398:hr_sensor_gatt.c ****     }
+ 399:hr_sensor_gatt.c ****     else if(HeartRateCheckHandleRange(p_ind->handle))
+ 400:hr_sensor_gatt.c ****     {
+ 401:hr_sensor_gatt.c ****         /* Attribute handle belongs to Heart Rate service */
+ 402:hr_sensor_gatt.c ****         HeartRateHandleAccessRead(p_ind);
+ 403:hr_sensor_gatt.c ****     }
+ 404:hr_sensor_gatt.c ****     else if(BatteryCheckHandleRange(p_ind->handle))
+ 405:hr_sensor_gatt.c ****     {
+ 406:hr_sensor_gatt.c ****         /* Attribute handle belongs to Battery service */
+ 407:hr_sensor_gatt.c ****         BatteryHandleAccessRead(p_ind);
+ 408:hr_sensor_gatt.c ****     }
+ 409:hr_sensor_gatt.c ****     else
+ 410:hr_sensor_gatt.c ****     {
+ 411:hr_sensor_gatt.c ****         /* Application doesn't support 'Read' operation on received 
+ 412:hr_sensor_gatt.c ****          * attribute handle, hence return 'gatt_status_read_not_permitted'
+ 413:hr_sensor_gatt.c ****          * status
+ 414:hr_sensor_gatt.c ****          */
+ 415:hr_sensor_gatt.c ****         GattAccessRsp(p_ind->cid, p_ind->handle, 
+ 416:hr_sensor_gatt.c ****                       gatt_status_read_not_permitted,
+ 417:hr_sensor_gatt.c ****                       0, NULL);
+ 418:hr_sensor_gatt.c ****     }
+ 419:hr_sensor_gatt.c **** 
+ 420:hr_sensor_gatt.c **** }
+ 421:hr_sensor_gatt.c **** 
  422:hr_sensor_gatt.c **** 
- 423:hr_sensor_gatt.c **** 
- 424:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
- 425:hr_sensor_gatt.c ****  *  NAME
- 426:hr_sensor_gatt.c ****  *      HandleAccessWrite
- 427:hr_sensor_gatt.c ****  *
- 428:hr_sensor_gatt.c ****  *  DESCRIPTION
- 429:hr_sensor_gatt.c ****  *      This function handles Write operation on attributes (as received in 
- 430:hr_sensor_gatt.c ****  *      GATT_ACCESS_IND message) maintained by the application.
- 431:hr_sensor_gatt.c ****  *
- 432:hr_sensor_gatt.c ****  *  RETURNS
- 433:hr_sensor_gatt.c ****  *      Nothing
- 434:hr_sensor_gatt.c ****  *
- 435:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
- 436:hr_sensor_gatt.c **** 
- 437:hr_sensor_gatt.c **** extern void HandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
- 438:hr_sensor_gatt.c **** {
- 439:hr_sensor_gatt.c **** 
- 440:hr_sensor_gatt.c ****     /* For the received attribute handle, check all the services that support 
- 441:hr_sensor_gatt.c ****      * attribute 'Write' operation handled by application.
- 442:hr_sensor_gatt.c ****      */
- 443:hr_sensor_gatt.c ****     // FlipSwitch();
- 444:hr_sensor_gatt.c ****     if(GapCheckHandleRange(p_ind->handle))
- 445:hr_sensor_gatt.c ****     {
- 446:hr_sensor_gatt.c ****         /* Attribute handle belongs to GAP service */
- 447:hr_sensor_gatt.c ****         GapHandleAccessWrite(p_ind);
- 448:hr_sensor_gatt.c ****     }
- 449:hr_sensor_gatt.c ****     else if(HeartRateCheckHandleRange(p_ind->handle))
- 450:hr_sensor_gatt.c ****     {
- 451:hr_sensor_gatt.c ****         /* Attribute handle belongs to Heart Rate service */
- 452:hr_sensor_gatt.c ****         HeartRateHandleAccessWrite(p_ind);
- 453:hr_sensor_gatt.c ****     }
- 454:hr_sensor_gatt.c ****     else if(BatteryCheckHandleRange(p_ind->handle))
- 455:hr_sensor_gatt.c ****     {
- 456:hr_sensor_gatt.c ****         /* Attribute handle belongs to Battery service */
- 457:hr_sensor_gatt.c ****         BatteryHandleAccessWrite(p_ind);
- 458:hr_sensor_gatt.c ****     }
- 459:hr_sensor_gatt.c ****     else
- 460:hr_sensor_gatt.c ****     {
- 461:hr_sensor_gatt.c ****         /* Application doesn't support 'Write' operation on received 
- 462:hr_sensor_gatt.c ****          * attribute handle, hence return 'gatt_status_write_not_permitted'
- 463:hr_sensor_gatt.c ****          * status
- 464:hr_sensor_gatt.c ****          */
- 465:hr_sensor_gatt.c ****         GattAccessRsp(p_ind->cid, p_ind->handle, 
- 466:hr_sensor_gatt.c ****                       gatt_status_write_not_permitted,
- 467:hr_sensor_gatt.c ****                       0, NULL);
- 468:hr_sensor_gatt.c ****     }
- 469:hr_sensor_gatt.c **** 
- 470:hr_sensor_gatt.c **** }
+ 423:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
+ 424:hr_sensor_gatt.c ****  *  NAME
+ 425:hr_sensor_gatt.c ****  *      HandleAccessWrite
+ 426:hr_sensor_gatt.c ****  *
+ 427:hr_sensor_gatt.c ****  *  DESCRIPTION
+ 428:hr_sensor_gatt.c ****  *      This function handles Write operation on attributes (as received in 
+ 429:hr_sensor_gatt.c ****  *      GATT_ACCESS_IND message) maintained by the application.
+ 430:hr_sensor_gatt.c ****  *
+ 431:hr_sensor_gatt.c ****  *  RETURNS
+ 432:hr_sensor_gatt.c ****  *      Nothing
+ 433:hr_sensor_gatt.c ****  *
+ 434:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
+ 435:hr_sensor_gatt.c **** 
+ 436:hr_sensor_gatt.c **** extern void HandleAccessWrite(GATT_ACCESS_IND_T *p_ind)
+ 437:hr_sensor_gatt.c **** {
+ 438:hr_sensor_gatt.c **** 
+ 439:hr_sensor_gatt.c ****     /* For the received attribute handle, check all the services that support 
+ 440:hr_sensor_gatt.c ****      * attribute 'Write' operation handled by application.
+ 441:hr_sensor_gatt.c ****      */
+ 442:hr_sensor_gatt.c ****     // FlipSwitch();
+ 443:hr_sensor_gatt.c ****     if(GapCheckHandleRange(p_ind->handle))
+ 444:hr_sensor_gatt.c ****     {
+ 445:hr_sensor_gatt.c ****         /* Attribute handle belongs to GAP service */
+ 446:hr_sensor_gatt.c ****         GapHandleAccessWrite(p_ind);
+ 447:hr_sensor_gatt.c ****     }
+ 448:hr_sensor_gatt.c ****     else if(HeartRateCheckHandleRange(p_ind->handle))
+ 449:hr_sensor_gatt.c ****     {
+ 450:hr_sensor_gatt.c ****         /* Attribute handle belongs to Heart Rate service */
+ 451:hr_sensor_gatt.c ****         HeartRateHandleAccessWrite(p_ind);
+ 452:hr_sensor_gatt.c ****     }
+ 453:hr_sensor_gatt.c ****     else if(BatteryCheckHandleRange(p_ind->handle))
+ 454:hr_sensor_gatt.c ****     {
+ 455:hr_sensor_gatt.c ****         /* Attribute handle belongs to Battery service */
+ 456:hr_sensor_gatt.c ****         BatteryHandleAccessWrite(p_ind);
+ 457:hr_sensor_gatt.c ****     }
+ 458:hr_sensor_gatt.c ****     else
+ 459:hr_sensor_gatt.c ****     {
+ 460:hr_sensor_gatt.c ****         /* Application doesn't support 'Write' operation on received 
+ 461:hr_sensor_gatt.c ****          * attribute handle, hence return 'gatt_status_write_not_permitted'
+ 462:hr_sensor_gatt.c ****          * status
+ 463:hr_sensor_gatt.c ****          */
+ 464:hr_sensor_gatt.c ****         GattAccessRsp(p_ind->cid, p_ind->handle, 
+ 465:hr_sensor_gatt.c ****                       gatt_status_write_not_permitted,
+ 466:hr_sensor_gatt.c ****                       0, NULL);
+ 467:hr_sensor_gatt.c ****     }
+ 468:hr_sensor_gatt.c **** 
+ 469:hr_sensor_gatt.c **** }
+ 470:hr_sensor_gatt.c **** 
  471:hr_sensor_gatt.c **** 
- 472:hr_sensor_gatt.c **** 
- 473:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
- 474:hr_sensor_gatt.c ****  *  NAME
- 475:hr_sensor_gatt.c ****  *      GattStartAdverts
- 476:hr_sensor_gatt.c ****  *
- 477:hr_sensor_gatt.c ****  *  DESCRIPTION
- 478:hr_sensor_gatt.c ****  *      This function is used to start undirected advertisements and moves to 
- 479:hr_sensor_gatt.c ****  *      ADVERTISING state.
- 480:hr_sensor_gatt.c ****  *
- 481:hr_sensor_gatt.c ****  *  RETURNS
- 482:hr_sensor_gatt.c ****  *      Nothing.
- 483:hr_sensor_gatt.c ****  *
- 484:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
- 485:hr_sensor_gatt.c **** 
- 486:hr_sensor_gatt.c **** extern void GattStartAdverts(bool fast_connection)
- 487:hr_sensor_gatt.c **** {
- 488:hr_sensor_gatt.c ****     /* Variable 'connect_flags' needs to be updated to have peer address type 
- 489:hr_sensor_gatt.c ****      * if Directed advertisements are supported as peer address type will 
- 490:hr_sensor_gatt.c ****      * only be used in that case. We don't support directed advertisements for 
- 491:hr_sensor_gatt.c ****      * this application.
- 492:hr_sensor_gatt.c ****      */
- 493:hr_sensor_gatt.c **** 
- 494:hr_sensor_gatt.c **** #ifdef USE_STATIC_RANDOM_ADDRESS
- 495:hr_sensor_gatt.c ****     uint16 connect_flags = L2CAP_CONNECTION_SLAVE_UNDIRECTED | 
- 496:hr_sensor_gatt.c ****                       L2CAP_OWN_ADDR_TYPE_RANDOM;
- 497:hr_sensor_gatt.c **** #else
- 498:hr_sensor_gatt.c ****     uint16 connect_flags = L2CAP_CONNECTION_SLAVE_UNDIRECTED | 
- 499:hr_sensor_gatt.c ****                           L2CAP_OWN_ADDR_TYPE_PUBLIC;
- 500:hr_sensor_gatt.c **** #endif /* USE_STATIC_RANDOM_ADDRESS */
- 501:hr_sensor_gatt.c **** 
- 502:hr_sensor_gatt.c ****     /* Set UCID to INVALID_UCID */
- 503:hr_sensor_gatt.c ****     g_hr_data.st_ucid = GATT_INVALID_UCID;
- 504:hr_sensor_gatt.c **** 
- 505:hr_sensor_gatt.c ****     /* Set advertisement parameters */
- 506:hr_sensor_gatt.c ****     gattSetAdvertParams(fast_connection);
- 507:hr_sensor_gatt.c **** 
- 508:hr_sensor_gatt.c ****     /* If white list is enabled, set the controller's advertising filter policy 
- 509:hr_sensor_gatt.c ****      * to "process scan and connection requests only from devices in the White 
- 510:hr_sensor_gatt.c ****      * List"
- 511:hr_sensor_gatt.c ****      */
- 512:hr_sensor_gatt.c ****     if((g_hr_data.enable_white_list == TRUE) &&
- 513:hr_sensor_gatt.c ****         (!GattIsAddressResolvableRandom(&(g_hr_data.bonded_bd_addr))))
- 514:hr_sensor_gatt.c ****     {
- 515:hr_sensor_gatt.c **** #ifdef USE_STATIC_RANDOM_ADDRESS
- 516:hr_sensor_gatt.c ****         connect_flags = L2CAP_CONNECTION_SLAVE_WHITELIST |
- 517:hr_sensor_gatt.c ****                    L2CAP_OWN_ADDR_TYPE_RANDOM;
- 518:hr_sensor_gatt.c **** #else
- 519:hr_sensor_gatt.c ****         connect_flags = L2CAP_CONNECTION_SLAVE_WHITELIST |
- 520:hr_sensor_gatt.c ****                        L2CAP_OWN_ADDR_TYPE_PUBLIC;
- 521:hr_sensor_gatt.c **** #endif /* USE_STATIC_RANDOM_ADDRESS */
- 522:hr_sensor_gatt.c ****     }
- 523:hr_sensor_gatt.c **** 
- 524:hr_sensor_gatt.c ****     /* Start GATT connection in Slave role */
- 525:hr_sensor_gatt.c ****     GattConnectReq(NULL, connect_flags);
- 526:hr_sensor_gatt.c **** 
- 527:hr_sensor_gatt.c ****     /* Start advertisement timer */
- 528:hr_sensor_gatt.c ****     if(g_hr_data.advert_timer_value)
- 529:hr_sensor_gatt.c ****     {
- 530:hr_sensor_gatt.c ****         TimerDelete(g_hr_data.app_tid);
- 531:hr_sensor_gatt.c **** 
- 532:hr_sensor_gatt.c ****         /* Start advertisement timer  */
- 533:hr_sensor_gatt.c ****         g_hr_data.app_tid = TimerCreate(g_hr_data.advert_timer_value, TRUE, 
- 534:hr_sensor_gatt.c ****                                         gattAdvertTimerHandler);
- 535:hr_sensor_gatt.c ****     }
- 536:hr_sensor_gatt.c **** 
- 537:hr_sensor_gatt.c **** }
+ 472:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
+ 473:hr_sensor_gatt.c ****  *  NAME
+ 474:hr_sensor_gatt.c ****  *      GattStartAdverts
+ 475:hr_sensor_gatt.c ****  *
+ 476:hr_sensor_gatt.c ****  *  DESCRIPTION
+ 477:hr_sensor_gatt.c ****  *      This function is used to start undirected advertisements and moves to 
+ 478:hr_sensor_gatt.c ****  *      ADVERTISING state.
+ 479:hr_sensor_gatt.c ****  *
+ 480:hr_sensor_gatt.c ****  *  RETURNS
+ 481:hr_sensor_gatt.c ****  *      Nothing.
+ 482:hr_sensor_gatt.c ****  *
+ 483:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
+ 484:hr_sensor_gatt.c **** 
+ 485:hr_sensor_gatt.c **** extern void GattStartAdverts(bool fast_connection)
+ 486:hr_sensor_gatt.c **** {
+ 487:hr_sensor_gatt.c ****     /* Variable 'connect_flags' needs to be updated to have peer address type 
+ 488:hr_sensor_gatt.c ****      * if Directed advertisements are supported as peer address type will 
+ 489:hr_sensor_gatt.c ****      * only be used in that case. We don't support directed advertisements for 
+ 490:hr_sensor_gatt.c ****      * this application.
+ 491:hr_sensor_gatt.c ****      */
+ 492:hr_sensor_gatt.c **** 
+ 493:hr_sensor_gatt.c **** #ifdef USE_STATIC_RANDOM_ADDRESS
+ 494:hr_sensor_gatt.c ****     uint16 connect_flags = L2CAP_CONNECTION_SLAVE_UNDIRECTED | 
+ 495:hr_sensor_gatt.c ****                       L2CAP_OWN_ADDR_TYPE_RANDOM;
+ 496:hr_sensor_gatt.c **** #else
+ 497:hr_sensor_gatt.c ****     uint16 connect_flags = L2CAP_CONNECTION_SLAVE_UNDIRECTED | 
+ 498:hr_sensor_gatt.c ****                           L2CAP_OWN_ADDR_TYPE_PUBLIC;
+ 499:hr_sensor_gatt.c **** #endif /* USE_STATIC_RANDOM_ADDRESS */
+ 500:hr_sensor_gatt.c **** 
+ 501:hr_sensor_gatt.c ****     /* Set UCID to INVALID_UCID */
+ 502:hr_sensor_gatt.c ****     g_hr_data.st_ucid = GATT_INVALID_UCID;
+ 503:hr_sensor_gatt.c **** 
+ 504:hr_sensor_gatt.c ****     /* Set advertisement parameters */
+ 505:hr_sensor_gatt.c ****     gattSetAdvertParams(fast_connection);
+ 506:hr_sensor_gatt.c **** 
+ 507:hr_sensor_gatt.c ****     /* If white list is enabled, set the controller's advertising filter policy 
+ 508:hr_sensor_gatt.c ****      * to "process scan and connection requests only from devices in the White 
+ 509:hr_sensor_gatt.c ****      * List"
+ 510:hr_sensor_gatt.c ****      */
+ 511:hr_sensor_gatt.c ****     if((g_hr_data.enable_white_list == TRUE) &&
+ 512:hr_sensor_gatt.c ****         (!GattIsAddressResolvableRandom(&(g_hr_data.bonded_bd_addr))))
+ 513:hr_sensor_gatt.c ****     {
+ 514:hr_sensor_gatt.c **** #ifdef USE_STATIC_RANDOM_ADDRESS
+ 515:hr_sensor_gatt.c ****         connect_flags = L2CAP_CONNECTION_SLAVE_WHITELIST |
+ 516:hr_sensor_gatt.c ****                    L2CAP_OWN_ADDR_TYPE_RANDOM;
+ 517:hr_sensor_gatt.c **** #else
+ 518:hr_sensor_gatt.c ****         connect_flags = L2CAP_CONNECTION_SLAVE_WHITELIST |
+ 519:hr_sensor_gatt.c ****                        L2CAP_OWN_ADDR_TYPE_PUBLIC;
+ 520:hr_sensor_gatt.c **** #endif /* USE_STATIC_RANDOM_ADDRESS */
+ 521:hr_sensor_gatt.c ****     }
+ 522:hr_sensor_gatt.c **** 
+ 523:hr_sensor_gatt.c ****     /* Start GATT connection in Slave role */
+ 524:hr_sensor_gatt.c ****     GattConnectReq(NULL, connect_flags);
+ 525:hr_sensor_gatt.c **** 
+ 526:hr_sensor_gatt.c ****     /* Start advertisement timer */
+ 527:hr_sensor_gatt.c ****     if(g_hr_data.advert_timer_value)
+ 528:hr_sensor_gatt.c ****     {
+ 529:hr_sensor_gatt.c ****         TimerDelete(g_hr_data.app_tid);
+ 530:hr_sensor_gatt.c **** 
+ 531:hr_sensor_gatt.c ****         /* Start advertisement timer  */
+ 532:hr_sensor_gatt.c ****         g_hr_data.app_tid = TimerCreate(g_hr_data.advert_timer_value, TRUE, 
+ 533:hr_sensor_gatt.c ****                                         gattAdvertTimerHandler);
+ 534:hr_sensor_gatt.c ****     }
+ 535:hr_sensor_gatt.c **** 
+ 536:hr_sensor_gatt.c **** }
+ 537:hr_sensor_gatt.c **** 
  538:hr_sensor_gatt.c **** 
- 539:hr_sensor_gatt.c **** 
- 540:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
- 541:hr_sensor_gatt.c ****  *  NAME
- 542:hr_sensor_gatt.c ****  *      GattStopAdverts
- 543:hr_sensor_gatt.c ****  *
- 544:hr_sensor_gatt.c ****  *  DESCRIPTION
- 545:hr_sensor_gatt.c ****  *      This function is used to stop on-going advertisements.
- 546:hr_sensor_gatt.c ****  *
- 547:hr_sensor_gatt.c ****  *  RETURNS
- 548:hr_sensor_gatt.c ****  *      Nothing.
- 549:hr_sensor_gatt.c ****  *
- 550:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
- 551:hr_sensor_gatt.c **** 
- 552:hr_sensor_gatt.c **** extern void GattStopAdverts(void)
- 553:hr_sensor_gatt.c **** {
- 554:hr_sensor_gatt.c ****     GattCancelConnectReq();
- 555:hr_sensor_gatt.c **** }
+ 539:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
+ 540:hr_sensor_gatt.c ****  *  NAME
+ 541:hr_sensor_gatt.c ****  *      GattStopAdverts
+ 542:hr_sensor_gatt.c ****  *
+ 543:hr_sensor_gatt.c ****  *  DESCRIPTION
+ 544:hr_sensor_gatt.c ****  *      This function is used to stop on-going advertisements.
+ 545:hr_sensor_gatt.c ****  *
+ 546:hr_sensor_gatt.c ****  *  RETURNS
+ 547:hr_sensor_gatt.c ****  *      Nothing.
+ 548:hr_sensor_gatt.c ****  *
+ 549:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
+ 550:hr_sensor_gatt.c **** 
+ 551:hr_sensor_gatt.c **** extern void GattStopAdverts(void)
+ 552:hr_sensor_gatt.c **** {
+ 553:hr_sensor_gatt.c ****     GattCancelConnectReq();
+ 554:hr_sensor_gatt.c **** }
+ 555:hr_sensor_gatt.c **** 
  556:hr_sensor_gatt.c **** 
- 557:hr_sensor_gatt.c **** 
- 558:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
- 559:hr_sensor_gatt.c ****  *  NAME
- 560:hr_sensor_gatt.c ****  *      GetSupported16BitUUIDServiceList
- 561:hr_sensor_gatt.c ****  *
- 562:hr_sensor_gatt.c ****  *  DESCRIPTION
- 563:hr_sensor_gatt.c ****  *      This function prepares the list of supported 16-bit service UUIDs to be 
- 564:hr_sensor_gatt.c ****  *      added to Advertisement data. It also adds the relevant AD Type to the 
- 565:hr_sensor_gatt.c ****  *      starting of AD array.
- 566:hr_sensor_gatt.c ****  *
- 567:hr_sensor_gatt.c ****  *  RETURNS
- 568:hr_sensor_gatt.c ****  *      Return the size AD Service UUID data.
- 569:hr_sensor_gatt.c ****  *
- 570:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
- 571:hr_sensor_gatt.c **** 
- 572:hr_sensor_gatt.c **** extern uint16 GetSupported16BitUUIDServiceList(uint8 *p_service_uuid_ad)
- 573:hr_sensor_gatt.c **** {
+ 557:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
+ 558:hr_sensor_gatt.c ****  *  NAME
+ 559:hr_sensor_gatt.c ****  *      GetSupported16BitUUIDServiceList
+ 560:hr_sensor_gatt.c ****  *
+ 561:hr_sensor_gatt.c ****  *  DESCRIPTION
+ 562:hr_sensor_gatt.c ****  *      This function prepares the list of supported 16-bit service UUIDs to be 
+ 563:hr_sensor_gatt.c ****  *      added to Advertisement data. It also adds the relevant AD Type to the 
+ 564:hr_sensor_gatt.c ****  *      starting of AD array.
+ 565:hr_sensor_gatt.c ****  *
+ 566:hr_sensor_gatt.c ****  *  RETURNS
+ 567:hr_sensor_gatt.c ****  *      Return the size AD Service UUID data.
+ 568:hr_sensor_gatt.c ****  *
+ 569:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
+ 570:hr_sensor_gatt.c **** 
+ 571:hr_sensor_gatt.c **** extern uint16 GetSupported16BitUUIDServiceList(uint8 *p_service_uuid_ad)
+ 572:hr_sensor_gatt.c **** {
   20                 	:
   21                 		enter	#0x0001
   22 0000 01 0B       	.LCFI0:
   23                 		ld	X,@$XAP_AL
-  24 0001 00 00 00 19 		.loc 1 578 0
- 574:hr_sensor_gatt.c ****     uint8 i = 0;
- 575:hr_sensor_gatt.c **** 
- 576:hr_sensor_gatt.c ****     /* Add 16-bit UUID for supported main service  */
- 577:hr_sensor_gatt.c ****     p_service_uuid_ad[i++] = AD_TYPE_SERVICE_UUID_16BIT_LIST;
+  24 0001 00 00 00 19 		.loc 1 577 0
+ 573:hr_sensor_gatt.c ****     uint8 i = 0;
+ 574:hr_sensor_gatt.c **** 
+ 575:hr_sensor_gatt.c ****     /* Add 16-bit UUID for supported main service  */
+ 576:hr_sensor_gatt.c ****     p_service_uuid_ad[i++] = AD_TYPE_SERVICE_UUID_16BIT_LIST;
   25                 	L,#0x0003
   26 0003 03 14       	.LVL1:
   27                 		st	AL,@(0,X)
-  28 0004 00 26       		.loc 1 580 0
- 578:hr_sensor_gatt.c **** 
- 579:hr_sensor_gatt.c ****     p_service_uuid_ad[i++] = LE8_L(UUID_HEART_RATE_SERVICE);
+  28 0004 00 26       		.loc 1 579 0
+ 577:hr_sensor_gatt.c **** 
+ 578:hr_sensor_gatt.c ****     p_service_uuid_ad[i++] = LE8_L(UUID_HEART_RATE_SERVICE);
   29                 	AL,#0x000d
   30 0005 0D 14       		st	AL,@(0x0001,X)
-  31 0006 01 26       		.loc 1 581 0
- 580:hr_sensor_gatt.c ****     p_service_uuid_ad[i++] = LE8_H(UUID_HEART_RATE_SERVICE);
+  31 0006 01 26       		.loc 1 580 0
+ 579:hr_sensor_gatt.c ****     p_service_uuid_ad[i++] = LE8_H(UUID_HEART_RATE_SERVICE);
   32                 		AL,#0x0018
   33 0007 18 14       		st	AL,@(0x0002,X)
-  34 0008 02 26       		.loc 1 588 0
- 581:hr_sensor_gatt.c **** 
- 582:hr_sensor_gatt.c ****     // p_service_uuid_ad[i++] = LE8_L(UUID_SWITCH_SERVICE);
- 583:hr_sensor_gatt.c ****     // p_service_uuid_ad[i++] = LE8_H(UUID_SWITCH_SERVICE);
- 584:hr_sensor_gatt.c **** 
- 585:hr_sensor_gatt.c ****     return ((uint16)i);
- 586:hr_sensor_gatt.c **** 
- 587:hr_sensor_gatt.c **** }
+  34 0008 02 26       		.loc 1 587 0
+ 580:hr_sensor_gatt.c **** 
+ 581:hr_sensor_gatt.c ****     // p_service_uuid_ad[i++] = LE8_L(UUID_SWITCH_SERVICE);
+ 582:hr_sensor_gatt.c ****     // p_service_uuid_ad[i++] = LE8_H(UUID_SWITCH_SERVICE);
+ 583:hr_sensor_gatt.c **** 
+ 584:hr_sensor_gatt.c ****     return ((uint16)i);
+ 585:hr_sensor_gatt.c **** 
+ 586:hr_sensor_gatt.c **** }
   35                 		AL,#0x0003
   36 0009 03 14       		leave	#0x0001
   37 000a 01 0F       	.LVL2:
@@ -636,30 +635,30 @@
   44                 		.type	GattIsAddressResolvableRandom, @function
   45                 	GattIsAddressResolvableRandom:
   46                 	.LFB10:
-  47                 		.loc 1 605 0
+  47                 		.loc 1 604 0
+ 587:hr_sensor_gatt.c **** 
  588:hr_sensor_gatt.c **** 
- 589:hr_sensor_gatt.c **** 
- 590:hr_sensor_gatt.c **** /*------------------------------------------------------------*
- 591:hr_sensor_gatt.c ****  *  NAME
- 592:hr_sensor_gatt.c ****  *      GattIsAddressResolvableRandom
- 593:hr_sensor_gatt.c ****  *
- 594:hr_sensor_gatt.c ****  *  DESCRIPTION
- 595:hr_sensor_gatt.c ****  *      This function checks if the address is resolvable random or not.
- 596:hr_sensor_gatt.c ****  *
- 597:hr_sensor_gatt.c ****  *  RETURNS
- 598:hr_sensor_gatt.c ****  *      Boolean - True (Resolvable Random Address) /
- 599:hr_sensor_gatt.c ****  *                     False (Not a Resolvable Random Address)
- 600:hr_sensor_gatt.c ****  *
- 601:hr_sensor_gatt.c ****  *----------------------------------------------------------*/
- 602:hr_sensor_gatt.c **** 
- 603:hr_sensor_gatt.c **** extern bool GattIsAddressResolvableRandom(TYPED_BD_ADDR_T *p_addr)
- 604:hr_sensor_gatt.c **** {
+ 589:hr_sensor_gatt.c **** /*------------------------------------------------------------*
+ 590:hr_sensor_gatt.c ****  *  NAME
+ 591:hr_sensor_gatt.c ****  *      GattIsAddressResolvableRandom
+ 592:hr_sensor_gatt.c ****  *
+ 593:hr_sensor_gatt.c ****  *  DESCRIPTION
+ 594:hr_sensor_gatt.c ****  *      This function checks if the address is resolvable random or not.
+ 595:hr_sensor_gatt.c ****  *
+ 596:hr_sensor_gatt.c ****  *  RETURNS
+ 597:hr_sensor_gatt.c ****  *      Boolean - True (Resolvable Random Address) /
+ 598:hr_sensor_gatt.c ****  *                     False (Not a Resolvable Random Address)
+ 599:hr_sensor_gatt.c ****  *
+ 600:hr_sensor_gatt.c ****  *----------------------------------------------------------*/
+ 601:hr_sensor_gatt.c **** 
+ 602:hr_sensor_gatt.c **** extern bool GattIsAddressResolvableRandom(TYPED_BD_ADDR_T *p_addr)
+ 603:hr_sensor_gatt.c **** {
   48                 		#0x0001
   49                 	.LCFI1:
   50 0000 01 0B       		ld	X,@$XAP_AL
-  51                 		.loc 1 606 0
+  51                 		.loc 1 605 0
   52 0001 00 00 00 19 		ld	AL,@(0,X)
- 605:hr_sensor_gatt.c ****     if(p_addr->type != L2CA_RANDOM_ADDR_TYPE || 
+ 604:hr_sensor_gatt.c ****     if(p_addr->type != L2CA_RANDOM_ADDR_TYPE || 
   53                 	:
   54 0003 00 16       		cmp	AL,#0x0001
   55                 		beq	.L4
@@ -676,16 +675,16 @@
   64 0010 40 00 00 84 		ld	AH,#0x0001
   65 0012 00 00 00 00 	.L5:
   65      00 F0 
-  66 0015 01 10       		.loc 1 614 0
+  66 0015 01 10       		.loc 1 613 0
   67                 		ld	AL,@$XAP_AH
- 606:hr_sensor_gatt.c ****        (p_addr->addr.nap & BD_ADDR_NAP_RANDOM_TYPE_MASK)
- 607:hr_sensor_gatt.c ****                                       != BD_ADDR_NAP_RANDOM_TYPE_RESOLVABLE)
- 608:hr_sensor_gatt.c ****     {
- 609:hr_sensor_gatt.c ****         /* This isn't a resolvable private address */
- 610:hr_sensor_gatt.c ****         return FALSE;
- 611:hr_sensor_gatt.c ****     }
- 612:hr_sensor_gatt.c ****     return TRUE;
- 613:hr_sensor_gatt.c **** } 
+ 605:hr_sensor_gatt.c ****        (p_addr->addr.nap & BD_ADDR_NAP_RANDOM_TYPE_MASK)
+ 606:hr_sensor_gatt.c ****                                       != BD_ADDR_NAP_RANDOM_TYPE_RESOLVABLE)
+ 607:hr_sensor_gatt.c ****     {
+ 608:hr_sensor_gatt.c ****         /* This isn't a resolvable private address */
+ 609:hr_sensor_gatt.c ****         return FALSE;
+ 610:hr_sensor_gatt.c ****     }
+ 611:hr_sensor_gatt.c ****     return TRUE;
+ 612:hr_sensor_gatt.c **** } 
   68                 	.LVL5:
   69 0016 00 00 00 15 	.LFE10:
   70 0018 01 0F       		.size	GattIsAddressResolvableRandom, .-GattIsAddressResolvableRandom
@@ -696,12 +695,12 @@
   75                 		.type	GattStopAdverts, @function
   76                 	GattStopAdverts:
   77                 	.LFB8:
-  78                 		.loc 1 554 0
-  79                 		.loc 1 555 0
+  78                 		.loc 1 553 0
+  79                 		.loc 1 554 0
   80                 		bra	GattCancelConnectReq
- 554:hr_sensor_gatt.c **** {
+ 553:hr_sensor_gatt.c **** {
   81                 		GattStopAdverts, .-GattStopAdverts
- 555:hr_sensor_gatt.c ****     GattCancelConnectReq();
+ 554:hr_sensor_gatt.c ****     GattCancelConnectReq();
   82                 	.global	__size_of_GattStopAdverts
   83 0000 00 00 00 00 		.equ	__size_of_GattStopAdverts,. - GattStopAdverts
   83      00 E0 
@@ -709,103 +708,103 @@
   85                 		.type	gattAdvertTimerHandler, @function
   86                 	gattAdvertTimerHandler:
   87                 	.LFB4:
-  88                 		.loc 1 324 0
+  88                 		.loc 1 323 0
   89                 	.LVL6:
   90                 		enter	#0x0001
   91                 	.LCFI2:
- 324:hr_sensor_gatt.c **** {
-  92                 	6 0
+ 323:hr_sensor_gatt.c **** {
+  92                 	5 0
   93                 		ld	AH,@g_hr_data+0x0003
   94 0000 01 0B       		cmp	AH,@$XAP_AL
   95                 		bne	.L15
- 326:hr_sensor_gatt.c ****     if(g_hr_data.app_tid == tid)
-  96                 	c 1 328 0
+ 325:hr_sensor_gatt.c ****     if(g_hr_data.app_tid == tid)
+  96                 	c 1 327 0
   97 0001 00 00 00 11 		ld	AL,#0x0000
   98 0003 00 00 00 81 	.LVL7:
   99 0005 00 00 00 00 		st	AL,@g_hr_data+0x0003
   99      00 F0 
- 328:hr_sensor_gatt.c ****         g_hr_data.app_tid = TIMER_INVALID;
- 100                 	c 1 330 0
+ 327:hr_sensor_gatt.c ****         g_hr_data.app_tid = TIMER_INVALID;
+ 100                 	c 1 329 0
  101 0008 00 14       		ld	AL,@g_hr_data
  102                 		cmp	AL,#0x0001
  103 0009 00 00 00 25 		beq	.L12
- 330:hr_sensor_gatt.c ****         switch(g_hr_data.state)
+ 329:hr_sensor_gatt.c ****         switch(g_hr_data.state)
  104                 		AL,#0x0002
  105 000b 00 00 00 15 		bne	.L15
  106 000d 01 84       		bra	.L13
  107 000e 00 00 00 00 	.L12:
  107      00 F4 
  108 0011 02 84       		ld	X,#g_hr_data+1
- 109 0012 00 00 00 00 		.loc 1 334 0
+ 109 0012 00 00 00 00 		.loc 1 333 0
  109      00 F0 
  110 0015 00 00 00 00 		ld	AL,@g_hr_data+0x0011
  110      00 E0 
  111                 		cmp	AL,#0x0001
  112 0018 00 00 00 18 		bne	.L14
- 334:hr_sensor_gatt.c ****                 if((g_hr_data.enable_white_list == TRUE))
- 113                 	40 0
+ 333:hr_sensor_gatt.c ****                 if((g_hr_data.enable_white_list == TRUE))
+ 113                 	39 0
  114 001a 00 00 00 15 		ld	AL,#0x0131
  115 001c 01 84       		st	AL,@g_hr_data+0x0001
  116 001d 00 00 00 00 		ld	AL,#0x2d00
  116      00 F0 
- 340:hr_sensor_gatt.c ****                     g_hr_data.advert_timer_value = 
+ 339:hr_sensor_gatt.c ****                     g_hr_data.advert_timer_value = 
  117                 		.L16
  118 0020 01 00 31 14 	.L14:
- 119 0022 00 00 00 25 		.loc 1 349 0
+ 119 0022 00 00 00 25 		.loc 1 348 0
  120 0024 2D 00 00 14 		ld	AL,#0x0393
  121 0026 00 00 00 00 		st	AL,@g_hr_data+0x0001
  121      00 E0 
  122                 		ld	AL,#0x8700
- 349:hr_sensor_gatt.c ****                     g_hr_data.advert_timer_value = 
+ 348:hr_sensor_gatt.c ****                     g_hr_data.advert_timer_value = 
  123                 		st	AL,@(0x0001,X)
  124 0029 04 00 93 14 	.L13:
- 125 002b 00 00 00 25 		.loc 1 368 0
+ 125 002b 00 00 00 25 		.loc 1 367 0
  126 002d 87 00 00 14 		ld	X,@(0x0000,Y)
  127                 		add	Y,#0x0001
- 128 002f 01 26       		.loc 1 357 0
+ 128 002f 01 26       		.loc 1 356 0
  129                 		bra	GattStopAdverts
- 368:hr_sensor_gatt.c **** }
+ 367:hr_sensor_gatt.c **** }
  130                 	.L15:
- 131 0030 00 1B       		.loc 1 368 0
+ 131 0030 00 1B       		.loc 1 367 0
  132 0031 01 3C       		leave	#0x0001
- 357:hr_sensor_gatt.c ****                 GattStopAdverts();
+ 356:hr_sensor_gatt.c ****                 GattStopAdverts();
  133                 	E4:
  134 0032 00 00 00 00 		.size	gattAdvertTimerHandler, .-gattAdvertTimerHandler
  134      00 E0 
  135                 		.equ	__size_of_gattAdvertTimerHandler,. - gattAdvertTimerHandler
  136                 		.rodata
- 368:hr_sensor_gatt.c **** }
+ 367:hr_sensor_gatt.c **** }
  137                 	.LC0:
  138 0035 01 0F       		.space	2
  139                 		.section	.text.gattSetAdvertParams,"ax",@progbits
  140                 		.type	gattSetAdvertParams, @function
  141                 	gattSetAdvertParams:
  142                 	.LFB3:
- 143                 		.loc 1 180 0
+ 143                 		.loc 1 179 0
  144 0000 00 00 00 00 	.LVL9:
  145                 		enter	#0x002f
  146                 	.LCFI3:
  147                 		st	AL,@0xfff8
- 148                 		.loc 1 191 0
- 180:hr_sensor_gatt.c **** {
+ 148                 		.loc 1 190 0
+ 179:hr_sensor_gatt.c **** {
  149                 	001
  150                 		st	AH,@(0x0006,Y)
- 151 0000 2F 0B       		.loc 1 197 0
+ 151 0000 2F 0B       		.loc 1 196 0
  152                 		ld	AL,#0x0003
  153 0001 F8 25       	.LVL10:
- 191:hr_sensor_gatt.c ****                 };
+ 190:hr_sensor_gatt.c ****                 };
  154                 	H,@$XAP_UY
  155 0002 00 00 00 11 		add	AH,#0x0007
- 156 0004 06 23       		ld	X,#C.2..2364.
- 197:hr_sensor_gatt.c ****                 };
+ 156 0004 06 23       		ld	X,#C.2..2361.
+ 196:hr_sensor_gatt.c ****                 };
  157                 	2
- 158 0005 03 14       		.loc 1 205 0
+ 158 0005 03 14       		.loc 1 204 0
  159                 		tst	@0xfff8
  160 0006 00 00 00 11 		beq	.L18
  161 0008 07 30       		ld	AH,#0x0000
  162 0009 00 00 00 18 		st	AH,@(0x002c,Y)
  163 000b FD 09       		ld	AL,#0xea60
- 205:hr_sensor_gatt.c ****     if(fast_connection)
+ 204:hr_sensor_gatt.c ****     if(fast_connection)
  164                 	37
  165 000c F8 99       	.L18:
  166 000d 00 00 00 00 		ld	AH,#0x0013
@@ -817,22 +816,22 @@
  170      00 E0 
  171                 		st	AH,@(0x002a,Y)
  172 0017 13 10       		st	AL,@(0x002b,Y)
- 173 0018 2C 23       		.loc 1 191 0
+ 173 0018 2C 23       		.loc 1 190 0
  174 0019 88 00 00 14 		ld	AH,#0x000a
  175                 		st	AH,@(0x0005,Y)
- 176 001b 2D 27       		.loc 1 186 0
+ 176 001b 2D 27       		.loc 1 185 0
  177 001c 2A 23       		ld	AL,#0x00ff
  178 001d 2B 27       		st	AL,@(0x0003,Y)
- 191:hr_sensor_gatt.c ****                 };
+ 190:hr_sensor_gatt.c ****                 };
  179                 	.LVL11:
- 180 001e 0A 10       		.loc 1 219 0
+ 180 001e 0A 10       		.loc 1 218 0
  181 001f 05 23       		ld	AH,#0x0003
- 186:hr_sensor_gatt.c ****     int8 tx_power_level = 0xff; /* Signed value */
+ 185:hr_sensor_gatt.c ****     int8 tx_power_level = 0xff; /* Signed value */
  182                 	AL,#0x0002
  183 0020 01 00 FF 14 		st	AL,@(0x0001,Y)
  184 0022 03 27       		ld	AH,#0x0001
  185                 		st	AH,@(0x0002,Y)
- 219:hr_sensor_gatt.c ****     if((GapSetMode(gap_role_peripheral, gap_mode_discover_general,
+ 218:hr_sensor_gatt.c ****     if((GapSetMode(gap_role_peripheral, gap_mode_discover_general,
  186                 	AL,#0x0003
  187 0023 03 10       		ld	AH,#0x0003
  188 0024 00 23       		bsr	GapSetMode
@@ -851,75 +850,75 @@
  199 0033 2A 17       		tst	@$XAP_AL
  200 0034 00 27       		beq	.L21
  201 0035 2B 13       	.L20:
- 202 0036 01 23       		.loc 1 226 0
+ 202 0036 01 23       		.loc 1 225 0
  203 0037 2C 13       		ld	AL,#0x0000
  204 0038 2D 17       		bsr	ReportPanic
  205 0039 00 00 00 00 	.L21:
  205      00 9C 
- 206 003c 00 00 00 99 		.loc 1 230 0
+ 206 003c 00 00 00 99 		.loc 1 229 0
  207 003e 00 00 00 00 		ld	AL,@g_hr_data+0x0011
  207      00 F4 
  208                 		cmp	AL,#0x0001
- 226:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_params);
+ 225:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_params);
  209                 	
  210 0041 00 14       		ld	AL,#g_hr_data+11
  211 0042 00 00 00 00 		bsr	LsAddWhiteListDevice
  211      00 9C 
  212                 		tst	@$XAP_AL
- 230:hr_sensor_gatt.c ****     if((g_hr_data.enable_white_list == TRUE))
+ 229:hr_sensor_gatt.c ****     if((g_hr_data.enable_white_list == TRUE))
  213                 	q	.L22
- 214 0045 00 00 00 15 		.loc 1 238 0
+ 214 0045 00 00 00 15 		.loc 1 237 0
  215 0047 01 84       		ld	AL,#0x0008
  216 0048 00 00 00 00 		bsr	ReportPanic
  216      00 F0 
- 235:hr_sensor_gatt.c ****         if(LsAddWhiteListDevice(&g_hr_data.bonded_bd_addr)!=
+ 234:hr_sensor_gatt.c ****         if(LsAddWhiteListDevice(&g_hr_data.bonded_bd_addr)!=
  217                 	:
- 218 004b 00 00 00 14 		.loc 1 243 0
+ 218 004b 00 00 00 14 		.loc 1 242 0
  219 004d 00 00 00 00 		ld	AL,#0x0000
  219      00 9C 
  220 0050 00 00 00 99 		st	AL,@(0,Y)
  221 0052 00 00 00 00 		ld	AH,#0x0000
  221      00 F4 
- 238:hr_sensor_gatt.c ****             ReportPanic(app_panic_add_whitelist);
+ 237:hr_sensor_gatt.c ****             ReportPanic(app_panic_add_whitelist);
  222                 	LsStoreAdvScanData
  223 0055 08 14       		tst	@$XAP_AL
  224 0056 00 00 00 00 		beq	.L23
  224      00 9C 
- 225                 		.loc 1 245 0
- 243:hr_sensor_gatt.c ****     if(LsStoreAdvScanData(0, NULL, ad_src_advertise) != ls_err_none)
+ 225                 		.loc 1 244 0
+ 242:hr_sensor_gatt.c ****     if(LsStoreAdvScanData(0, NULL, ad_src_advertise) != ls_err_none)
  226                 	AL,#0x0001
  227 0059 00 14       		bsr	ReportPanic
  228 005a 00 27       	.L23:
- 229 005b 00 10       		.loc 1 249 0
+ 229 005b 00 10       		.loc 1 248 0
  230 005c 00 00 00 00 		ld	AH,#0x0001
  230      00 9C 
  231 005f 00 00 00 99 		st	AH,@(0,Y)
  232 0061 00 00 00 00 		ld	AL,#0x0000
  232      00 F4 
- 245:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
+ 244:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
  233                 	#0x0000
  234 0064 01 14       		bsr	LsStoreAdvScanData
  235 0065 00 00 00 00 		tst	@$XAP_AL
  235      00 9C 
  236                 		beq	.L24
- 249:hr_sensor_gatt.c ****     if(LsStoreAdvScanData(0, NULL, ad_src_scan_rsp) != ls_err_none)
- 237                 	c 1 251 0
+ 248:hr_sensor_gatt.c ****     if(LsStoreAdvScanData(0, NULL, ad_src_scan_rsp) != ls_err_none)
+ 237                 	c 1 250 0
  238 0068 01 10       		ld	AL,#0x0002
  239 0069 00 23       		bsr	ReportPanic
  240 006a 00 14       	.L24:
- 241 006b 00 10       		.loc 1 257 0
+ 241 006b 00 10       		.loc 1 256 0
  242 006c 00 00 00 00 		ld	AL,@$XAP_UY
  242      00 9C 
  243 006f 00 00 00 99 		add	AL,#0x000a
  244 0071 00 00 00 00 		bsr	GetSupported16BitUUIDServiceList
  244      00 F4 
- 251:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_scan_rsp_data);
+ 250:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_scan_rsp_data);
  245                 	(0x0029,Y)
  246 0074 02 14       	.LVL13:
- 247 0075 00 00 00 00 		.loc 1 264 0
+ 247 0075 00 00 00 00 		.loc 1 263 0
  247      00 9C 
  248                 		ld	AL,#0x0000
- 257:hr_sensor_gatt.c ****     length = GetSupported16BitUUIDServiceList(advert_data);
+ 256:hr_sensor_gatt.c ****     length = GetSupported16BitUUIDServiceList(advert_data);
  249                 	AL,@(0,Y)
  250 0078 00 00 00 15 		ld	AL,@(0x0029,Y)
  251 007a 0A 34       		ld	AH,@$XAP_UY
@@ -927,94 +926,94 @@
  252      00 9C 
  253 007e 29 27       		bsr	LsStoreAdvScanData
  254                 		tst	@$XAP_AL
- 264:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(length, advert_data, 
+ 263:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(length, advert_data, 
  255                 	L25
- 256 007f 00 14       		.loc 1 267 0
+ 256 007f 00 14       		.loc 1 266 0
  257 0080 00 27       		ld	AL,#0x0001
  258 0081 29 17       		bsr	ReportPanic
  259 0082 00 00 00 11 	.L25:
- 260 0084 0A 30       		.loc 1 276 0
+ 260 0084 0A 30       		.loc 1 275 0
  261 0085 00 00 00 00 		ld	AH,#0x0000
  261      00 9C 
  262 0088 00 00 00 99 		st	AH,@(0,Y)
  263 008a 00 00 00 00 		ld	AL,#0x0003
  263      00 F4 
- 267:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
+ 266:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
  264                 	XAP_UY
  265 008d 01 14       		add	AH,#0x0007
  266 008e 00 00 00 00 		bsr	LsStoreAdvScanData
  266      00 9C 
  267                 		tst	@$XAP_AL
- 276:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(ATTR_LEN_DEVICE_APPEARANCE + 1, 
+ 275:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(ATTR_LEN_DEVICE_APPEARANCE + 1, 
  268                 		.L26
- 269 0091 00 10       		.loc 1 279 0
+ 269 0091 00 10       		.loc 1 278 0
  270 0092 00 23       		ld	AL,#0x0001
  271 0093 03 14       		bsr	ReportPanic
  272 0094 00 00 00 11 	.L26:
- 273 0096 07 30       		.loc 1 283 0
+ 273 0096 07 30       		.loc 1 282 0
  274 0097 00 00 00 00 		ld	AL,@$XAP_UY
  274      00 9C 
  275 009a 00 00 00 99 		add	AL,#0x0003
  276 009c 00 00 00 00 		bsr	LsReadTransmitPowerLevel
  276      00 F4 
- 279:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
+ 278:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
  277                 	P_AL
  278 009f 01 14       		beq	.L27
- 279 00a0 00 00 00 00 		.loc 1 286 0
+ 279 00a0 00 00 00 00 		.loc 1 285 0
  279      00 9C 
  280                 		ld	AL,#0x0006
- 283:hr_sensor_gatt.c ****     if(LsReadTransmitPowerLevel(&tx_power_level) != ls_err_none)
+ 282:hr_sensor_gatt.c ****     if(LsReadTransmitPowerLevel(&tx_power_level) != ls_err_none)
  281                 		ReportPanic
  282 00a3 00 00 00 15 	.L27:
- 283 00a5 03 34       		.loc 1 292 0
+ 283 00a5 03 34       		.loc 1 291 0
  284 00a6 00 00 00 00 		ld	AL,@(0x0003,Y)
  284      00 9C 
  285 00a9 00 00 00 99 		st	AL,@(0x0006,Y)
- 286 00ab 00 00 00 00 		.loc 1 300 0
+ 286 00ab 00 00 00 00 		.loc 1 299 0
  286      00 F4 
- 286:hr_sensor_gatt.c ****         ReportPanic(app_panic_read_tx_pwr_level);
+ 285:hr_sensor_gatt.c ****         ReportPanic(app_panic_read_tx_pwr_level);
  287                 	,#0x0000
  288 00ae 06 14       		st	AH,@(0,Y)
  289 00af 00 00 00 00 		ld	AL,#0x0002
  289      00 9C 
  290                 		ld	AH,@$XAP_UY
- 292:hr_sensor_gatt.c ****     device_tx_power[TX_POWER_VALUE_LENGTH - 1] = (uint8 )tx_power_level;
+ 291:hr_sensor_gatt.c ****     device_tx_power[TX_POWER_VALUE_LENGTH - 1] = (uint8 )tx_power_level;
  291                 		AH,#0x0005
  292 00b2 03 17       		bsr	LsStoreAdvScanData
  293 00b3 06 27       		tst	@$XAP_AL
- 300:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(TX_POWER_VALUE_LENGTH, device_tx_power, 
+ 299:hr_sensor_gatt.c ****     if (LsStoreAdvScanData(TX_POWER_VALUE_LENGTH, device_tx_power, 
  294                 	q	.L28
- 295 00b4 00 10       		.loc 1 303 0
+ 295 00b4 00 10       		.loc 1 302 0
  296 00b5 00 23       		ld	AL,#0x0001
  297 00b6 02 14       		bsr	ReportPanic
  298 00b7 00 00 00 11 	.L28:
  299 00b9 05 30       	.LBB4:
- 300 00ba 00 00 00 00 		.loc 1 99 0
+ 300 00ba 00 00 00 00 		.loc 1 98 0
  300      00 9C 
  301 00bd 00 00 00 99 		ld	AL,@$XAP_UY
  302 00bf 00 00 00 00 		add	AL,#0x0004
  302      00 F4 
- 303:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
+ 302:hr_sensor_gatt.c ****         ReportPanic(app_panic_set_advert_data);
  303                 	etNameAndLength
  304 00c2 01 14       		ld	X,@$XAP_AL
  305 00c3 00 00 00 00 	.LVL14:
  305      00 9C 
  306                 	.LBB5:
- 307                 		.loc 1 102 0
-  99:hr_sensor_gatt.c ****     p_device_name = GapGetNameAndLength(&device_name_adtype_len);
+ 307                 		.loc 1 101 0
+  98:hr_sensor_gatt.c ****     p_device_name = GapGetNameAndLength(&device_name_adtype_len);
  308                 	L,#0x0009
  309 00c6 00 00 00 15 		st	AL,@(0,X)
- 310 00c8 04 34       		.loc 1 111 0
+ 310 00c8 04 34       		.loc 1 110 0
  311 00c9 00 00 00 00 		ld	AL,@(0x0004,Y)
  311      00 9C 
  312 00cc 00 00 00 19 	.LVL15:
  313                 		ld	AH,@$XAP_AL
  314                 		add	AH,#0x0001
- 102:hr_sensor_gatt.c ****     p_device_name[0] = AD_TYPE_LOCAL_NAME_COMPLETE;
+ 101:hr_sensor_gatt.c ****     p_device_name[0] = AD_TYPE_LOCAL_NAME_COMPLETE;
  315                 	@0xfff9
  316 00ce 09 14       		ld	AH,#0x0014
  317 00cf 00 26       		sub	AH,@(0x0029,Y)
- 111:hr_sensor_gatt.c ****     if((device_name_adtype_len + 1) <= (MAX_ADV_DATA_LEN - adv_data_len))
+ 110:hr_sensor_gatt.c ****     if((device_name_adtype_len + 1) <= (MAX_ADV_DATA_LEN - adv_data_len))
  318                 		AH,@0xfff8
  319 00d0 04 17       		ld	AH,@0xfff9
  320                 		cmp	AH,@0xfff8
@@ -1022,7 +1021,7 @@
  322 00d3 01 30       		bra	.L45
  323 00d4 F9 21       	.L35:
  324 00d5 14 10       	.LBE5:
- 325 00d6 29 53       		.loc 1 114 0
+ 325 00d6 29 53       		.loc 1 113 0
  326 00d7 F8 21       		ld	AH,#0x0000
  327 00d8 F9 11       		st	AH,@(0,Y)
  328 00d9 F8 81       		bra	.L42
@@ -1030,72 +1029,72 @@
  329      00 2C 
  330 00dd 00 00 00 00 	.LBB6:
  330      00 E0 
- 331                 		.loc 1 122 0
+ 331                 		.loc 1 121 0
  332                 		ld	AH,@0xfff9
- 114:hr_sensor_gatt.c ****         if (LsStoreAdvScanData(device_name_adtype_len , p_device_name, 
+ 113:hr_sensor_gatt.c ****         if (LsStoreAdvScanData(device_name_adtype_len , p_device_name, 
  333                 	
  334 00e0 00 10       		bcc	.L32
  335 00e1 00 23       	.LBE6:
- 336 00e2 00 00 00 00 		.loc 1 125 0
+ 336 00e2 00 00 00 00 		.loc 1 124 0
  336      00 E0 
  337                 		ld	AH,#0x0001
  338                 		st	AH,@(0,Y)
- 122:hr_sensor_gatt.c ****     else if((device_name_adtype_len + 1) <= (MAX_ADV_DATA_LEN - scan_data_len)) 
+ 121:hr_sensor_gatt.c ****     else if((device_name_adtype_len + 1) <= (MAX_ADV_DATA_LEN - scan_data_len)) 
  339                 	.L44
  340 00e5 F9 11       	.L32:
  341 00e6 20 80       	.LBB7:
- 342 00e7 00 00 00 00 		.loc 1 135 0
+ 342 00e7 00 00 00 00 		.loc 1 134 0
  342      00 F8 
  343                 		ld	AL,@0xfff8
- 125:hr_sensor_gatt.c ****         if (LsStoreAdvScanData(device_name_adtype_len , p_device_name, 
+ 124:hr_sensor_gatt.c ****         if (LsStoreAdvScanData(device_name_adtype_len , p_device_name, 
  344                 	AL,#0x0009
  345 00ea 01 10       		bcz	.L33
- 346 00eb 00 23       		.loc 1 141 0
+ 346 00eb 00 23       		.loc 1 140 0
  347 00ec 00 00 00 00 		ld	AH,#0x0008
  347      00 E0 
  348                 		st	AH,@(0,X)
  349                 	.LBE7:
- 135:hr_sensor_gatt.c ****     else if((MAX_ADV_DATA_LEN - adv_data_len) >=
- 350                 	1 143 0
+ 134:hr_sensor_gatt.c ****     else if((MAX_ADV_DATA_LEN - adv_data_len) >=
+ 350                 	1 142 0
  351 00ef F8 15       		ld	AL,#0x0000
  352 00f0 09 84       		st	AL,@(0,Y)
  353 00f1 00 00 00 00 		ld	AL,#0x0008
  353      00 2C 
- 141:hr_sensor_gatt.c ****         p_device_name[0] = AD_TYPE_LOCAL_NAME_SHORT;
+ 140:hr_sensor_gatt.c ****         p_device_name[0] = AD_TYPE_LOCAL_NAME_SHORT;
  354                 	:
  355 00f4 08 10       		ld	AH,@$XAP_UXL
  356 00f5 00 22       		bsr	LsStoreAdvScanData
  357                 	.LVL16:
- 143:hr_sensor_gatt.c ****        if (LsStoreAdvScanData(SHORTENED_DEV_NAME_LEN , p_device_name, 
+ 142:hr_sensor_gatt.c ****        if (LsStoreAdvScanData(SHORTENED_DEV_NAME_LEN , p_device_name, 
  358                 	8:
  359 00f6 00 14       		tst	@$XAP_AL
  360 00f7 00 27       		beq	.L34
- 361 00f8 08 14       		.loc 1 146 0
+ 361 00f8 08 14       		.loc 1 145 0
  362                 		ld	AL,#0x0001
  363 00f9 00 00 00 11 		bra	.L38
  364 00fb 00 00 00 00 	.LVL17:
  364      00 9C 
  365                 	.L33:
- 366                 		.loc 1 153 0
+ 366                 		.loc 1 152 0
  367 00fe 00 00 00 99 		ld	AH,#0x0008
  368 0100 00 00 00 00 		st	AH,@(0,X)
  368      00 F4 
- 146:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_advert_data);
- 369                 	c 1 155 0
+ 145:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_advert_data);
+ 369                 	c 1 154 0
  370 0103 01 14       		ld	AL,#0x0001
  371 0104 00 00 00 00 		st	AL,@(0,Y)
  371      00 E0 
  372                 		ld	AL,#0x001f
  373                 	.L44:
- 153:hr_sensor_gatt.c ****         p_device_name[0] = AD_TYPE_LOCAL_NAME_SHORT;
+ 152:hr_sensor_gatt.c ****         p_device_name[0] = AD_TYPE_LOCAL_NAME_SHORT;
  374                 	H,@$XAP_UXL
  375 0107 08 10       		bsr	LsStoreAdvScanData
  376 0108 00 22       	.LVL18:
  377                 	.LBB9:
- 155:hr_sensor_gatt.c ****        if (LsStoreAdvScanData(MAX_ADV_DATA_LEN - scan_data_len, 
+ 154:hr_sensor_gatt.c ****        if (LsStoreAdvScanData(MAX_ADV_DATA_LEN - scan_data_len, 
  378                 		@$XAP_AL
  379 0109 01 14       		beq	.L34
- 380 010a 00 27       		.loc 1 159 0
+ 380 010a 00 27       		.loc 1 158 0
  381 010b 1F 14       		ld	AL,#0x0002
  382                 	.L38:
  383 010c 00 00 00 11 		bsr	ReportPanic
@@ -1103,10 +1102,10 @@
  384      00 9C 
  385                 	.LBE9:
  386                 	.LBE4:
- 387 0111 00 00 00 99 		.loc 1 308 0
+ 387 0111 00 00 00 99 		.loc 1 307 0
  388 0113 00 00 00 00 		leave	#0x002f
  388      00 F4 
- 159:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_scan_rsp_data);
+ 158:hr_sensor_gatt.c ****             ReportPanic(app_panic_set_scan_rsp_data);
  389                 	ze	gattSetAdvertParams, .-gattSetAdvertParams
  390 0116 02 14       		.equ	__size_of_gattSetAdvertParams,. - gattSetAdvertParams
  391                 		.section	.text.GattStartAdverts,"ax",@progbits
@@ -1115,32 +1114,32 @@
  393                 		.type	GattStartAdverts, @function
  394                 	GattStartAdverts:
  395                 	.LFB7:
- 308:hr_sensor_gatt.c **** }
- 396                 	 488 0
+ 307:hr_sensor_gatt.c **** }
+ 396                 	 487 0
  397 011a 2F 0F       	.LVL19:
  398                 		enter	#0x0003
  399                 	.LCFI4:
- 400                 		.loc 1 504 0
+ 400                 		.loc 1 503 0
  401                 		ld	X,#0xffff
  402                 		st	X,@g_hr_data+0x0009
- 403                 		.loc 1 507 0
+ 403                 		.loc 1 506 0
  404                 		bsr	gattSetAdvertParams
  405                 	.LVL20:
- 488:hr_sensor_gatt.c **** {
- 406                 	3 0
+ 487:hr_sensor_gatt.c **** {
+ 406                 	2 0
  407                 		ld	AL,@g_hr_data+0x0011
  408 0000 03 0B       		cmp	AL,#0x0001
  409                 		bne	.L47
- 504:hr_sensor_gatt.c ****     g_hr_data.st_ucid = GATT_INVALID_UCID;
+ 503:hr_sensor_gatt.c ****     g_hr_data.st_ucid = GATT_INVALID_UCID;
  410                 	AL,#g_hr_data+11
  411 0001 FF 18       		bsr	GattIsAddressResolvableRandom
  412 0002 00 00 00 29 		tst	@$XAP_AL
- 507:hr_sensor_gatt.c ****     gattSetAdvertParams(fast_connection);
+ 506:hr_sensor_gatt.c ****     gattSetAdvertParams(fast_connection);
  413                 	e	.L47
  414 0004 00 00 00 00 		ld	AH,#0x0003
  414      00 9C 
  415                 	.LVL21:
- 513:hr_sensor_gatt.c ****     if((g_hr_data.enable_white_list == TRUE) &&
+ 512:hr_sensor_gatt.c ****     if((g_hr_data.enable_white_list == TRUE) &&
  416                 	a	.L48
  417 0007 00 00 00 15 	.LVL22:
  418 0009 01 84       	.L47:
@@ -1149,37 +1148,37 @@
  420 000d 00 00 00 14 	.LVL23:
  421 000f 00 00 00 00 	.L48:
  421      00 9C 
- 422 0012 00 00 00 99 		.loc 1 526 0
+ 422 0012 00 00 00 99 		.loc 1 525 0
  423 0014 00 00 00 00 		ld	AL,#0x0000
  423      00 F0 
  424 0017 03 10       		bsr	GattConnectReq
  425                 	.LVL24:
- 426 0018 00 00 00 00 		.loc 1 529 0
+ 426 0018 00 00 00 00 		.loc 1 528 0
  426      00 E0 
  427                 		ld	AL,@g_hr_data+0x0001
  428                 		or	AL,@g_hr_data+0x0002
  429 001b 04 10       		beq	.L50
- 430                 		.loc 1 531 0
+ 430                 		.loc 1 530 0
  431                 		ld	AL,@g_hr_data+0x0003
- 526:hr_sensor_gatt.c ****     GattConnectReq(NULL, connect_flags);
+ 525:hr_sensor_gatt.c ****     GattConnectReq(NULL, connect_flags);
  432                 	
- 433 001c 00 14       		.loc 1 534 0
+ 433 001c 00 14       		.loc 1 533 0
  434 001d 00 00 00 00 		ld	AL,#0x0001
  434      00 9C 
  435                 		st	AL,@(0,Y)
- 529:hr_sensor_gatt.c ****     if(g_hr_data.advert_timer_value)
+ 528:hr_sensor_gatt.c ****     if(g_hr_data.advert_timer_value)
  436                 		X,#gattAdvertTimerHandler
  437 0020 00 00 00 15 		st	X,@(0x0001,Y)
  438 0022 00 00 00 B5 		ld	AL,@g_hr_data+0x0002
  439 0024 00 00 00 00 		ld	AH,@g_hr_data+0x0001
  439      00 F4 
- 531:hr_sensor_gatt.c ****         TimerDelete(g_hr_data.app_tid);
+ 530:hr_sensor_gatt.c ****         TimerDelete(g_hr_data.app_tid);
  440                 		TimerCreate
  441 0027 00 00 00 15 		st	AL,@g_hr_data+0x0003
  442 0029 00 00 00 00 	.L50:
  442      00 9C 
- 534:hr_sensor_gatt.c ****         g_hr_data.app_tid = TimerCreate(g_hr_data.advert_timer_value, TRUE, 
- 443                 	oc 1 538 0
+ 533:hr_sensor_gatt.c ****         g_hr_data.app_tid = TimerCreate(g_hr_data.advert_timer_value, TRUE, 
+ 443                 	oc 1 537 0
  444 002c 01 14       		leave	#0x0003
  445 002d 00 27       	.LFE7:
  446 002e 00 00 00 18 		.size	GattStartAdverts, .-GattStartAdverts
@@ -1190,144 +1189,144 @@
  450      00 9C 
  451 0038 00 00 00 25 		.type	GattTriggerFastAdverts, @function
  452                 	GattTriggerFastAdverts:
- 538:hr_sensor_gatt.c **** }
- 453                 	loc 1 630 0
+ 537:hr_sensor_gatt.c **** }
+ 453                 	loc 1 629 0
  454 003a 03 0F       		enter	#0x0001
  455                 	.LCFI5:
- 456                 		.loc 1 632 0
+ 456                 		.loc 1 631 0
  457                 		tst	@g_hr_data+0x000a
  458                 		beq	.L52
- 459                 		.loc 1 634 0
+ 459                 		.loc 1 633 0
  460                 		ld	AL,#g_hr_data+11
  461                 		bsr	GattIsAddressResolvableRandom
  462                 		tst	@$XAP_AL
  463                 		bne	.L53
+ 613:hr_sensor_gatt.c **** 
  614:hr_sensor_gatt.c **** 
- 615:hr_sensor_gatt.c **** 
- 616:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
- 617:hr_sensor_gatt.c ****  *  NAME
- 618:hr_sensor_gatt.c ****  *      GattTriggerFastAdverts
- 619:hr_sensor_gatt.c ****  *
- 620:hr_sensor_gatt.c ****  *  DESCRIPTION
- 621:hr_sensor_gatt.c ****  *      This function is used to trigger fast advertisements 
- 622:hr_sensor_gatt.c ****  *
- 623:hr_sensor_gatt.c ****  *  RETURNS
- 624:hr_sensor_gatt.c ****  *      Nothing
- 625:hr_sensor_gatt.c ****  *
- 626:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
- 627:hr_sensor_gatt.c **** 
- 628:hr_sensor_gatt.c **** extern void GattTriggerFastAdverts(void)
- 629:hr_sensor_gatt.c **** {
+ 615:hr_sensor_gatt.c **** /*----------------------------------------------------------------------------*
+ 616:hr_sensor_gatt.c ****  *  NAME
+ 617:hr_sensor_gatt.c ****  *      GattTriggerFastAdverts
+ 618:hr_sensor_gatt.c ****  *
+ 619:hr_sensor_gatt.c ****  *  DESCRIPTION
+ 620:hr_sensor_gatt.c ****  *      This function is used to trigger fast advertisements 
+ 621:hr_sensor_gatt.c ****  *
+ 622:hr_sensor_gatt.c ****  *  RETURNS
+ 623:hr_sensor_gatt.c ****  *      Nothing
+ 624:hr_sensor_gatt.c ****  *
+ 625:hr_sensor_gatt.c ****  *---------------------------------------------------------------------------*/
+ 626:hr_sensor_gatt.c **** 
+ 627:hr_sensor_gatt.c **** extern void GattTriggerFastAdverts(void)
+ 628:hr_sensor_gatt.c **** {
  464                 	 0
  465 0000 01 0B       		ld	AL,#0x0001
  466                 		st	AL,@g_hr_data+0x0011
- 630:hr_sensor_gatt.c **** 
- 631:hr_sensor_gatt.c ****     if(g_hr_data.bonded)
+ 629:hr_sensor_gatt.c **** 
+ 630:hr_sensor_gatt.c ****     if(g_hr_data.bonded)
  467                 	3:
- 468 0001 00 00 00 99 		.loc 1 642 0
+ 468 0001 00 00 00 99 		.loc 1 641 0
  469 0003 00 00 00 00 		ld	AL,#0x0098
  469      00 F4 
- 632:hr_sensor_gatt.c ****     {
- 633:hr_sensor_gatt.c ****         if(!GattIsAddressResolvableRandom(&g_hr_data.bonded_bd_addr))
+ 631:hr_sensor_gatt.c ****     {
+ 632:hr_sensor_gatt.c ****         if(!GattIsAddressResolvableRandom(&g_hr_data.bonded_bd_addr))
  470                 		AL,@g_hr_data+0x0001
  471 0006 00 00 00 14 		ld	AL,#0x9680
  472 0008 00 00 00 00 		bra	.L56
  472      00 9C 
  473 000b 00 00 00 99 	.L52:
- 474 000d 00 00 00 00 		.loc 1 646 0
+ 474 000d 00 00 00 00 		.loc 1 645 0
  474      00 F0 
- 634:hr_sensor_gatt.c ****         {
- 635:hr_sensor_gatt.c ****             /* Enable white list if the device is bonded and the bonded host 
- 636:hr_sensor_gatt.c ****              * doesn't support resolvable random addresses
- 637:hr_sensor_gatt.c ****              */
- 638:hr_sensor_gatt.c ****             g_hr_data.enable_white_list = TRUE;
+ 633:hr_sensor_gatt.c ****         {
+ 634:hr_sensor_gatt.c ****             /* Enable white list if the device is bonded and the bonded host 
+ 635:hr_sensor_gatt.c ****              * doesn't support resolvable random addresses
+ 636:hr_sensor_gatt.c ****              */
+ 637:hr_sensor_gatt.c ****             g_hr_data.enable_white_list = TRUE;
  475                 	L,#0x01c9
  476 0010 01 14       		st	AL,@g_hr_data+0x0001
  477 0011 00 00 00 25 		ld	AL,#0xc380
  478                 	.L56:
- 639:hr_sensor_gatt.c ****         }
- 640:hr_sensor_gatt.c **** 
- 641:hr_sensor_gatt.c ****         g_hr_data.advert_timer_value = BONDED_DEVICE_ADVERT_TIMEOUT_VALUE;
+ 638:hr_sensor_gatt.c ****         }
+ 639:hr_sensor_gatt.c **** 
+ 640:hr_sensor_gatt.c ****         g_hr_data.advert_timer_value = BONDED_DEVICE_ADVERT_TIMEOUT_VALUE;
  479                 	AL,@g_hr_data+0x0002
- 480 0013 01 00 98 14 		.loc 1 650 0
+ 480 0013 01 00 98 14 		.loc 1 649 0
  481 0015 00 00 00 25 		ld	AL,#0x0001
  482 0017 97 00 80 14 		bsr	GattStartAdverts
- 483 0019 00 00 00 00 		.loc 1 652 0
+ 483 0019 00 00 00 00 		.loc 1 651 0
  483      00 E0 
  484                 		leave	#0x0001
- 642:hr_sensor_gatt.c ****     }
- 643:hr_sensor_gatt.c ****     else
- 644:hr_sensor_gatt.c ****     {
- 645:hr_sensor_gatt.c ****         g_hr_data.advert_timer_value = FAST_CONNECTION_ADVERT_TIMEOUT_VALUE;
+ 641:hr_sensor_gatt.c ****     }
+ 642:hr_sensor_gatt.c ****     else
+ 643:hr_sensor_gatt.c ****     {
+ 644:hr_sensor_gatt.c ****         g_hr_data.advert_timer_value = FAST_CONNECTION_ADVERT_TIMEOUT_VALUE;
  485                 	:
  486 001c 02 00 C9 14 		.size	GattTriggerFastAdverts, .-GattTriggerFastAdverts
  487 001e 00 00 00 25 		.global	__size_of_GattTriggerFastAdverts
  488 0020 C4 00 80 14 		.equ	__size_of_GattTriggerFastAdverts,. - GattTriggerFastAdverts
  489                 		.section	.text.HandleAccessWrite,"ax",@progbits
  490 0022 00 00 00 25 		.global	HandleAccessWrite
- 646:hr_sensor_gatt.c ****     }
- 647:hr_sensor_gatt.c **** 
- 648:hr_sensor_gatt.c ****     /* Trigger fast conections */
- 649:hr_sensor_gatt.c ****     GattStartAdverts(TRUE);
+ 645:hr_sensor_gatt.c ****     }
+ 646:hr_sensor_gatt.c **** 
+ 647:hr_sensor_gatt.c ****     /* Trigger fast conections */
+ 648:hr_sensor_gatt.c ****     GattStartAdverts(TRUE);
  491                 		HandleAccessWrite, @function
  492 0024 01 14       	HandleAccessWrite:
  493 0025 00 00 00 00 	.LFB6:
  493      00 9C 
- 650:hr_sensor_gatt.c **** 
- 651:hr_sensor_gatt.c **** }
- 494                 	oc 1 439 0
+ 649:hr_sensor_gatt.c **** 
+ 650:hr_sensor_gatt.c **** }
+ 494                 	oc 1 438 0
  495 0028 01 0F       	.LVL25:
  496                 		enter	#0x0005
  497                 	.LCFI6:
  498                 		st	AL,@(0x0003,Y)
- 499                 		.loc 1 445 0
+ 499                 		.loc 1 444 0
  500                 		ld	X,@$XAP_AL
  501                 		ld	AL,@(0x0002,X)
  502                 	.LVL26:
  503                 		bsr	GapCheckHandleRange
  504                 		tst	@$XAP_AL
- 439:hr_sensor_gatt.c **** {
- 505                 	.loc 1 448 0
+ 438:hr_sensor_gatt.c **** {
+ 505                 	.loc 1 447 0
  506                 		ld	AL,@(0x0003,Y)
  507 0000 05 0B       		bsr	GapHandleAccessWrite
  508                 		bra	.L62
  509 0001 03 27       	.L58:
- 445:hr_sensor_gatt.c ****     if(GapCheckHandleRange(p_ind->handle))
- 510                 	 1 450 0
+ 444:hr_sensor_gatt.c ****     if(GapCheckHandleRange(p_ind->handle))
+ 510                 	 1 449 0
  511 0002 00 00 00 19 		ld	X,@(0x0003,Y)
  512 0004 02 16       		ld	AL,@(0x0002,X)
  513                 		bsr	HeartRateCheckHandleRange
  514 0005 00 00 00 00 		tst	@$XAP_AL
  514      00 9C 
  515 0008 00 00 00 99 		beq	.L60
- 516 000a 00 00 00 00 		.loc 1 453 0
+ 516 000a 00 00 00 00 		.loc 1 452 0
  516      00 F4 
- 448:hr_sensor_gatt.c ****         GapHandleAccessWrite(p_ind);
+ 447:hr_sensor_gatt.c ****         GapHandleAccessWrite(p_ind);
  517                 	@(0x0003,Y)
  518 000d 03 17       		bsr	HeartRateHandleAccessWrite
  519 000e 00 00 00 00 		bra	.L62
  519      00 9C 
  520 0011 00 00 00 00 	.L60:
  520      00 E0 
- 521                 		.loc 1 455 0
- 450:hr_sensor_gatt.c ****     else if(HeartRateCheckHandleRange(p_ind->handle))
+ 521                 		.loc 1 454 0
+ 449:hr_sensor_gatt.c ****     else if(HeartRateCheckHandleRange(p_ind->handle))
  522                 	,@(0x0003,Y)
  523 0014 03 1B       		ld	AL,@(0x0002,X)
  524 0015 02 16       		bsr	BatteryCheckHandleRange
  525 0016 00 00 00 00 		tst	@$XAP_AL
  525      00 9C 
  526 0019 00 00 00 99 		beq	.L61
- 527 001b 00 00 00 00 		.loc 1 458 0
+ 527 001b 00 00 00 00 		.loc 1 457 0
  527      00 F4 
- 453:hr_sensor_gatt.c ****         HeartRateHandleAccessWrite(p_ind);
+ 452:hr_sensor_gatt.c ****         HeartRateHandleAccessWrite(p_ind);
  528                 	,@(0x0003,Y)
  529 001e 03 17       		bsr	BatteryHandleAccessWrite
  530 001f 00 00 00 00 		bra	.L62
  530      00 9C 
  531 0022 00 00 00 00 	.L61:
  531      00 E0 
- 532                 		.loc 1 466 0
- 455:hr_sensor_gatt.c ****     else if(BatteryCheckHandleRange(p_ind->handle))
+ 532                 		.loc 1 465 0
+ 454:hr_sensor_gatt.c ****     else if(BatteryCheckHandleRange(p_ind->handle))
  533                 	,@(0x0003,Y)
  534 0025 03 1B       		ld	AL,@(0x0001,X)
  535 0026 02 16       		ld	AH,@(0x0002,X)
@@ -1336,15 +1335,15 @@
  537 002a 00 00 00 99 		st	X,@(0,Y)
  538 002c 00 00 00 00 		ld	X,#0x0000
  538      00 F4 
- 458:hr_sensor_gatt.c ****         BatteryHandleAccessWrite(p_ind);
+ 457:hr_sensor_gatt.c ****         BatteryHandleAccessWrite(p_ind);
  539                 	@(0x0001,Y)
  540 002f 03 17       		st	X,@(0x0002,Y)
  541 0030 00 00 00 00 		bsr	GattAccessRsp
  541      00 9C 
  542 0033 00 00 00 00 	.L62:
  542      00 E0 
- 543                 		.loc 1 471 0
- 466:hr_sensor_gatt.c ****         GattAccessRsp(p_ind->cid, p_ind->handle, 
+ 543                 		.loc 1 470 0
+ 465:hr_sensor_gatt.c ****         GattAccessRsp(p_ind->cid, p_ind->handle, 
  544                 	e	#0x0005
  545 0036 03 1B       	.LFE6:
  546 0037 01 16       		.size	HandleAccessWrite, .-HandleAccessWrite
@@ -1356,61 +1355,61 @@
  552 003e 02 2B       	HandleAccessRead:
  553 003f 00 00 00 00 	.LFB5:
  553      00 9C 
- 554                 		.loc 1 390 0
- 471:hr_sensor_gatt.c **** }
+ 554                 		.loc 1 389 0
+ 470:hr_sensor_gatt.c **** }
  555                 	ter	#0x0005
  556 0042 05 0F       	.LCFI7:
  557                 		st	AL,@(0x0003,Y)
- 558                 		.loc 1 396 0
+ 558                 		.loc 1 395 0
  559                 		ld	X,@$XAP_AL
  560                 		ld	AL,@(0x0002,X)
  561                 	.LVL28:
  562                 		bsr	GapCheckHandleRange
  563                 		tst	@$XAP_AL
  564                 		beq	.L64
- 565                 		.loc 1 399 0
- 390:hr_sensor_gatt.c **** {
+ 565                 		.loc 1 398 0
+ 389:hr_sensor_gatt.c **** {
  566                 	0003,Y)
  567                 		bsr	GapHandleAccessRead
  568 0000 05 0B       		bra	.L68
  569                 	.L64:
- 570 0001 03 27       		.loc 1 401 0
- 396:hr_sensor_gatt.c ****     if(GapCheckHandleRange(p_ind->handle))
+ 570 0001 03 27       		.loc 1 400 0
+ 395:hr_sensor_gatt.c ****     if(GapCheckHandleRange(p_ind->handle))
  571                 	,@(0x0003,Y)
  572 0002 00 00 00 19 		ld	AL,@(0x0002,X)
  573 0004 02 16       		bsr	HeartRateCheckHandleRange
  574                 		tst	@$XAP_AL
  575 0005 00 00 00 00 		beq	.L66
  575      00 9C 
- 576 0008 00 00 00 99 		.loc 1 404 0
+ 576 0008 00 00 00 99 		.loc 1 403 0
  577 000a 00 00 00 00 		ld	AL,@(0x0003,Y)
  577      00 F4 
- 399:hr_sensor_gatt.c ****         GapHandleAccessRead(p_ind);
+ 398:hr_sensor_gatt.c ****         GapHandleAccessRead(p_ind);
  578                 	artRateHandleAccessRead
  579 000d 03 17       		bra	.L68
  580 000e 00 00 00 00 	.L66:
  580      00 9C 
- 581 0011 00 00 00 00 		.loc 1 406 0
+ 581 0011 00 00 00 00 		.loc 1 405 0
  581      00 E0 
  582                 		ld	X,@(0x0003,Y)
- 401:hr_sensor_gatt.c ****     else if(HeartRateCheckHandleRange(p_ind->handle))
+ 400:hr_sensor_gatt.c ****     else if(HeartRateCheckHandleRange(p_ind->handle))
  583                 	L,@(0x0002,X)
  584 0014 03 1B       		bsr	BatteryCheckHandleRange
  585 0015 02 16       		tst	@$XAP_AL
  586 0016 00 00 00 00 		beq	.L67
  586      00 9C 
- 587 0019 00 00 00 99 		.loc 1 409 0
+ 587 0019 00 00 00 99 		.loc 1 408 0
  588 001b 00 00 00 00 		ld	AL,@(0x0003,Y)
  588      00 F4 
- 404:hr_sensor_gatt.c ****         HeartRateHandleAccessRead(p_ind);
+ 403:hr_sensor_gatt.c ****         HeartRateHandleAccessRead(p_ind);
  589                 	atteryHandleAccessRead
  590 001e 03 17       		bra	.L68
  591 001f 00 00 00 00 	.L67:
  591      00 9C 
- 592 0022 00 00 00 00 		.loc 1 417 0
+ 592 0022 00 00 00 00 		.loc 1 416 0
  592      00 E0 
  593                 		ld	X,@(0x0003,Y)
- 406:hr_sensor_gatt.c ****     else if(BatteryCheckHandleRange(p_ind->handle))
+ 405:hr_sensor_gatt.c ****     else if(BatteryCheckHandleRange(p_ind->handle))
  594                 	L,@(0x0001,X)
  595 0025 03 1B       		ld	AH,@(0x0002,X)
  596 0026 02 16       		ld	X,#0x0a02
@@ -1419,28 +1418,28 @@
  598 002a 00 00 00 99 		ld	X,#0x0000
  599 002c 00 00 00 00 		st	X,@(0x0001,Y)
  599      00 F4 
- 409:hr_sensor_gatt.c ****         BatteryHandleAccessRead(p_ind);
+ 408:hr_sensor_gatt.c ****         BatteryHandleAccessRead(p_ind);
  600                 	@(0x0002,Y)
  601 002f 03 17       		bsr	GattAccessRsp
  602 0030 00 00 00 00 	.L68:
  602      00 9C 
- 603 0033 00 00 00 00 		.loc 1 422 0
+ 603 0033 00 00 00 00 		.loc 1 421 0
  603      00 E0 
  604                 		leave	#0x0005
- 417:hr_sensor_gatt.c ****         GattAccessRsp(p_ind->cid, p_ind->handle, 
+ 416:hr_sensor_gatt.c ****         GattAccessRsp(p_ind->cid, p_ind->handle, 
  605                 	:
  606 0036 03 1B       		.size	HandleAccessRead, .-HandleAccessRead
  607 0037 01 16       		.global	__size_of_HandleAccessRead
  608 0038 02 12       		.equ	__size_of_HandleAccessRead,. - HandleAccessRead
- 609 0039 0A 00 02 18 		.section	.rodata.C.2..2364.,"a",@progbits
- 610 003b 00 2B       		.type	C.2..2364., @object
- 611 003c 00 18       		.size	C.2..2364., 3
- 612 003d 01 2B       	C.2..2364.:
+ 609 0039 0A 00 02 18 		.section	.rodata.C.2..2361.,"a",@progbits
+ 610 003b 00 2B       		.type	C.2..2361., @object
+ 611 003c 00 18       		.size	C.2..2361., 3
+ 612 003d 01 2B       	C.2..2361.:
  613 003e 02 2B       		.word	0x0019
  614 003f 00 00 00 00 		.word	0x0040
  614      00 9C 
  615                 		.word	0x0003
- 422:hr_sensor_gatt.c **** }
+ 421:hr_sensor_gatt.c **** }
  616                 	debug_frame,"",@progbits
  617 0042 05 0F       	.Lframe0:
  618                 		.4byte	.LECIE0-.LSCIE0
@@ -3812,7 +3811,7 @@
  2984 0858 00 00 00 00 		.1byte	0x1
  2985 085a 08          		.4byte	.LASF540
  2986 085b 05          		.1byte	0x1
- 2987 085b 00 00 00 00 		.2byte	0x23e
+ 2987 085b 00 00 00 00 		.2byte	0x23d
  2988 085d 09          		.1byte	0x1
  2989 085e 05          		.4byte	0x3b
  2990 085e 00 00 00 00 		.4byte	.LFB9
@@ -3822,33 +3821,33 @@
  2994 0863 0B          		.1byte	0x12
  2995 0864 00          		.4byte	.LASF542
  2996 0864 11          		.1byte	0x1
- 2997 0865 01          		.2byte	0x23d
+ 2997 0865 01          		.2byte	0x23c
  2998 0865 00 00 00 00 		.4byte	0xaf0
  2999 0867 01          		.4byte	.LLST1
- 3000 0868 02 3E       		.1byte	0x13
+ 3000 0868 02 3D       		.1byte	0x13
  3001 0869 01          		.ascii "i\000"
  3002 0869 00 00 00 3B 		.1byte	0x1
- 3003 086b 00 00 00 00 		.2byte	0x23f
+ 3003 086b 00 00 00 00 		.2byte	0x23e
  3004 086d 00 00 00 00 		.4byte	0x29
  3005 086f 00 00 00 00 		.1byte	0x0
  3006 0871 00 00 11 02 		.1byte	0x11
  3007 0873 12          		.1byte	0x1
  3008 0874 00 00 00 00 		.4byte	.LASF541
  3009 0876 01          		.1byte	0x1
- 3010 0876 02 3D       		.2byte	0x25d
+ 3010 0876 02 3C       		.2byte	0x25c
  3011 0877 00 00 0A F0 		.1byte	0x1
  3012 0879 00 00 00 00 		.4byte	0x8a
  3013 087b 13          		.4byte	.LFB10
  3014 087c 69 00       		.4byte	.LFE10
  3015 087d 01          		.4byte	.LLST2
- 3016 087d 02 3F       		.4byte	0x1131
+ 3016 087d 02 3E       		.4byte	0x1131
  3017 087e 00 00 00 29 		.1byte	0x12
  3018 0880 00          		.4byte	.LASF543
  3019 0881 11          		.1byte	0x1
- 3020 0881 01          		.2byte	0x25c
+ 3020 0881 01          		.2byte	0x25b
  3021 0882 00 00 00 00 		.4byte	0x1131
  3022 0884 01          		.4byte	.LLST3
- 3023 0884 02 5D       		.1byte	0x0
+ 3023 0884 02 5C       		.1byte	0x0
  3024 0885 01          		.1byte	0xf
  3025 0886 00 00 00 8A 		.1byte	0x2
  3026 0888 00 00 00 00 		.4byte	0x34d
@@ -3856,96 +3855,96 @@
  3028 088c 00 00 00 00 		.1byte	0x1
  3029 088e 00 00 11 31 		.4byte	.LASF560
  3030 0890 12          		.1byte	0x1
- 3031 0890 00 00 00 00 		.2byte	0x22a
+ 3031 0890 00 00 00 00 		.2byte	0x229
  3032 0892 01          		.1byte	0x1
- 3033 0893 02 5C       		.4byte	.LFB8
+ 3033 0893 02 5B       		.4byte	.LFB8
  3034 0894 00 00 11 31 		.4byte	.LFE8
  3035 0896 00 00 00 00 		.1byte	0x1
  3036 0898 00          		.1byte	0x55
  3037 0898 0F          		.1byte	0x15
  3038 0899 02          		.4byte	.LASF548
  3039 0899 00 00 03 4D 		.1byte	0x1
- 3040 089b 14          		.2byte	0x144
+ 3040 089b 14          		.2byte	0x143
  3041 089c 01          		.1byte	0x1
  3042 089c 00 00 00 00 		.4byte	.LFB4
  3043 089e 01          		.4byte	.LFE4
- 3044 089f 02 2A       		.4byte	.LLST5
+ 3044 089f 02 29       		.4byte	.LLST5
  3045 08a0 01          		.4byte	0x1175
  3046 08a0 00 00 00 00 		.1byte	0x16
  3047 08a2 00 00 00 00 		.ascii "tid\000"
  3048 08a4 01          		.1byte	0x1
- 3049 08a5 55          		.2byte	0x143
+ 3049 08a5 55          		.2byte	0x142
  3050 08a5 15          		.4byte	0xea7
  3051 08a6 00 00 00 00 		.4byte	.LLST6
  3052 08a8 01          		.1byte	0x0
- 3053 08a8 01 44       		.1byte	0x17
+ 3053 08a8 01 43       		.1byte	0x17
  3054 08a9 01          		.4byte	.LASF569
  3055 08aa 00 00 00 00 		.1byte	0x1
- 3056 08ac 00 00 00 00 		.1byte	0x5d
+ 3056 08ac 00 00 00 00 		.1byte	0x5c
  3057 08ae 00 00 00 00 		.1byte	0x1
  3058 08b0 00 00 11 75 		.1byte	0x1
  3059 08b2 16          		.4byte	0x11af
  3060 08b2 74 69 64 00 		.1byte	0x18
  3061 08b4 01          		.4byte	.LASF544
- 3062 08b5 01 43       		.1byte	0x1
- 3063 08b6 00 00 0E A7 		.1byte	0x5c
+ 3062 08b5 01 42       		.1byte	0x1
+ 3063 08b6 00 00 0E A7 		.1byte	0x5b
  3064 08b8 00 00 00 00 		.4byte	0x3b
  3065 08ba 00          		.1byte	0x18
  3066 08ba 17          		.4byte	.LASF545
  3067 08bb 00 00 00 00 		.1byte	0x1
- 3068 08bd 01          		.1byte	0x5c
- 3069 08bd 5D          		.4byte	0x3b
+ 3068 08bd 01          		.1byte	0x5b
+ 3069 08bd 5C          		.4byte	0x3b
  3070 08be 01          		.1byte	0x19
  3071 08be 01          		.4byte	.LASF546
  3072 08bf 00 00 11 AF 		.1byte	0x1
- 3073 08c1 18          		.1byte	0x5f
+ 3073 08c1 18          		.1byte	0x5e
  3074 08c1 00 00 00 00 		.4byte	0xaf0
  3075 08c3 01          		.1byte	0x19
- 3076 08c4 5C          		.4byte	.LASF547
+ 3076 08c4 5B          		.4byte	.LASF547
  3077 08c4 00 00 00 3B 		.1byte	0x1
- 3078 08c6 18          		.1byte	0x60
+ 3078 08c6 18          		.1byte	0x5f
  3079 08c7 00 00 00 00 		.4byte	0x3b
  3080 08c9 01          		.1byte	0x0
- 3081 08c9 5C          		.1byte	0x1a
+ 3081 08c9 5B          		.1byte	0x1a
  3082 08ca 00 00 00 3B 		.4byte	.LASF549
  3083 08cc 19          		.1byte	0x1
- 3084 08cc 00 00 00 00 		.1byte	0xb4
+ 3084 08cc 00 00 00 00 		.1byte	0xb3
  3085 08ce 01          		.1byte	0x1
- 3086 08cf 5F          		.4byte	.LFB3
+ 3086 08cf 5E          		.4byte	.LFB3
  3087 08cf 00 00 0A F0 		.4byte	.LFE3
  3088 08d1 19          		.4byte	.LLST7
  3089 08d2 00 00 00 00 		.4byte	0x1282
  3090 08d4 01          		.1byte	0x1b
- 3091 08d4 60          		.4byte	.LASF550
+ 3091 08d4 5F          		.4byte	.LASF550
  3092 08d5 00 00 00 3B 		.1byte	0x1
- 3093 08d7 00          		.1byte	0xb3
+ 3093 08d7 00          		.1byte	0xb2
  3094 08d7 1A          		.4byte	0x8a
  3095 08d8 00 00 00 00 		.4byte	.LLST8
  3096 08da 01          		.1byte	0x1c
- 3097 08da B4          		.4byte	.LASF551
+ 3097 08da B3          		.4byte	.LASF551
  3098 08db 01          		.1byte	0x1
- 3099 08db 00 00 00 00 		.1byte	0xb5
+ 3099 08db 00 00 00 00 		.1byte	0xb4
  3100 08dd 00 00 00 00 		.4byte	0xae0
  3101 08df 00 00 00 00 		.1byte	0x2
  3102 08e1 00 00 12 82 		.1byte	0x76
  3103 08e3 1B          		.1byte	0xa
  3104 08e4 00 00 00 00 		.1byte	0x1c
  3105 08e6 01          		.4byte	.LASF552
- 3106 08e6 B3          		.1byte	0x1
- 3107 08e7 00 00 00 8A 		.1byte	0xb6
+ 3106 08e6 B2          		.1byte	0x1
+ 3107 08e7 00 00 00 8A 		.1byte	0xb5
  3108 08e9 00 00 00 00 		.4byte	0x3b
  3109 08eb 1C          		.1byte	0x2
  3110 08eb 00 00 00 00 		.1byte	0x76
  3111 08ed 01          		.1byte	0x29
- 3112 08ee B5          		.1byte	0x1c
+ 3112 08ee B4          		.1byte	0x1c
  3113 08ee 00 00 0A E0 		.4byte	.LASF553
  3114 08f0 02          		.1byte	0x1
- 3115 08f1 76          		.1byte	0xb7
+ 3115 08f1 76          		.1byte	0xb6
  3116 08f1 0A          		.4byte	0x4d
  3117 08f2 1C          		.1byte	0x8
  3118 08f2 00 00 00 00 		.1byte	0x76
  3119 08f4 01          		.1byte	0x2c
- 3120 08f5 B6          		.1byte	0x93
+ 3120 08f5 B5          		.1byte	0x93
  3121 08f5 00 00 00 3B 		.1byte	0x1
  3122 08f7 02          		.1byte	0x76
  3123 08f8 76          		.1byte	0x2d
@@ -3953,8 +3952,8 @@
  3125 08f9 1C          		.1byte	0x1
  3126 08f9 00 00 00 00 		.1byte	0x1c
  3127 08fb 01          		.4byte	.LASF554
- 3128 08fc B7          		.1byte	0x1
- 3129 08fc 00 00 00 4D 		.1byte	0xb8
+ 3128 08fc B6          		.1byte	0x1
+ 3129 08fc 00 00 00 4D 		.1byte	0xb7
  3130 08fe 08          		.4byte	0x4d
  3131 08ff 76          		.1byte	0x8
  3132 08ff 2C          		.1byte	0x76
@@ -3967,8 +3966,8 @@
  3139 0903 1C          		.1byte	0x1
  3140 0903 00 00 00 00 		.1byte	0x1c
  3141 0905 01          		.4byte	.LASF555
- 3142 0906 B8          		.1byte	0x1
- 3143 0906 00 00 00 4D 		.1byte	0xba
+ 3142 0906 B7          		.1byte	0x1
+ 3143 0906 00 00 00 4D 		.1byte	0xb9
  3144 0908 08          		.4byte	0x6a
  3145 0909 76          		.1byte	0x2
  3146 0909 2A          		.1byte	0x76
@@ -3976,43 +3975,43 @@
  3148 090a 01          		.1byte	0x1c
  3149 090b 76          		.4byte	.LASF556
  3150 090b 2B          		.1byte	0x1
- 3151 090c 93          		.1byte	0xbd
+ 3151 090c 93          		.1byte	0xbc
  3152 090c 01          		.4byte	0x1282
  3153 090d 1C          		.1byte	0x2
  3154 090d 00 00 00 00 		.1byte	0x76
  3155 090f 01          		.1byte	0x5
- 3156 0910 BA          		.1byte	0x1c
+ 3156 0910 B9          		.1byte	0x1c
  3157 0910 00 00 00 6A 		.4byte	.LASF557
  3158 0912 02          		.1byte	0x1
- 3159 0913 76          		.1byte	0xc1
+ 3159 0913 76          		.1byte	0xc0
  3160 0913 03          		.4byte	0x1292
  3161 0914 1C          		.1byte	0x2
  3162 0914 00 00 00 00 		.1byte	0x76
  3163 0916 01          		.1byte	0x7
- 3164 0917 BD          		.1byte	0x19
+ 3164 0917 BC          		.1byte	0x19
  3165 0917 00 00 12 82 		.4byte	.LASF558
  3166 0919 02          		.1byte	0x1
- 3167 091a 76          		.1byte	0xcb
+ 3167 091a 76          		.1byte	0xca
  3168 091a 05          		.4byte	0x3b
  3169 091b 1C          		.1byte	0x1d
  3170 091b 00 00 00 00 		.4byte	0x1175
  3171 091d 01          		.4byte	.LBB4
- 3172 091e C1          		.4byte	.LBE4
+ 3172 091e C0          		.4byte	.LBE4
  3173 091e 00 00 12 92 		.1byte	0x1
- 3174 0920 02          		.2byte	0x132
+ 3174 0920 02          		.2byte	0x131
  3175 0921 76          		.1byte	0x1e
  3176 0921 07          		.4byte	0x118d
  3177 0922 19          		.1byte	0x1e
  3178 0922 00 00 00 00 		.4byte	0x1182
  3179 0924 01          		.1byte	0x1f
- 3180 0925 CB          		.4byte	.Ldebug_ranges0+0x0
+ 3180 0925 CA          		.4byte	.Ldebug_ranges0+0x0
  3181 0925 00 00 00 3B 		.1byte	0x20
  3182 0927 1D          		.4byte	0x1198
  3183 0928 00 00 11 75 		.4byte	.LLST9
  3184 092a 00 00 00 00 		.1byte	0x21
  3185 092c 00 00 00 00 		.4byte	0x11a3
  3186 092e 01          		.1byte	0x2
- 3187 092e 01 32       		.1byte	0x76
+ 3187 092e 01 31       		.1byte	0x76
  3188 092f 1E          		.1byte	0x4
  3189 0930 00 00 11 8D 		.1byte	0x0
  3190 0932 1E          		.1byte	0x0
@@ -4035,7 +4034,7 @@
  3207 0943 00 00 12 92 		.1byte	0x1
  3208 0945 0A          		.4byte	.LASF562
  3209 0946 00 00 03 68 		.1byte	0x1
- 3210 0948 01          		.2byte	0x1e8
+ 3210 0948 01          		.2byte	0x1e7
  3211 0948 00          		.1byte	0x1
  3212 0949 09          		.4byte	.LFB7
  3213 0949 00 00 00 29 		.4byte	.LFE7
@@ -4044,63 +4043,63 @@
  3216 094e 00 00 03 68 		.1byte	0x12
  3217 0950 02          		.4byte	.LASF550
  3218 0950 00          		.1byte	0x1
- 3219 0951 22          		.2byte	0x1e7
+ 3219 0951 22          		.2byte	0x1e6
  3220 0951 01          		.4byte	0x8a
  3221 0952 00 00 00 00 		.4byte	.LLST11
  3222 0954 01          		.1byte	0x23
- 3223 0954 01 E8       		.4byte	.LASF559
+ 3223 0954 01 E7       		.4byte	.LASF559
  3224 0955 01          		.1byte	0x1
- 3225 0956 00 00 00 00 		.2byte	0x1f3
+ 3225 0956 00 00 00 00 		.2byte	0x1f2
  3226 0958 00 00 00 00 		.4byte	0x3b
  3227 095a 00 00 00 00 		.4byte	.LLST12
  3228 095c 00 00 12 DD 		.1byte	0x0
  3229 095e 12          		.1byte	0x24
  3230 095e 00 00 00 00 		.1byte	0x1
  3231 0960 01          		.4byte	.LASF561
- 3232 0961 01 E7       		.1byte	0x1
- 3233 0962 00 00 00 8A 		.2byte	0x276
+ 3232 0961 01 E6       		.1byte	0x1
+ 3233 0962 00 00 00 8A 		.2byte	0x275
  3234 0964 00 00 00 00 		.1byte	0x1
  3235 0966 23          		.4byte	.LFB11
  3236 0966 00 00 00 00 		.4byte	.LFE11
  3237 0968 01          		.4byte	.LLST13
- 3238 0969 01 F3       		.1byte	0x22
+ 3238 0969 01 F2       		.1byte	0x22
  3239 096a 00 00 00 3B 		.1byte	0x1
  3240 096c 00 00 00 00 		.4byte	.LASF563
  3241 096e 00          		.1byte	0x1
- 3242 096e 24          		.2byte	0x1b7
+ 3242 096e 24          		.2byte	0x1b6
  3243 096f 01          		.1byte	0x1
  3244 096f 00 00 00 00 		.4byte	.LFB6
  3245 0971 01          		.4byte	.LFE6
- 3246 0972 02 76       		.4byte	.LLST14
+ 3246 0972 02 75       		.4byte	.LLST14
  3247 0973 01          		.4byte	0x131e
  3248 0973 00 00 00 00 		.1byte	0x12
  3249 0975 00 00 00 00 		.4byte	.LASF564
  3250 0977 00 00 00 00 		.1byte	0x1
- 3251 0979 22          		.2byte	0x1b6
+ 3251 0979 22          		.2byte	0x1b5
  3252 097a 01          		.4byte	0x131e
  3253 097a 00 00 00 00 		.4byte	.LLST15
  3254 097c 01          		.1byte	0x0
- 3255 097d 01 B7       		.1byte	0xf
+ 3255 097d 01 B6       		.1byte	0xf
  3256 097e 01          		.1byte	0x2
  3257 097e 00 00 00 00 		.4byte	0xe9b
  3258 0980 00 00 00 00 		.1byte	0x22
  3259 0982 00 00 00 00 		.1byte	0x1
  3260 0984 00 00 13 1E 		.4byte	.LASF565
  3261 0986 12          		.1byte	0x1
- 3262 0987 00 00 00 00 		.2byte	0x186
+ 3262 0987 00 00 00 00 		.2byte	0x185
  3263 0989 01          		.1byte	0x1
- 3264 0989 01 B6       		.4byte	.LFB5
+ 3264 0989 01 B5       		.4byte	.LFB5
  3265 098a 00 00 13 1E 		.4byte	.LFE5
  3266 098c 00 00 00 00 		.4byte	.LLST16
  3267 098e 00          		.4byte	0x134f
  3268 098f 0F          		.1byte	0x12
  3269 098f 02          		.4byte	.LASF564
  3270 0990 00 00 0E 9B 		.1byte	0x1
- 3271 0992 22          		.2byte	0x185
+ 3271 0992 22          		.2byte	0x184
  3272 0992 01          		.4byte	0x131e
  3273 0993 00 00 00 00 		.4byte	.LLST17
  3274 0995 01          		.1byte	0x0
- 3275 0995 01 86       		.1byte	0x25
+ 3275 0995 01 85       		.1byte	0x25
  3276 0996 01          		.4byte	.LASF570
  3277 0997 00 00 00 00 		.1byte	0xb
  3278 0999 00 00 00 00 		.1byte	0xc5
@@ -4109,7 +4108,7 @@
  3281 099f 12          		.1byte	0x1
  3282 099f 00 00 00 00 		.1byte	0x0
  3283 09a1 01          		.section	.debug_abbrev
- 3284 09a2 01 85       		.1byte	0x1
+ 3284 09a2 01 84       		.1byte	0x1
  3285 09a3 00 00 13 1E 		.1byte	0x11
  3286 09a5 00 00 00 00 		.1byte	0x1
  3287 09a7 00          		.1byte	0x25

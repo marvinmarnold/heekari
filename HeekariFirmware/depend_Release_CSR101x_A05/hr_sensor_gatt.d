@@ -38,5 +38,5 @@ depend_Release_CSR101x_A05/hr_sensor_gatt.o: hr_sensor_gatt.c \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/sys_events.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/sleep.h \
   app_gatt.h appearance.h gap_service.h gap_conn_params.h \
-  heart_rate_service.h battery_service.h switch_service.h \
-  heart_rate_service_uuids.h battery_uuids.h switch_uuids.h
+  heart_rate_service.h battery_service.h heart_rate_service_uuids.h \
+  battery_uuids.h switch_uuids.h

@@ -195,7 +195,6 @@ typedef struct
  *============================================================================*/
 
 extern HR_DATA_T g_hr_data;
-extern bool switch_intensity;
 
 /*============================================================================*
  *  Public Function Prototypes
@@ -203,7 +202,6 @@ extern bool switch_intensity;
 
 /* This function is used to set the state of the application */
 extern void AppSetState(app_state new_state);
-extern void FlipSwitch(void);
 
 #ifndef NO_ACTUAL_MEASUREMENT
 

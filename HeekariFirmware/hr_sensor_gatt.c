@@ -37,7 +37,6 @@
 #include "gap_service.h"
 #include "heart_rate_service.h"
 #include "battery_service.h"
-#include "switch_service.h"
 #include "heart_rate_service_uuids.h"
 #include "battery_uuids.h"
 #include "switch_uuids.h"
