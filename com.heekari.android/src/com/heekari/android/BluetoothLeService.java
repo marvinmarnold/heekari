@@ -17,6 +17,7 @@
 package com.heekari.android;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.UUID;
 
@@ -157,12 +158,18 @@ public class BluetoothLeService extends Service {
 			// For all other profiles, writes the data formatted in HEX.
 			final byte[] data = characteristic.getValue();
 			if (data != null && data.length > 0) {
+//				ByteBuffer wrapped = ByteBuffer.wrap(data); // big-endian by default
+//				int intensity = wrapped.getInt(); // 1
+//				Log.d(TAG, "BUUUUULLL " + data);
+//				intent.putExtra(EXTRA_DATA, 4);
 				final StringBuilder stringBuilder = new StringBuilder(
 						data.length);
 				for (byte byteChar : data)
 					stringBuilder.append(String.format("%02X ", byteChar));
-				intent.putExtra(EXTRA_DATA, new String(data) + "\n"
-						+ stringBuilder.toString());
+//				intent.putExtra(EXTRA_DATA, Integer.toString(Integer.parseInt(new String(data))));
+				char c = (new String(data)).charAt(0);
+				Log.d(TAG, "BUUUUULLL " + Integer.toString((int)c));
+				intent.putExtra(EXTRA_DATA, Integer.toString((int)c));
 			}
 		}
 		sendBroadcast(intent);

@@ -27,6 +27,7 @@ public class SampleGattAttributes {
     public static String CLIENT_CHARACTERISTIC_CONFIG = "00002902-0000-1000-8000-00805f9b34fb";
     public static String SWITCH_UUID = "5F55AEF5-09D6-48A5-B44B-E41D7DF55743";
 
+    public static String HEART_RATE_SERVICE = "0000180d-0000-1000-8000-00805f9b34fb";
     static {
         // Sample Services.
         attributes.put("0000180d-0000-1000-8000-00805f9b34fb", "Heart Rate Service");
@@ -41,5 +42,9 @@ public class SampleGattAttributes {
         String name = attributes.get(uuid);
         if(name == null) name = attributes.get(uuid.toUpperCase());
         return name == null ? defaultName : name;
+    }
+    
+    public static boolean isHRService(String uuid){
+    	return uuid.equals(HEART_RATE_SERVICE);
     }
 }
