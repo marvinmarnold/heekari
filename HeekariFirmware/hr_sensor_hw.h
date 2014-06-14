@@ -80,7 +80,7 @@ typedef struct
 
 typedef struct
 {
-    uint16                    last_dimmer_var;
+    uint16                    timer_id;
 }SWITCH_DIMMER_DATA_T;
 
 
@@ -140,8 +140,6 @@ extern void turnLightOffTimer(timer_id const id);
 extern uint32 turnOffDelay(void);
 
 extern uint32 turnOnDelay(void);
-
-extern uint32 lightIntensity(void);
 
 #endif /* __HR_SENSOR_HW_H__ */
 

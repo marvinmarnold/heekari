@@ -120,5 +120,5 @@ extern void HeartRateBondingNotify(void);
 extern void AdjustSwitchIntensity(uint8 new_switch_intensity);
 
 extern void WriteSwitchIntensity(void);
-
+extern uint8 SwitchIntensity(void);
 #endif /* __HEART_RATE_SERVICE_H__ */

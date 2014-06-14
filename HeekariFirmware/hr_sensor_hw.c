@@ -549,7 +549,8 @@ extern void HrInitSwitchHardware(void)
 
 extern void HrInitSwitchData(void)
 {
-    /* Reset last value */
+    g_dimmer_data.timer_id = NULL;
+
 }
 
 /*----------------------------------------------------------------------------*
@@ -566,8 +567,9 @@ extern void HrInitSwitchData(void)
 
 extern void HandleSwitchPIOChangedEvent(uint32 pio_changed)
 {
-    g_dimmer_data.last_dimmer_var = 0;
-    //delete all timers - marvin
+    if(g_dimmer_data.timer_id){
+        TimerDelete(g_dimmer_data.timer_id);
+    }
     //turn off light - hiro
     startTimer(turnOnDelay(), turnLightOnTimer);
 }
@@ -600,32 +602,27 @@ extern void startTimer(uint32 timeout, timer_callback_arg handler)
 }
 
 extern void turnLightOnTimer(timer_id const id){
+    g_dimmer_data.timer_id = id;
     //turn light on - hiro
     startTimer(turnOffDelay(), turnLightOffTimer);
 }
 
 /* Callback after second timeout */
 extern void turnLightOffTimer(timer_id const id){
+    g_dimmer_data.timer_id = id;
     //turn light off - hiro
 }
 
 /* Return in micro seconds */
 extern uint32 turnOffDelay(void){
-    uint32 d = lightIntensity() * LIGHT_FREQUENCY; // Fix - hiroshi
+    uint32 d = SwitchIntensity() * LIGHT_FREQUENCY; // Fix - hiroshi
 
     return d; 
 }
 
 /* Return in micro seconds */
 extern uint32 turnOnDelay(void){
-    uint32 d = (100 - lightIntensity()) * LIGHT_FREQUENCY; // Fix - hiroshi
+    uint32 d = (100 - SwitchIntensity()) * LIGHT_FREQUENCY; // Fix - hiroshi
 
     return d; 
 }
-
-/* return percentage 0-100 */
-extern uint32 lightIntensity(void){
-    uint32 intensity = 50; //Read from android - marvin
-
-    return intensity; 
-} 

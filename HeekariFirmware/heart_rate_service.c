@@ -110,6 +110,8 @@ extern void HRDataInit(void)
         g_hr_serv_data.hr_meas_client_config = gatt_client_config_none;
     }
 
+    g_hr_serv_data.switch_intensity = 0;
+
     /* As per section 3.1.1.3 of HR Service spec ver 1.0, "The energy expended 
      * field represents the accumulated energy expended in kilo Joules since the 
      * last time it was reset". So, there is a need to maintain energy expended 
@@ -392,6 +394,10 @@ extern void WriteSwitchIntensity(void){
                           sizeof(g_hr_serv_data.switch_intensity),
                           g_hr_serv_data.nvm_offset + 
                           HR_NVM_SWITCH_OFFSET);
+}
+
+extern uint8 SwitchIntensity(void){
+  return g_hr_serv_data.switch_intensity;
 }
 
 /*----------------------------------------------------------------------------*
