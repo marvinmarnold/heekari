@@ -31,10 +31,12 @@
 #define MAX_TIMERS 1
 
 /* First timeout at which the timer has to fire a callback */
-#define TIMER_TIMEOUT1 (1 * SECOND)
+#define TIMER_TIMEOUT1 (1 * MILLISECOND)
 
 /* Subsequent timeout at which the timer has to fire next callback */
-#define TIMER_TIMEOUT2 (3 * SECOND)
+#define TIMER_TIMEOUT2 (3)
+
+#define PIO_LIGHT 10
 
 /*============================================================================*
  *  Private Data
@@ -84,7 +86,7 @@ static uint8 writeASCIICodedNumber(uint32 value);
 static void startTimer(uint32 timeout, timer_callback_arg handler)
 {
     /* Now starting a timer */
-    PioSet(10,TRUE);
+    
     const timer_id tId = TimerCreate(timeout, TRUE, handler);
     
     /* If a timer could not be created, panic to restart the app */
@@ -113,6 +115,7 @@ static void startTimer(uint32 timeout, timer_callback_arg handler)
  *----------------------------------------------------------------------------*/
 static void timerCallback1(timer_id const id)
 {
+     PioSet(PIO_LIGHT, FALSE);   
     const uint32 elapsed = TIMER_TIMEOUT1 / SECOND;
     
     if (elapsed == 1)
@@ -125,7 +128,7 @@ static void timerCallback1(timer_id const id)
 
     /* Now start a new timer for second callback */
     
-    startTimer((TIMER_TIMEOUT2 - TIMER_TIMEOUT1), timerCallback2);
+    startTimer(TIMER_TIMEOUT1, timerCallback2);
 }
 
 /*----------------------------------------------------------------------------*
@@ -145,7 +148,7 @@ static void timerCallback1(timer_id const id)
 static void timerCallback2(timer_id const id)
 {
     const uint32 elapsed = TIMER_TIMEOUT2 / SECOND;
-    
+    PioSet(PIO_LIGHT, FALSE);
     if (elapsed == 1)
         DebugWriteString("1 second elapsed\r\n");
     else          
@@ -281,7 +284,19 @@ void AppPowerOnReset(void)
 void AppInit(sleep_state last_sleep_state)
 {
     /* Initialise communications */
-    
+    /* Set LIGHT to be controlled directly via PioSet */
+    PioSetModes((1UL << PIO_LIGHT), pio_mode_user);
+
+    /* Configure LED0 and LED1 to be outputs */
+    PioSetDir(PIO_LIGHT, TRUE);
+
+    /* Set the LED0 and LED1 to have strong internal pull ups */
+    PioSetPullModes((1UL << PIO_LIGHT),
+                    pio_mode_strong_pull_up);
+
+    /* Turn off both LEDs by setting output to Low */
+    PioSets((1UL << PIO_LIGHT), 0UL);
+    PioSet(PIO_LIGHT, FALSE); ///new
     DebugInit(1, NULL, NULL);
 
     DebugWriteString("\r\nInitialising timers");
@@ -291,6 +306,7 @@ void AppInit(sleep_state last_sleep_state)
     printCurrentTime();
 
     /* Start the first timer */
+    PioSet(PIO_LIGHT, TRUE); 
     startTimer(TIMER_TIMEOUT1, timerCallback1);
 }
 
