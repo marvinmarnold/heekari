@@ -610,52 +610,52 @@
  504      64 20 69 6E 
  504      74 00 
  505                 		.ascii "signed char\000"
- 506 0016 73 69 67 6E 	.LASF1:
+ 506 0016 73 69 67 6E 	.LASF9:
  506      65 64 20 63 
  506      68 61 72 00 
- 507                 		.ascii "short unsigned int\000"
- 508 001c 73 68 6F 72 	.LASF4:
- 508      74 20 75 6E 
- 508      73 69 67 6E 
- 508      65 64 20 69 
- 508      6E 74 00 
- 509                 		.ascii "short int\000"
- 510 0025 73 68 6F 72 	.LASF7:
- 510      74 20 69 6E 
- 510      74 00 
- 511                 		.ascii "GNU C 4.3.4 CSR version 21 for xap [1468380]\000"
- 512 002a 47 4E 55 20 	.LASF8:
- 512      43 20 34 2E 
- 512      33 2E 34 20 
- 512      43 53 52 20 
- 512      76 65 72 73 
- 513                 		.ascii "depend_Release_CSR101x_A05/app_gatt_db.c\000"
- 514 0041 64 65 70 65 	.LASF0:
- 514      6E 64 5F 52 
- 514      65 6C 65 61 
- 514      73 65 5F 43 
- 514      53 52 31 30 
- 515                 		.ascii "unsigned char\000"
- 516 0055 75 6E 73 69 	.LASF5:
- 516      67 6E 65 64 
- 516      20 63 68 61 
- 516      72 00 
- 517                 		.ascii "long int\000"
- 518 005c 6C 6F 6E 67 	.LASF11:
- 518      20 69 6E 74 
- 518      00 
- 519                 		.ascii "GattGetDatabase\000"
- 520 0061 47 61 74 74 	.LASF9:
- 520      47 65 74 44 
- 520      61 74 61 62 
- 520      61 73 65 00 
- 521                 		.ascii "C:\\Users\\pili\\git\\heekari\\HeekariFirmware\000"
- 522 0069 43 3A 5C 55 	.LASF10:
- 522      73 65 72 73 
- 522      5C 70 69 6C 
- 522      69 5C 67 69 
- 522      74 5C 68 65 
+ 507                 		.ascii "C:\\Users\\hiro\\Documents\\GitHub\\heekari\\HeekariFirmware\000"
+ 508 001c 43 3A 5C 55 	.LASF1:
+ 508      73 65 72 73 
+ 508      5C 68 69 72 
+ 508      6F 5C 44 6F 
+ 508      63 75 6D 65 
+ 509                 		.ascii "short unsigned int\000"
+ 510 0037 73 68 6F 72 	.LASF4:
+ 510      74 20 75 6E 
+ 510      73 69 67 6E 
+ 510      65 64 20 69 
+ 510      6E 74 00 
+ 511                 		.ascii "short int\000"
+ 512 0041 73 68 6F 72 	.LASF7:
+ 512      74 20 69 6E 
+ 512      74 00 
+ 513                 		.ascii "GNU C 4.3.4 CSR version 21 for xap [1468380]\000"
+ 514 0046 47 4E 55 20 	.LASF8:
+ 514      43 20 34 2E 
+ 514      33 2E 34 20 
+ 514      43 53 52 20 
+ 514      76 65 72 73 
+ 515                 		.ascii "depend_Release_CSR101x_A05/app_gatt_db.c\000"
+ 516 005c 64 65 70 65 	.LASF0:
+ 516      6E 64 5F 52 
+ 516      65 6C 65 61 
+ 516      73 65 5F 43 
+ 516      53 52 31 30 
+ 517                 		.ascii "unsigned char\000"
+ 518 0071 75 6E 73 69 	.LASF5:
+ 518      67 6E 65 64 
+ 518      20 63 68 61 
+ 518      72 00 
+ 519                 		.ascii "long int\000"
+ 520 0078 6C 6F 6E 67 	.LASF11:
+ 520      20 69 6E 74 
+ 520      00 
+ 521                 		.ascii "GattGetDatabase\000"
+ 522 007c 47 61 74 74 	.LASF10:
+ 522      47 65 74 44 
+ 522      61 74 61 62 
+ 522      61 73 65 00 
  523                 		.ascii "uint16\000"
- 524 007e 75 69 6E 74 		.ident	"GCC: (GNU) 4.3.4 CSR version 21 for xap [1468380]"
+ 524 0084 75 69 6E 74 		.ident	"GCC: (GNU) 4.3.4 CSR version 21 for xap [1468380]"
  524      31 36 00 
  525                 	...

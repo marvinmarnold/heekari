@@ -382,9 +382,14 @@ extern void AdjustSwitchIntensity(uint8 new_switch_intensity)
     // p_val = &switch_intensity;
     g_hr_serv_data.switch_intensity = new_switch_intensity;
     WriteSwitchIntensity();
-
+    if(new_switch_intensity > 50){
+      PioSet(10, TRUE);
+    }
+    if(new_switch_intensity < 50){
+      PioSet(10, FALSE);
+    }
     // switch_intensity = new_switch_intensity;//GetSwitchIntensity();
-    // PioSet(PIO_LIGHT, new_switch_intensity);
+     
 }
 
 extern void WriteSwitchIntensity(void){
