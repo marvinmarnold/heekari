@@ -73,7 +73,7 @@
   49:hr_sensor.c   ****  *============================================================================*/
   50:hr_sensor.c   **** 
   51:hr_sensor.c   **** /* Maximum number of timers */
-  52:hr_sensor.c   **** #define MAX_APP_TIMERS                 (6)
+  52:hr_sensor.c   **** #define MAX_APP_TIMERS                 (7)
   53:hr_sensor.c   **** 
   54:hr_sensor.c   **** /*Number of IRKs that application can store */
   55:hr_sensor.c   **** #define MAX_NUMBER_IRK_STORED          (1)
@@ -2573,17 +2573,17 @@
  189 0078 00 00 00 26 		ld	X,@(0x0016,Y)
  190 007a 01 30       		st	AH,@(0,X)
  191                 		.loc 1 661 0
- 192 007b 16 1B       		ld	AL,@hr_meas_count.2793.
+ 192 007b 16 1B       		ld	AL,@hr_meas_count.2806.
  193 007c 00 22       		add	AL,#0x0001
  661:hr_sensor.c   ****         ++ hr_meas_count;
- 194                 	r_meas_count.2793.
+ 194                 	r_meas_count.2806.
  195 007d 00 00 00 15 		.loc 1 667 0
  196 007f 01 34       		ld	AL,#0x0002
  197 0080 00 00 00 25 		bsr	HeartRateIncEnergyExpended
  667:hr_sensor.c   ****         HeartRateIncEnergyExpended(ENERGY_EXP_PER_HR_MEAS);
  198                 	9:
  199 0082 02 14       		.loc 1 673 0
- 200 0083 00 00 00 00 		ld	AL,@hr_meas_count.2793.
+ 200 0083 00 00 00 00 		ld	AL,@hr_meas_count.2806.
  200      00 9C 
  201                 		cmp	AL,#0x0009
  673:hr_sensor.c   ****         if(hr_meas_count / HR_MEAS_ENERGY_EXP_PERIOD)
@@ -2619,7 +2619,7 @@
  225 00a2 15 1B       		st	AH,@(g_hr_data+39+0,X)
  226 00a3 00 00 00 12 		.loc 1 682 0
  227 00a5 08 B0       		ld	AL,#0x0000
- 228 00a6 00 00 00 22 		st	AL,@hr_meas_count.2793.
+ 228 00a6 00 00 00 22 		st	AL,@hr_meas_count.2806.
  682:hr_sensor.c   ****             hr_meas_count = 0;
  229                 	
  230 00a8 00 14       		.loc 1 685 0
@@ -3053,13 +3053,13 @@
  452                 	.LVL28:
 2366:hr_sensor.c   ****     uint16 gatt_db_length = 0;
  453                 	c 1 2375 0
- 454 0001 00 14       		ld	AL,#0x0006
+ 454 0001 00 14       		ld	AL,#0x0007
  455                 		ld	AH,#app_timers
  456 0002 02 27       		bsr	TimerInit
  457                 		.loc 1 2378 0
 2375:hr_sensor.c   ****     TimerInit(MAX_APP_TIMERS, (void*)app_timers);
  458                 	GattInit
- 459 0003 06 14       		.loc 1 2383 0
+ 459 0003 07 14       		.loc 1 2383 0
  460 0004 00 00 00 10 		bsr	GattInstallServerWrite
  461 0006 00 00 00 00 		.loc 1 2386 0
  461      00 9C 
@@ -3401,15 +3401,15 @@
  707                 		enter	#0x0005
  708                 	.LCFI8:
  709                 		.loc 1 768 0
- 710                 		ld	X,@C.7..2836.
+ 710                 		ld	X,@C.7..2849.
  760:hr_sensor.c   **** {
  711                 	)
- 712                 		ld	X,@C.7..2836.+0x0001
+ 712                 		ld	X,@C.7..2849.+0x0001
  713 0000 05 0B       		st	X,@(0x0001,Y)
- 714                 		ld	X,@C.7..2836.+0x0002
+ 714                 		ld	X,@C.7..2849.+0x0002
  768:hr_sensor.c   ****             };
  715                 	X,@(0x0002,Y)
- 716 0001 00 00 00 19 		ld	X,@C.7..2836.+0x0003
+ 716 0001 00 00 00 19 		ld	X,@C.7..2849.+0x0003
  717 0003 00 2B       		st	X,@(0x0003,Y)
  718 0004 00 00 00 19 		.loc 1 770 0
  719 0006 01 2B       		ld	AH,@g_hr_data+0x0012
@@ -5039,29 +5039,29 @@
  1809 0023 00 00 00 00 		.equ	__size_of_HandleHRInputEvent,. - HandleHRInputEvent
  1809      00 F8 
  532:hr_sensor.c   ****         ++ g_hr_data.pending_rr_values.num;
- 1810                 	ction	.rodata.C.7..2836.,"a",@progbits
- 1811 0026 01 34       		.type	C.7..2836., @object
- 1812 0027 00 00 00 25 		.size	C.7..2836., 4
- 1813 0029 00 00 00 00 	C.7..2836.:
+ 1810                 	ction	.rodata.C.7..2849.,"a",@progbits
+ 1811 0026 01 34       		.type	C.7..2849., @object
+ 1812 0027 00 00 00 25 		.size	C.7..2849., 4
+ 1813 0029 00 00 00 00 	C.7..2849.:
  1813      00 E0 
  1814                 		.word	0x0320
  536:hr_sensor.c   ****         g_hr_data.pending_rr_values.start_idx = (add_idx + 1) % 
  1815                 	d	0x0320
  1816 002c 01 38       		.word	0x0000
  1817 002d 07 C8       		.word	0x0258
- 1818 002e 00 00 00 29 		.section	.bss.hr_meas_count.2793.,"aw",@nobits
- 1819 0030 00 00 00 00 		.type	hr_meas_count.2793., @object
+ 1818 002e 00 00 00 29 		.section	.bss.hr_meas_count.2806.,"aw",@nobits
+ 1819 0030 00 00 00 00 		.type	hr_meas_count.2806., @object
  1819      00 E0 
- 1820                 		.size	hr_meas_count.2793., 1
- 1821                 	hr_meas_count.2793.:
+ 1820                 		.size	hr_meas_count.2806., 1
+ 1821                 	hr_meas_count.2806.:
  1822                 		.space	1
  1823                 		.section	.bss.app_timers,"aw",@nobits
 1948:hr_sensor.c   ****             AppSetState(app_state_fast_advertising);
  1824                 	p_timers, @object
- 1825 0033 01 14       		.size	app_timers, 36
+ 1825 0033 01 14       		.size	app_timers, 42
 1957:hr_sensor.c   **** }
  1826                 	p_timers:
- 1827 0034 02 1B       		.space	36
+ 1827 0034 02 1B       		.space	42
  1828 0035 03 3C       		.comm g_hr_data, 64, 1
 1948:hr_sensor.c   ****             AppSetState(app_state_fast_advertising);
  1829                 	
@@ -11481,7 +11481,7 @@
  8237 15bf 00 00 2A 95 		.4byte	0x29
  8238 15c1 00 00 00 00 		.1byte	0x5
  8239 15c3 00 00 00 00 		.1byte	0x3
- 8240 15c5 01          		.4byte	hr_meas_count.2793.
+ 8240 15c5 01          		.4byte	hr_meas_count.2806.
  8241 15c5 02 7D       		.1byte	0x0
  8242 15c6 21          		.1byte	0x9
  8243 15c7 00 00 2A A7 		.4byte	0x29
@@ -12238,7 +12238,7 @@
  8994 192f 00 00 00 00 		.4byte	0x32b8
  8995 1931 00 00 00 00 		.1byte	0xa
  8996 1933 00 00 32 A8 		.4byte	0x42d
- 8997 1935 36          		.1byte	0x23
+ 8997 1935 36          		.1byte	0x29
  8998 1935 52 52 00    		.1byte	0x0
  8999 1937 01          		.1byte	0x37
  9000 1937 07 8E       		.4byte	.LASF851
@@ -12268,7 +12268,7 @@
  9024 1956 00 00 32 B8 		.section	.debug_abbrev
  9025 1958 0A          		.1byte	0x1
  9026 1959 00 00 04 2D 		.1byte	0x11
- 9027 195b 23          		.1byte	0x1
+ 9027 195b 29          		.1byte	0x1
  9028 195b 00          		.1byte	0x25
  9029 195c 37          		.1byte	0xe
  9030 195c 00 00 00 00 		.1byte	0x13

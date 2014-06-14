@@ -18,6 +18,7 @@
 #include <pio.h>
 #include <pio_ctrlr.h>
 #include <timer.h>
+#include <panic.h>          /* Support for applications to panic */
 
 /*============================================================================*
  *  Local Header Files
@@ -29,6 +30,7 @@
 #include "heart_rate_service.h"
 #include "app_gatt_db.h"
 #include "app_gatt.h"
+
 
 /*============================================================================*
  *  Private Definitions
@@ -92,7 +94,12 @@
 
 #define DIMMER_PIO              (3)
 
-#define DIMMER_PIO_MASK         (PIO_BIT_MASK(BUZZER_PIO))                                
+#define DIMMER_PIO_MASK         (PIO_BIT_MASK(BUZZER_PIO)) 
+
+/* Number of timers used in this application */
+#define MAX_TIMERS 1
+
+#define LIGHT_FREQUENCY         (60) /* in hz */                  
 
 /*============================================================================*
  *  Public data
@@ -494,7 +501,6 @@ extern void HandlePIOChangedEvent(uint32 pio_changed)
         /* Process the event on the falling edge and ignore the rising edge 
          * events.
          */
-        // FlipSwitch();
         if(!(pios & HR_INPUT_PIO_MASK))
         {
             HandleHRInputEvent();
@@ -561,5 +567,65 @@ extern void HrInitSwitchData(void)
 extern void HandleSwitchPIOChangedEvent(uint32 pio_changed)
 {
     g_dimmer_data.last_dimmer_var = 0;
-    // FlipSwitch();
+    //delete all timers - marvin
+    //turn off light - hiro
+    startTimer(turnOnDelay(), turnLightOnTimer);
 }
+
+/*----------------------------------------------------------------------------*
+ *  NAME
+ *      startTimer
+ *
+ *  DESCRIPTION
+ *      Start a timer
+ *
+ * PARAMETERS
+ *      timeout [in]    Timeout period in seconds
+ *      handler [in]    Callback handler for when timer expires
+ *
+ * RETURNS
+ *      Nothing
+ *----------------------------------------------------------------------------*/
+extern void startTimer(uint32 timeout, timer_callback_arg handler)
+{
+    /* Now starting a timer */
+    const timer_id tId = TimerCreate(timeout, TRUE, handler);
+    
+    /* If a timer could not be created, panic to restart the app */
+    if (tId == TIMER_INVALID)
+    { 
+        /* Panic with panic code 0xfe */
+        Panic(0xfe);
+    }
+}
+
+extern void turnLightOnTimer(timer_id const id){
+    //turn light on - hiro
+    startTimer(turnOffDelay(), turnLightOffTimer);
+}
+
+/* Callback after second timeout */
+extern void turnLightOffTimer(timer_id const id){
+    //turn light off - hiro
+}
+
+/* Return in micro seconds */
+extern uint32 turnOffDelay(void){
+    uint32 d = lightIntensity() * LIGHT_FREQUENCY; // Fix - hiroshi
+
+    return d; 
+}
+
+/* Return in micro seconds */
+extern uint32 turnOnDelay(void){
+    uint32 d = (100 - lightIntensity()) * LIGHT_FREQUENCY; // Fix - hiroshi
+
+    return d; 
+}
+
+/* return percentage 0-100 */
+extern uint32 lightIntensity(void){
+    uint32 intensity = 50; //Read from android - marvin
+
+    return intensity; 
+} 

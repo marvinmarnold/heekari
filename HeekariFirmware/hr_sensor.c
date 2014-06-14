@@ -50,7 +50,7 @@
  *============================================================================*/
 
 /* Maximum number of timers */
-#define MAX_APP_TIMERS                 (6)
+#define MAX_APP_TIMERS                 (7)
 
 /*Number of IRKs that application can store */
 #define MAX_NUMBER_IRK_STORED          (1)

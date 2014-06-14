@@ -9,6 +9,8 @@ depend_Release_CSR101x_A05/hr_sensor_hw.o: hr_sensor_hw.c \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/pio_ctrlr.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/timer.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/time.h \
+  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/panic.h \
+  C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/fault.h \
   hr_sensor.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/types.h \
   C:/CSR_uEnergy_SDK-2.2.2.13/tools/include/CSR101x_A05/bt_event_types.h \

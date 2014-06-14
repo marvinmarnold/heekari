@@ -128,5 +128,20 @@ extern void HrInitSwitchData(void);
 /* This function handles PIO Changed event */
 extern void HandleSwitchPIOChangedEvent(uint32 pio_changed);
 
+/* Start timer */
+extern void startTimer(uint32 timeout, timer_callback_arg handler);
+
+/* Callback after first timeout */
+extern void turnLightOnTimer(timer_id const id);
+
+/* Callback after second timeout */
+extern void turnLightOffTimer(timer_id const id);
+
+extern uint32 turnOffDelay(void);
+
+extern uint32 turnOnDelay(void);
+
+extern uint32 lightIntensity(void);
+
 #endif /* __HR_SENSOR_HW_H__ */
 
