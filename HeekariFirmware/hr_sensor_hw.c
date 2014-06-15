@@ -94,7 +94,7 @@
 
 #define DIMMER_PIO              (3)
 
-#define DIMMER_PIO_MASK         (PIO_BIT_MASK(BUZZER_PIO)) 
+#define DIMMER_PIO_MASK         (PIO_BIT_MASK(HR_INPUT_PIO)) 
 
 /* Number of timers used in this application */
 #define MAX_TIMERS 1
@@ -567,10 +567,12 @@ extern void HrInitSwitchData(void)
 
 extern void HandleSwitchPIOChangedEvent(uint32 pio_changed)
 {
-    if(g_dimmer_data.timer_id){
+    /*if(g_dimmer_data.timer_id){
         TimerDelete(g_dimmer_data.timer_id);
-    }
+    }*/
     //turn off light - hiro
+   // PioSet(10,TRUE); // just to debugg
+    
     startTimer(turnOnDelay(), turnLightOnTimer);
 }
 
@@ -579,7 +581,7 @@ extern void HandleSwitchPIOChangedEvent(uint32 pio_changed)
  *      startTimer
  *
  *  DESCRIPTION
- *      Start a timer
+ *      Start a timer,
  *
  * PARAMETERS
  *      timeout [in]    Timeout period in seconds
@@ -604,6 +606,8 @@ extern void startTimer(uint32 timeout, timer_callback_arg handler)
 extern void turnLightOnTimer(timer_id const id){
     g_dimmer_data.timer_id = id;
     //turn light on - hiro
+    //PioSet(10,FALSE);
+    PioSet(10,TRUE);
     startTimer(turnOffDelay(), turnLightOffTimer);
 }
 
@@ -611,18 +615,19 @@ extern void turnLightOnTimer(timer_id const id){
 extern void turnLightOffTimer(timer_id const id){
     g_dimmer_data.timer_id = id;
     //turn light off - hiro
+    PioSet(10,FALSE);
 }
 
 /* Return in micro seconds */
 extern uint32 turnOffDelay(void){
-    uint32 d = SwitchIntensity() * LIGHT_FREQUENCY; // Fix - hiroshi
-
+    //uint32 d = SwitchIntensity() * LIGHT_FREQUENCY; // Fix - hiroshi
+    uint32 d = 10 ;// wait 10 micro seconds to make sure TRIAC stays ON
     return d; 
 }
 
 /* Return in micro seconds */
 extern uint32 turnOnDelay(void){
-    uint32 d = (100 - SwitchIntensity()) * LIGHT_FREQUENCY; // Fix - hiroshi
-
+    //uint32 d = (100 - SwitchIntensity()) * LIGHT_FREQUENCY; // Fix - hiroshi
+    uint32 d = (50) * 83 ; 
     return d; 
 }
