@@ -110,7 +110,7 @@
 /* Idle time out period in Connected state. Device will disconnect with the
  * connected host at the expiry of this timer
  */
-#define CONNECTED_IDLE_TIMEOUT_VALUE   (10 * SECOND)
+#define CONNECTED_IDLE_TIMEOUT_VALUE   (300 * SECOND)
 
 /* RR intervals are stored in the circular queue in units of 1/1024 seconds,
  * that is, an RR interval of 1 means that the RR interval is 1/1024 s. When

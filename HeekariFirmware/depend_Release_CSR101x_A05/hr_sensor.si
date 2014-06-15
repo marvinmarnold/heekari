@@ -133,7 +133,7 @@
  109:hr_sensor.c   **** /* Idle time out period in Connected state. Device will disconnect with the
  110:hr_sensor.c   ****  * connected host at the expiry of this timer
  111:hr_sensor.c   ****  */
- 112:hr_sensor.c   **** #define CONNECTED_IDLE_TIMEOUT_VALUE   (10 * SECOND)
+ 112:hr_sensor.c   **** #define CONNECTED_IDLE_TIMEOUT_VALUE   (300 * SECOND)
  113:hr_sensor.c   **** 
  114:hr_sensor.c   **** /* RR intervals are stored in the circular queue in units of 1/1024 seconds,
  115:hr_sensor.c   ****  * that is, an RR interval of 1 means that the RR interval is 1/1024 s. When
@@ -2406,9 +2406,9 @@
   52 0007 01 14       		st	AL,@(0,Y)
   53 0008 00 27       		ld	X,#hrSensorIdleTimerHandler
   54 0009 00 00 00 18 		st	X,@(0x0001,Y)
-  55 000b 01 2B       		ld	AH,#0x0098
-  56 000c 01 00 98 10 		ld	AL,#0x9680
-  57 000e 97 00 80 14 		bsr	TimerCreate
+  55 000b 01 2B       		ld	AH,#0x11e1
+  56 000c 12 00 E1 10 		ld	AL,#0xa300
+  57 000e A3 00 00 14 		bsr	TimerCreate
   58 0010 00 00 00 00 		ld	X,#g_hr_data+3
   58      00 9C 
   59 0013 00 00 00 18 		st	AL,@(0,X)
