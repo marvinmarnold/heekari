@@ -35,3 +35,4 @@ proguard/
 *.xuv
 *.mak
 *.img
+*.map
