@@ -58,6 +58,7 @@ public class BluetoothLeService extends Service {
 	public final static String ACTION_GATT_DISCONNECTED = "com.example.bluetooth.le.ACTION_GATT_DISCONNECTED";
 	public final static String ACTION_GATT_SERVICES_DISCOVERED = "com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED";
 	public final static String ACTION_DATA_AVAILABLE = "com.example.bluetooth.le.ACTION_DATA_AVAILABLE";
+	public final static String PROXIMITY_DATA_AVAILABLE = "com.example.bluetooth.le.PROXIMITY_DATA_AVAILABLE";
 	public final static String EXTRA_DATA = "com.example.bluetooth.le.EXTRA_DATA";
 
 	public final static UUID UUID_HEART_RATE_MEASUREMENT = UUID
@@ -101,9 +102,12 @@ public class BluetoothLeService extends Service {
 		@Override
 		public void onCharacteristicRead(BluetoothGatt gatt,
 				BluetoothGattCharacteristic characteristic, int status) {
-			Log.d(TAG, "Characteristic read");
+			Log.d(TAG, "Characteristic read with status " + status);
 			if (status == BluetoothGatt.GATT_SUCCESS) {
+				Log.d(TAG, "AND IT WAS SOOOOO SUCCESSFUL");
 				broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
+			} else {
+				Log.d(TAG, "TOO BAD IT FAILED");
 			}
 		}
 
@@ -126,17 +130,38 @@ public class BluetoothLeService extends Service {
 
 		
 		};
+
+		@Override
+		public void onReadRemoteRssi(BluetoothGatt gatt, int rssi, int status) {
+			Log.d(TAG, "Characteristic read with status " + status);
+			if (status == BluetoothGatt.GATT_SUCCESS) {
+				Log.d(TAG, "RSSI WAS SOOOOO SUCCESSFUL");
+			} else {
+				Log.d(TAG, "RSSI FAILED");
+			}
+			Log.d(TAG, "IN ANY CASE RSSI IS " + rssi);
+			broadcastProximity(PROXIMITY_DATA_AVAILABLE, rssi);
+
+		}
 	};
 
 	private void broadcastUpdate(final String action) {
 		final Intent intent = new Intent(action);
 		sendBroadcast(intent);
 	}
+	
+	private void broadcastProximity(final String action, int proximity) {
+		final Intent intent = new Intent(action);
+		intent.putExtra(EXTRA_DATA, proximity);
+		
+		Log.d(TAG, "SENT PROXIMITY BROADCAST");
+		sendBroadcast(intent);
+	}
 
 	private void broadcastUpdate(final String action,
 			final BluetoothGattCharacteristic characteristic) {
 		final Intent intent = new Intent(action);
-
+		Log.d(TAG, "Received unknown (for now) characteristic " + characteristic.getValue());
 		// This is special handling for the Heart Rate Measurement profile. Data
 		// parsing is
 		// carried out as per profile specifications:
@@ -400,5 +425,9 @@ public class BluetoothLeService extends Service {
 			return null;
 
 		return mBluetoothGatt.getServices();
+	}
+	
+	public boolean readRemoteRssi() {
+		return mBluetoothGatt.readRemoteRssi();
 	}
 }

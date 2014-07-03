@@ -28,14 +28,31 @@ public class SampleGattAttributes {
     public static String SWITCH_UUID = "5F55AEF5-09D6-48A5-B44B-E41D7DF55743";
 
     public static String HEART_RATE_SERVICE = "0000180d-0000-1000-8000-00805f9b34fb";
+    
+    // Security tag
+    public static String ALERT_SERVICE = "00001802-0000-1000-8000-00805f9b34fb";
+    public static String ALERT_LEVEL = "00002a06-0000-1000-8000-00805f9b34fb";
+    
+    
+    public static String LINK_LOSS_SERVICE = "00001803-0000-1000-8000-00805f9b34fb";
+    
+    public static String TX_SERVICE = "00001804-0000-1000-8000-00805f9b34fb";
+    public static String TX_POWER_LEVEL = "00002a07-0000-1000-8000-00805f9b34fb";
+    
     static {
         // Sample Services.
-        attributes.put("0000180d-0000-1000-8000-00805f9b34fb", "Heart Rate Service");
+        attributes.put(HEART_RATE_SERVICE, "Heart Rate Service");
         attributes.put("0000180a-0000-1000-8000-00805f9b34fb", "Device Information Service");
         // Sample Characteristics.
         attributes.put(HEART_RATE_MEASUREMENT, "Heart Rate Measurement");
         attributes.put("00002a29-0000-1000-8000-00805f9b34fb", "Manufacturer Name String");
         attributes.put(SWITCH_UUID, "Switch state");
+        
+        attributes.put(ALERT_SERVICE, "Alert Service");
+        attributes.put(ALERT_LEVEL, "Alert Level");
+        attributes.put(LINK_LOSS_SERVICE, "Link Loss Service");
+        attributes.put(TX_SERVICE, "TX Service");
+        attributes.put(TX_POWER_LEVEL, "TX Power Level");
     }
 
     public static String lookup(String uuid, String defaultName) {
@@ -45,6 +62,7 @@ public class SampleGattAttributes {
     }
     
     public static boolean isHRService(String uuid){
-    	return uuid.equals(HEART_RATE_SERVICE);
+    	return true;
+//    	return uuid.equals(HEART_RATE_SERVICE);
     }
 }

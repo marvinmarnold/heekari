@@ -38,6 +38,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -61,9 +62,11 @@ public class DeviceControlActivity extends Activity {
 
 	private TextView mConnectionState;
 	private TextView mDataField;
+	private TextView mProximityField;
 	private String mDeviceName;
 	private String mDeviceAddress;
 	private SeekBar mLightSwitch;
+	private Button mProximityButton;
 	private ExpandableListView mGattServicesList;
 	private BluetoothLeService mBluetoothLeService;
 	private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
@@ -107,7 +110,7 @@ public class DeviceControlActivity extends Activity {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			final String action = intent.getAction();
-			Log.d(TAG, "Received characteristic ######## " + action);
+			Log.d(TAG, "Received A NEW FUCKING BROADCAST " + action);
 			if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
 				mConnected = true;
 				updateConnectionState(R.string.connected);
@@ -127,6 +130,13 @@ public class DeviceControlActivity extends Activity {
 			} else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
 				displayData(intent
 						.getStringExtra(BluetoothLeService.EXTRA_DATA));
+			} else if (BluetoothLeService.PROXIMITY_DATA_AVAILABLE.equals(action)) {
+				Log.d(TAG, "111111 Should display proximity now");
+				int prox = intent.getIntExtra(BluetoothLeService.EXTRA_DATA, 0);
+				prox = -prox;
+				displayProximity(Integer.toString(prox));
+				mLightSwitch.setProgress(prox);
+				writeIntensityToDevice(prox);
 			}
 		}
 	};
@@ -188,41 +198,15 @@ public class DeviceControlActivity extends Activity {
 		mGattServicesList.setOnChildClickListener(servicesListClickListner);
 		mConnectionState = (TextView) findViewById(R.id.connection_state);
 		mDataField = (TextView) findViewById(R.id.data_value);
+		mProximityField = (TextView) findViewById(R.id.proximity);
 
 		mLightSwitch = (SeekBar) findViewById(R.id.light_switch);
 		mLightSwitch.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
 			@Override
 			public void onProgressChanged(SeekBar arg0, int intensity, boolean arg2) {
-	//			BluetoothGattCharacteristic characteristic = mGattCharacteristics.get(2).get(0);
-				BluetoothGattCharacteristic characteristic = null;
-				for(ArrayList<BluetoothGattCharacteristic> service : mGattCharacteristics) {
-					for(BluetoothGattCharacteristic c : service) {
-						Log.d(TAG, "Passed UUID " + c.getUuid());
-						if(c.getUuid().equals(UUID.fromString("5F55AEF5-09D6-48A5-B44B-E41D7DF55743"))) {
-							Log.d(TAG, "KKKKKKKKKKept " + c.getUuid());
-							Log.d(TAG, "Before change "+ c.getValue());
-							characteristic = c;
-						}
-						
-					}
-				}
-				if(characteristic == null) {
-					Log.d(TAG, "Cant find characteristic");
-				} else {
-					Log.d(TAG, "Turning switch to " + intensity);
-					
-//					byte[] buffer = { (byte) (intensity & 0xFF) };
-				    byte[] buffer = new byte[4];
-				    buffer[0] = (byte) (intensity & 0xFF);   
-//				    buffer[0] = (byte) ((intensity >> 24) & 0xFF);
-				    buffer[1] = (byte) ((intensity >> 8) & 0xFF);   
-				    buffer[2] = (byte) ((intensity >> 16) & 0xFF);   
-				    buffer[3] = (byte) ((intensity >> 24) & 0xFF);
-					mBluetoothLeService.writePacket(characteristic, buffer, 1);
-					Log.d(TAG, "Turned switch to " + intensity);
-				}
-				
+	//			
+				writeIntensityToDevice(intensity);
 			}
 
 			@Override
@@ -240,42 +224,15 @@ public class DeviceControlActivity extends Activity {
 
 			
 		});
-//		mLightSwitch.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View view) {
-//				boolean on = ((ToggleButton) view).isChecked();
-////				BluetoothGattCharacteristic characteristic = mGattCharacteristics.get(2).get(0);
-//				BluetoothGattCharacteristic characteristic = null;
-//				for(ArrayList<BluetoothGattCharacteristic> service : mGattCharacteristics) {
-//					for(BluetoothGattCharacteristic c : service) {
-//						Log.d(TAG, "Passed UUID " + c.getUuid());
-//						if(c.getUuid().equals(UUID.fromString("5F55AEF5-09D6-48A5-B44B-E41D7DF55743"))) {
-//							Log.d(TAG, "KKKKKKKKKKept " + c.getUuid());
-//							Log.d(TAG, "Before change "+ c.getValue());
-//							characteristic = c;
-//						}
-//						
-//					}
-//				}
-//				if(characteristic == null) {
-//					Log.d(TAG, "Cant find characteristic");
-//				} else {
-//					Log.d(TAG, "Found characteristic");
-//					if (on) {
-//						Log.d(TAG, "Turn off");
-//						byte[] buffer = { (byte) 0 };
-//						mBluetoothLeService.writePacket(characteristic, buffer, 1);
-//						Log.d(TAG, "Turned off");
-//					} else {
-//						Log.d(TAG, "Turn on");
-//						byte[] buffer = { (byte) 1  };
-//						mBluetoothLeService.writePacket(characteristic, buffer, 1);
-//						Log.d(TAG, "Turned on");
-//					}
-//				}
-//				
-//			}
-//		});
+		
+		mProximityButton = (Button) findViewById(R.id.proximity_button);
+		
+		mProximityButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				mBluetoothLeService.readRemoteRssi();
+			}
+		});
 
 		getActionBar().setTitle(mDeviceName);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -349,6 +306,12 @@ public class DeviceControlActivity extends Activity {
 			mDataField.setText(data);
 		}
 	}
+	
+	private void displayProximity(String data) {
+		if (data != null) {
+			mProximityField.setText(data);
+		}
+	}
 
 	// Demonstrates how to iterate through the supported GATT
 	// Services/Characteristics.
@@ -415,6 +378,37 @@ public class DeviceControlActivity extends Activity {
 		intentFilter
 				.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
 		intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
+		intentFilter.addAction(BluetoothLeService.PROXIMITY_DATA_AVAILABLE);
 		return intentFilter;
+	}
+	
+	public void writeIntensityToDevice(int intensity) {
+		BluetoothGattCharacteristic characteristic = null;
+		for(ArrayList<BluetoothGattCharacteristic> service : mGattCharacteristics) {
+			for(BluetoothGattCharacteristic c : service) {
+				Log.d(TAG, "Passed UUID " + c.getUuid());
+				if(c.getUuid().equals(UUID.fromString("5F55AEF5-09D6-48A5-B44B-E41D7DF55743"))) {
+					Log.d(TAG, "KKKKKKKKKKept " + c.getUuid());
+					Log.d(TAG, "Before change "+ c.getValue());
+					characteristic = c;
+				}
+				
+			}
+		}
+		if(characteristic == null) {
+			Log.d(TAG, "Cant find characteristic");
+		} else {
+			Log.d(TAG, "Turning switch to " + intensity);
+			
+//			byte[] buffer = { (byte) (intensity & 0xFF) };
+		    byte[] buffer = new byte[4];
+		    buffer[0] = (byte) (intensity & 0xFF);   
+//		    buffer[0] = (byte) ((intensity >> 24) & 0xFF);
+		    buffer[1] = (byte) ((intensity >> 8) & 0xFF);   
+		    buffer[2] = (byte) ((intensity >> 16) & 0xFF);   
+		    buffer[3] = (byte) ((intensity >> 24) & 0xFF);
+			mBluetoothLeService.writePacket(characteristic, buffer, 1);
+			Log.d(TAG, "Turned switch to " + intensity);
+		}
 	}
 }
