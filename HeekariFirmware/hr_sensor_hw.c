@@ -532,7 +532,7 @@ extern void HrInitSwitchHardware(void)
     PioEnableEdgeCapture(TRUE, FALSE);
 
     /* Setup events on both rising as well as falling edges */
-    PioSetEventMask(DIMMER_PIO_MASK, pio_event_mode_both);
+    PioSetEventMask(DIMMER_PIO_MASK, pio_event_mode_rising);
 }
 
 /*----------------------------------------------------------------------------*
@@ -620,13 +620,13 @@ extern void turnLightOffTimer(timer_id const id){
 /* Return in micro seconds */
 extern uint32 turnOffDelay(void){
     //uint32 d = SwitchIntensity() * LIGHT_FREQUENCY; // Fix - hiroshi
-    uint32 d = (50) *83 ;// wait 10 micro seconds to make sure TRIAC stays ON
+    uint32 d = 20;// wait 10 micro seconds to make sure TRIAC stays ON
     return d; 
 }
 
 /* Return in micro seconds */
 extern uint32 turnOnDelay(void){
-    //uint32 d = (100 - SwitchIntensity()) * LIGHT_FREQUENCY; // Fix - hiroshi
-    uint32 d = (50) * 83 ; 
+    uint32 d = (100 - SwitchIntensity()) * 83; // Fix - hiroshi
+    //uint32 d = (50) * 83 ; 
     return d; 
 }
