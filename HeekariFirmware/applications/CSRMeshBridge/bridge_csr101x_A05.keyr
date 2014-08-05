@@ -1,0 +1,18 @@
+>DECIMAL_CS_VERSION=74
+
+// (0001) - Bluetooth device address
+&BDADDR = 1580 5b03 0002
+
+// (0002) - Crystal frequency trim
+&CRYSTAL_FTRIM = 0020
+
+//  CSR_MESH_CS_USERKEY_INDEX_ADV_INTERVAL = 0
+//  CSR_MESH_CS_USERKEY_INDEX_ADV_TIME = 1
+
+&USER_KEYS = 003C 01E0 0000 0000 0000 0000 0000 0000
+
+// Always set the nvm start to f7ff or higher when using OTA Upgrade
+&NVM_START_ADDRESS = f800
+&NVM_SIZE = 0100
+
+
