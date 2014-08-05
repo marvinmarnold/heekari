@@ -69,7 +69,7 @@ public class MainActivity extends Activity implements DeviceController {
     private static final int TRANSMIT_PERIOD_MS = 240;
     
     // How often to send RSSI value
-    private static final int RSSI_PERIOD_MS = 5000;
+    private static final int RSSI_PERIOD_MS = 1000;
 
     // Time to wait for group acks.
     private static final int GROUP_ACK_WAIT_TIME_MS = (30 * 1000);
@@ -286,8 +286,13 @@ public class MainActivity extends Activity implements DeviceController {
             }
             case MeshService.MESSAGE_PING_RESPONSE: {
             	Log.d(TAG, "RRRRRRRReceived PING");
-//              int rssi = msg.getData().getByte(MeshService.EXTRA_PING_RSSI_AT_RX);                
-                
+//              	byte rssi = msg.getData().getByte(MeshService.EXTRA_PING_RSSI_AT_RX);                
+//              	Log.d(TAG, "FOREEA PING " + Byte.toString(rssi));
+//            		byte rssi = msg.getData().getByte("PINGRSSI");
+            		Log.d(TAG, "PING@@@@@ " + msg.getData().toString());
+//            		for(String k : msg.getData().keySet()) {
+//            			Log.d(TAG, "PING!!!! " + k);
+//            		}
                 break;
             }
             case MeshService.MESSAGE_LE_DISCONNECTED: {
@@ -576,9 +581,9 @@ public class MainActivity extends Activity implements DeviceController {
         	Log.d(TAG, "!!!!!!****" + "SENDING PINGs");
         	for( Device d : mDeviceStore.getAllLights()){
         		int dId = d.getDeviceId();
-        		Log.d(TAG, "@@@@@!!!!!!****" + Integer.toString(dId));
+        		Log.d(TAG, "@@@@@!!!!!!****PING " + Integer.toString(dId));
         		PingModel mPingModel = mService.getPingModel();
-                mPingModel.ping(dId, (byte) 0xffffff, dId);
+                mPingModel.ping(dId, (byte) 0x100, dId);
         	}
             mMeshHandler.postDelayed(this, RSSI_PERIOD_MS);
         }

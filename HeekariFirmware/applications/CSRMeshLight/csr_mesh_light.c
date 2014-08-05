@@ -2214,6 +2214,7 @@ void AppInit(sleep_state last_sleep_state)
     BearerModelInit();
 
     PingModelInit();
+    
 
 #ifdef ENABLE_FIRMWARE_MODEL
     /* Initialize Firmware Model */
