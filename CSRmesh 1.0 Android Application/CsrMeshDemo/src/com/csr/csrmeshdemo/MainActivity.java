@@ -22,30 +22,15 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.csr.csrmeshdemo.R;
-import com.csr.csrmeshdemo.Device.DeviceType;
-import com.csr.mesh.AttentionModel;
-import com.csr.mesh.ConfigModel;
-import com.csr.mesh.LightModel;
-import com.csr.mesh.MeshService;
-import com.csr.mesh.PowerModel;
-import com.csr.mesh.ConfigModel.DeviceInfo;
-import com.csr.mesh.PowerModel.PowerState;
-import com.csr.mesh.SwitchModel;
 import android.app.ActionBar;
-import android.app.ProgressDialog;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.ParcelUuid;
-import android.os.SystemClock;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothDevice;
 import android.content.ComponentName;
 import android.content.Context;
@@ -53,17 +38,38 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.ParcelUuid;
+import android.os.SystemClock;
 import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.csr.csrmeshdemo.Device.DeviceType;
+import com.csr.mesh.AttentionModel;
+import com.csr.mesh.ConfigModel;
+import com.csr.mesh.ConfigModel.DeviceInfo;
+import com.csr.mesh.LightModel;
+import com.csr.mesh.MeshService;
+import com.csr.mesh.PingModel;
+import com.csr.mesh.PowerModel;
+import com.csr.mesh.PowerModel.PowerState;
+import com.csr.mesh.SwitchModel;
+
 public class MainActivity extends Activity implements DeviceController {
     private static final String TAG = "MainActivity";
 
     // How often to send a colour - i.e. how often the periodic timer fires.
     private static final int TRANSMIT_PERIOD_MS = 240;
+    
+    // How often to send RSSI value
+    private static final int RSSI_PERIOD_MS = 5000;
 
     // Time to wait for group acks.
     private static final int GROUP_ACK_WAIT_TIME_MS = (30 * 1000);
@@ -138,6 +144,7 @@ public class MainActivity extends Activity implements DeviceController {
     private AssociationListener mAssListener;
     private AssociationStartedListener mAssStartedListener;
     private RemovedListener mRemovedListener;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,6 +166,7 @@ public class MainActivity extends Activity implements DeviceController {
             Intent bindIntent = new Intent(this, MeshService.class);
             bindService(bindIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
         }
+        
     }
 
     @Override
@@ -254,6 +262,7 @@ public class MainActivity extends Activity implements DeviceController {
             mNavListener.setNavigationEnabled(false);
         }
         startPeriodicColorTransmit();
+        mMeshHandler.postDelayed(rssiCallback, RSSI_PERIOD_MS);
     }
 
     /**
@@ -273,6 +282,12 @@ public class MainActivity extends Activity implements DeviceController {
             switch (msg.what) {
             case MeshService.MESSAGE_LE_CONNECTED: {            	
                 parentActivity.onConnected();
+                break;
+            }
+            case MeshService.MESSAGE_PING_RESPONSE: {
+            	Log.d(TAG, "RRRRRRRReceived PING");
+//              int rssi = msg.getData().getByte(MeshService.EXTRA_PING_RSSI_AT_RX);                
+                
                 break;
             }
             case MeshService.MESSAGE_LE_DISCONNECTED: {
@@ -402,7 +417,8 @@ public class MainActivity extends Activity implements DeviceController {
                         .getData().getInt(MeshService.EXTRA_VERSION_MAJOR),
                         msg.getData().getInt(MeshService.EXTRA_VERSION_MINOR), true);
                 parentActivity.mInfoListener = null;
-                break;            
+                break;
+
             }                            
         }
     }
@@ -518,7 +534,7 @@ public class MainActivity extends Activity implements DeviceController {
         }
     }
     
-    // Runnables that execute after a timeout /////
+   
     
     /**
      * This is the implementation of the periodic timer that will call sendLightRgb() every TRANSMIT_PERIOD_MS if
@@ -551,6 +567,25 @@ public class MainActivity extends Activity implements DeviceController {
         }
     };
 
+    /**
+     * Sends RSSI every period
+     */    
+    private Runnable rssiCallback = new Runnable() {
+        @Override
+        public void run() {
+        	Log.d(TAG, "!!!!!!****" + "SENDING PINGs");
+        	for( Device d : mDeviceStore.getAllLights()){
+        		int dId = d.getDeviceId();
+        		Log.d(TAG, "@@@@@!!!!!!****" + Integer.toString(dId));
+        		PingModel mPingModel = mService.getPingModel();
+                mPingModel.ping(dId, (byte) 0xffffff, dId);
+        	}
+            mMeshHandler.postDelayed(this, RSSI_PERIOD_MS);
+        }
+    };
+    
+    // Runnables that execute after a timeout /////
+    
     private Runnable groupAckTimeout = new Runnable() {
         @Override
         public void run() {
