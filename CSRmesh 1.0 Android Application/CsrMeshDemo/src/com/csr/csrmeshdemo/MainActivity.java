@@ -18,15 +18,24 @@
 
 package com.csr.csrmeshdemo;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -145,7 +154,8 @@ public class MainActivity extends Activity implements DeviceController {
     private AssociationStartedListener mAssStartedListener;
     private RemovedListener mRemovedListener;
     
-
+    private static final String ApiUrl = "http://www.heekari.herokuapp.com";
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -276,6 +286,33 @@ public class MainActivity extends Activity implements DeviceController {
         public MeshHandler(MainActivity activity) {
             mActivity = new WeakReference<MainActivity>(activity);
         }
+        
+        private void sendPingData(Bundle msgData) {
+        	Log.d(TAG, "vvvvv ATTEMPTING API CALL");
+        	// JSON object to hold the information, which is sent to the server
+        	JSONObject jsonObjSend = new JSONObject();
+        	try {
+       	
+        	// Add a nested JSONObject (e.g. for header information)
+        	JSONObject ping = new JSONObject();
+        	ping.put("light_id", "1"); // Device type
+        	ping.put("rssi","2.0"); // Device OS version
+        	jsonObjSend.put("ping", ping);
+        	// Output the JSON object we're sending to Logcat:
+        	Log.i(TAG, jsonObjSend.toString(2));
+        	} catch (JSONException e) {
+        	e.printStackTrace();
+        	}
+        	// Send the HttpPostRequest and receive a JSONObject in return
+        	JSONObject jsonObjRecv = HttpApiClient.SendHttpPost(ApiUrl, jsonObjSend);
+        	/*
+        	* From here on do whatever you want with your JSONObject, e.g.
+        	* 1) Get the value for a key: jsonObjRecv.get("key");
+        	* 2) Get a nested JSONObject: jsonObjRecv.getJSONObject("key")
+        	* 3) Get a nested JSONArray: jsonObjRecv.getJSONArray("key")
+        	*/
+        	
+        }
 
         public void handleMessage(Message msg) {
             MainActivity parentActivity = mActivity.get();
@@ -290,6 +327,7 @@ public class MainActivity extends Activity implements DeviceController {
 //              	Log.d(TAG, "FOREEA PING " + Byte.toString(rssi));
 //            		byte rssi = msg.getData().getByte("PINGRSSI");
             		Log.d(TAG, "PING@@@@@ " + msg.getData().toString());
+            		sendPingData(msg.getData());
 //            		for(String k : msg.getData().keySet()) {
 //            			Log.d(TAG, "PING!!!! " + k);
 //            		}
