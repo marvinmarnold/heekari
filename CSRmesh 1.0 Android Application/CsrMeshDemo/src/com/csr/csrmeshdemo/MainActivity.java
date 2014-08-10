@@ -65,6 +65,7 @@ import com.csr.mesh.PowerModel;
 import com.csr.mesh.PowerModel.PowerState;
 import com.csr.mesh.SwitchModel;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 public class MainActivity extends Activity implements DeviceController {
     private static final String TAG = "MainActivity";
@@ -149,7 +150,7 @@ public class MainActivity extends Activity implements DeviceController {
     private AssociationStartedListener mAssStartedListener;
     private RemovedListener mRemovedListener;
     
-    private static final String ApiUrl = "http://www.heekari.herokuapp.com/pings";
+    private static final String ApiUrl = "http://www.heekari.herokuapp.com/";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -271,7 +272,14 @@ public class MainActivity extends Activity implements DeviceController {
     }
     
     private void sendPingData(Bundle msgData) {
-        AsyncHttpHeekariApiClient.get("pings.json", null, new JsonHttpResponseHandler() {
+    	RequestParams ping = new RequestParams();
+    	ping.put("rssi", "50.0");
+    	ping.put("light_id", "1");
+    	
+    	RequestParams req = new RequestParams();
+    	req.put("ping", ping);
+
+        AsyncHttpHeekariApiClient.post("pings.json", ping, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // If the response is JSONObject instead of expected JSONArray
