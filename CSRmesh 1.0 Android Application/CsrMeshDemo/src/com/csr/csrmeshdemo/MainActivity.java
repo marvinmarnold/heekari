@@ -18,9 +18,6 @@
 
 package com.csr.csrmeshdemo;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +26,8 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.json.JSONException;
+import org.apache.http.Header;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.ActionBar;
@@ -61,6 +54,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.csr.csrmeshdemo.Device.DeviceType;
+import com.csr.csrmeshdemo.AsyncHttpHeekariApiClient;
 import com.csr.mesh.AttentionModel;
 import com.csr.mesh.ConfigModel;
 import com.csr.mesh.ConfigModel.DeviceInfo;
@@ -70,6 +64,7 @@ import com.csr.mesh.PingModel;
 import com.csr.mesh.PowerModel;
 import com.csr.mesh.PowerModel.PowerState;
 import com.csr.mesh.SwitchModel;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class MainActivity extends Activity implements DeviceController {
     private static final String TAG = "MainActivity";
@@ -78,7 +73,7 @@ public class MainActivity extends Activity implements DeviceController {
     private static final int TRANSMIT_PERIOD_MS = 240;
     
     // How often to send RSSI value
-    private static final int RSSI_PERIOD_MS = 1000;
+    private static final int RSSI_PERIOD_MS = 10000;
 
     // Time to wait for group acks.
     private static final int GROUP_ACK_WAIT_TIME_MS = (30 * 1000);
@@ -154,7 +149,7 @@ public class MainActivity extends Activity implements DeviceController {
     private AssociationStartedListener mAssStartedListener;
     private RemovedListener mRemovedListener;
     
-    private static final String ApiUrl = "http://www.heekari.herokuapp.com";
+    private static final String ApiUrl = "http://www.heekari.herokuapp.com/pings";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -274,44 +269,34 @@ public class MainActivity extends Activity implements DeviceController {
         startPeriodicColorTransmit();
         mMeshHandler.postDelayed(rssiCallback, RSSI_PERIOD_MS);
     }
+    
+    private void sendPingData(Bundle msgData) {
+        AsyncHttpHeekariApiClient.get("pings.json", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                // If the response is JSONObject instead of expected JSONArray
+            	Log.d(TAG, "vvvvv Obj");
+            }
+            
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
+                // Pull out the first event on the public timeline
+            	Log.d(TAG, "vvvvv Array");
+
+            }
+        });
+    }
 
     /**
      * Handle messages from mesh service.
      */
     private final Handler mMeshHandler = new MeshHandler(this);
-
+    
     private static class MeshHandler extends Handler {
         private final WeakReference<MainActivity> mActivity;
 
         public MeshHandler(MainActivity activity) {
             mActivity = new WeakReference<MainActivity>(activity);
-        }
-        
-        private void sendPingData(Bundle msgData) {
-        	Log.d(TAG, "vvvvv ATTEMPTING API CALL");
-        	// JSON object to hold the information, which is sent to the server
-        	JSONObject jsonObjSend = new JSONObject();
-        	try {
-       	
-        	// Add a nested JSONObject (e.g. for header information)
-        	JSONObject ping = new JSONObject();
-        	ping.put("light_id", "1"); // Device type
-        	ping.put("rssi","2.0"); // Device OS version
-        	jsonObjSend.put("ping", ping);
-        	// Output the JSON object we're sending to Logcat:
-        	Log.i(TAG, jsonObjSend.toString(2));
-        	} catch (JSONException e) {
-        	e.printStackTrace();
-        	}
-        	// Send the HttpPostRequest and receive a JSONObject in return
-        	JSONObject jsonObjRecv = HttpApiClient.SendHttpPost(ApiUrl, jsonObjSend);
-        	/*
-        	* From here on do whatever you want with your JSONObject, e.g.
-        	* 1) Get the value for a key: jsonObjRecv.get("key");
-        	* 2) Get a nested JSONObject: jsonObjRecv.getJSONObject("key")
-        	* 3) Get a nested JSONArray: jsonObjRecv.getJSONArray("key")
-        	*/
-        	
         }
 
         public void handleMessage(Message msg) {
@@ -327,7 +312,7 @@ public class MainActivity extends Activity implements DeviceController {
 //              	Log.d(TAG, "FOREEA PING " + Byte.toString(rssi));
 //            		byte rssi = msg.getData().getByte("PINGRSSI");
             		Log.d(TAG, "PING@@@@@ " + msg.getData().toString());
-            		sendPingData(msg.getData());
+            		parentActivity.sendPingData(msg.getData());
 //            		for(String k : msg.getData().keySet()) {
 //            			Log.d(TAG, "PING!!!! " + k);
 //            		}
