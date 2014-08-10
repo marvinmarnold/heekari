@@ -20,6 +20,7 @@ package com.csr.csrmeshdemo;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -150,8 +151,6 @@ public class MainActivity extends Activity implements DeviceController {
     private AssociationStartedListener mAssStartedListener;
     private RemovedListener mRemovedListener;
     
-    private static final String ApiUrl = "http://www.heekari.herokuapp.com/";
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -272,14 +271,14 @@ public class MainActivity extends Activity implements DeviceController {
     }
     
     private void sendPingData(Bundle msgData) {
-    	RequestParams ping = new RequestParams();
-    	ping.put("rssi", "50.0");
-    	ping.put("light_id", "1");
-    	
     	RequestParams req = new RequestParams();
-    	req.put("ping", ping);
+    	
+    	 Map<String, String> ping = new HashMap<String, String>();
+    	 ping.put("rssi", "50.0");
+    	 ping.put("light_id", "1");
+    	 req.put("ping", ping); // url params: "user[first_name]=James&user[last_name]=Smith"
 
-        AsyncHttpHeekariApiClient.post("pings.json", ping, new JsonHttpResponseHandler() {
+        AsyncHttpHeekariApiClient.post("pings.json", req, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // If the response is JSONObject instead of expected JSONArray
